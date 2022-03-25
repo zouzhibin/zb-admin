@@ -1,7 +1,6 @@
 import {Module} from "vuex";
 
 import { asyncRoutes, constantRoutes } from '@/router/index'
-
 /**
  * Use meta.role to determine if the current user has permission
  * @param roles

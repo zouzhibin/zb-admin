@@ -93,6 +93,7 @@
 }
 .m-layout-header{
   height: 50px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;

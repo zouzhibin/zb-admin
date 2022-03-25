@@ -69,6 +69,7 @@
   const submitForm = (formEl: FormInstance | undefined) => {
     if (!formEl) return
     formEl.validate(async (valid) => {
+      console.log('valid==',valid)
       if (valid) {
         // 登录
         await store.dispatch('user/login',ruleForm)

@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw,createWebHashHistory } from 'vue-router'
 import Layout from "@/layout/index.vue";
 
-
-
+// 引入组件
 import chartsRouter from './modules/charts'
 import chatRouter from './modules/chat'
-
+import componentsRouter from './modules/components'
+import othersRouter from './modules/other'
 
 export const constantRoutes: Array<RouteRecordRaw> = [
   {
@@ -31,11 +31,14 @@ export const constantRoutes: Array<RouteRecordRaw> = [
 
 ]
 
-
+// 异步组件
 export const asyncRoutes = [
   chartsRouter,
-  chatRouter
+  chatRouter,
+  componentsRouter,
+  othersRouter
 ]
+
 
 const router = createRouter({
   // history: createWebHistory(process.env.BASE_URL), // history
