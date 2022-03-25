@@ -13,16 +13,16 @@ const chartsRouter = {
     },
     children: [
         {
-            path: 'keyboard',
-            component: () => import('@/views/charts/keyboard.vue'),
-            name: 'KeyboardChart',
-            meta: { title: 'Keyboard Chart', noCache: true }
-        },
-        {
             path: 'line',
             component: () => import('@/views/charts/line.vue'),
-            name: 'KeyboardChart',
+            name: 'line',
             meta: { title: '折现图', noCache: true }
+        },
+        {
+            path: 'other',
+            component: () => import('@/views/charts/index.vue'),
+            name: 'charts-other',
+            meta: { title: '各种图标', noCache: true }
         },
     ]
 }
