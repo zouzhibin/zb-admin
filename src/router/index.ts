@@ -18,13 +18,13 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'layout',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/home',
     children: [
       {
-        path: '/dashboard',
-        component: () => import('@/views/dashboard/index.vue'),
-        name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+        path: '/home',
+        component: () => import('@/views/home/index.vue'),
+        name: 'home',
+        meta: { title: '首页', icon: 'dashboard', affix: true }
       },
     ]
   },

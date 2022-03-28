@@ -41,9 +41,10 @@
     height: 100%;
     width: 100%;
     .main-container{
-      overflow: hidden;
+      overflow: auto;
       display: flex;
       flex: 1;
+      box-sizing: border-box;
       flex-direction: column
     }
   }

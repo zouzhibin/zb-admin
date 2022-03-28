@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%;overflow: auto;height: 100%">
+  <div style="width: 100%;">
     <el-row class="row-bg" :gutter="10">
       <el-col :xs="24" :sm="12" :lg="8">
         <el-card class="box-card">
@@ -15,29 +15,49 @@
         <el-card class="box-card">
         <template #header>
           <div class="card-header">
-            <span>折线图</span>
+            <span>柱状图</span>
           </div>
         </template>
-        <line-charts height="200px" width="100%"/>
+        <bar-charts height="200px" width="100%" id="bar"/>
       </el-card></el-col>
       <el-col :xs="24" :sm="12" :lg="8">
         <el-card class="box-card">
           <template #header>
             <div class="card-header">
-              <span>折线图</span>
+              <span>饼图</span>
             </div>
           </template>
-          <line-charts height="200px" width="100%"/>
+          <pie-charts height="200px" width="100%" id="pie"/>
         </el-card>
       </el-col>
       <el-col :xs="24" :sm="12" :lg="8">
         <el-card class="box-card">
           <template #header>
             <div class="card-header">
-              <span>折线图</span>
+              <span>散点图</span>
             </div>
           </template>
-          <line-charts height="200px" width="100%"/>
+          <scatter-charts height="200px" width="100%" id="scatter"/>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :sm="12" :lg="8">
+        <el-card class="box-card">
+          <template #header>
+            <div class="card-header">
+              <span>仪表盘</span>
+            </div>
+          </template>
+          <gauge-charts height="200px" width="100%" id="gauge"/>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :sm="12" :lg="8">
+        <el-card class="box-card">
+          <template #header>
+            <div class="card-header">
+              <span>漏斗图</span>
+            </div>
+          </template>
+          <funnel-charts height="200px" width="100%" id="funnel"/>
         </el-card>
       </el-col>
     </el-row>
@@ -48,6 +68,11 @@
 </template>
 <script setup lang="ts">
   import LineCharts from './components/line.vue'
+  import BarCharts from './components/bar.vue'
+  import PieCharts from './components/pie.vue'
+  import ScatterCharts from './components/scatter.vue'
+  import GaugeCharts from './components/gauge.vue'
+  import FunnelCharts from './components/funnel.vue'
 
 </script>
 

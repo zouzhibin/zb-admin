@@ -19,10 +19,16 @@ const chartsRouter = {
             meta: { title: '折现图', noCache: true }
         },
         {
-            path: 'other',
-            component: () => import('@/views/charts/index.vue'),
-            name: 'charts-other',
-            meta: { title: '各种图标', noCache: true }
+            path: 'simple',
+            component: () => import('@/views/charts/simple.vue'),
+            name: 'charts-simple',
+            meta: { title: '简单图表', noCache: true }
+        },
+        {
+            path: 'complex',
+            component: () => import('@/views/charts/complex.vue'),
+            name: 'charts-complex',
+            meta: { title: '复杂图表', noCache: true }
         },
     ]
 }

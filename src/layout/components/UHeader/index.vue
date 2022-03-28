@@ -1,5 +1,5 @@
 <template>
-  <div class="m-layout-header">
+  <div class="m-layout-header" :style="{left:`${isCollapse?'56':'210'}px`}">
     <div>
       <el-icon class="icon" v-if="isCollapse" @click="handleCollapse(false)"><expand /></el-icon>
       <el-icon class="icon" v-else @click="handleCollapse(true)"><fold/></el-icon>
@@ -92,7 +92,14 @@
   cursor: pointer;
 }
 .m-layout-header{
+  position: fixed;
+  top: 0;
+  background: white;
+  left: 0;
   height: 50px;
+  z-index: 9999;
+  right: 0;
+  transition: left 0.28s;
   flex-shrink: 0;
   display: flex;
   align-items: center;

@@ -13,5 +13,6 @@
 <style lang="scss" scoped>
   .app-main{
     padding: 20px;
+    padding-top: 70px;
   }
 </style>
