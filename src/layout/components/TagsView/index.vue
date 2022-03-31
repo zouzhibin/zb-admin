@@ -1,9 +1,9 @@
 <template>
   <div class="tags-view-container">
-    <scroll-pane ref="scrollPane" class="tags-view-wrapper" >
+    <scroll-pane ref="rollPane" class="tags-view-wrapper" >
       <router-link
           v-for="tag in visitedViews"
-          ref="tag"
+          :ref="setTagRef"
           :class="isActive(tag)?'active':''"
           :key="tag.path"
           :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }"
@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-  import {computed, onMounted, reactive, ref, watch} from "vue";
+import {computed, nextTick, onMounted, reactive, ref, watch} from "vue";
   import ScrollPane from "./ScrollPane.vue";
   import { useStore } from 'vuex'
   import {useRoute,useRouter} from 'vue-router'
@@ -33,8 +33,21 @@
   const visitedViews = computed(()=>{
     return store.state.tagsView.visitedViews
   })
+  let obj = new WeakMap()
 
   let affixTags = ref([])
+  const tags = ref([])
+  const setTagRef = (el)=>{
+    if(el){
+      if(!obj.get(el)){
+        tags.value.push(el)
+      }
+      obj.set(el,el)
+    }
+
+  }
+
+    const rollPane = ref()
 
   function filterAffixTags(routes, basePath = '/') {
     let tags = []
@@ -60,7 +73,6 @@
 
   const initTags = ()=>{
     let affixTag = affixTags.value = filterAffixTags(routes.value)
-    console.log('affixTags',affixTags)
     for (const tag of affixTag) {
       if (tag.name) {
         store.dispatch('tagsView/addVisitedView', tag)
@@ -105,12 +117,28 @@
     })
   }
 
+  function moveToCurrentTag(){
+    nextTick(() => {
+      for (const tag of tags.value) {
+        if (tag.to.path === route.path) {
+          rollPane.value.moveToTarget(tag,tags.value)
+          if (tag.to.fullPath !== route.fullPath) {
+            store.dispatch('tagsView/updateVisitedView', route)
+          }
+          break
+        }
+      }
+    })
+  }
+
+
   onMounted(()=>{
     initTags()
     addTags()
 
     watch(route,()=>{
       addTags()
+      moveToCurrentTag()
     })
   })
 

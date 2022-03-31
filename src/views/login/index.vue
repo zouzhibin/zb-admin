@@ -2,6 +2,7 @@
   <div class="login-container">
     <div class="login-box">
       <!--登录功能-->
+      <div style="color: white;text-align: center;margin-bottom: 15px">登录系统-密码账号随便填 admin admin</div>
       <div class="login-box-content-right">
           <!--login-Form-->
           <el-form
@@ -13,16 +14,18 @@
               class="demo-ruleForm"
           >
             <el-form-item label="" prop="username">
-              <el-input v-model="ruleForm.username" type="text" />
+              <el-input v-model="ruleForm.username" type="text" @keyup.enter.native="submitForm(ruleFormRef)"/>
             </el-form-item>
             <el-form-item label="" prop="password">
               <el-input
+                  @keyup.enter.native="submitForm(ruleFormRef)"
                   v-model="ruleForm.password"
                   type="password"
               />
             </el-form-item>
             <el-form-item style="width: 100%">
-              <el-button type="primary" @click="submitForm(ruleFormRef)"
+              <el-button type="primary"
+                         @click="submitForm(ruleFormRef)"
                          style="width: 100%;height: 47px"
               >登录</el-button
               >
@@ -97,6 +100,10 @@
       caret-color: #fff;
     }
   }
+  .login-box{
+    width: 80%;
+    max-width: 500px;
+  }
   .login-container{
     min-height: 100%;
     width: 100%;
@@ -110,7 +117,7 @@
       position: relative;
       display: inline-block;
       margin-left: 10px;
-      width: 400px;
+      width: 100%;
       height: 370px;
       overflow: hidden;
       .login-form {

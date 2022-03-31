@@ -8,12 +8,18 @@ import componentsRouter from './modules/components'
 import othersRouter from './modules/other'
 import externalLink from './modules/externalLink'
 
-export const constantRoutes: Array<RouteRecordRaw> = [
+
+interface extendRoute {
+  hidden?:boolean
+}
+
+export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
   {
     path: '/login',
     name: 'Login',
     component: () => import('@/views/login/index.vue'),
-    // hidden: true
+    hidden: true,
+    meta: { title: '登录',}
   },
   {
     path: '/',

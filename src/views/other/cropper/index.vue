@@ -4,7 +4,7 @@
       <div class="cropper-content">
         <vue-cropper
             ref="cropper"
-            :img="imgSrc"
+            :img="option.img"
             :output-size="option.size"
             :output-type="option.outputType"
             :info="true" :full="option.full"
@@ -58,15 +58,13 @@
   // https://codepen.io/xyxiao001/pen/yLooYKg
   import 'vue-cropper/dist/index.css'
   import { VueCropper }  from "vue-cropper";
-  import cro from '@/assets/image/cro.jpg'
-  // let imgSrc = require('@/assets/image/cro.jpg')
+  import imgSrc from '@/assets/image/cro.jpg'
   import {reactive, ref} from 'vue'
   import { ElMessage, ElMessageBox } from 'element-plus'
   import type { UploadProps, UploadUserFile } from 'element-plus'
   const cropper = ref()
-  const imgSrc = ref(cro)
   const option = reactive({
-    img: cro,
+    img: imgSrc,
     size: 1,
     full: false, // 是否输出原图比例的截图
     outputType: 'png',
@@ -144,7 +142,7 @@
   }
 
   const reset = ()=> {
-    imgSrc.value = ''
+    option.img = ''
     option.cropImg=''
   }
 
@@ -166,7 +164,7 @@
           }
           resolve(e.target.result)
           option.imgSrc = data
-          imgSrc.value = data
+          option.img = data
         }
       }else{
         ElMessage.error('请上传图片')
@@ -177,32 +175,32 @@
 </script>
 
 <style lang="scss" scoped>
-  .cropper-content{
-    display: flex;
+.cropper-content{
+  display: flex;
+  width: 400px;
+  height: 400px;
+  text-align: center;
+
+}
+::v-deep{
+  .el-button{
+    margin-top: 15px;
+  }
+}
+.m-cropper{
+  width: 100%;
+  height: 500px;
+  display: flex;
+  .left{
     width: 400px;
-    height: 400px;
-    text-align: center;
+    margin-right: 30px;
 
   }
-  ::v-deep{
-    .el-button{
-      margin-top: 15px;
-    }
+  .preview{
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+    overflow: hidden;
   }
-  .m-cropper{
-    width: 100%;
-    height: 500px;
-    display: flex;
-    .left{
-      width: 400px;
-      margin-right: 30px;
-
-    }
-    .preview{
-      width: 200px;
-      height: 200px;
-      margin-top: 20px;
-      overflow: hidden;
-    }
-  }
+}
 </style>

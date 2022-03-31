@@ -70,17 +70,16 @@
           <candlestick-charts height="200px" width="100%" id="candlestick"/>
         </el-card>
       </el-col>
-      <el-col :xs="24" :sm="12" :lg="8">
-        <el-card class="box-card">
-          <template #header>
-            <div class="card-header">
-              <span>雷达图</span>
-            </div>
-          </template>
-          <radar-charts height="200px" width="100%" id="radar"/>
-        </el-card>
-      </el-col>
-
+<!--      <el-col :xs="24" :sm="12" :lg="8">-->
+<!--        <el-card class="box-card">-->
+<!--          <template #header>-->
+<!--            <div class="card-header">-->
+<!--              <span>雷达图</span>-->
+<!--            </div>-->
+<!--          </template>-->
+<!--          <radar-charts height="200px" width="100%" id="radar"/>-->
+<!--        </el-card>-->
+<!--      </el-col>-->
       <el-col :xs="24" :sm="12" :lg="8">
         <el-card class="box-card">
           <template #header>
@@ -109,17 +108,17 @@
   </div>
 </template>
 <script setup lang="ts">
-  import LineCharts from './components/line.vue'
-  import BarCharts from './components/bar.vue'
-  import PieCharts from './components/pie.vue'
-  import ScatterCharts from './components/scatter.vue'
-  import GaugeCharts from './components/gauge.vue'
-  import FunnelCharts from './components/funnel.vue'
-  import CandlestickCharts from './components/candlestick.vue'
-  import RadarCharts from './components/radar.vue'
-  import GraphCharts from './components/graph.vue'
-  import PictorialBarCharts from './components/pictorialBar.vue'
-  import PictorialBar from "@/views/charts/components/pictorialBar.vue";
+  import LineCharts from './components/simple/line.vue'
+  import BarCharts from './components/simple/bar.vue'
+  import PieCharts from './components/simple/pie.vue'
+  import ScatterCharts from './components/simple/scatter.vue'
+  import GaugeCharts from './components/simple/gauge.vue'
+  import FunnelCharts from './components/simple/funnel.vue'
+  import CandlestickCharts from './components/simple/candlestick.vue'
+  import RadarCharts from './components/simple/radar.vue'
+  import GraphCharts from './components/simple/graph.vue'
+  import PictorialBarCharts from './components/simple/pictorialBar.vue'
+  import PictorialBar from "@/views/charts/components/simple/pictorialBar.vue";
 
 
 </script>
