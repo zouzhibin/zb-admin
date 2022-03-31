@@ -4,7 +4,7 @@
       <div class="cropper-content">
         <vue-cropper
             ref="cropper"
-            :img="option.img"
+            :img="imgSrc"
             :output-size="option.size"
             :output-type="option.outputType"
             :info="true" :full="option.full"
@@ -58,13 +58,15 @@
   // https://codepen.io/xyxiao001/pen/yLooYKg
   import 'vue-cropper/dist/index.css'
   import { VueCropper }  from "vue-cropper";
-  import imgSrc from '@/assets/image/cro.jpg'
+  import cro from '@/assets/image/cro.jpg'
+  // let imgSrc = require('@/assets/image/cro.jpg')
   import {reactive, ref} from 'vue'
   import { ElMessage, ElMessageBox } from 'element-plus'
   import type { UploadProps, UploadUserFile } from 'element-plus'
   const cropper = ref()
+  const imgSrc = ref(cro)
   const option = reactive({
-    img: imgSrc,
+    img: cro,
     size: 1,
     full: false, // 是否输出原图比例的截图
     outputType: 'png',
@@ -142,7 +144,7 @@
   }
 
   const reset = ()=> {
-    option.img = ''
+    imgSrc.value = ''
     option.cropImg=''
   }
 
@@ -164,7 +166,7 @@
           }
           resolve(e.target.result)
           option.imgSrc = data
-          option.img = data
+          imgSrc.value = data
         }
       }else{
         ElMessage.error('请上传图片')
