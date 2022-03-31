@@ -10,9 +10,13 @@
     "core-js": "^3.6.5",
     "echarts": "^5.3.1",
     "element-plus": "^2.1.4",
+    "mavon-editor": "^2.10.4",
+    "md-editor-v3": "^1.11.3",
     "nprogress": "^0.2.0",
     "print-js": "^1.6.0",
     "vue": "^3.0.0",
+    "vue-cropper": "^1.0.3",
+    "vue-cropperjs": "^5.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0",
     "wangeditor": "^4.7.12"

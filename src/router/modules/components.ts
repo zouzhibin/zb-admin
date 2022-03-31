@@ -9,7 +9,7 @@ const componentsRouter = {
     name: 'components',
     meta: {
         title: '组件',
-        icon: 'chart'
+        icon: 'Histogram'
     },
     children: [
         {
@@ -23,6 +23,12 @@ const componentsRouter = {
             component: () => import('@/views/components-demo/mark-down.vue'),
             name: 'mark-down',
             meta: { title: 'markDown', noCache: true }
+        },
+        {
+            path: 'form',
+            component: () => import('@/views/components-demo/form.vue'),
+            name: 'form',
+            meta: { title: '表单', noCache: true  }
         },
     ]
 }

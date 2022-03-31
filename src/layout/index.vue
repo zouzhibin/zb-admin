@@ -13,6 +13,7 @@
   import Sidebar from './components/Sidebar/index.vue'
   import UHeader from './components/UHeader/index.vue'
   import AppMain from './components/AppMain.vue'
+
   import {useStore} from "vuex";
 
   export default defineComponent({
@@ -20,7 +21,7 @@
     components: {
       Sidebar,
       UHeader,
-      AppMain
+      AppMain,
     },
     setup(){
       const store = useStore()
@@ -41,7 +42,7 @@
     height: 100%;
     width: 100%;
     .main-container{
-      overflow: auto;
+      //overflow: auto;
       display: flex;
       flex: 1;
       box-sizing: border-box;

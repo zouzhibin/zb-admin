@@ -3,7 +3,7 @@
     <transition name="sidebarLogoFade">
       <router-link v-if="isCollapse" key="collapse" class="sidebar-logo-link" to="/">
         <img v-if="logo" :src="logo" class="sidebar-logo">
-        <h1 v-else class="sidebar-title">Plus </h1>
+        <h1 v-else class="sidebar-title">Perfect </h1>
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
         <img v-if="logo" :src="logo" class="sidebar-logo">
@@ -16,10 +16,11 @@
 <script lang="ts" setup>
 import {computed, reactive, ref} from "vue";
 import { useStore } from 'vuex' // useStore ===vue2.0中的this.$store
+import logo from '@/assets/logo.png'
 
 const store = useStore()
-const logo = ref<string>('')
-const title = ref<string>('Vue Admin Plus')
+// const logo = ref<string>('@/assets/logo.png')
+const title = ref<string>('Vue Admin Perfect')
 
 const isCollapse = computed(()=>{
   return store.state.app.isCollapse
@@ -40,8 +41,8 @@ const isCollapse = computed(()=>{
 .sidebar-logo-container {
   position: relative;
   width: 100%;
-  height: 50px;
-  line-height: 50px;
+  height: 60px;
+  line-height: 60px;
   background: #2b2f3a;
   text-align: center;
   overflow: hidden;

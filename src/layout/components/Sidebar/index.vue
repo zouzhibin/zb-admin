@@ -27,7 +27,7 @@
   const store = useStore()
   const route = useRoute()
 
-  console.log('route',route)
+
   // 获取路由
   const permission_routes = computed(()=>{
     return store.state.permission.routes

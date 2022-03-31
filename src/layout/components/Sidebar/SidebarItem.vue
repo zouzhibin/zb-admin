@@ -3,14 +3,16 @@
     <template v-if="hasOneShowingChild(item.children,item)">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item :index="resolvePath(onlyOneChild.path)">
-          <el-icon><icon-menu /></el-icon>
+          <el-icon :size="20">
+            <component :is="onlyOneChild?.meta.icon"></component>
+          </el-icon>
           <template #title>{{ onlyOneChild.meta&&onlyOneChild.meta.title }}</template>
         </el-menu-item>
       </app-link>
     </template>
     <el-sub-menu :index="resolvePath(item.path)" v-else popper-append-to-body>
       <template #title>
-        <el-icon><location /></el-icon>
+        <el-icon :size="20"> <component :is="item.meta?.icon"></component></el-icon>
         <span>{{ item.meta&&item.meta.title }}</span>
       </template>
       <sidebar-item
@@ -27,12 +29,6 @@
 import { isExternal } from '@/utils/validate.js'
 import AppLink from './Link.vue'
 import path from 'path'
-import {
-  Location,
-  Document,
-  Menu as IconMenu,
-  Setting,
-} from '@element-plus/icons-vue'
 import { ref,computed} from 'vue'
 const props = defineProps({
   item:{

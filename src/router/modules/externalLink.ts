@@ -1,0 +1,19 @@
+/** When your routing table is too long, you can split it into small modules**/
+
+import Layout from "@/layout/index.vue";
+
+const externalLink = {
+    path: '/external-link',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'external-link',
+    children: [
+        {
+            path: 'https://github.com/zouzhibin/vue-admin-perfect',
+            name: 'external',
+            meta: { title: '外链', noCache: true , icon: 'link' }
+        },
+    ]
+}
+
+export default externalLink

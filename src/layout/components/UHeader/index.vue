@@ -1,38 +1,40 @@
 <template>
   <div class="m-layout-header" :style="{left:`${isCollapse?'56':'210'}px`}">
-    <div>
-      <el-icon class="icon" v-if="isCollapse" @click="handleCollapse(false)"><expand /></el-icon>
-      <el-icon class="icon" v-else @click="handleCollapse(true)"><fold/></el-icon>
+    <div class="header">
+      <div>
+        <el-icon class="icon" v-if="isCollapse" @click="handleCollapse(false)"><expand /></el-icon>
+        <el-icon class="icon" v-else @click="handleCollapse(true)"><fold/></el-icon>
+      </div>
+      <div class="right">
+        <u-screen-full/>
+        <el-dropdown @command="commandAction">
+          <span class="el-dropdown-link">
+            {{ userInfo.username }}
+            <el-icon class="el-icon--right">
+              <arrow-down />
+            </el-icon>
+          </span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item :command="1">退出登录</el-dropdown-item>
+              <el-dropdown-item :command="2">修改密码</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </div>
     </div>
-    <div>
-      <el-dropdown @command="commandAction">
-        <span class="el-dropdown-link">
-          {{ userInfo.username }}
-          <el-icon class="el-icon--right">
-            <arrow-down />
-          </el-icon>
-        </span>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item :command="1">退出登录</el-dropdown-item>
-            <el-dropdown-item :command="2">修改密码</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-    </div>
+    <tag-views/>
     <personal ref="person"/>
   </div>
 </template>
 
 <script lang="ts" setup>
   import Personal from './Personal.vue'
+  import TagViews from '../TagsView/index.vue'
+  import UScreenFull from '@/components/u-screenfull/index.vue'
   import {computed, ref,} from 'vue'
   import {useRouter} from 'vue-router'
   import { ElMessageBox, ElMessage } from 'element-plus'
-  import {
-    Expand,
-    Fold,
-  } from '@element-plus/icons-vue'
   import {useStore} from "vuex";
 
   const store = useStore()
@@ -87,36 +89,43 @@
 </script>
 
 <style lang="scss" scoped>
-.icon{
-  font-size:24px;
-  cursor: pointer;
-}
-.m-layout-header{
-  position: fixed;
-  top: 0;
-  background: white;
-  left: 0;
-  height: 50px;
-  z-index: 9999;
-  right: 0;
-  transition: left 0.28s;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  padding: 0 10px;
-  box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
-}
-.el-dropdown{
-  display: flex;
-  height: 100%;
-  align-items: center;
-}
-.el-dropdown-link {
-  cursor: pointer;
-  color: var(--el-color-primary);
-  display: flex;
-  align-items: center;
-}
+  .icon{
+    font-size:24px;
+    cursor: pointer;
+  }
+  .header{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .right{
+      display: flex;
+      align-items: center;
+    }
+  }
+  .m-layout-header{
+    position: fixed;
+    top: 0;
+    background: white;
+    left: 0;
+    z-index: 1;
+    right: 0;
+    transition: left 0.28s;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 0 10px;
+    box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
+  }
+  .el-dropdown{
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+  .el-dropdown-link {
+    cursor: pointer;
+    color: var(--el-color-primary);
+    display: flex;
+    align-items: center;
+  }
 </style>

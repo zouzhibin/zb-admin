@@ -6,6 +6,7 @@ import chartsRouter from './modules/charts'
 import chatRouter from './modules/chat'
 import componentsRouter from './modules/components'
 import othersRouter from './modules/other'
+import externalLink from './modules/externalLink'
 
 export const constantRoutes: Array<RouteRecordRaw> = [
   {
@@ -24,7 +25,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         path: '/home',
         component: () => import('@/views/home/index.vue'),
         name: 'home',
-        meta: { title: '首页', icon: 'dashboard', affix: true }
+        meta: { title: '首页', icon: 'film', affix: true }
       },
     ]
   },
@@ -36,7 +37,8 @@ export const asyncRoutes = [
   chartsRouter,
   chatRouter,
   componentsRouter,
-  othersRouter
+  othersRouter,
+  externalLink
 ]
 
 

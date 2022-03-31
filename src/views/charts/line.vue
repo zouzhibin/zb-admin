@@ -18,7 +18,7 @@ import Chart from '@/components/Charts/LineMarker.vue'
 .chart-container{
   position: relative;
   width: 100%;
-  height: calc(100vh - 84px);
+  height: calc(100vh - 130px);
 }
 </style>
 

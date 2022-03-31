@@ -9,21 +9,22 @@ const othersRouter = {
     name: 'other',
     meta: {
         title: '其他',
-        icon: 'chart'
+        icon: 'management'
     },
     children: [
         {
             path: 'print',
             component: () => import('@/views/other/print.vue'),
             name: 'print',
-            meta: { title: '打印', noCache: true }
+            meta: { title: '打印', noCache: true  }
         },
         {
             path: 'cropper',
-            component: () => import('@/views/other/cropper.vue'),
+            component: () => import('@/views/other/cropper/index.vue'),
             name: 'cropper',
-            meta: { title: '头像裁剪', noCache: true }
+            meta: { title: '头像裁剪', noCache: true  }
         },
+
     ]
 }
 
