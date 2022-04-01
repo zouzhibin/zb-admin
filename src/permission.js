@@ -24,13 +24,15 @@ router.beforeEach(async(to, from, next) => {
     if (to.path === '/login') {
       // 如果已登录，请重定向到主页
       next({ path: '/' })
-     NProgress.done()
+         NProgress.done()
     } else {
         try {
             // 路由添加进去了没有及时更新 需要重新进去一次拦截
-            if(hasRoles){
-                const accessRoutes = await store.dispatch('permission/generateRoutes', 'roles')
-                console.log('accessRoutes==',accessRoutes)
+
+            if(!store.state.permission.routes.length){
+                // 获取权限列表进行接口访问 因为这里页面要切换权限
+                // const roles = await store.dispatch('user/getInfo')
+                const accessRoutes = await store.dispatch('permission/generateRoutes', store.getters.roles)
                 hasRoles = false
                 accessRoutes.forEach(item => router.addRoute(item)) // 动态添加访问路由表
                 next({ ...to, replace: true }) // // 这里相当于push到一个页面 不在进入路由拦截
@@ -38,8 +40,10 @@ router.beforeEach(async(to, from, next) => {
                 next() // // 如果不传参数就会重新执行路由拦截，重新进到这里
             }
         } catch (error) {
-          next(`/login?redirect=${to.path}`)
+            next(`/login?redirect=${to.path}`)
         }
+
+
     }
   }else{
       if (whiteList.indexOf(to.path) !== -1) {

@@ -14,6 +14,7 @@
     "mavon-editor": "^2.10.4",
     "md-editor-v3": "^1.11.3",
     "nprogress": "^0.2.0",
+    "path-to-regexp": "^6.2.0",
     "print-js": "^1.6.0",
     "vue": "^3.0.0",
     "vue-cropper": "^1.0.3",

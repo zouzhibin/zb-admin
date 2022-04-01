@@ -2,7 +2,7 @@ import {Module} from "vuex";
 
 import { asyncRoutes, constantRoutes } from '@/router/index'
 /**
- * Use meta.role to determine if the current user has permission
+ * 使用 meta.role 来确定当前用户是否具有权限
  * @param roles
  * @param route
  */
@@ -10,12 +10,13 @@ function hasPermission(roles, route) {
     if (route.meta && route.meta.roles) {
         return roles.some(role => route.meta.roles.includes(role))
     } else {
-        return true
+        // return true
+        return false
     }
 }
 
 /**
- * Filter asynchronous routing tables by recursion
+ * 通过递归过滤异步路由表
  * @param routes asyncRoutes
  * @param roles
  */
@@ -32,6 +33,7 @@ export function filterAsyncRoutes(routes, roles) {
         }
     })
 
+
     return res
 }
 
@@ -46,21 +48,22 @@ const mutations = {
         state.addRoutes = routes
         state.routes = constantRoutes.concat(routes)
 
-        console.log('===============',state.routes)
+
     }
 }
 
 const actions = {
     generateRoutes({ commit }, roles) {
         return new Promise(resolve => {
-            // let accessedRoutes
-            // if (roles.includes('admin')) {
-            //     accessedRoutes = asyncRoutes || []
-            // } else {
-            //     accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
-            // }
-            commit('SET_ROUTES', asyncRoutes)
-            resolve(asyncRoutes)
+            // 在这判断是否有权限，哪些角色拥有哪些权限
+            let accessedRoutes
+            if (roles.includes('admin')) {
+                accessedRoutes = asyncRoutes || []
+            } else {
+                accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+            }
+            commit('SET_ROUTES', accessedRoutes)
+            resolve(accessedRoutes)
         })
     }
 }

@@ -11,7 +11,7 @@
             <div class="name"></div>
             <div class="description"></div>
             <div class="list">
-              <div>昵称：有你</div>
+              <div>昵称：小狼</div>
               <div>职业：前端</div>
               <div>公司：小公司</div>
               <div>年龄：1993/09</div>
@@ -32,6 +32,9 @@
             <el-divider></el-divider>
             <div style="margin-bottom: 15px"><h5>最喜欢的一句话</h5></div>
             <div>---------- 开心最重要</div>
+
+            <el-divider></el-divider>
+            <div style="margin-bottom: 15px"><h5>如果对你有帮助的话，可以麻烦点一颗 star!</h5></div>
           </div>
         </el-card>
       </el-col>

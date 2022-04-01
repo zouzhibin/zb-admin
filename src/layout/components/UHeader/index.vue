@@ -1,10 +1,16 @@
 <template>
   <div class="m-layout-header" :style="{left:`${isCollapse?'56':'210'}px`}">
     <div class="header">
-      <div>
-        <el-icon class="icon" v-if="isCollapse" @click="handleCollapse(false)"><expand /></el-icon>
-        <el-icon class="icon" v-else @click="handleCollapse(true)"><fold/></el-icon>
+      <div class="left">
+        <div>
+          <el-icon class="icon" v-if="isCollapse" @click="handleCollapse(false)"><expand /></el-icon>
+          <el-icon class="icon" v-else @click="handleCollapse(true)"><fold/></el-icon>
+        </div>
+
+        <u-hamburger/>
       </div>
+
+
       <div class="right">
         <u-screen-full/>
         <el-dropdown @command="commandAction">
@@ -31,6 +37,7 @@
 <script lang="ts" setup>
   import Personal from './Personal.vue'
   import TagViews from '../TagsView/index.vue'
+  import UHamburger from "@/components/u-Hamburger/index.vue"
   import UScreenFull from '@/components/u-screenfull/index.vue'
   import {computed, ref,} from 'vue'
   import {useRouter} from 'vue-router'
@@ -99,6 +106,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .left{
+      display: flex;
+      align-items: center;
+    }
     .right{
       display: flex;
       align-items: center;

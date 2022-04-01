@@ -9,26 +9,27 @@ const componentsRouter = {
     name: 'components',
     meta: {
         title: '组件',
-        icon: 'Histogram'
+        icon: 'Histogram',
+        roles:['other']
     },
     children: [
         {
             path: 'editor',
             component: () => import('@/views/components-demo/editor.vue'),
             name: 'editor',
-            meta: { title: '富文本编辑器', noCache: true }
+            meta: { title: '富文本编辑器', noCache: true, roles:['other'] }
         },
         {
             path: 'mark-down',
             component: () => import('@/views/components-demo/mark-down.vue'),
             name: 'mark-down',
-            meta: { title: 'markDown', noCache: true }
+            meta: { title: 'markDown', noCache: true , roles:['other']}
         },
         {
             path: 'form',
             component: () => import('@/views/components-demo/form.vue'),
             name: 'form',
-            meta: { title: '表单', noCache: true  }
+            meta: { title: '表单', noCache: true  , roles:['other']}
         },
     ]
 }

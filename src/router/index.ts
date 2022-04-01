@@ -7,6 +7,7 @@ import chatRouter from './modules/chat'
 import componentsRouter from './modules/components'
 import othersRouter from './modules/other'
 import externalLink from './modules/externalLink'
+import permissionRouter from './modules/permission'
 
 
 interface extendRoute {
@@ -31,7 +32,7 @@ export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
         path: '/home',
         component: () => import('@/views/home/index.vue'),
         name: 'home',
-        meta: { title: '首页', icon: 'film', affix: true }
+        meta: { title: '首页', icon: 'film', affix: true ,role:['other']}
       },
     ]
   },
@@ -44,7 +45,8 @@ export const asyncRoutes = [
   chatRouter,
   componentsRouter,
   othersRouter,
-  externalLink
+  externalLink,
+  permissionRouter
 ]
 
 

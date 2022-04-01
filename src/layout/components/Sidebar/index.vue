@@ -33,6 +33,9 @@
     return store.state.permission.routes
   })
 
+
+  console.log('permission_routes',permission_routes)
+
   const activeMenu = computed(()=>{
     const { meta, path } = route
     // if set path, the sidebar will highlight the path you set
