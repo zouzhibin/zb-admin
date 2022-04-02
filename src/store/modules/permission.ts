@@ -57,11 +57,12 @@ const actions = {
         return new Promise(resolve => {
             // 在这判断是否有权限，哪些角色拥有哪些权限
             let accessedRoutes
-            if (roles.includes('admin')) {
-                accessedRoutes = asyncRoutes || []
-            } else {
+            if (roles&&roles.length) {
                 accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+            } else {
+                accessedRoutes = asyncRoutes || []
             }
+
             commit('SET_ROUTES', accessedRoutes)
             resolve(accessedRoutes)
         })

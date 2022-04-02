@@ -30,6 +30,7 @@ router.beforeEach(async(to, from, next) => {
             // 路由添加进去了没有及时更新 需要重新进去一次拦截
 
             if(!store.state.permission.routes.length){
+
                 // 获取权限列表进行接口访问 因为这里页面要切换权限
                 // const roles = await store.dispatch('user/getInfo')
                 const accessRoutes = await store.dispatch('permission/generateRoutes', store.getters.roles)
