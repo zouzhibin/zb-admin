@@ -1,5 +1,10 @@
 <template>
     <div class="mark-down">
+      <el-alert
+          title="Markdown 是基于 md-editor-v3"
+          type="success"
+          style="margin-bottom: 20px"
+          :closable="false" effect="dark"/>
       <div class="" style="flex: 1">
         <md-editor v-model="text" />
       </div>

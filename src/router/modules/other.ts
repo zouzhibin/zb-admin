@@ -24,6 +24,18 @@ const othersRouter = {
             name: 'cropper',
             meta: { title: '头像裁剪', noCache: true  }
         },
+        {
+            path: 'grid-sorter',
+            component: () => import('@/views/other/grid-sorter.vue'),
+            name: 'grid-sorter',
+            meta: { title: '网格排序', noCache: true  }
+        },
+        {
+            path: 'splitpane',
+            component: () => import('@/views/other/splitpane.vue'),
+            name: 'splitpane',
+            meta: { title: 'splitpane', noCache: true  }
+        },
 
     ]
 }
