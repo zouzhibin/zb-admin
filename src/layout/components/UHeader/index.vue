@@ -3,14 +3,11 @@
     <div class="header">
       <div class="left">
         <div>
-          <el-icon class="icon" v-if="isCollapse" @click="handleCollapse(false)"><expand /></el-icon>
-          <el-icon class="icon" v-else @click="handleCollapse(true)"><fold/></el-icon>
+          <el-icon class="icon" v-if="isCollapse" @click="handleCollapse"><expand /></el-icon>
+          <el-icon class="icon" v-else @click="handleCollapse"><fold/></el-icon>
         </div>
-
         <u-hamburger/>
       </div>
-
-
       <div class="right">
         <u-screen-full/>
         <el-dropdown @command="commandAction">
@@ -49,7 +46,7 @@
   const router = useRouter()
 
   const isCollapse = computed(()=>{
-    return store.state.app.isCollapse
+    return !store.state.app.isCollapse
   })
 
   const userInfo = computed(()=>{
@@ -90,12 +87,17 @@
     }
   }
 
-  const handleCollapse = (type:boolean) => {
-    store.commit('app/SET_COLLAPSE', type)
+  const handleCollapse = () => {
+    store.commit('app/SET_COLLAPSE', isCollapse.value)
   }
 </script>
 
 <style lang="scss" scoped>
+.mobile{
+  .m-layout-header{
+    left: 0!important;
+  }
+}
   .icon{
     font-size:24px;
     cursor: pointer;

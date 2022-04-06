@@ -19,11 +19,10 @@ import { useStore } from 'vuex' // useStore ===vue2.0中的this.$store
 import logo from '@/assets/logo.png'
 
 const store = useStore()
-// const logo = ref<string>('@/assets/logo.png')
 const title = ref<string>('Vue Admin Perfect')
 
 const isCollapse = computed(()=>{
-  return store.state.app.isCollapse
+  return !store.state.app.isCollapse
 })
 
 </script>

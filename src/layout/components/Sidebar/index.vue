@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{'has-logo':isCollapse}">
     <logo :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
@@ -7,6 +7,7 @@
           active-text-color="#ffd04b"
           background-color="#304156"
           text-color="#fff"
+          :collapse-transition="false"
           class="el-menu-vertical-demo"
           :collapse="isCollapse"
       >
@@ -47,7 +48,7 @@
 
   // 是否折叠
   const isCollapse = computed(()=>{
-    return store.state.app.isCollapse
+    return !store.state.app.isCollapse
   })
 </script>
 

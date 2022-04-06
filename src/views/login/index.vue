@@ -1,13 +1,15 @@
 <template>
   <div class="login-container">
-    <video
-        poster="@/assets/mp4/3.jpeg"
-        loop
-        autoplay
-        muted
-    >
-      <source src="@/assets/mp4/2.mp4">
-    </video>
+<!--    <video-->
+<!--        poster="@/assets/mp4/3.jpeg"-->
+<!--        loop-->
+<!--        autoplay-->
+<!--        muted-->
+<!--    >-->
+<!--      <source src="@/assets/mp4/2.mp4">-->
+<!--    </video>-->
+
+    <img src="@/assets/2.png" class="bg"/>
     <div class="login-box">
       <!--登录功能-->
       <div style="color: white;text-align: center;margin-bottom: 15px">登录系统-密码账号随便填 admin admin</div>
@@ -114,6 +116,18 @@
   }
   .login-container{
     video{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .bg{
       position: absolute;
       top: 0;
       left: 0;

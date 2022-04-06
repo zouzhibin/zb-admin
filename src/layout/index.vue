@@ -1,6 +1,7 @@
 <template>
-  <div class="g-container-layout" :class="{hideSidebar:isCollapse}">
-    <sidebar class="sidebar-container" :isCollapse="isCollapse"/>
+  <div class="g-container-layout" :class="classObj" >
+    <div v-if="device==='mobile'&&!isCollapse" class="drawer-bg" @click="handleClickOutside" />
+    <sidebar class="sidebar-container"/>
     <div class="main-container">
       <u-header />
       <app-main/>
@@ -13,6 +14,7 @@
   import Sidebar from './components/Sidebar/index.vue'
   import UHeader from './components/UHeader/index.vue'
   import AppMain from './components/AppMain.vue'
+  import {useResizeHandler} from './hooks/useResizeHandler'
 
   import {useStore} from "vuex";
 
@@ -27,10 +29,27 @@
       const store = useStore()
       // 是否折叠
       const isCollapse = computed(()=>{
-        return store.state.app.isCollapse
+        return !store.state.app.isCollapse
       })
+      let {device} = useResizeHandler()
+
+      const classObj = computed(()=>{
+        return {
+          hideSidebar:!store.state.app.isCollapse,
+          openSidebar: store.state.app.isCollapse,
+          withoutAnimation: store.state.app.withoutAnimation,
+          mobile: device.value === 'mobile'
+        }
+      })
+      const handleClickOutside = ()=> {
+        store.dispatch('app/closeSideBar', { withoutAnimation: false })
+      }
+
       return{
-        isCollapse
+        isCollapse,
+        device,
+        classObj,
+        handleClickOutside
       }
     }
   });
@@ -48,5 +67,18 @@
       box-sizing: border-box;
       flex-direction: column
     }
+    &.mobile.openSidebar {
+      position: fixed;
+      top: 0;
+    }
+  }
+  .drawer-bg {
+    background: #000;
+    opacity: 0.3;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
   }
 </style>
