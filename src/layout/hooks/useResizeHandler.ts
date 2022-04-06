@@ -4,8 +4,6 @@ import {useRoute} from "vue-router";
 
 const { body } = document
 
-console.log('document',document.hidden)
-
 const WIDTH = 992 // refer to Bootstrap's responsive design
 
 export const useResizeHandler = ()=>{
