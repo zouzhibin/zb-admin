@@ -58,7 +58,10 @@
           <el-radio label="线下场地免费" />
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="活动形式" prop="desc">
+      <el-form-item label="上传图片" prop="img">
+       <u-upload v-model="ruleForm.img"/>
+      </el-form-item>
+      <el-form-item label="备注" prop="desc">
         <el-input v-model="ruleForm.desc" type="textarea" />
       </el-form-item>
       <el-form-item>
@@ -74,11 +77,12 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
 import type { FormInstance } from 'element-plus'
+import UUpload from './form/u-upload.vue'
 
 const formSize = ref('default')
 const ruleFormRef = ref<FormInstance>()
 const ruleForm = reactive({
-  name: 'Hello',
+  name: '跑步',
   region: '',
   date1: '',
   date2: '',
@@ -86,12 +90,16 @@ const ruleForm = reactive({
   type: [],
   resource: '',
   desc: '',
+  img:[]
 })
 
 const rules = reactive({
   name: [
     { required: true, message: '请输入活动名称活动区域', trigger: 'blur' },
     { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
+  ],
+  img:[
+    { required: true, message: '请上传图片', trigger: 'blur' },
   ],
   region: [
     {
@@ -137,6 +145,7 @@ const rules = reactive({
 })
 
 const submitForm = async (formEl: FormInstance | undefined) => {
+  console.log('--FORM---',ruleForm)
   if (!formEl) return
   await formEl.validate((valid, fields) => {
     if (valid) {

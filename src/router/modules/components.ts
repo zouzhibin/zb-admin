@@ -33,13 +33,13 @@ const componentsRouter = {
         },
         {
             path: 'scroll',
-            component: () => import('@/views/other/scroll.vue'),
+            component: () => import('@/views/components-demo/scroll.vue'),
             name: 'scroll',
             meta: { title: '无限滚动', noCache: true  }
         },
         {
             path: 'button',
-            component: () => import('@/views/other/scroll.vue'),
+            component: () => import('@/views/components-demo/button.vue'),
             name: 'button',
             meta: { title: '按钮', noCache: true  }
         },
