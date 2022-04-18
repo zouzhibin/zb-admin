@@ -3,7 +3,7 @@ vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-p
 
 ## 效果预览
 
-进行预览 [项目预览地址](https://yuanzbz.gitee.io/vue-admin-perfect)
+预览地址 [项目预览地址](https://yuanzbz.gitee.io/vue-admin-perfect)
 
 附上github地址 [vue-admin-perfect](https://github.com/zouzhibin/vue-admin-perfect)
 
@@ -33,7 +33,7 @@ vue3.0 + Typescript + vuex + vue-router + Element-Plus scss
 ## 开发
 ```
 # 克隆项目
-git clone -b vue3.0-antdv https://github.com/chuzhixin/vue-admin-better.git
+git clone https://github.com/zouzhibin/vue-admin-perfect.git
 
 # 安装依赖
 yarn install
