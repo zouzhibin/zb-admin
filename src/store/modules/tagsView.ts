@@ -14,6 +14,10 @@ const mutations = {
             })
         )
     },
+    CLEAR_VISITED_VIEW:(state, view) => {
+        state.visitedViews = []
+        state.cachedViews = []
+    },
     ADD_CACHED_VIEW: (state, view) => {
         if (state.cachedViews.includes(view.name)) return
         if (!view.meta.noCache) {
@@ -65,6 +69,9 @@ const actions = {
             resolve([...state.cachedViews])
         })
     },
+    clearVisitedView({ commit, state }){
+        commit('CLEAR_VISITED_VIEW')
+    }
 }
 
 

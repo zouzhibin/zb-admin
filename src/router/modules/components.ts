@@ -31,6 +31,18 @@ const componentsRouter = {
             name: 'form',
             meta: { title: '表单', noCache: true  , roles:['other']}
         },
+        {
+            path: 'scroll',
+            component: () => import('@/views/other/scroll.vue'),
+            name: 'scroll',
+            meta: { title: '无限滚动', noCache: true  }
+        },
+        {
+            path: 'button',
+            component: () => import('@/views/other/scroll.vue'),
+            name: 'button',
+            meta: { title: '按钮', noCache: true  }
+        },
     ]
 }
 

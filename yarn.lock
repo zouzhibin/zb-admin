@@ -3548,6 +3548,11 @@ electron-to-chromium@^1.4.84:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.89.tgz#33c06592812a17a7131873f4596579084ce33ff8"
   integrity sha512-z1Axg0Fu54fse8wN4fd+GAINdU5mJmLtcl6bqIcYyzNVGONcfHAeeJi88KYMQVKalhXlYuVPzKkFIU5VD0raUw==
 
+element-in-view@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmmirror.com/element-in-view/-/element-in-view-0.1.0.tgz#662f41f9a8d3b8ca4587c1ddb427b7d27af88bc9"
+  integrity sha512-bMX/nPADfY8Mgs70kG+SGJ4vo7GCOsQaFVhUHG738gzRG6OrKCp2ZbV63LE5jsgEh8tDqxvXvLeslel5HF6lrA==
+
 element-plus@^2.1.4:
   version "2.1.4"
   resolved "https://registry.npmmirror.com/element-plus/-/element-plus-2.1.4.tgz#52ad532d5c7c321822244bd12ff5c03ba6e22632"
@@ -7911,6 +7916,11 @@ thread-loader@^2.1.3:
     loader-utils "^1.1.0"
     neo-async "^2.6.0"
 
+throttleit@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/throttleit/-/throttleit-1.0.0.tgz#9e785836daf46743145a5984b6268d828528ac6c"
+  integrity sha512-rkTVqu6IjfQ/6+uNuuc3sZek4CEYxTJom3IktzgdSxcZqdARuebbA/f4QmAxMQIxqq9ZLEUkSYqvuk1I6VKq4g==
+
 through2@^2.0.0:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
@@ -8388,6 +8398,14 @@ vue-loader@^15.9.2:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-mugen-scroll@^0.2.6:
+  version "0.2.6"
+  resolved "https://registry.npmmirror.com/vue-mugen-scroll/-/vue-mugen-scroll-0.2.6.tgz#f1c90a8363a8966b3217524f3e97f76b0b817303"
+  integrity sha512-6FOBzotc8p/GDQZYkEdenxPydDvABUuxqMese6Zv4fpEZf7CjNSabRtAeBUtg+339Z9iKMdpzussbqFHCRXVqA==
+  dependencies:
+    element-in-view "^0.1.0"
+    throttleit "^1.0.0"
 
 vue-router@^4.0.0-0:
   version "4.0.14"

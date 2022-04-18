@@ -80,6 +80,7 @@
     switch (key){
       case 1:
         logOut()
+        store.dispatch('tagsView/clearVisitedView')
         break;
       case 2:
         person.value.show()

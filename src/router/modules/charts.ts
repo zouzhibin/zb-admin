@@ -13,12 +13,12 @@ const chartsRouter = {
         roles:['other']
     },
     children: [
-        {
-            path: 'line',
-            component: () => import('@/views/charts/line.vue'),
-            name: 'line',
-            meta: { title: '折现图', noCache: true , roles:['other'] }
-        },
+        // {
+        //     path: 'line',
+        //     component: () => import('@/views/charts/line.vue'),
+        //     name: 'line',
+        //     meta: { title: '折现图', noCache: true , roles:['other'] }
+        // },
         {
             path: 'simple',
             component: () => import('@/views/charts/simple.vue'),

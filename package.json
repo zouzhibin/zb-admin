@@ -21,6 +21,7 @@
     "vue": "^3.0.0",
     "vue-cropper": "^1.0.3",
     "vue-cropperjs": "^5.0.0",
+    "vue-mugen-scroll": "^0.2.6",
     "vue-router": "^4.0.0-0",
     "vue-splitpane": "^1.0.6",
     "vuedraggable": "^4.1.0",

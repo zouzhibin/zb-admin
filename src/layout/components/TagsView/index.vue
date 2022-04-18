@@ -72,7 +72,8 @@ import {computed, nextTick, onMounted, reactive, ref, watch} from "vue";
   }
 
   const initTags = ()=>{
-    let affixTag = affixTags.value = filterAffixTags(routes.value)
+    let routesNew = routes.value.filter(item=>item.path!=='/login')
+    let affixTag = affixTags.value = filterAffixTags(routesNew)
     for (const tag of affixTag) {
       if (tag.name) {
         store.dispatch('tagsView/addVisitedView', tag)
@@ -91,6 +92,9 @@ import {computed, nextTick, onMounted, reactive, ref, watch} from "vue";
   }
   const addTags = ()=> {
     const { name } = route
+    if(name==='Login'){
+      return
+    }
     if (name) {
       store.dispatch('tagsView/addView', route)
     }
