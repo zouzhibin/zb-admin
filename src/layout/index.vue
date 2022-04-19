@@ -72,6 +72,10 @@
       top: 0;
     }
   }
+  .sidebar-container{
+    display: flex;
+    flex-direction: column;
+  }
   .drawer-bg {
     background: #000;
     opacity: 0.3;
