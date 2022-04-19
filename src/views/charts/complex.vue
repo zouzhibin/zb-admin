@@ -30,36 +30,66 @@
           <line-charts height="200px" width="100%" id="lineS"/>
         </el-card>
       </el-col>
-<!--      <el-col :xs="24" :sm="12" :lg="8">-->
-<!--        <el-card class="box-card">-->
-<!--          <template #header>-->
-<!--            <div class="card-header">-->
-<!--              <span>散点图</span>-->
-<!--            </div>-->
-<!--          </template>-->
-<!--          <scatter-charts height="200px" width="100%" id="scatter"/>-->
-<!--        </el-card>-->
-<!--      </el-col>-->
-<!--      <el-col :xs="24" :sm="12" :lg="8">-->
-<!--        <el-card class="box-card">-->
-<!--          <template #header>-->
-<!--            <div class="card-header">-->
-<!--              <span>仪表盘</span>-->
-<!--            </div>-->
-<!--          </template>-->
-<!--          <gauge-charts height="200px" width="100%" id="gauge"/>-->
-<!--        </el-card>-->
-<!--      </el-col>-->
-<!--      <el-col :xs="24" :sm="12" :lg="8">-->
-<!--        <el-card class="box-card">-->
-<!--          <template #header>-->
-<!--            <div class="card-header">-->
-<!--              <span>漏斗图</span>-->
-<!--            </div>-->
-<!--          </template>-->
-<!--          <funnel-charts height="200px" width="100%" id="funnel"/>-->
-<!--        </el-card>-->
-<!--      </el-col>-->
+      <el-col :xs="24" :sm="12" :lg="8">
+        <el-card class="box-card">
+          <template #header>
+            <div class="card-header">
+              <span>设备数</span>
+            </div>
+          </template>
+          <pie-charts height="200px" width="100%" id="pieS"/>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :sm="12" :lg="8">
+        <el-card class="box-card">
+          <template #header>
+            <div class="card-header">
+              <span>圆环进度条</span>
+            </div>
+          </template>
+          <progress-charts height="200px" width="100%" id="progress"/>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :sm="12" :lg="8">
+        <el-card class="box-card">
+          <template #header>
+            <div class="card-header">
+              <span>漏斗图</span>
+            </div>
+          </template>
+          <rotate-charts height="200px" width="100%" id="rotate"/>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :sm="12" :lg="8">
+        <el-card class="box-card">
+          <template #header>
+            <div class="card-header">
+              <span>牛气冲天</span>
+            </div>
+          </template>
+          <bullish-charts height="200px" width="100%" id="bullish"/>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :sm="12" :lg="8">
+        <el-card class="box-card">
+          <template #header>
+            <div class="card-header">
+              <span>雷达图</span>
+            </div>
+          </template>
+          <painting-charts height="200px" width="100%" id="painting"/>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :sm="12" :lg="8">
+        <el-card class="box-card">
+          <template #header>
+            <div class="card-header">
+              <span>桑基图</span>
+            </div>
+          </template>
+          <sankey-charts height="200px" width="100%" id="sankey"/>
+        </el-card>
+      </el-col>
     </el-row>
 
 
@@ -70,13 +100,14 @@
   import LiquidFillCharts from './components/complex/liquidFill.vue'
   import HistogramCharts from './components/complex/Histogram.vue'
   import LineCharts from './components/complex/line.vue'
-  import ScatterCharts from './components/simple/scatter.vue'
-  import GaugeCharts from './components/simple/gauge.vue'
-  import FunnelCharts from './components/simple/funnel.vue'
-
+  import PieCharts from './components/complex/pie.vue'
+  import ProgressCharts from './components/complex/progress.vue'
+  import RotateCharts from './components/complex/rotate.vue'
+  import BullishCharts from './components/complex/bullish.vue'
+  import PaintingCharts from './components/complex/painting.vue'
+  import SankeyCharts from './components/complex/sankey.vue'
 
 </script>
-
 <style>
 .card-header {
   display: flex;

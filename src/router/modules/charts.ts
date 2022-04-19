@@ -13,12 +13,18 @@ const chartsRouter = {
         roles:['other']
     },
     children: [
-        // {
-        //     path: 'line',
-        //     component: () => import('@/views/charts/line.vue'),
-        //     name: 'line',
-        //     meta: { title: '折现图', noCache: true , roles:['other'] }
-        // },
+        {
+            path: 'map',
+            component: () => import('@/views/charts/map.vue'),
+            name: 'map',
+            meta: { title: '地图', noCache: true , roles:['other'] }
+        },
+        {
+            path: 'migration',
+            component: () => import('@/views/charts/migration.vue'),
+            name: 'migration',
+            meta: { title: '迁徙图', noCache: true , roles:['other'] }
+        },
         {
             path: 'simple',
             component: () => import('@/views/charts/simple.vue'),
