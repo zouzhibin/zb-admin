@@ -8,6 +8,7 @@ import componentsRouter from './modules/components'
 import othersRouter from './modules/other'
 import externalLink from './modules/externalLink'
 import permissionRouter from './modules/permission'
+import tableRouter from './modules/table'
 
 
 interface extendRoute {
@@ -45,8 +46,10 @@ export const asyncRoutes = [
   chatRouter,
   componentsRouter,
   othersRouter,
+  tableRouter,
   externalLink,
-  permissionRouter
+  permissionRouter,
+
 ]
 
 

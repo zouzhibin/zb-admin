@@ -3,7 +3,7 @@ vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-p
 
 ## 效果预览
 
-预览地址 [项目预览地址](https://yuanzbz.gitee.io/vue-admin-perfect)
+预览地址 [项目预览地址](https://yuanzbz.gitee.io/vue-admin-perfect/index.html#/home)
 
 附上github地址 [vue-admin-perfect](https://github.com/zouzhibin/vue-admin-perfect)
 
@@ -29,6 +29,18 @@ vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-p
 
 ## 技术栈
 vue3.0 + Typescript + vuex + vue-router + Element-Plus scss
+
+## 实现功能
+- 登录逻辑
+- 权限校验
+- 侧边栏导航显示
+- 打印
+- 地图
+- 头像裁剪
+- 无限滚动
+- 多标签显示
+- 退出
+- 其他各组件
 
 ## 开发
 ```
