@@ -6,7 +6,7 @@ import store from './store'
 import './permission'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 const app = createApp(App)
 
 import * as ElIconsModules from '@element-plus/icons-vue'
@@ -20,4 +20,6 @@ Object.keys(ElIconsModules).forEach((key) => {//循环遍历组件名称
 });
 
 import '@/styles/index.scss' // global css
-app.use(store).use(router).use(ElementPlus).mount('#app')
+app.use(store).use(router).use(ElementPlus,{
+    locale: zhCn,
+}).mount('#app')

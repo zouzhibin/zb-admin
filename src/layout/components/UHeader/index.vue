@@ -123,7 +123,7 @@
     top: 0;
     background: white;
     left: 0;
-    z-index: 1;
+    z-index:99;
     right: 0;
     transition: left 0.28s;
     flex-shrink: 0;

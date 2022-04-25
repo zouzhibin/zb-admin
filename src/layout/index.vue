@@ -57,7 +57,7 @@
 
 <style lang="scss" scoped>
   .g-container-layout{
-    display: flex;
+    //display: flex;
     height: 100%;
     width: 100%;
     .main-container{

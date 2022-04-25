@@ -42,11 +42,13 @@ export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
 
 // 异步组件
 export const asyncRoutes = [
+  tableRouter,
   chartsRouter,
+
   chatRouter,
   componentsRouter,
   othersRouter,
-  tableRouter,
+
   externalLink,
   permissionRouter,
 

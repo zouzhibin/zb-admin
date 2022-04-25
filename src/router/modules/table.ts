@@ -14,17 +14,23 @@ const tableRouter = {
     },
     children: [
         {
+            path: 'complex',
+            component: () => import('@/views/table/complex.vue'),
+            name: 'complex',
+            meta: { title: '综合表格', noCache: true }
+        },
+        {
             path: 'edit-table',
             component: () => import('@/views/table/inline-edit-table.vue'),
             name: 'edit-table',
             meta: { title: '行内编辑', noCache: true  }
         },
-        {
-            path: 'multi-table',
-            component: () => import('@/views/table/multi-table.vue'),
-            name: 'multi-table',
-            meta: { title: '多级表头', noCache: true }
-        },
+        // {
+        //     path: 'multi-table',
+        //     component: () => import('@/views/table/multi-table.vue'),
+        //     name: 'multi-table',
+        //     meta: { title: '多级表头', noCache: true }
+        // },
     ]
 }
 

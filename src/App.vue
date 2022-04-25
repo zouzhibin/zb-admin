@@ -6,6 +6,7 @@
 
 <style lang="scss">
 #app {
+  position: relative;
   width: 100%;
   height: 100%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -14,7 +15,6 @@
   color: #2c3e50;
 }
 html,body{
-  width: 100%;
   height: 100%;
 }
 *{
