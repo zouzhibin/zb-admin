@@ -1,15 +1,17 @@
 <template>
-  <splitpanes style="height: 800px">
-    <pane min-size="20" class="left">1</pane>
-    <pane>
-      <splitpanes horizontal>
-        <pane class="item1">2</pane>
-        <pane class="item2">3</pane>
-        <pane class="item3">4</pane>
-      </splitpanes>
-    </pane>
-    <pane class="item4">5</pane>
-  </splitpanes>
+  <div>
+    <splitpanes style="height: 800px">
+      <pane min-size="20" class="left">1</pane>
+      <pane>
+        <splitpanes horizontal>
+          <pane class="item1">2</pane>
+          <pane class="item2">3</pane>
+          <pane class="item3">4</pane>
+        </splitpanes>
+      </pane>
+      <pane class="item4">5</pane>
+    </splitpanes>
+  </div>
 </template>
 
 <script lang="ts" setup>

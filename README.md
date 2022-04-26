@@ -3,7 +3,7 @@ vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-p
 
 ## 效果预览
 
-预览地址 [项目预览地址](https://yuanzbz.gitee.io/vue-admin-perfect/index.html#/home)
+国内预览地址 [项目预览地址](http://182.61.5.190:8889/#/table/complex)
 
 附上github地址 [vue-admin-perfect](https://github.com/zouzhibin/vue-admin-perfect)
 

@@ -1,6 +1,6 @@
 <template>
   <div class="inline-edit-table">
-    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+    <el-form :inline="true" :model="formInline" class="demo-form-inline"  ref="ruleFormRef">
       <template v-for="item,index in formSearchData" :key="index">
           <el-form-item :label="item.label" v-show="isExpand?isExpand:index<2">
             <template v-if="item.valueType==='input'">
@@ -20,7 +20,8 @@
           </el-form-item>
       </template>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">搜索</el-button>
+        <el-button  @click="reset(ruleFormRef)">重置</el-button>
+        <el-button type="primary" @click="onSubmit">查询</el-button>
         <el-button type="text" @click="isExpand=!isExpand">{{ isExpand?'合并':'展开' }}<el-icon>
           <arrow-down v-if="!isExpand"/>
           <arrow-up  v-else/>
@@ -63,26 +64,15 @@
 <script lang="ts" setup>
 import {computed, ref} from "vue";
 import { ElMessage,ElMessageBox  } from 'element-plus'
-const data = []
-for(let i=0;i<100;i++){
-  data.push({
-    date: '2016-05-02',
-    name: '王五'+i,
-    price: 1+i,
-    province: '上海',
-    admin:"admin",
-    sex:i%2?1:0,
-    checked:true,
-    id:i+1,
-    age:0,
-    city: '普陀区',
-    address: '上海市普上海',
-    zip: 200333
-  })
-}
-
+import type { FormInstance } from 'element-plus'
+const ruleFormRef = ref<FormInstance>()
+const emit = defineEmits(['reset','onSubmit'])
 let props = defineProps({
   columns:{
+    type:Array,
+    default:()=>[]
+  },
+  data:{
     type:Array,
     default:()=>[]
   }
@@ -101,9 +91,10 @@ const handleCurrentChange = (val: number) => {
 }
 
 const list = computed(()=>{
-  let arr = JSON.parse(JSON.stringify(data))
+  let arr = JSON.parse(JSON.stringify(props.data))
   return arr.splice((currentPage1.value-1)*10,10)
 })
+
 
 const listLoading = ref(false)
 const confirmEdit = (row)=>{
@@ -130,8 +121,15 @@ const formInline = reactive(obj)
 
 const onSubmit = () => {
   console.log('submit!',formInline)
+  emit('onSubmit',formInline)
 }
 
+const reset = (formEl: FormInstance | undefined)=>{
+  formSearchData.value.forEach(item=>{
+    formInline[item.name] = null
+  })
+  emit('reset')
+}
 const deleteAction = (row)=>{
   ElMessageBox.confirm(
       '你确定要删除当前项吗?',
@@ -153,9 +151,6 @@ const deleteAction = (row)=>{
 
 }
 
-const expand = (type)=>{
-
-}
 
 </script>
 <style scoped>

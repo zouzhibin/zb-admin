@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <comprehensive :columns="column">
+    <comprehensive :columns="column" :data="data" @reset="reset" @onSubmit="onSubmit">
       <template v-slot:btn>
        <div style="display: flex;justify-content: flex-end">
          <el-button type="primary"><el-icon><plus /></el-icon> 添加</el-button>
@@ -32,7 +32,23 @@
   import {ref} from "vue";
   import { ElMessage } from 'element-plus'
   import Comprehensive from './components/comprehensive.vue'
-
+  const data = []
+  for(let i=0;i<100;i++){
+    data.push({
+      date: '2016-05-02',
+      name: '王五'+i,
+      price: 1+i,
+      province: '上海',
+      admin:"admin",
+      sex:i%2?1:0,
+      checked:true,
+      id:i+1,
+      age:0,
+      city: '普陀区',
+      address: '上海市普上海',
+      zip: 200333
+    })
+  }
   const column = [
     { type:'selection', width:60 },
     { name: 'id', label: 'id',width:80, },
@@ -76,6 +92,14 @@
     { name: 'zip', label: '邮编' },
     { name: 'operation',slot:true,fixed:'right',width:200 }
   ]
+
+  const reset = ()=>{
+    ElMessage.success('触发重置方法')
+  }
+  const onSubmit = (val)=>{
+    console.log('val===',val)
+    ElMessage.success('触发查询方法')
+  }
 
 </script>
 <style scoped>

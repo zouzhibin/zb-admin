@@ -1,17 +1,19 @@
 <template>
   <div>
-    <el-button type="primary" @click="print(1)">打印图片</el-button>
-    <el-button type="primary" @click="print(2)">打印表格</el-button>
-  </div>
-  <div style="margin-top: 20px">
-    <img :src="im1" style="width: 50%;"/>
-  </div>
-  <div>
-    <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="date" label="日期" width="180" />
-      <el-table-column prop="name" label="名字" width="180" />
-      <el-table-column prop="address" label="地址" />
-    </el-table>
+    <div>
+      <el-button type="primary" @click="print(1)">打印图片</el-button>
+      <el-button type="primary" @click="print(2)">打印表格</el-button>
+    </div>
+    <div style="margin-top: 20px">
+      <img :src="im1" style="width: 50%;"/>
+    </div>
+    <div>
+      <el-table :data="tableData" style="width: 100%">
+        <el-table-column prop="date" label="日期" width="180" />
+        <el-table-column prop="name" label="名字" width="180" />
+        <el-table-column prop="address" label="地址" />
+      </el-table>
+    </div>
   </div>
 </template>
 

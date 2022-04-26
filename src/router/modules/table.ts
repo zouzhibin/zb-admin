@@ -20,10 +20,16 @@ const tableRouter = {
             meta: { title: '综合表格', noCache: true }
         },
         {
-            path: 'edit-table',
+            path: 'inline-table',
             component: () => import('@/views/table/inline-edit-table.vue'),
-            name: 'edit-table',
+            name: 'inline-table',
             meta: { title: '行内编辑', noCache: true  }
+        },
+        {
+            path: 'edit-table',
+            component: () => import('@/views/table/edit.vue'),
+            name: 'edit-table',
+            meta: { title: '可编辑表格', noCache: true  }
         },
         // {
         //     path: 'multi-table',
