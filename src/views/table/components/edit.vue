@@ -1,18 +1,54 @@
 <template>
   <div class="m-edit-table">
-    <el-table :data="list" style="width: 100%" >
+    <el-table :data="list" style="width: 100%" row-key="id">
       <template v-for="item in columns" >
         <el-table-column v-if="item.type" :type="item.type"  :width="item.width" :align="item.align" :fixed="item.fixed" :label="item.label"/>
         <el-table-column
             v-else
             :prop="item.name" :width="item.width" :align="item.align" :fixed="item.fixed" :label="item.label">
           <template #default="scope">
-            <span v-if="!item.slot">{{ scope.row[item.name] }}</span>
+            <template v-if="!item.slot">
+              <template v-if="item.readonly">
+                {{ scope.row[item.name] }}
+              </template>
+              <template v-else-if="item.valueType==='select'">
+                <el-select
+                    clearable
+                    :placeholder="`请选择`" v-model="scope.row[item.name]" v-if="scope.row.edit">
+                  <el-option
+
+                      v-for="ite in item.options"
+                      :key="ite.value"
+                      :label="ite.label"
+                      :value="ite.value"
+                  />
+                </el-select>
+
+                <span v-else>{{filterOption(item,scope)}}</span>
+
+              </template>
+
+              <template v-else-if="item.valueType==='date'">
+                <el-date-picker
+                    v-model="scope.row[item.name]"
+                    type="date"
+                    clearable
+                    placeholder="请选择"
+                    v-if="scope.row.edit"
+                />
+                <span v-else>{{scope.row[item.name]||'--'}}</span>
+              </template>
+              <template v-else>
+                <el-input clearable
+                          placeholder="请输入" v-model="scope.row[item.name]" v-if="scope.row.edit"></el-input>
+                <span v-else>{{scope.row[item.name]||'--'}}</span>
+              </template>
+            </template>
             <slot v-else :name="item.name" :item="item" :row="scope.row"></slot>
           </template>
         </el-table-column>
       </template>
-      <el-table-column prop="operator" label="操作" width="180px" fixed="right">
+      <el-table-column prop="operator" label="操作" width="250px" fixed="right">
         <template #default="scope">
           <el-button
               v-if="scope.row.edit"
@@ -32,77 +68,112 @@
           >
             编辑
           </el-button>
+          <el-popover
+              trigger="click"
+              v-model:visible="scope.row.visible" placement="top" :width="160">
+            <p style="display: flex;align-items: center;margin-bottom: 10px">
+              <el-icon color="#faad14" style="margin-right: 10px"><warning-filled /></el-icon> 删除此行？</p>
+            <div style="text-align: right; margin: 0">
+              <el-button size="small"  @click="scope.row.visible = false"
+              >取消</el-button
+              >
+              <el-button size="small" type="primary" @click="deleteAction(scope.row)"
+              >确定</el-button
+              >
+            </div>
+            <template #reference>
+              <el-button
+                  icon="Delete"
+                  @click="scope.row.visible = true" type="danger" size="small">删除</el-button>
+            </template>
+          </el-popover>
+<!--          <el-button-->
+<!--              type="danger"-->
+<!--              size="small"-->
+<!--              icon="Delete"-->
+<!--              @click=""-->
+<!--          >-->
+<!--            删除-->
+<!--          </el-button>-->
 
           <el-button
-              type="danger"
+              v-if="scope.row.edit"
+              type="primary"
               size="small"
-              icon="Delete"
-              @click="deleteAction(scope.row)"
+              icon="Edit"
+              @click="cancelEdit(scope.row)"
           >
-            删除
+            取消
           </el-button>
-
         </template>
       </el-table-column>
     </el-table>
-
+    <div style="margin-top: 15px">
+      <el-button style="width: 100%" @click="add">
+        <el-icon style="margin-right: 4px"><plus /></el-icon> 添加一行数据</el-button>
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
 import {computed, ref} from "vue";
+import {deepObjClone} from '@/utils/index'
 import { ElMessage,ElMessageBox  } from 'element-plus'
 
+const emit = defineEmits(['del','add'])
 
 const props = defineProps({
   columns:{
     type:Array,
     default:()=>[]
+  },
+  data:{
+    type:Array,
+    default:()=>[]
   }
 })
 
-const data = [
-]
-for(let i=0;i<100;i++){
-  data.push({
-    date: '2016-05-02',
-    name: '王五'+i,
-    price: 1+i,
-    province: '上海',
-    admin:"admin",
-    sex:i%2?1:0,
-    checked:true,
-    id:i+1,
-    img:"https://img1.baidu.com/it/u=300787145,1214060415&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500",
-    age:0,
-    city: '普陀区',
-    address: '上海市普上海',
-    zip: 200333
+let obj={}
+for(let item of props.columns){
+  props.data.forEach(it=>{
+    if(!obj[item.name]){
+      obj[item.name] = null
+    }
   })
 }
 
-const currentPage1 = ref(1)
+const visible = ref(false)
 const handleSizeChange = (val: number) => {
   console.log(`${val} items per page`)
 }
-const handleCurrentChange = (val: number) => {
-  console.log(`current page: ${val}`)
-  currentPage1.value = val
-}
 
 const list = computed(()=>{
-  let arr = JSON.parse(JSON.stringify(data))
-  return arr.splice((currentPage1.value-1)*10,10)
+  return props.data
 })
 
+const list1 = computed(()=>{
+  console.log('============')
+
+  return deepObjClone(props.data)
+})
 
 const listLoading = ref(false)
 
 const confirmEdit = (row)=>{
   row.edit = false
+
 }
 
 const cancelEdit = (row)=>{
-  row.edit = false
+  row.edit=!row.edit
+  const list1 = deepObjClone(props.data)
+  
+  // for(let item of list1){
+  //   if(item.id===row.id){
+  //     console.log('item=====',item)
+  //     row = Object.assign({},item)
+  //   }
+  // }
+
 }
 
 import { reactive } from 'vue'
@@ -117,26 +188,28 @@ const onSubmit = () => {
 }
 
 const deleteAction = (row)=>{
-  ElMessageBox.confirm(
-      '你确定要删除当前项吗?',
-      '温馨提示',
-      {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning',
-        draggable: true,
-      }
-  )
-      .then(() => {
-        list.value = list.value.filter(item=>item.id!==row.id)
-        ElMessage.success('删除成功')
-      })
-      .catch(() => {
-
-      })
-
+  row.visible = false
+  emit('del',row)
 }
 
+const add = ()=>{
+  let id = ~~(Math.random() * 1000000).toFixed(0)
+  let obj1 = Object.assign({},obj,{
+    id:id,
+    edit:true,
+    visible:false,
+  })
+  props.data.push(obj1)
+  // emit('add',obj1)
+}
+
+const filterOption = (item,scope)=>{
+  let obj = item.options.find(ite=>ite.value===scope.row[item.name])
+  if(obj){
+    return obj.label
+  }
+  return '--'
+}
 </script>
 <style scoped>
 .edit-input {

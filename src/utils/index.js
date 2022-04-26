@@ -366,3 +366,65 @@ export function getColor() {
   }
   return str;
 }
+// 检查给定的值是否是数组
+export const isArray = function(value) {
+  return objToString.call(value) === "[object Array]";
+};
+var funProto = Function.prototype;
+var objProto = Object.prototype;
+
+var getPrototypeOf = Object.getPrototypeOf;
+
+var objToString = objProto.toString;
+var hasOwnProperty = objProto.hasOwnProperty;
+var funToString = funProto.toString;
+// 检查给定的值是否是字符串
+export const isString = function(value) {
+  return objToString.call(value) === "[object String]";
+};
+// 检查给定的值是否是纯对象，纯对象是指通过 {} 或 new Object() 声明的对象
+export const isPlainObject = function(value) {
+  if (!value || objToString.call(value) !== "[object Object]") {
+    return false;
+  }
+
+  var prototype = getPrototypeOf(value);
+
+  if (prototype === null) {
+    return true;
+  }
+
+  var constructor = hasOwnProperty.call(prototype, "constructor") && prototype.constructor;
+
+  return typeof constructor === "function" && funToString.call(constructor) === funToString.call(Object);
+};
+
+// // 深度克隆 array 数组或 json 对象，返回克隆后的副本
+export const deepObjClone = function(obj){
+  let weakMap = new WeakMap()
+  function clone (obj){
+    if(!isArray(obj) && !isPlainObject(obj)){
+      return obj;
+    }
+    if(obj instanceof Date){ return new Date(obj) }
+    if(obj instanceof RegExp){ return new RegExp(obj)}
+
+    if(weakMap.get(obj)){
+      return weakMap.get(obj)
+    }
+
+    // var copy = utils.isArray(obj) ? [] : {};
+    var copy =  new obj.constructor
+    weakMap.set(obj,copy)
+    for(var key in obj){
+      if(hasOwnProperty.call(obj, key)){
+        var value = obj[key];
+
+        copy[key] = clone(value);
+      }
+    }
+
+    return copy;
+  }
+  return clone (obj)
+};
