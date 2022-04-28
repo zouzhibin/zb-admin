@@ -403,27 +403,22 @@ export const isPlainObject = function(value) {
 export const deepObjClone = function(obj){
   let weakMap = new WeakMap()
   function clone (obj){
-    if(!isArray(obj) && !isPlainObject(obj)){
-      return obj;
-    }
+    if(obj==null){return obj}
     if(obj instanceof Date){ return new Date(obj) }
     if(obj instanceof RegExp){ return new RegExp(obj)}
+    if(typeof obj !== 'object') return obj
 
     if(weakMap.get(obj)){
       return weakMap.get(obj)
     }
-
-    // var copy = utils.isArray(obj) ? [] : {};
     var copy =  new obj.constructor
     weakMap.set(obj,copy)
     for(var key in obj){
-      if(hasOwnProperty.call(obj, key)){
+      if(Object.prototype.hasOwnProperty.call(obj, key)){
         var value = obj[key];
-
         copy[key] = clone(value);
       }
     }
-
     return copy;
   }
   return clone (obj)

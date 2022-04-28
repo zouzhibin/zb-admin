@@ -1,16 +1,26 @@
 <template>
-    <edit-table
-        :columns="column"
-        :data="list"
-        @add="add"
-        @del="deleteAction"
-    />
+    <div>
+      <edit-table
+          :columns="column"
+          :data="list"
+          @add="add"
+          ref="table"
+          @onChange="onChange"
+          @del="deleteAction"
+      />
+      <div style="margin-top: 20px">
+        <el-button
+            @click="reset">重置</el-button>
+        <el-button type="primary" @click="config">提交</el-button>
+      </div>
+    </div>
 </template>
 
 <script lang="ts" setup>
   import EditTable from './components/edit.vue'
+  import { ElMessage,ElMessageBox  } from 'element-plus'
   import {ref} from "vue";
-
+  const table = ref()
   const column = [
     { name: 'title',
       label: '活动名称',
@@ -67,15 +77,30 @@
   ]
 
   const list = ref(data)
+  const dataSource = ref(data)
   const deleteAction = (row)=>{
-    list.value = list.value.filter(item=>item.id!==row.id)
+    console.log('删除',row)
+    ElMessage.success('点击删除')
+    // list.value = list.value.filter(item=>item.id!==row.id)
 
   }
+  const onChange = (val)=>{
+    dataSource.value = val
+  }
   const add = (row)=>{
-    list.value.push(row)
+    // list.value.push(row)
+    // console.log('list.value',list.value,row)
+  }
+  const reset = (val)=>{
+    // dataSource.value = val
+    ElMessage.success('重置成功')
+    table.value.reset()
+  }
 
-    console.log('list.value',list.value,row)
-
+  const config = ()=>{
+    list.value = dataSource.value
+    console.log('点击提交=========',dataSource.value,list.value)
+    ElMessage.success('点击提交数据')
   }
 </script>
 

@@ -14,7 +14,7 @@
               <div>昵称：小狼</div>
               <div>职业：前端</div>
               <div>公司：小公司</div>
-              <div>年龄：1993/09</div>
+              <div>年龄：~~</div>
               <div>性别：男</div>
               <div>现住址：中国-浙江-杭州</div>
               <div>邮箱：1135957121@qq.com</div>

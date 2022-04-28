@@ -1,6 +1,6 @@
 <template>
   <div class="m-edit-table">
-    <el-table :data="list" style="width: 100%" row-key="id">
+    <el-table :data="transData" style="width: 100%" row-key="id">
       <template v-for="item in columns" >
         <el-table-column v-if="item.type" :type="item.type"  :width="item.width" :align="item.align" :fixed="item.fixed" :label="item.label"/>
         <el-table-column
@@ -87,15 +87,6 @@
                   @click="scope.row.visible = true" type="danger" size="small">删除</el-button>
             </template>
           </el-popover>
-<!--          <el-button-->
-<!--              type="danger"-->
-<!--              size="small"-->
-<!--              icon="Delete"-->
-<!--              @click=""-->
-<!--          >-->
-<!--            删除-->
-<!--          </el-button>-->
-
           <el-button
               v-if="scope.row.edit"
               type="primary"
@@ -115,101 +106,142 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {computed, ref} from "vue";
-import {deepObjClone} from '@/utils/index'
-import { ElMessage,ElMessageBox  } from 'element-plus'
+  import {computed, onMounted, ref, watch} from "vue";
+  import {deepObjClone} from '@/utils/index'
+  import { ElMessage,ElMessageBox  } from 'element-plus'
+  import { reactive } from 'vue'
+  const emit = defineEmits(['del','add','onChange'])
+  let transData = ref([])
 
-const emit = defineEmits(['del','add'])
-
-const props = defineProps({
-  columns:{
-    type:Array,
-    default:()=>[]
-  },
-  data:{
-    type:Array,
-    default:()=>[]
-  }
-})
-
-let obj={}
-for(let item of props.columns){
-  props.data.forEach(it=>{
-    if(!obj[item.name]){
-      obj[item.name] = null
+  let props = defineProps({
+    columns:{
+      type:Array,
+      default:()=>[]
+    },
+    data:{
+      type:Array,
+      default:()=>[]
     }
   })
-}
-
-const visible = ref(false)
-const handleSizeChange = (val: number) => {
-  console.log(`${val} items per page`)
-}
-
-const list = computed(()=>{
-  return props.data
-})
-
-const list1 = computed(()=>{
-  console.log('============')
-
-  return deepObjClone(props.data)
-})
-
-const listLoading = ref(false)
-
-const confirmEdit = (row)=>{
-  row.edit = false
-
-}
-
-const cancelEdit = (row)=>{
-  row.edit=!row.edit
-  const list1 = deepObjClone(props.data)
-  
-  // for(let item of list1){
-  //   if(item.id===row.id){
-  //     console.log('item=====',item)
-  //     row = Object.assign({},item)
-  //   }
-  // }
-
-}
-
-import { reactive } from 'vue'
-
-const formInline = reactive({
-  user: '',
-  region: '',
-})
-
-const onSubmit = () => {
-  console.log('submit!')
-}
-
-const deleteAction = (row)=>{
-  row.visible = false
-  emit('del',row)
-}
-
-const add = ()=>{
-  let id = ~~(Math.random() * 1000000).toFixed(0)
-  let obj1 = Object.assign({},obj,{
-    id:id,
-    edit:true,
-    visible:false,
-  })
-  props.data.push(obj1)
-  // emit('add',obj1)
-}
-
-const filterOption = (item,scope)=>{
-  let obj = item.options.find(ite=>ite.value===scope.row[item.name])
-  if(obj){
-    return obj.label
+  const getData = ()=>{
+    let arr = deepObjClone(transData.value)
+    for(let item of arr){
+      for(let attr in item){
+        if(attr.includes('te__mp')){
+          delete item[attr]
+        }
+      }
+    }
+    emit('onChange',arr)
   }
-  return '--'
-}
+
+  let obj={}
+  for(let item of props.columns){
+    props.data.forEach(it=>{
+      if(!obj[item.name]){
+        obj[item.name] = null
+      }
+    })
+  }
+
+  const reset = ()=>{
+    transData.value = props.data
+    getData()
+  }
+
+  onMounted(()=>{
+    watch(()=>props.data,(val)=>{
+      // // 转换数据
+      transData.value = deepObjClone(val)
+      // 存储一个临时变量
+      for(let item of transData.value){
+         for(let attr in item){
+           let temp  = `${attr}te__mp`
+           item[temp] = item[attr]
+         }
+      }
+      console.log('transData',transData)
+    },{
+      immediate:true,
+      deep:true
+    })
+
+  })
+
+
+
+
+  const visible = ref(false)
+
+  const handleSizeChange = (val: number) => {
+    console.log(`${val} items per page`)
+  }
+
+  const listLoading = ref(false)
+
+  // 保存
+  const confirmEdit = (row)=>{
+    row.edit = false
+    for(let attr in row){
+      if(attr.includes('te__mp')){
+        row[(attr)] = row[(attr.replace('te__mp',''))]
+      }
+    }
+    getData()
+  }
+  // 取消
+  const cancelEdit = (row)=>{
+    row.edit=!row.edit
+    for(let attr in row){
+      if(!attr.includes('te__mp')){
+        row[attr] = row[(attr+'te__mp')]
+      }
+    }
+  }
+
+  const formInline = reactive({
+    user: '',
+    region: '',
+  })
+
+  const onSubmit = () => {
+    console.log('submit!')
+  }
+
+  const deleteAction = (row)=>{
+    row.visible = false
+    transData.value = transData.value.filter((item)=>item.id!==row.id)
+    emit('del',row)
+  }
+
+  const add = ()=>{
+    let id = ~~(Math.random() * 1000000).toFixed(0)
+    let obj1 = Object.assign({},obj,{
+      id:id,
+      edit:true,
+      visible:false,
+    })
+
+    for(let attr in obj1){
+      let temp  = `${attr}te__mp`
+      obj1[temp] = obj1[attr]
+    }
+
+    transData.value.push(obj1)
+    // emit('add',obj1)
+  }
+
+  const filterOption = (item,scope)=>{
+    let obj = item.options.find(ite=>ite.value===scope.row[item.name])
+    if(obj){
+      return obj.label
+    }
+    return '--'
+  }
+
+  defineExpose({
+    reset
+  })
 </script>
 <style scoped>
 .edit-input {
