@@ -8,7 +8,7 @@ const othersRouter = {
     redirect: 'noRedirect',
     name: 'other',
     meta: {
-        title: '其他',
+        title: '扩展',
         icon: 'management'
     },
     children: [
@@ -28,13 +28,13 @@ const othersRouter = {
             path: 'grid-sorter',
             component: () => import('@/views/other/grid-sorter.vue'),
             name: 'grid-sorter',
-            meta: { title: '网格排序', noCache: true  }
+            meta: { title: '卡片拖拽', noCache: true  }
         },
         {
             path: 'splitpane',
             component: () => import('@/views/other/splitpane.vue'),
             name: 'splitpane',
-            meta: { title: 'splitpane', noCache: true  }
+            meta: { title: '分割模块', noCache: true  }
         },
 
     ]

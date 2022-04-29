@@ -32,7 +32,7 @@
       <slot name="btn"></slot>
     </div>
     <el-table
-        @selection-change="(val)=>$emit('selection-change',val)"
+        @selection-change="(val)=>emit('selection-change',val)"
         :data="list"
         style="width: 100%"
         :border="true">
@@ -66,7 +66,7 @@ import {computed, ref} from "vue";
 import { ElMessage,ElMessageBox  } from 'element-plus'
 import type { FormInstance } from 'element-plus'
 const ruleFormRef = ref<FormInstance>()
-const emit = defineEmits(['reset','onSubmit'])
+const emit = defineEmits(['reset','onSubmit','selection-change'])
 let props = defineProps({
   columns:{
     type:Array,
@@ -144,6 +144,7 @@ const deleteAction = (row)=>{
       .then(() => {
         list.value = list.value.filter(item=>item.id!==row.id)
         ElMessage.success('删除成功')
+
       })
       .catch(() => {
 

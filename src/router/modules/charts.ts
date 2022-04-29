@@ -13,12 +13,12 @@ const chartsRouter = {
         roles:['other']
     },
     children: [
-        {
-            path: 'map',
-            component: () => import('@/views/charts/map.vue'),
-            name: 'map',
-            meta: { title: '地图', noCache: true , roles:['other'] }
-        },
+        // {
+        //     path: 'map',
+        //     component: () => import('@/views/charts/map.vue'),
+        //     name: 'map',
+        //     meta: { title: '地图', noCache: true , roles:['other'] }
+        // },
         {
             path: 'migration',
             component: () => import('@/views/charts/migration.vue'),

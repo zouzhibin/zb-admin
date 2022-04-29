@@ -14,9 +14,9 @@ const tableRouter = {
     },
     children: [
         {
-            path: 'complex',
-            component: () => import('@/views/table/complex.vue'),
-            name: 'complex',
+            path: 'comprehensive',
+            component: () => import('@/views/table/comprehensive.vue'),
+            name: 'comprehensive',
             meta: { title: '综合表格', noCache: true }
         },
         {
