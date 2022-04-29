@@ -79,7 +79,7 @@
           :page-size="10"
           background
           layout="total, sizes, prev, pager, next, jumper"
-          :total="data.length"
+          :total="transData.length"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
       />
@@ -118,8 +118,10 @@ const handleCurrentChange = (val: number) => {
   currentPage1.value = val
 }
 
+const transData = ref(data)
+
 const list = computed(()=>{
-  let arr = JSON.parse(JSON.stringify(data))
+  let arr = JSON.parse(JSON.stringify(transData.value))
   return arr.splice((currentPage1.value-1)*10,10)
 })
 
@@ -157,7 +159,7 @@ const deleteAction = (row)=>{
       }
   )
       .then(() => {
-        list.value = list.value.filter(item=>item.id!==row.id)
+        transData.value = transData.value.filter(item=>item.id!==row.id)
         ElMessage.success('删除成功')
       })
       .catch(() => {

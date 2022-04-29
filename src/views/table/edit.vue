@@ -1,10 +1,20 @@
 <template>
     <div>
+      <div style="display: flex;justify-content: flex-end">
+        <el-radio-group v-model="radio">
+          <el-radio label="top">添加到顶部</el-radio>
+          <el-radio label="bottom">添加到底部</el-radio>
+          <el-radio label="hide">隐藏</el-radio>
+        </el-radio-group>
+      </div>
+      <el-divider />
       <edit-table
+          :mode="radio"
           :columns="column"
           :data="list"
           @add="add"
           ref="table"
+          :editableKeys="editableKeys"
           @onChange="onChange"
           @del="deleteAction"
       />
@@ -52,7 +62,6 @@
       label: '活动时间',
       valueType:'date',
     },
-    // { name: 'operation',slot:true,fixed:'right',width:100 }
   ]
 
   let data = [
@@ -74,36 +83,93 @@
       created_at: '2020-05-27T08:19:22Z',
       update_at: '2020-05-27T08:19:22Z',
     },
+    {
+      id: 624291229,
+      title: '活动名称三',
+      readonly: '活动名称三',
+      decs: '这个活动真好玩',
+      state: 1,
+      created_at: '2020-05-27T08:19:22Z',
+      update_at: '2020-05-27T08:19:22Z',
+    },
+    {
+      id: 624291229,
+      title: '活动名称四',
+      readonly: '活动名称四',
+      decs: '这个活动真好玩',
+      state: 1,
+      created_at: '2020-05-27T08:19:22Z',
+      update_at: '2020-05-27T08:19:22Z',
+    },
+    {
+      id: 624291229,
+      title: '活动名称五',
+      readonly: '活动名称五',
+      decs: '这个活动真好玩',
+      state: 1,
+      created_at: '2020-05-27T08:19:22Z',
+      update_at: '2020-05-27T08:19:22Z',
+    },
+    {
+      id: 624291229,
+      title: '活动名称六',
+      readonly: '活动名称六',
+      decs: '这个活动真好玩',
+      state: 1,
+      created_at: '2020-05-27T08:19:22Z',
+      update_at: '2020-05-27T08:19:22Z',
+    },
+    {
+      id: 624291229,
+      title: '活动名称七',
+      readonly: '活动名称五',
+      decs: '这个活动真好玩',
+      state: 1,
+      created_at: '2020-05-27T08:19:22Z',
+      update_at: '2020-05-27T08:19:22Z',
+    },
+    {
+      id: 624291229,
+      title: '活动名称八',
+      readonly: '活动名称六',
+      decs: '这个活动真好玩',
+      state: 1,
+      created_at: '2020-05-27T08:19:22Z',
+      update_at: '2020-05-27T08:19:22Z',
+    },
   ]
 
+ let arrKeys = data.map(item=>item.id)
+  const radio = ref('bottom')
   const list = ref(data)
+  let editableKeys = ref(arrKeys)
   const dataSource = ref(data)
   const deleteAction = (row)=>{
     console.log('删除',row)
     ElMessage.success('点击删除')
-    // list.value = list.value.filter(item=>item.id!==row.id)
-
   }
   const onChange = (val)=>{
     dataSource.value = val
   }
   const add = (row)=>{
-    // list.value.push(row)
-    // console.log('list.value',list.value,row)
+
   }
   const reset = (val)=>{
-    // dataSource.value = val
     ElMessage.success('重置成功')
     table.value.reset()
   }
 
   const config = ()=>{
     list.value = dataSource.value
-    console.log('点击提交=========',dataSource.value,list.value)
+    console.log('点击提交=========',dataSource.value)
     ElMessage.success('点击提交数据')
   }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+::v-deep{
+  .el-divider--horizontal{
+    margin: 10px 0;
+  }
+}
 </style>

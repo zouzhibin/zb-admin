@@ -1,6 +1,10 @@
 <template>
   <div class="m-edit-table">
-    <el-table :data="transData" style="width: 100%" row-key="id">
+    <div style="margin-top: 15px;margin-bottom: 15px" v-if="mode!=='hide'&&mode!=='bottom'">
+      <el-button style="width: 100%" @click="add">
+        <el-icon style="margin-right: 4px"><plus /></el-icon> 添加一行数据</el-button>
+    </div>
+    <el-table :data="transData" style="width: 100%" row-key="id" border>
       <template v-for="item in columns" >
         <el-table-column v-if="item.type" :type="item.type"  :width="item.width" :align="item.align" :fixed="item.fixed" :label="item.label"/>
         <el-table-column
@@ -99,7 +103,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <div style="margin-top: 15px">
+    <div style="margin-top: 15px" v-if="mode!=='hide'&&mode!=='top'">
       <el-button style="width: 100%" @click="add">
         <el-icon style="margin-right: 4px"><plus /></el-icon> 添加一行数据</el-button>
     </div>
@@ -121,6 +125,14 @@
     data:{
       type:Array,
       default:()=>[]
+    },
+    editableKeys:{
+      type:Array,
+      default:()=>[]
+    },
+    mode:{
+      type:String,
+      default:'bottom'
     }
   })
   const getData = ()=>{
@@ -155,12 +167,17 @@
       transData.value = deepObjClone(val)
       // 存储一个临时变量
       for(let item of transData.value){
+          if(props.editableKeys.includes(item.id)){
+            item.edit = true
+          }
+
          for(let attr in item){
            let temp  = `${attr}te__mp`
            item[temp] = item[attr]
          }
+
       }
-      console.log('transData',transData)
+      // console.log('transData',transData)
     },{
       immediate:true,
       deep:true
@@ -227,8 +244,12 @@
       obj1[temp] = obj1[attr]
     }
 
-    transData.value.push(obj1)
-    // emit('add',obj1)
+    if(props.mode==='bottom'){
+      transData.value.push(obj1)
+    }
+    if(props.mode==='top'){
+      transData.value.unshift(obj1)
+    }
   }
 
   const filterOption = (item,scope)=>{
