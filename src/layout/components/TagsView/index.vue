@@ -72,7 +72,8 @@ import {computed, nextTick, onMounted, reactive, ref, watch} from "vue";
   }
 
   const initTags = ()=>{
-    let routesNew = routes.value.filter(item=>item.path!=='/login')
+    // let routesNew = routes.value.filter(item=>item.path!=='/login')
+    let routesNew = routes.value
     let affixTag = affixTags.value = filterAffixTags(routesNew)
     for (const tag of affixTag) {
       if (tag.name) {

@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw,createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw,createWebHashHistory,Router } from 'vue-router'
 import Layout from "@/layout/index.vue";
 
 // 引入组件
@@ -60,5 +60,8 @@ const router = createRouter({
   history: createWebHashHistory(), // hash
   routes:constantRoutes
 })
+
+
+
 
 export default router

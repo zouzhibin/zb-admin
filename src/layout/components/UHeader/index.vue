@@ -9,6 +9,7 @@
         <u-hamburger/>
       </div>
       <div class="right">
+        <el-button type="text" style="margin-right: 10px" @click="toGitHub">Github地址</el-button>
         <u-screen-full/>
         <el-dropdown @command="commandAction">
           <span class="el-dropdown-link">
@@ -53,6 +54,9 @@
     return store.state.user.userInfo
   })
 
+  const toGitHub = ()=>{
+    window.open('https://github.com/zouzhibin/vue-admin-perfect')
+  }
   const logOut = async ()=>{
     ElMessageBox.confirm(
         '确定退出登录吗？',
@@ -67,6 +71,8 @@
           try {
             await store.dispatch('user/logout')
             router.push({path:'/login'})
+            store.dispatch('permission/clearRoutes')
+            store.dispatch('tagsView/clearVisitedView')
           }catch (e) {
 
           }
@@ -80,7 +86,8 @@
     switch (key){
       case 1:
         logOut()
-        store.dispatch('tagsView/clearVisitedView')
+
+
         break;
       case 2:
         person.value.show()
