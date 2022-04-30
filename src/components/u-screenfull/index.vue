@@ -9,6 +9,8 @@
   import screenfull from './index'
   import { ElMessage } from 'element-plus'
   import {onBeforeUnmount, onMounted, ref} from "vue";
+
+
   let isFullscreen = ref(false)
   const click = ()=>{
     if (!screenfull.isEnabled) {
