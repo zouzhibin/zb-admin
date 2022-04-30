@@ -1,7 +1,13 @@
 <template>
-  <div class="m-layout-header" :style="{left:`${isCollapse?'56':'210'}px`}">
-    <div class="header">
-      <div class="left">
+  <div
+          class="m-layout-header"
+
+          :style="{left:`${mode==='horizontal'?0:isCollapse?'56':'210'}px`}">
+    <div class="header" :class="{
+            transverseMenu:mode==='horizontal'
+          }">
+      <menu-slide v-if="mode==='horizontal'"/>
+      <div class="left" v-if="mode==='vertical'">
         <div>
           <el-icon class="icon" v-if="isCollapse" @click="handleCollapse"><expand /></el-icon>
           <el-icon class="icon" v-else @click="handleCollapse"><fold/></el-icon>
@@ -27,7 +33,7 @@
         </el-dropdown>
       </div>
     </div>
-    <tag-views/>
+    <tag-views v-if="isShowTag"/>
     <personal ref="person"/>
   </div>
 </template>
@@ -37,6 +43,7 @@
   import TagViews from '../TagsView/index.vue'
   import UHamburger from "@/components/u-Hamburger/index.vue"
   import UScreenFull from '@/components/u-screenfull/index.vue'
+  import MenuSlide from '../Sidebar/menuSlide.vue'
   import {computed, ref,} from 'vue'
   import {useRouter} from 'vue-router'
   import { ElMessageBox, ElMessage } from 'element-plus'
@@ -48,6 +55,13 @@
 
   const isCollapse = computed(()=>{
     return !store.state.app.isCollapse
+  })
+  const mode = computed(()=>{
+    return store.state.setting.mode
+  })
+
+  const isShowTag = computed(()=>{
+    return store.state.setting.isShowTag
   })
 
   const userInfo = computed(()=>{
@@ -115,6 +129,8 @@
     width: 100%;
     display: flex;
     align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
     justify-content: space-between;
     .left{
       display: flex;
@@ -135,7 +151,7 @@
     transition: left 0.28s;
     flex-shrink: 0;
     box-sizing: border-box;
-    padding: 0 10px;
+
     box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
   }
   .el-dropdown{

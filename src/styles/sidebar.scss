@@ -7,6 +7,16 @@
     position: relative;
   }
 
+  .hideSliderLayout{
+    margin-left: 0;
+    .el-menu--horizontal{
+      border-bottom: none;
+    }
+  }
+  .transverseMenu{
+    background-color: $menuBg;
+  }
+
   .sidebar-container {
     transition: width 0.28s;
     width: $sideBarWidth !important;

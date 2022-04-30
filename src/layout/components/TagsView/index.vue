@@ -162,6 +162,8 @@ import {computed, nextTick, onMounted, reactive, ref, watch} from "vue";
     background: #fff;
     padding: 0 8px;
     font-size: 12px;
+    padding: 0 10px;
+    box-sizing: border-box;
     margin-left: 5px;
     margin-top: 4px;
     &:first-of-type {

@@ -1,10 +1,14 @@
 <template>
   <div class="g-container-layout" :class="classObj" >
     <div v-if="device==='mobile'&&!isCollapse" class="drawer-bg" @click="handleClickOutside" />
-    <sidebar class="sidebar-container"/>
-    <div class="main-container">
+    <sidebar class="sidebar-container" v-if="mode==='vertical'"/>
+    <div class="main-container" :class="{
+      hideSliderLayout:mode==='horizontal'
+    }">
       <u-header />
-      <app-main/>
+      <div class="m-container-content" :class="{'app-main-hide-tag':!isShowTag}">
+        <app-main/>
+      </div>
     </div>
   </div>
 </template>
@@ -44,11 +48,20 @@
       const handleClickOutside = ()=> {
         store.dispatch('app/closeSideBar', { withoutAnimation: false })
       }
+      const isShowTag = computed(()=>{
+        return store.state.setting.isShowTag
+      })
 
+      const mode = computed(()=>{
+        return store.state.setting.mode
+      })
+      console.log('mode============',mode)
       return{
         isCollapse,
         device,
         classObj,
+        isShowTag,
+        mode,
         handleClickOutside
       }
     }
@@ -84,5 +97,13 @@
     height: 100%;
     position: absolute;
     z-index: 999;
+  }
+  .m-container-content{
+    padding: 20px;
+    /*background: #f6f8f9;*/
+    padding-top: 110px;
+  }
+  .app-main-hide-tag{
+    padding-top: 80px;
   }
 </style>
