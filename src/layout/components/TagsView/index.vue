@@ -147,8 +147,11 @@
     })
 
     router.beforeEach(async (to, from, next)=>{
-      if(from.fullPath==='/error/404'&&to.fullPath==="/home") {
-        await store.dispatch('tagsView/removeView', [from.fullPath])
+
+
+      if((from.fullPath==='/error/404'||from.fullPath==='/error/401')&&to.fullPath==="/home") {
+        let whiteList = ['/error/404','/error/401']
+        await store.dispatch('tagsView/removeView', whiteList)
       }
       next()
     })
