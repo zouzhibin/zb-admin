@@ -43,6 +43,12 @@ const componentsRouter = {
             name: 'button',
             meta: { title: '按钮', noCache: true  }
         },
+        {
+            path: 'upload',
+            component: () => import('@/views/components-demo/upload.vue'),
+            name: 'upload',
+            meta: { title: '上传图片', noCache: true  }
+        },
     ]
 }
 

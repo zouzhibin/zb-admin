@@ -9,6 +9,7 @@ import othersRouter from './modules/other'
 import externalLink from './modules/externalLink'
 import permissionRouter from './modules/permission'
 import tableRouter from './modules/table'
+import errorRouter from './modules/error'
 
 
 interface extendRoute {
@@ -23,6 +24,7 @@ export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
     hidden: true,
     meta: { title: '登录',}
   },
+
   {
     path: '/',
     name: 'layout',
@@ -44,14 +46,17 @@ export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
 export const asyncRoutes = [
   tableRouter,
   chartsRouter,
-
   chatRouter,
   componentsRouter,
   othersRouter,
-
   externalLink,
+  errorRouter,
   permissionRouter,
 
+  {
+    path: '/:pathMatch(.*)',
+    redirect: '/error/404'
+  }
 ]
 
 

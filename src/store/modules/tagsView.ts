@@ -14,6 +14,9 @@ const mutations = {
             })
         )
     },
+    REMOVE_VISITED_VIEW: (state, routes) => {
+        state.visitedViews = state.visitedViews.filter(item=>!routes.includes(item.path))
+    },
     CLEAR_VISITED_VIEW:(state, view) => {
         state.visitedViews = []
         state.cachedViews = []
@@ -43,6 +46,13 @@ const actions = {
     addView({ dispatch }, view) {
         dispatch('addVisitedView', view)
         // dispatch('addCachedView', view)
+    },
+    removeView({ commit }, views){
+        return new Promise((resolve, reject) => {
+            commit('REMOVE_VISITED_VIEW', views)
+            resolve(null)
+        })
+
     },
     addVisitedView({ commit }, view) {
         commit('ADD_VISITED_VIEW', view)

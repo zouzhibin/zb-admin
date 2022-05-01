@@ -102,6 +102,7 @@
     padding: 20px;
     /*background: #f6f8f9;*/
     padding-top: 110px;
+    position: relative;
   }
   .app-main-hide-tag{
     padding-top: 80px;

@@ -189,7 +189,7 @@
 }
 .m-cropper{
   width: 100%;
-  height: 500px;
+  /*height: 500px;*/
   display: flex;
   .left{
     width: 400px;

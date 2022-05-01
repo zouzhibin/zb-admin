@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, nextTick, onMounted, reactive, ref, watch} from "vue";
+  import {computed, nextTick, onMounted, reactive, ref, watch} from "vue";
   import ScrollPane from "./ScrollPane.vue";
   import { useStore } from 'vuex'
   import {useRoute,useRouter} from 'vue-router'
@@ -145,7 +145,15 @@ import {computed, nextTick, onMounted, reactive, ref, watch} from "vue";
       addTags()
       moveToCurrentTag()
     })
+
+    router.beforeEach(async (to, from, next)=>{
+      if(from.fullPath==='/error/404'&&to.fullPath==="/home") {
+        await store.dispatch('tagsView/removeView', [from.fullPath])
+      }
+      next()
+    })
   })
+
 
 </script>
 
