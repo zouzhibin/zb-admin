@@ -42,6 +42,28 @@ export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
 
 ]
 
+const clipboardTable = {
+    path: '/clipboard',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'clipboard',
+    meta: {
+        title: 'clipboard',
+        icon: 'document-copy',
+        roles:['other']
+    },
+    children: [
+        {
+            path: 'index',
+            component: () => import('@/views/clipboard/index.vue'),
+            name: 'map',
+            meta: { title: 'clipboard', noCache: true , roles:['other'] ,icon: 'document-copy',}
+        },
+
+    ]
+}
+
+
 // 异步组件
 export const asyncRoutes = [
   tableRouter,
@@ -49,8 +71,9 @@ export const asyncRoutes = [
   chatRouter,
   componentsRouter,
   othersRouter,
-  externalLink,
   errorRouter,
+  externalLink,
+  clipboardTable,
   permissionRouter,
 
   {

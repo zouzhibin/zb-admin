@@ -36,6 +36,12 @@ const othersRouter = {
             name: 'splitpane',
             meta: { title: '分割模块', noCache: true  }
         },
+        {
+            path: 'qrcode',
+            component: () => import('@/views/other/qrcode.vue'),
+            name: 'qrcode',
+            meta: { title: '生成二维码', noCache: true  }
+        },
 
     ]
 }
