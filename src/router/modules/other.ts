@@ -42,7 +42,12 @@ const othersRouter = {
             name: 'qrcode',
             meta: { title: '生成二维码', noCache: true  }
         },
-
+        {
+            path: 'right-menu',
+            component: () => import('@/views/other/right-menu.vue'),
+            name: 'qrcode',
+            meta: { title: '右键菜单', noCache: true  }
+        },
     ]
 }
 

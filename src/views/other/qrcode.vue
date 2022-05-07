@@ -14,7 +14,7 @@
 <script lang="ts" setup>
     import {ref} from 'vue'
     import vueQr from 'vue-qr/src/packages/vue-qr.vue'
-    import three from '@/assets/3.png'
+    import three from '@/assets/logo.png'
     const src = ref(null)
     const src2 = ref()
     import clip from '@/utils/clipboard'
