@@ -45,7 +45,7 @@ const othersRouter = {
         {
             path: 'right-menu',
             component: () => import('@/views/other/right-menu.vue'),
-            name: 'qrcode',
+            name: 'right-menu',
             meta: { title: '右键菜单', noCache: true  }
         },
     ]
