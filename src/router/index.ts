@@ -10,6 +10,7 @@ import externalLink from './modules/externalLink'
 import permissionRouter from './modules/permission'
 import tableRouter from './modules/table'
 import errorRouter from './modules/error'
+import excelRouter from './modules/excel'
 
 
 interface extendRoute {
@@ -71,6 +72,7 @@ export const asyncRoutes = [
   chatRouter,
   componentsRouter,
   othersRouter,
+    excelRouter,
   errorRouter,
   externalLink,
   clipboardTable,

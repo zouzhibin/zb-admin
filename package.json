@@ -12,6 +12,7 @@
     "echarts": "^5.3.1",
     "echarts-liquidfill": "^3.1.0",
     "element-plus": "^2.1.4",
+    "exceljs": "^4.3.0",
     "mavon-editor": "^2.10.4",
     "md-editor-v3": "^1.11.3",
     "nprogress": "^0.2.0",
@@ -27,7 +28,8 @@
     "vue-splitpane": "^1.0.6",
     "vuedraggable": "^4.1.0",
     "vuex": "^4.0.0-0",
-    "wangeditor": "^4.7.12"
+    "wangeditor": "^4.7.12",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.8",
