@@ -9,7 +9,7 @@
 <!--      <source src="@/assets/mp4/2.mp4">-->
 <!--    </video>-->
 
-    <img src="@/assets/3.png" class="bg"/>
+<!--    <img src="@/assets/3.png" class="bg"/>-->
     <div class="login-box">
       <!--登录功能-->
       <div style="color: white;text-align: center;margin-bottom: 15px">登录系统-密码账号随便填 admin admin</div>
@@ -115,6 +115,7 @@
     max-width: 500px;
   }
   .login-container{
+    background-color: #2d3a4b;
     video{
       position: absolute;
       top: 0;
