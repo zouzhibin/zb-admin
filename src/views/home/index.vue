@@ -34,7 +34,7 @@
             <div>---------- 开心最重要</div>
 
             <el-divider></el-divider>
-            <div style="margin-bottom: 15px"><h5>如果对你有帮助的话，可以麻烦您点一颗 star!</h5></div>
+            <div style="margin-bottom: 15px"><h5>如果对你有帮助的话，可以麻烦点一颗 star!</h5></div>
           </div>
         </el-card>
       </el-col>
