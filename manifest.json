@@ -1,0 +1,28 @@
+{
+    "name" : "vue-element-perfect",
+    "appid" : "vue-element-perfect",
+    "description": "vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-plus实现。它使用了最新的前端技术栈、动态路由，权限验证，并且有着丰富的组件",
+    "versionName": "1.0.0",
+    "versionCode": 100,
+    "transformPx": false,
+    "h5": {
+        "devServer": {
+            "https": false
+        },
+        "title": "vue-element-perfect",
+        "router": {
+            "base": "/",
+            "mode": "hash"
+        },
+        "optimization": {
+            "treeShaking": {
+                "enable": true
+            }
+        },
+        "domain": "github.com/zouzhibin/vue-admin-perfect",
+        "uniStatistics": {
+            "enable": true
+        },
+        "template": ""
+    }
+}

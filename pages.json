@@ -1,0 +1,6 @@
+{
+	// 本项目使用router 此为uni-app默认路由 配置路由请更改router/routers.js文件
+	"pages": [{
+		"path": "views/index/index"
+	}]
+}

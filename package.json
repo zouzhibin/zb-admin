@@ -1,45 +1,36 @@
 {
-  "name": "vue-admin-perfect",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
-  },
-  "dependencies": {
-    "clipboard": "^2.0.10",
-    "core-js": "^3.6.5",
-    "echarts": "^5.3.1",
-    "echarts-liquidfill": "^3.1.0",
-    "element-plus": "^2.1.4",
-    "exceljs": "^4.3.0",
-    "mavon-editor": "^2.10.4",
-    "md-editor-v3": "^1.11.3",
-    "nprogress": "^0.2.0",
-    "path-to-regexp": "^6.2.0",
-    "print-js": "^1.6.0",
-    "splitpanes": "^3.1.1",
-    "vue": "^3.0.0",
-    "vue-cropper": "^1.0.3",
-    "vue-cropperjs": "^5.0.0",
-    "vue-mugen-scroll": "^0.2.6",
-    "vue-qr": "^4.0.6",
-    "vue-router": "^4.0.0-0",
-    "vue-splitpane": "^1.0.6",
-    "vuedraggable": "^4.1.0",
-    "vuex": "^4.0.0-0",
-    "wangeditor": "^4.7.12",
-    "xlsx": "^0.18.5"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.8",
-    "@vue/cli-plugin-router": "~4.5.8",
-    "@vue/cli-plugin-typescript": "~4.5.8",
-    "@vue/cli-plugin-vuex": "~4.5.8",
-    "@vue/cli-service": "~4.5.8",
-    "@vue/compiler-sfc": "^3.0.0",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
-    "typescript": "~4.1.5"
-  }
+    "id": "vue-element-perfect",
+    "name": "vue-element-perfect",
+    "version": "1.0.1",
+    "description": "vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-plus实现。它使用了最新的前端技术栈、动态路由，权限验证，并且有着丰富的组件",
+    "keywords": [
+        "elementui",
+        "后台管理",
+        "后台模板",
+        "admin"
+    ],
+    "engines": {
+        "HBuilderX": "^3.1.12"
+    },
+    "main": "main.js",
+    "scripts": {
+        "build": "node build.js"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zouzhibin/vue-admin-perfect"
+    },
+    "dependencies": {
+        "dayjs": "^1.11.2",
+        "echarts": "^5.3.2",
+        "element-ui": "2.15.5",
+        "fuse.js": "3.4.4",
+        "js-cookie": "^2.2.1",
+        "jsencrypt": "3.0.0-rc.1",
+        "normalize.css": "^8.0.1",
+        "nprogress": "^0.2.0",
+        "screenfull": "4.2.0",
+        "uni-simple-router": "^1.5.3"
+    }
 }

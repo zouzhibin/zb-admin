@@ -1,0 +1,68 @@
+<template>
+    <div :class="{'has-logo':showLogo}">
+        <logo v-if="showLogo" :collapse="isCollapse" />
+        <el-scrollbar wrap-class="scrollbar-wrapper">
+            <el-menu
+                :default-active="activeMenu"
+                :collapse="isCollapse"
+                :background-color="variables.menuBg"
+                :text-color="variables.menuText"
+                :unique-opened="true"
+                :active-text-color="settings.theme"
+                :collapse-transition="false"
+                mode="vertical"
+            >
+                <!-- 动态路由-->
+                <!-- <sidebar-item
+                    v-for="(route, index) in permission_routes"
+                    :key="route.path  + index"
+                    :item="route"
+                    :base-path="route.path"
+                /> -->
+                <!-- 静态路由-->
+                <sidebar-item
+                    v-for="(route, index) in myRotes"
+                    :key="route.path  + index"
+                    :item="route"
+                    :base-path="route.path"
+                />
+            </el-menu>
+        </el-scrollbar>
+    </div>
+</template>
+
+<script>
+import { mapGetters, mapState } from "vuex";
+import Logo from "./Logo";
+import SidebarItem from "./SidebarItem";
+import variables from "@/assets/styles/variables.scss";
+
+export default {
+    components: { SidebarItem, Logo },
+    computed: {
+        ...mapState(["settings"]),
+        ...mapGetters(["permission_routes", "sidebar"]),
+        activeMenu() {
+            const route = this.$route;
+            const { meta, path } = route;
+            // if set path, the sidebar will highlight the path you set
+            if (meta.activeMenu) {
+                return meta.activeMenu;
+            }
+            return path;
+        },
+        showLogo() {
+            return this.$store.state.settings.sidebarLogo;
+        },
+        variables() {
+            return variables;
+        },
+        isCollapse() {
+            return !this.sidebar.opened;
+        },
+        myRotes() {
+          return this.$store.state.constantRoutes.routes
+        }
+    }
+};
+</script>
