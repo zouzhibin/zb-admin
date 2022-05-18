@@ -1,5 +1,7 @@
 import Layout from '@/layout/index'
 import tableRouter from "./modules/table";
+import chartsRouter from "./modules/charts";
+import excelRouter from "./modules/excel";
 /**
  * meta: {
  *  title: { String|Number|Function }
@@ -14,6 +16,29 @@ import tableRouter from "./modules/table";
  *  beforeCloseName: (-) 设置该字段，则在关闭当前tab页时会去'@/router/before-close.js'里寻找该字段名对应的方法，作为关闭前的钩子函数
  * }
  */
+
+const clipboardTable = {
+    path: '/clipboard',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'clipboard',
+    meta: {
+        title: 'clipboard',
+        icon: 'document-copy',
+        roles:['other']
+    },
+    children: [
+        {
+            path: 'index',
+            component: () => import('@/views/clipboard/index.vue'),
+            name: 'map',
+            meta: { title: 'clipboard', noCache: true , roles:['other'] ,icon: 'document-copy',}
+        },
+
+    ]
+}
+
+
 export default [
 	{
 		path: '/redirect',
@@ -75,5 +100,8 @@ export default [
     }]
   },
 	tableRouter,
+    chartsRouter,
+    clipboardTable,
+    excelRouter
 
 ]

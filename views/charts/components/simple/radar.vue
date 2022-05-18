@@ -3,31 +3,7 @@
 </template>
 <script lang="ts" setup>
 import * as echarts from "echarts";
-import {EChartsType} from "echarts/core";
-import {onMounted} from "vue";
 
-let props = defineProps({
-  className: {
-    type: String,
-    default: 'chart'
-  },
-  config:{
-    type: Object,
-    default: ()=>{}
-  },
-  id: {
-    type: String,
-    default: 'chart'
-  },
-  width: {
-    type: String,
-    default: '200px'
-  },
-  height: {
-    type: String,
-    default: '200px'
-  }
-})
 const dataBJ = [
   [55, 9, 56, 0.46, 18, 6, 1],
   [25, 11, 21, 0.65, 34, 9, 2],
@@ -232,17 +208,48 @@ const options = {
     }
   ]
 };
-let chart:EChartsType;
-const initChart =()=> {
-  let chart = echarts.init(document.getElementById(props.id))
-  chart.setOption(options)
-  return chart
+export default {
+  props:{
+    className: {
+      type: String,
+      default: 'chart'
+    },
+    config:{
+      type: Object,
+      default: ()=>{}
+    },
+    id: {
+      type: String,
+      default: 'chart'
+    },
+    width: {
+      type: String,
+      default: '200px'
+    },
+    height: {
+      type: String,
+      default: '200px'
+    }
+  },
+  data(){
+    return{
+      options
+    }
+  },
+  methods:{
+    initChart(){
+      let chart = echarts.init(document.getElementById(this.id))
+      chart.setOption(this.options)
+      return chart
+    }
+  },
+  mounted(){
+    this.$nextTick(()=>{
+      let chart = this.initChart()
+      window.addEventListener('resize',function (){
+        chart&&chart.resize()
+      })
+    })
+  }
 }
-onMounted(()=>{
-  chart = initChart()
-  window.addEventListener('resize',function (){
-    chart&&chart.resize()
-  })
-
-})
 </script>

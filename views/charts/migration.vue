@@ -1,17 +1,22 @@
 <template>
-  <div class="echarts-map">
+  <div class="echarts-map app-container">
     <migration-charts height="100%" width="100%" id="migration"/>
   </div>
 </template>
 
 
-<script setup lang="ts">
-import MigrationCharts from './components/migration/index.vue'
-
+<script>
+  import MigrationCharts from './components/migration/index.vue'
+  export default {
+    components:{
+      MigrationCharts
+    }
+  }
 </script>
 
 <style>
 .echarts-map{
-  height: calc(100vh - 150px);
+  box-sizing: border-box;
+  height: calc(100vh - 120px);
 }
 </style>

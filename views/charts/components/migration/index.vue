@@ -2,36 +2,11 @@
 <template>
   <div :id="id" :class="className" :style="{height:height,width:width}" />
 </template>
-<script lang="ts" setup>
+<script>
+
 import 'echarts-liquidfill/src/liquidFill.js'
 import {geoJson} from './get.js'
 import * as echarts from "echarts";
-import {EChartsType} from "echarts/core";
-import {onMounted} from "vue";
-
-let props = defineProps({
-  className: {
-    type: String,
-    default: 'chart'
-  },
-  config:{
-    type: Object,
-    default: ()=>{}
-  },
-  id: {
-    type: String,
-    default: 'chart'
-  },
-  width: {
-    type: String,
-    default: '200px'
-  },
-  height: {
-    type: String,
-    default: '200px'
-  }
-})
-
 var geoGpsMap = [109.1162, 34.2004]
 var geoCoordMap = {
   "江苏": [118.8062, 31.9208],
@@ -266,17 +241,51 @@ const options = {
     }
   ]
 };
-let chart:EChartsType;
-const initChart =()=> {
-  let chart = echarts.init(document.getElementById(props.id))
-  chart.setOption(options)
-  return chart
-}
-onMounted(()=>{
-  chart = initChart()
-  window.addEventListener('resize',function (){
-    chart&&chart.resize()
-  })
 
-})
+
+export default {
+  props:{
+    className: {
+      type: String,
+      default: 'chart'
+    },
+    config:{
+      type: Object,
+      default: ()=>{}
+    },
+    id: {
+      type: String,
+      default: 'chart'
+    },
+    width: {
+      type: String,
+      default: '200px'
+    },
+    height: {
+      type: String,
+      default: '200px'
+    }
+  },
+  data(){
+    return{
+      options
+    }
+  },
+  methods:{
+    initChart(){
+      let chart = echarts.init(document.getElementById(this.id))
+      chart.setOption(this.options)
+      return chart
+    }
+  },
+  mounted(){
+    this.$nextTick(()=>{
+      let chart = this.initChart()
+      window.addEventListener('resize',function (){
+        chart&&chart.resize()
+      })
+    })
+  }
+}
+
 </script>
