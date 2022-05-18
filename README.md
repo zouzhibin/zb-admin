@@ -3,9 +3,9 @@ vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-p
 
 ## 效果预览
 
-#### vue-admin-perfect —— [企业级、通用型中后台前端解决方案 预览地址](http://182.61.5.190:8889/)
+#### 在线预览点击 —— [企业级、通用型中后台前端解决方案 ](http://182.61.5.190:8889/)
 
-附上github地址 [vue-admin-perfect](https://github.com/zouzhibin/vue-admin-perfect)
+附上github地址点击跳转 [vue-admin-perfect](https://github.com/zouzhibin/vue-admin-perfect)
 
 ## 项目 uniapp 分支
 
