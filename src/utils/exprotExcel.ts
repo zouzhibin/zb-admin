@@ -63,6 +63,88 @@ export const exportExcel = async ({column,data,filename,autoWidth,format})=>{
         window.URL.revokeObjectURL(link.href); // 释放内存
     }
 }
+export function addCellStyle(cell,  attr) {
+    const {color, fontSize, horizontal, bold} = attr || {};
+    // eslint-disable-next-line no-param-reassign
+    cell.fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: {argb: color},
+    };
+    // eslint-disable-next-line no-param-reassign
+    cell.font = {
+        bold: bold ?? true,
+        size: fontSize ?? 11,
+        // italic: true,
+        // name: '微软雅黑',
+        color: {argb: 'ff0000'},
+    };
+    // eslint-disable-next-line no-param-reassign
+    cell.alignment = {vertical: 'middle', wrapText: true, horizontal: horizontal ?? 'left'};
+}
+
+export const exportStyleExcel =async ({column,data,filename,autoWidth,format})=>{
+    // 创建excel
+    const workbook = new ExcelJS.Workbook();
+    // 设置信息
+    workbook.creator = "Me";
+    workbook.title = filename;
+    workbook.created = new Date();
+    workbook.modified = new Date();
+    // 创建工作表
+    const worksheet = workbook.addWorksheet(filename);
+    // 设置列名
+    let columnsName = [];
+    column.forEach((item,index)=>{
+        let obj = {
+            header: item.label, key:item.name, width: null
+        }
+        if(autoWidth){
+            let maxArr = [autoWidthAction(item.label)]
+            data.forEach(ite=>{
+                let str = ite[item.name] ||''
+                if(str){
+                    maxArr.push(autoWidthAction(str))
+                }
+            })
+            obj.width = Math.max(...maxArr)+5
+        }
+        // 设置列名、键和宽度
+        columnsName.push(obj);
+    })
+    worksheet.columns = columnsName;
+    // 添加行
+    worksheet.addRows(data);
+    // 写入文件
+
+    // 设置表头颜色
+    // 给表头添加背景色。因为表头是第一行，可以通过 getRow(1) 来获取表头这一行
+    const headerRow = worksheet.getRow(1);
+    // 通过 cell 设置样式，更精准
+    headerRow.eachCell((cell) => addCellStyle(cell, {color: 'dff8ff', fontSize: 12, horizontal: 'left'}));
+
+    const uint8Array =
+        format === "xlsx"
+            ? await workbook.xlsx.writeBuffer()
+            : await workbook.csv.writeBuffer();
+
+    const blob = new Blob([uint8Array], { type: "application/octet-binary" });
+    if (window.navigator.msSaveOrOpenBlob) {
+        // msSaveOrOpenBlob方法返回boolean值
+        navigator.msSaveBlob(blob, filename + `.${format}`);
+        // 本地保存
+    } else {
+        const link = document.createElement("a"); // a标签下载
+        link.href = window.URL.createObjectURL(blob); // href属性指定下载链接
+        link.download = filename + `.${format}`; // dowload属性指定文件名
+        link.click(); // click()事件触发下载
+        window.URL.revokeObjectURL(link.href); // 释放内存
+    }
+}
+
+
+
+
 // 默认的列宽
 export const DEFAULT_COLUMN_WIDTH = 20;
 

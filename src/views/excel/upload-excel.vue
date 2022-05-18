@@ -4,6 +4,7 @@
         style="width: 100%"
         class="upload-demo"
         drag
+        action="/"
         :before-upload="beforeUploadAction"
         type="file" accept=".xlsx, .xls"
     >

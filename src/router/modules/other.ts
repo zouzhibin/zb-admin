@@ -8,7 +8,7 @@ const othersRouter = {
     redirect: 'noRedirect',
     name: 'other',
     meta: {
-        title: '扩展',
+        title: '扩展组件',
         icon: 'management'
     },
     children: [

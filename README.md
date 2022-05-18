@@ -42,20 +42,5 @@ vue3.0 + Typescript + vuex + vue-router + Element-Plus scss
 - 退出
 - 其他各组件
 
-## 开发
-```
-# 克隆项目
-git clone https://github.com/zouzhibin/vue-admin-perfect.git
 
-# 安装依赖
-yarn install
-
-# 本地开发 启动项目
-yarn serve
-```
-
-### 发布
-```
-yarn build
-```
 

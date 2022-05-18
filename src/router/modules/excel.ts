@@ -32,6 +32,12 @@ const excelRouter = {
             name: 'upload-excel',
             meta: { title: '上传 Excel', noCache: true }
         },
+        {
+            path: 'upload-style-excel',
+            component: () => import('@/views/excel/export-style-excel.vue'),
+            name: 'upload-style-excel',
+            meta: { title: '自定义样式导出 Excel', noCache: true }
+        },
     ]
 }
 
