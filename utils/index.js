@@ -5,12 +5,12 @@ import { parseTime } from './uniele'
  */
 export function formatDate(cellValue) {
   if (cellValue == null || cellValue == "") return "";
-  var date = new Date(cellValue) 
+  var date = new Date(cellValue)
   var year = date.getFullYear()
   var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1
-  var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate() 
-  var hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours() 
-  var minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes() 
+  var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
+  var hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
+  var minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
   var seconds = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
   return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds
 }
@@ -330,7 +330,7 @@ export function makeMap(str, expectsLowerCase) {
     ? val => map[val.toLowerCase()]
     : val => map[val]
 }
- 
+
 export const exportDefault = 'export default '
 
 export const beautifierConf = {
@@ -387,4 +387,28 @@ export function camelCase(str) {
 export function isNumberStr(str) {
   return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/g.test(str)
 }
- 
+
+// // 深度克隆 array 数组或 json 对象，返回克隆后的副本
+export const deepObjClone = function(obj){
+  let weakMap = new WeakMap()
+  function clone (obj){
+    if(obj==null){return obj}
+    if(obj instanceof Date){ return new Date(obj) }
+    if(obj instanceof RegExp){ return new RegExp(obj)}
+    if(typeof obj !== 'object') return obj
+
+    if(weakMap.get(obj)){
+      return weakMap.get(obj)
+    }
+    var copy =  new obj.constructor
+    weakMap.set(obj,copy)
+    for(var key in obj){
+      if(Object.prototype.hasOwnProperty.call(obj, key)){
+        var value = obj[key];
+        copy[key] = clone(value);
+      }
+    }
+    return copy;
+  }
+  return clone (obj)
+};

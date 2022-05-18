@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="app-container">
       <div style="display: flex;justify-content: flex-end">
         <el-radio-group v-model="radio">
           <el-radio label="top">添加到顶部</el-radio>
@@ -26,11 +26,8 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script >
   import EditTable from './components/edit.vue'
-  import { ElMessage,ElMessageBox  } from 'element-plus'
-  import {ref} from "vue";
-  const table = ref()
   const column = [
     { name: 'title',
       label: '活动名称',
@@ -84,7 +81,7 @@
       update_at: '2020-05-27T08:19:22Z',
     },
     {
-      id: 624291229,
+      id: 6242922222,
       title: '活动名称三',
       readonly: '活动名称三',
       decs: '这个活动真好玩',
@@ -93,7 +90,7 @@
       update_at: '2020-05-27T08:19:22Z',
     },
     {
-      id: 624291229,
+      id: 62425491229,
       title: '活动名称四',
       readonly: '活动名称四',
       decs: '这个活动真好玩',
@@ -102,7 +99,7 @@
       update_at: '2020-05-27T08:19:22Z',
     },
     {
-      id: 624291229,
+      id: 62429281229,
       title: '活动名称五',
       readonly: '活动名称五',
       decs: '这个活动真好玩',
@@ -111,7 +108,7 @@
       update_at: '2020-05-27T08:19:22Z',
     },
     {
-      id: 624291229,
+      id: 62429091229,
       title: '活动名称六',
       readonly: '活动名称六',
       decs: '这个活动真好玩',
@@ -120,7 +117,7 @@
       update_at: '2020-05-27T08:19:22Z',
     },
     {
-      id: 624291229,
+      id: 62421191229,
       title: '活动名称七',
       readonly: '活动名称五',
       decs: '这个活动真好玩',
@@ -129,7 +126,7 @@
       update_at: '2020-05-27T08:19:22Z',
     },
     {
-      id: 624291229,
+      id: 6242222291229,
       title: '活动名称八',
       readonly: '活动名称六',
       decs: '这个活动真好玩',
@@ -138,31 +135,44 @@
       update_at: '2020-05-27T08:19:22Z',
     },
   ]
+  export default {
+    components:{
+      EditTable
+    },
+    data(){
+      return{
+        dataSource:data,
+        column,
+        list:data,
+        radio:'bottom',
+        editableKeys:[]
+      }
+    },
+    created(){
+      let arrKeys = data.filter(item=>![624748504,624691229].includes(item.id)).map(item=>item.id)
+      this.editableKeys = arrKeys
+    },
+    methods:{
+      deleteAction(row){
+        console.log('删除',row)
+        this.$message.success('点击删除')
+      },
+      onChange(val){
+       this.dataSource = val
+      },
+      add(){
 
- let arrKeys = data.map(item=>item.id)
-  const radio = ref('bottom')
-  const list = ref(data)
-  let editableKeys = ref(arrKeys)
-  const dataSource = ref(data)
-  const deleteAction = (row)=>{
-    console.log('删除',row)
-    ElMessage.success('点击删除')
-  }
-  const onChange = (val)=>{
-    dataSource.value = val
-  }
-  const add = (row)=>{
-
-  }
-  const reset = (val)=>{
-    ElMessage.success('重置成功')
-    table.value.reset()
-  }
-
-  const config = ()=>{
-    list.value = dataSource.value
-    console.log('点击提交=========',dataSource.value)
-    ElMessage.success('点击提交数据')
+      },
+      reset(val){
+        this.$message.success('重置成功')
+        this.$refs.table.reset()
+      },
+      config(){
+        this.list = this.dataSource
+        console.log('点击提交=========',this.dataSource)
+        this.$message.success('点击提交数据')
+      }
+    }
   }
 </script>
 

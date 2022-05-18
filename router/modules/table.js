@@ -25,7 +25,12 @@ const tableRouter = {
             name: 'inline-table',
             meta: { title: '行内编辑', noCache: true  }
         },
-
+        {
+            path: 'edit-table',
+            component: () => import('@/views/table/edit.vue'),
+            name: 'edit-table',
+            meta: { title: '可编辑表格', noCache: true  }
+        },
     ]
 }
 
