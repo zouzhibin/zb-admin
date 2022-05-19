@@ -3,9 +3,9 @@ vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-p
 
 ## 效果预览
 
-#### vue-admin-perfect —— [企业级、通用型中后台前端解决方案 预览地址](http://182.61.5.190:8889/)
+### 在线预览点击 —— [企业级、通用型中后台前端解决方案 ](http://182.61.5.190:8889/)
 
-附上github地址 [vue-admin-perfect](https://github.com/zouzhibin/vue-admin-perfect)
+### 附上github地址点击跳转 [vue-admin-perfect](https://github.com/zouzhibin/vue-admin-perfect)
 
 ## 目录结构介绍
 
@@ -43,18 +43,7 @@ vue3.0 + Typescript + vuex + vue-router + Element-Plus scss
 - 其他各组件
 
 
-
-vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-plus实现。它使用了最新的前端技术栈、动态路由，权限验证，并且有着丰富的组件。
-
-
-## 效果预览
-
-#### vue-admin-perfect —— [企业级、通用型中后台前端解决方案 预览地址](http://182.61.5.190:8889/)
-
-附上github地址 [vue-admin-perfect](https://github.com/zouzhibin/vue-admin-perfect)
-
-## 项目 master 分支
-
+## 项目 master 分支 基于vue3.0 + Typescript + vuex + vue-router + Element-Plus scss
 ```
 # 克隆项目
 git clone https://github.com/zouzhibin/vue-admin-perfect.git
@@ -66,7 +55,8 @@ yarn
 yarn serve
 ```
 
-## 项目 uniapp 分支
+
+## 项目 uniapp 分支 基于 uniapp +vuex +element scss
 
 ```
 # 克隆项目 切换 uniapp分支

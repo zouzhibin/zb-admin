@@ -1,6 +1,7 @@
 <template>
   <div class="app-container">
     <comprehensive-table
+            :loading="loading"
             @selection-change="selectionChange"
             :columns="column" :data="list" @reset="reset" @onSubmit="onSubmit">
       <template v-slot:btn>
@@ -69,10 +70,11 @@
   </div>
 </template>
 <script lang="ts" setup>
-  import {ref,reactive} from "vue";
+import {ref, reactive, onMounted} from "vue";
   import * as dayjs from 'dayjs'
   import { ElMessage,ElMessageBox } from 'element-plus'
   import type { FormInstance } from 'element-plus'
+  const loading = ref(true)
   import ComprehensiveTable from './components/comprehensive.vue'
   const data = []
   for(let i=0;i<100;i++){
@@ -256,6 +258,10 @@
             .then(() => {
               list.value = list.value.filter(item=>item.id!==row.id)
               ElMessage.success('删除成功')
+              loading.value = true
+              setTimeout(()=>{
+                loading.value = false
+              },500)
             })
             .catch(() => {
 
@@ -263,14 +269,27 @@
   }
 
   const reset = ()=>{
+    loading.value = true
+    setTimeout(()=>{
+      loading.value = false
+    },500)
     ElMessage.success('触发重置方法')
   }
 
   const onSubmit = (val)=>{
     console.log('val===',val)
     ElMessage.success('触发查询方法')
+    loading.value = true
+    setTimeout(()=>{
+      loading.value = false
+    },500)
   }
 
+  onMounted(()=>{
+    setTimeout(()=>{
+      loading.value = false
+    },500)
+  })
 </script>
 <style scoped>
 .edit-input {

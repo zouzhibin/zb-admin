@@ -64,6 +64,26 @@ const clipboardTable = {
     ]
 }
 
+const zipRoutes = {
+    path: '/zip',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'zip',
+    meta: {
+        title: 'Zip',
+        icon: 'document-copy',
+        roles:['other']
+    },
+    children: [
+        {
+            path: 'download',
+            component: () => import('@/views/zip/download.vue'),
+            name: 'download',
+            meta: { title: 'download', noCache: true , roles:['other'] ,icon: 'document-copy',}
+        },
+
+    ]
+}
 
 // 异步组件
 export const asyncRoutes = [
@@ -73,6 +93,7 @@ export const asyncRoutes = [
   componentsRouter,
   othersRouter,
     excelRouter,
+    zipRoutes,
   errorRouter,
   externalLink,
   clipboardTable,

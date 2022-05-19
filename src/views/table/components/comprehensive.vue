@@ -32,6 +32,7 @@
       <slot name="btn"></slot>
     </div>
     <el-table
+        v-loading="loading"
         @selection-change="(val)=>emit('selection-change',val)"
         :data="list"
         style="width: 100%"
@@ -75,6 +76,10 @@ let props = defineProps({
   data:{
     type:Array,
     default:()=>[]
+  },
+  loading:{
+    type:Boolean,
+    default:false
   }
 })
 

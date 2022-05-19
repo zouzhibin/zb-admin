@@ -8,7 +8,7 @@
         <el-button type="primary" @click="onSubmit">搜索</el-button>
       </el-form-item>
     </el-form>
-    <el-table :data="list" style="width: 100%" :border="true">
+    <el-table :data="list" style="width: 100%" :border="true" v-loading="loading">
       <el-table-column prop="id" width="60" label="id"/>
       <el-table-column prop="name" label="姓名" min-width="200px">
         <template #default="scope">
@@ -119,6 +119,7 @@ const handleCurrentChange = (val: number) => {
 }
 
 const transData = ref(data)
+const loading = ref(false)
 
 const list = computed(()=>{
   let arr = JSON.parse(JSON.stringify(transData.value))
@@ -145,6 +146,10 @@ const formInline = reactive({
 
 const onSubmit = () => {
   console.log('submit!')
+  loading.value = true
+  setTimeout(()=>{
+    loading.value = false
+  },500)
 }
 
 const deleteAction = (row)=>{
