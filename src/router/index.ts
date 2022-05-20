@@ -79,7 +79,7 @@ const zipRoutes = {
             path: 'download',
             component: () => import('@/views/zip/download.vue'),
             name: 'download',
-            meta: { title: 'download', noCache: true , roles:['other'] ,icon: 'document-copy',}
+            meta: { title: 'Zip', noCache: true , roles:['other'] ,icon: 'document-copy',}
         },
 
     ]

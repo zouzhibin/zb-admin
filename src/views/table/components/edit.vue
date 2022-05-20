@@ -210,9 +210,12 @@
   const cancelEdit = (row)=>{
     row.edit=!row.edit
     for(let attr in row){
-      if(!attr.includes('te__mp')){
-        row[attr] = row[(attr+'te__mp')]
+      if(attr!=='edit'){
+        if(!attr.includes('te__mp')){
+          row[attr] = row[(attr+'te__mp')]
+        }
       }
+
     }
   }
 

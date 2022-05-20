@@ -66,7 +66,7 @@
 
   let data = [
     {
-      id: 624748504,
+      id: 6247418504,
       title: '活动名称一',
       readonly: '活动名称一',
       decs: '这个活动真好玩',
@@ -75,7 +75,7 @@
       update_at: '2020-05-26T09:42:56Z',
     },
     {
-      id: 624691229,
+      id: 6246921229,
       title: '活动名称二',
       readonly: '活动名称二',
       decs: '这个活动真好玩',
@@ -84,7 +84,7 @@
       update_at: '2020-05-27T08:19:22Z',
     },
     {
-      id: 624291229,
+      id: 6242991229,
       title: '活动名称三',
       readonly: '活动名称三',
       decs: '这个活动真好玩',
@@ -93,7 +93,7 @@
       update_at: '2020-05-27T08:19:22Z',
     },
     {
-      id: 624291229,
+      id: 6242981229,
       title: '活动名称四',
       readonly: '活动名称四',
       decs: '这个活动真好玩',
@@ -102,7 +102,7 @@
       update_at: '2020-05-27T08:19:22Z',
     },
     {
-      id: 624291229,
+      id: 62429122229,
       title: '活动名称五',
       readonly: '活动名称五',
       decs: '这个活动真好玩',
@@ -111,7 +111,7 @@
       update_at: '2020-05-27T08:19:22Z',
     },
     {
-      id: 624291229,
+      id: 62423391229,
       title: '活动名称六',
       readonly: '活动名称六',
       decs: '这个活动真好玩',
@@ -120,7 +120,7 @@
       update_at: '2020-05-27T08:19:22Z',
     },
     {
-      id: 624291229,
+      id: 623291229,
       title: '活动名称七',
       readonly: '活动名称五',
       decs: '这个活动真好玩',
@@ -129,7 +129,7 @@
       update_at: '2020-05-27T08:19:22Z',
     },
     {
-      id: 624291229,
+      id: 624291219,
       title: '活动名称八',
       readonly: '活动名称六',
       decs: '这个活动真好玩',
@@ -139,7 +139,7 @@
     },
   ]
 
- let arrKeys = data.map(item=>item.id)
+ let arrKeys =data.map(item=>item.id).filter(item=>![6247418504,6246921229].includes(item))
   const radio = ref('bottom')
   const list = ref(data)
   let editableKeys = ref(arrKeys)

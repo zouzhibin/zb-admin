@@ -15,6 +15,7 @@
           >
             <el-form-item label="" prop="username">
               <el-input
+                  placeholder="请输入用户名"
                   autoComplete="on"
                   style="position: relative"
                   v-model="ruleForm.username" type="text" @keyup.enter.native="submitForm(ruleFormRef)">
@@ -25,6 +26,7 @@
             </el-form-item>
             <el-form-item label="" prop="password">
               <el-input
+                  placeholder="请输入密码"
                   autoComplete="on"
                   @keyup.enter.native="submitForm(ruleFormRef)"
                   v-model="ruleForm.password"

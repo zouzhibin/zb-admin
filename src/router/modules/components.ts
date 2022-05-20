@@ -49,6 +49,12 @@ const componentsRouter = {
             name: 'upload',
             meta: { title: '上传图片', noCache: true  }
         },
+        {
+            path: 'count',
+            component: () => import('@/views/components-demo/count.vue'),
+            name: 'count',
+            meta: { title: '数字自增长', noCache: true  }
+        },
     ]
 }
 
