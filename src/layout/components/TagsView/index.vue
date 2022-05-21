@@ -10,8 +10,12 @@
           tag="span"
           class="tags-view-item"
       >
-        {{ tag.title }}
-        <el-icon v-if="!isAffix(tag)" @click.prevent.stop="closeSelectedTag(tag)" ><circle-close-filled /></el-icon>
+        <div class="tags-inner">
+          <span >{{ tag.title }}</span>
+          <el-icon v-if="!isAffix(tag)" @click.prevent.stop="closeSelectedTag(tag)"
+                   class="tag-icon"
+          ><circle-close-filled /></el-icon>
+        </div>
       </router-link>
     </scroll-pane>
 
@@ -171,32 +175,52 @@
     border: 1px solid #d8dce5;
     color: #495060;
     background: #fff;
-    padding: 0 8px;
     font-size: 12px;
     padding: 0 10px;
     box-sizing: border-box;
     margin-left: 5px;
     margin-top: 4px;
+    /*display: flex;*/
+    /*align-items: center;*/
     &:first-of-type {
       margin-left: 15px;
     }
     &:last-of-type {
       margin-right: 15px;
     }
+    .tags-inner{
+      display: flex;
+      align-items: center;
+    }
+    .tag-icon{
+      margin-left: 6px;
+    }
+    .tag-icon{
+      display: none;
+    }
+    &:hover{
+      .tag-icon{
+        display: block;
+
+      }
+    }
+    &.active .tag-icon{
+      display: block;
+    }
     &.active {
       background-color: #42b983;
       color: #fff;
       border-color: #42b983;
-      &::before {
-        content: '';
-        background: #fff;
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        position: relative;
-        margin-right: 2px;
-      }
+    /*  &::before {*/
+    /*    content: '';*/
+    /*    background: #fff;*/
+    /*    display: inline-block;*/
+    /*    width: 8px;*/
+    /*    height: 8px;*/
+    /*    border-radius: 50%;*/
+    /*    position: relative;*/
+    /*    margin-right: 2px;*/
+    /*  }*/
     }
   }
 </style>

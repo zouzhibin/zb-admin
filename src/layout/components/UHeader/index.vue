@@ -15,7 +15,7 @@
         <u-hamburger/>
       </div>
       <div class="right">
-        <el-button type="text" style="margin-right: 10px" @click="toGitHub">Github地址</el-button>
+        <u-info/>
         <u-screen-full/>
         <el-dropdown @command="commandAction">
           <span class="el-dropdown-link">
@@ -43,6 +43,7 @@
   import TagViews from '../TagsView/index.vue'
   import UHamburger from "@/components/u-Hamburger/index.vue"
   import UScreenFull from '@/components/u-screenfull/index.vue'
+  import UInfo from '@/components/u-info/index.vue'
   import MenuSlide from '../Sidebar/menuSlide.vue'
   import {computed, ref,} from 'vue'
   import {useRouter} from 'vue-router'

@@ -58,7 +58,7 @@ const clipboardTable = {
             path: 'index',
             component: () => import('@/views/clipboard/index.vue'),
             name: 'map',
-            meta: { title: 'clipboard', noCache: true , roles:['other'] ,icon: 'document-copy',}
+            meta: { title: '剪贴板', noCache: true , roles:['other'] ,icon: 'document-copy',}
         },
 
     ]
