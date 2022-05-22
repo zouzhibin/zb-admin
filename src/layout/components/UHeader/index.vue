@@ -19,7 +19,7 @@
         <u-screen-full/>
         <el-dropdown @command="commandAction">
           <span class="el-dropdown-link">
-            {{ userInfo.username }}
+             <el-avatar :icon="UserFilled" :size="30" style="margin-right: 6px"/>{{ userInfo.username }}
             <el-icon class="el-icon--right">
               <arrow-down />
             </el-icon>
@@ -39,6 +39,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { UserFilled } from '@element-plus/icons-vue'
   import Personal from './Personal.vue'
   import TagViews from '../TagsView/index.vue'
   import UHamburger from "@/components/u-Hamburger/index.vue"
@@ -69,9 +70,7 @@
     return store.state.user.userInfo
   })
 
-  const toGitHub = ()=>{
-    window.open('https://github.com/zouzhibin/vue-admin-perfect')
-  }
+
   const logOut = async ()=>{
     ElMessageBox.confirm(
         '确定退出登录吗？',

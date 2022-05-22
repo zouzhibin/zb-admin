@@ -51,7 +51,7 @@
 
 <style lang="scss" scoped>
   .m-screenful{
-    width: 34px;
+    width: 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
