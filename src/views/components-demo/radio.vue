@@ -87,7 +87,7 @@
     const radio3 = ref('1')
     const radio4 = ref('1')
 </script>
-<style>
+<style scoped>
     .card-header {
         display: flex;
         justify-content: space-between;

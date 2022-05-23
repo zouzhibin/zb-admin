@@ -5,7 +5,7 @@
                 placement="bottom"
         >
             <template #reference>
-                <el-badge :value="3"  class="item">
+                <el-badge :value="3"  class="item-info-pop">
                     <el-icon><Bell /></el-icon>
                 </el-badge>
             </template>
@@ -46,10 +46,11 @@
     justify-content: center;
     cursor: pointer;
     transition: all .3s;
-    .item{
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+    .item-info-pop{
+      //  width:100% ;
+      //height: 100%;
+      display: flex;
+      align-items: center;
     }
     .item-child{
         display: flex;

@@ -6,6 +6,8 @@ function resolve(dir) {
 module.exports = {
     publicPath: "./",
     chainWebpack: config => {
+        config.resolve.alias
+            .set('static',resolve('public/static'));
         config.module.rules.delete("svg"); // 重点：删除默认配置中处理svg,
         config.module
             .rule('svg-sprite-loader')
@@ -19,4 +21,5 @@ module.exports = {
                 symbolId: 'icon-[name]'
             })
     },
+
 };

@@ -12,7 +12,7 @@
       >
         <div class="tags-inner">
           <span >{{ tag.title }}</span>
-          <el-icon v-if="!isAffix(tag)" @click.prevent.stop="closeSelectedTag(tag)"
+          <el-icon @click.prevent.stop="closeSelectedTag(tag)"
                    class="tag-icon"
           ><circle-close-filled /></el-icon>
         </div>
@@ -195,15 +195,15 @@
     .tag-icon{
       margin-left: 6px;
     }
-    .tag-icon{
-      display: none;
-    }
-    &:hover{
-      .tag-icon{
-        display: block;
-
-      }
-    }
+    //.tag-icon{
+    //  //display: none;
+    //}
+    //&:hover{
+    //  .tag-icon{
+    //    display: block;
+    //
+    //  }
+    //}
     &.active .tag-icon{
       display: block;
     }

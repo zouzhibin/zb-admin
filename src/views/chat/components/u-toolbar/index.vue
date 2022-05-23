@@ -1,8 +1,9 @@
 <template>
   <div class="g-layout-content-chat-util">
+
     <div class="item-left">
       <div class="emoje" title="选择表情" @click.stop="selectEmojiAction">
-        <img src="@/assets/face/emoji-after.png" alt="" style="width:20px">
+        <img src="static/face/emoji-after.png" alt="" style="width:20px">
       </div>
       <div class="upload-picture" title="上传图片">
         <el-upload action multiple :show-file-list="false" :before-upload="beforeUploadAction">
@@ -10,11 +11,12 @@
         </el-upload>
       </div>
       <div class="emoje-border-wrap" v-show="isShowEmoji">
+
         <div class="title-emoje"
              v-for="(item,index) in emojis"
              @click.stop="selectSigleEmojeAction($event,item)"
              :key="index">
-          <img :src="`${require(`@/assets/face/${item}.png`)}`" :title="item"/>
+          <img :src="`static/face/${item}.png`" :title="item"/>
         </div>
       </div>
     </div>

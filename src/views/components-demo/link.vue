@@ -68,7 +68,7 @@
 <script lang="ts" setup>
     import { Edit, View as IconView } from '@element-plus/icons-vue'
 </script>
-<style>
+<style lang="scss" scoped>
     .card-header {
         display: flex;
         justify-content: space-between;
