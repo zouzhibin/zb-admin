@@ -1,8 +1,8 @@
 <template>
   <section class="app-main" >
-      <router-view v-slot="{ Component }">
-        <transition name="fade-transform" mode="out-in">
-          <component :is="Component" />
+      <router-view v-slot="{ Component,route }">
+        <transition name="fade-slide" mode="out-in">
+          <component :is="Component" :key="route.path"/>
         </transition>
       </router-view>
       <u-setting/>

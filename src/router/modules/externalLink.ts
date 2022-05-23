@@ -11,7 +11,7 @@ const externalLink = {
         {
             path: 'https://github.com/zouzhibin/vue-admin-perfect',
             name: 'external',
-            meta: { title: '外链', noCache: true , icon: 'link' }
+            meta: { title: 'github 地址', noCache: true , icon: 'link' }
         },
     ]
 }
