@@ -1,8 +1,10 @@
 <template>
-  <el-icon
-      title="全屏"
-      @click.stop="click"
-      style="margin-right: 10px;cursor: pointer" ><full-screen /></el-icon>
+  <div class="m-screenful">
+    <el-icon
+            title="全屏"
+            @click.stop="click"
+            style="margin-right: 10px;cursor: pointer" ><full-screen /></el-icon>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -47,6 +49,13 @@
   })
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+  .m-screenful{
+    width: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .3s;
+  }
 </style>

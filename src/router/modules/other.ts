@@ -13,6 +13,18 @@ const othersRouter = {
     },
     children: [
         {
+            path: 'editor',
+            component: () => import('@/views/other/editor.vue'),
+            name: 'editor',
+            meta: { title: '富文本编辑器', noCache: true, roles:['other'] }
+        },
+        {
+            path: 'mark-down',
+            component: () => import('@/views/other/mark-down.vue'),
+            name: 'mark-down',
+            meta: { title: 'markDown', noCache: true , roles:['other']}
+        },
+        {
             path: 'print',
             component: () => import('@/views/other/print.vue'),
             name: 'print',
@@ -47,6 +59,12 @@ const othersRouter = {
             component: () => import('@/views/other/right-menu.vue'),
             name: 'right-menu',
             meta: { title: '右键菜单', noCache: true  }
+        },
+        {
+            path: 'count',
+            component: () => import('@/views/other/count.vue'),
+            name: 'count',
+            meta: { title: '数字自增长', noCache: true  }
         },
     ]
 }

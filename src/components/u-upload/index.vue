@@ -2,7 +2,8 @@
     <el-upload
             action=""
             :before-upload="beforeUploadAction"
-            list-type="picture-card"
+            :list-type="listType"
+            :multiple="multiple"
             :on-preview="handlePictureCardPreview"
             :on-remove="handleRemove"
             :file-list="fileList"
@@ -23,7 +24,19 @@
     import {ElMessage} from "element-plus";
     let emit = defineEmits(['update'])
     let props = defineProps({
-        modelValue:Array
+        modelValue:Array,
+        multiple:{
+            type:Boolean,
+            default:true
+        },
+        listType:{
+            type:String,
+            default:'picture-card'
+        },
+        showFileList:{
+            type:Boolean,
+            default:true
+        }
     })
     let fileList = ref([
 
