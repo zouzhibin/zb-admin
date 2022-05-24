@@ -1,4 +1,7 @@
 const path = require('path')
+const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 function resolve(dir) {
     return path.join(__dirname, '.', dir)
@@ -21,5 +24,15 @@ module.exports = {
                 symbolId: 'icon-[name]'
             })
     },
+    configureWebpack:{
+        plugins: [
+            AutoImport({
+                resolvers: [ElementPlusResolver()]
+            }),
+            Components({
+                resolvers: [ElementPlusResolver()]
+            })
+        ]
+    }
 
 };

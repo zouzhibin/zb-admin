@@ -5,9 +5,9 @@ import store from './store'
 
 import './permission'
 import SvgIcon from './icons/index'
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
-import zhCn from 'element-plus/es/locale/lang/zh-cn'
+// import ElementPlus from 'element-plus'
+// import 'element-plus/dist/index.css'
+// import zhCn from 'element-plus/es/locale/lang/zh-cn'
 const app = createApp(App)
 app.component('svg-icon',SvgIcon)
 import * as ElIconsModules from '@element-plus/icons-vue'
@@ -21,6 +21,8 @@ Object.keys(ElIconsModules).forEach((key) => {//循环遍历组件名称
 });
 
 import '@/styles/index.scss' // global css
-app.use(store).use(router).use(ElementPlus,{
-    locale: zhCn,
-}).mount('#app')
+// app.use(store).use(router).use(ElementPlus,{
+//     locale: zhCn,
+// }).mount('#app')
+
+app.use(store).use(router).mount('#app')
