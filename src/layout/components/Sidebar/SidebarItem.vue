@@ -1,6 +1,6 @@
 <template>
   <template v-if="!item.hidden">
-    <template v-if="hasOneShowingChild(item.children,item)">
+    <template v-if="!item.alwaysShow&&hasOneShowingChild(item.children,item)">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item :index="resolvePath(onlyOneChild.path)">
           <el-icon :size="20">
@@ -53,6 +53,7 @@ const hasOneShowingChild = (children = [], parent)=>{
       return true
     }
   })
+
   // 当只有一个子路由器时，默认情况下会显示该子路由器
   if (showingChildren.length === 1) {
     return true

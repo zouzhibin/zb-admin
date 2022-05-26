@@ -17,6 +17,13 @@ interface extendRoute {
   hidden?:boolean
 }
 
+/**
+ * alwaysShow 如果设置为true，将始终显示根菜单，无论其子路由长度如何
+ * hidden 如果“hidden:true”不会显示在侧边栏中（默认值为false）
+ *
+ */
+
+
 export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
   {
     path: '/login',
@@ -67,8 +74,10 @@ const clipboardTable = {
 const zipRoutes = {
     path: '/zip',
     component: Layout,
+    isShow:true,
     redirect: 'noRedirect',
     name: 'zip',
+    alwaysShow:true,
     meta: {
         title: 'Zip',
         icon: 'document-copy',

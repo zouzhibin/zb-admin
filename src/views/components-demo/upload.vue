@@ -65,7 +65,7 @@
 <script setup lang="ts">
     import UUpload from '@/components/u-upload/index.vue'
     import {ElMessage} from "element-plus";
-    import TwoPng from '@/assets/3.png'
+    import TwoPng from '@/assets/image/im1.jpeg'
     import {reactive, ref} from 'vue'
     const imgs  = ref([{
         url:TwoPng,

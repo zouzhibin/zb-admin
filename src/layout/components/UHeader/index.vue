@@ -100,15 +100,12 @@
     switch (key){
       case 1:
         logOut()
-
-
         break;
       case 2:
         person.value.show()
         break;
     }
   }
-
   const handleCollapse = () => {
     store.commit('app/SET_COLLAPSE', isCollapse.value)
   }

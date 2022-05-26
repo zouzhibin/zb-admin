@@ -7,6 +7,7 @@ const permissionRouter = {
     component: Layout,
     redirect: 'noRedirect',
     name: 'permission',
+    alwaysShow: true, // 总是显示根目录
     meta: {
         title: '权限测试页',
         icon: 'trend-charts', roles:['other']
