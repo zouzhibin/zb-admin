@@ -55,7 +55,6 @@
       const mode = computed(()=>{
         return store.state.setting.mode
       })
-      console.log('mode============',mode)
       return{
         isCollapse,
         device,

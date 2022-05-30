@@ -16,7 +16,7 @@ const mutations = {
         if (view.meta.keepAlive) {
 
             state.cachedViews.push(view.name)
-            console.log('======触发=======',state.cachedViews)
+
         }
     },
     REMOVE_VISITED_VIEW: (state, routes) => {
