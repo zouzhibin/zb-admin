@@ -20,7 +20,7 @@ interface extendRoute {
 /**
  * alwaysShow 如果设置为true，将始终显示根菜单，无论其子路由长度如何
  * hidden 如果“hidden:true”不会显示在侧边栏中（默认值为false）
- *
+ * keepAlive 设为true 缓存
  */
 
 
@@ -65,7 +65,7 @@ const clipboardTable = {
             path: 'index',
             component: () => import('@/views/clipboard/index.vue'),
             name: 'map',
-            meta: { title: '剪贴板', noCache: true , roles:['other'] ,icon: 'document-copy',}
+            meta: { title: '剪贴板',  roles:['other'] ,icon: 'document-copy',}
         },
 
     ]
@@ -88,7 +88,7 @@ const zipRoutes = {
             path: 'download',
             component: () => import('@/views/zip/download.vue'),
             name: 'download',
-            meta: { title: 'Zip', noCache: true , roles:['other'] ,icon: 'document-copy',}
+            meta: { title: 'Zip', roles:['other'] ,icon: 'document-copy',}
         },
 
     ]

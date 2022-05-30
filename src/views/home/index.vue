@@ -168,10 +168,8 @@
     }
   }
   .custom{
-    ::v-deep{
-      .el-card__body{
+    ::v-deep(.el-card__body){
         padding: 0;
-      }
     }
   }
   .item {

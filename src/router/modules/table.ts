@@ -17,19 +17,19 @@ const tableRouter = {
             path: 'comprehensive',
             component: () => import('@/views/table/comprehensive.vue'),
             name: 'comprehensive',
-            meta: { title: '综合表格', noCache: true }
+            meta: { title: '综合表格', keepAlive: true }
         },
         {
             path: 'inline-table',
             component: () => import('@/views/table/inline-edit-table.vue'),
             name: 'inline-table',
-            meta: { title: '行内编辑', noCache: true  }
+            meta: { title: '行内编辑', keepAlive: true  }
         },
         {
             path: 'edit-table',
             component: () => import('@/views/table/edit.vue'),
             name: 'edit-table',
-            meta: { title: '可编辑表格', noCache: true  }
+            meta: { title: '可编辑表格', keepAlive: true  }
         },
         // {
         //     path: 'multi-table',

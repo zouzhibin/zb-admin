@@ -16,7 +16,7 @@ const chartsRouter = {
             path: 'index',
             component: () => import('@/views/chat/index.vue'),
             name: 'chat',
-            meta: { title: '聊天框', noCache: true,icon: 'chat-square'  }
+            meta: { title: '聊天框', icon: 'chat-square'  }
         },
     ]
 }

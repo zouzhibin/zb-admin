@@ -199,10 +199,8 @@
     text-align: center;
 
   }
-  ::v-deep{
-    .el-button{
-      margin-top: 15px;
-    }
+  ::v-deep(.el-button){
+    margin-top: 15px;
   }
   .m-cropper{
     width: 100%;

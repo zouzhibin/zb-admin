@@ -14,8 +14,10 @@ router.beforeEach(async(to, from, next) => {
   // 开启进度条
   NProgress.start()
 
-  // set page title
-  document.title = to.meta.title
+  // 设置标题
+  if(typeof(to.meta.title) === 'string'){
+      document.title = to.meta.title ||'vue-admin-perfect'
+  }
 
   // 确定用户是否已登录
   const hasToken = getToken()

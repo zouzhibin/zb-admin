@@ -219,14 +219,6 @@
     }
   }
 
-  const formInline = reactive({
-    user: '',
-    region: '',
-  })
-
-  const onSubmit = () => {
-    console.log('submit!')
-  }
 
   const deleteAction = (row)=>{
     row.visible = false

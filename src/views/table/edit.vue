@@ -167,9 +167,7 @@
 </script>
 
 <style lang="scss" scoped>
-::v-deep{
-  .el-divider--horizontal{
-    margin: 10px 0;
-  }
+::v-deep(.el-divider--horizontal){
+  margin: 10px 0;
 }
 </style>

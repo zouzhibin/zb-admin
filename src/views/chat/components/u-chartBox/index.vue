@@ -251,11 +251,9 @@
   min-height: 120px;
   flex: 1;
   background: #f7f6f4;
-  ::v-deep{
-    .at-logo{
-      padding-right: 5px;
-      vertical-align: text-bottom;
-    }
+  ::v-deep(.at-logo){
+    padding-right: 5px;
+    vertical-align: text-bottom;
   }
 
 }
@@ -266,7 +264,7 @@
   align-items: center;
   justify-content: flex-end;
   flex-shrink: 0;
-  ::v-deep .el-button{
+  ::v-deep(.el-button){
     padding: 8px 20px;
     margin-right: 15px;
   }

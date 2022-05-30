@@ -23,19 +23,19 @@ const chartsRouter = {
             path: 'migration',
             component: () => import('@/views/charts/migration.vue'),
             name: 'migration',
-            meta: { title: '迁徙图', noCache: true , roles:['other'] }
+            meta: { title: '迁徙图',  roles:['other'] }
         },
         {
             path: 'simple',
             component: () => import('@/views/charts/simple.vue'),
             name: 'charts-simple',
-            meta: { title: '简单图表', noCache: true , roles:['other'] }
+            meta: { title: '简单图表', roles:['other'] }
         },
         {
             path: 'complex',
             component: () => import('@/views/charts/complex.vue'),
             name: 'charts-complex',
-            meta: { title: '复杂图表', noCache: true , roles:['other'] }
+            meta: { title: '复杂图表', roles:['other'] }
         },
     ]
 }

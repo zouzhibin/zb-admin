@@ -48,15 +48,12 @@
 .item5{
   background: rgb(72, 239, 205);
 }
-
-::v-deep {
-  .splitpanes__splitter{
-    min-height: 6px;
-    cursor: row-resize;
-    background: white;
-  }
-  .splitpanes__splitter {
-    min-width: 6px;
-  }
+::v-deep(.splitpanes__splitter){
+  min-width: 6px;
+}
+::v-deep(.splitpanes__splitter) {
+  min-height: 6px;
+  cursor: row-resize;
+  background: white;
 }
 </style>

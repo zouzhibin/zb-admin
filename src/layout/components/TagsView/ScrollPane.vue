@@ -75,13 +75,11 @@ onMounted(()=>{
   position: relative;
   overflow: hidden;
   width: 100%;
-  ::v-deep {
-    .el-scrollbar__bar {
-      bottom: 0px;
-    }
-    .el-scrollbar__wrap {
-      height: 35px;
-    }
+  ::v-deep(.el-scrollbar__bar){
+    bottom: 0px;
+  }
+  ::v-deep(.el-scrollbar__wrap){
+    height: 35px;
   }
 }
 </style>

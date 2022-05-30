@@ -134,7 +134,6 @@
     padding: 0;
     width: 146px;
     height: 146px;
-
     display: inline-flex;
 }
 </style>

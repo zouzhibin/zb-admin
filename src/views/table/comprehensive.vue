@@ -291,6 +291,9 @@ import {ref, reactive, onMounted} from "vue";
     },500)
   })
 </script>
+<script lang="ts">
+  export default { name: 'comprehensive' };
+</script>
 <style scoped>
 .edit-input {
   padding-right: 100px;
