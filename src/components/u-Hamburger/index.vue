@@ -1,6 +1,6 @@
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
-    <transition-group>
+    <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item,index) in obj.levelList" :key="item.path">
         <span v-if="item.redirect==='noRedirect'||index==obj.levelList.length-1" class="no-redirect">{{ item.meta.title }}</span>
         <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
@@ -37,12 +37,9 @@
 <style lang="scss" scoped>
 .app-breadcrumb.el-breadcrumb {
   margin-left: 10px;
-
   display: inline-block;
   font-size: 14px;
   margin-bottom: 4px;
-
-
   .no-redirect {
     cursor: text;
   }

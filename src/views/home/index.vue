@@ -45,7 +45,8 @@
               <div class="grid-content">
                 <div class="left"><el-icon style="font-size: 24px;color: white"><user /></el-icon></div>
                 <div class="right">
-                  <h2 style="color: #2d8cf0">5268</h2>
+                  <h2 style="color: #2d8cf0"><count-to :start-val="0" :end-val="5268" :duration="2000"
+                                                           :autoplay="true" ></count-to></h2>
                   <div>用户访问量
                   </div>
                 </div>
@@ -57,7 +58,8 @@
               <div class="grid-content" >
                 <div class="left"  style="background: #64d572"><el-icon style="font-size: 24px;color: white"><user /></el-icon></div>
                 <div class="right">
-                  <h2 style="color: #64d572">999</h2>
+                  <h2 style="color: #64d572"><count-to :start-val="0" :end-val="9599" :duration="2000"
+                                                    :autoplay="true" ></count-to></h2>
                   <div>系统消息
                   </div>
                 </div>
@@ -69,7 +71,8 @@
               <div class="grid-content" >
                 <div class="left" style="background: #f25e43"><el-icon style="font-size: 24px;color: white"><user /></el-icon></div>
                 <div class="right">
-                  <h2 style="color: #f25e43">5454545</h2>
+                  <h2 style="color: #f25e43"><count-to :start-val="0" :end-val="595453" :duration="2000"
+                                                              :autoplay="true" ></count-to></h2>
                   <div>数量
                   </div>
                 </div>
@@ -114,10 +117,9 @@
     User,
   } from '@element-plus/icons-vue'
   import {ref} from "vue";
-
+  import CountTo from '@/components/u-count-to/vue-countTo.vue'
   import BarCharts from "@/views/charts/components/simple/bar.vue"
   const circleUrl = ref('https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png')
-
 
   const goTo = (url)=>{
     window.open(url,'_blank')

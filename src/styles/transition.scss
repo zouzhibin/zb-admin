@@ -11,57 +11,33 @@
   opacity: 0;
 }
 
-/* router view transition fade-slide */
+/* 路由 */
 .fade-slide-leave-active,
 .fade-slide-enter-active {
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 
 .fade-slide-enter-from {
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateX(-20px);
 }
 
 .fade-slide-leave-to {
   opacity: 0;
-  transform: translateX(30px);
-}
-//
-///* fade-transform */
-//.fade-transform-leave-active,
-//.fade-transform-enter-active {
-//  transition: all .2s;
-//}
-//
-//.fade-transform-enter-from {
-//  opacity: 0;
-//  transform: translateX(-30px);
-//}
-//
-//.fade-transform-leave-to {
-//  opacity: 0;
-//  transform: translateX(30px);
-//}
-
-/* breadcrumb transition */
-.breadcrumb-enter-active,
-.breadcrumb-leave-active {
-  transition: all .2s;
+  transform: translateX(20px);
 }
 
+
+// 面包屑动画
+.breadcrumb-enter-active {
+  transition: all 0.25s;
+}
 .breadcrumb-enter-from,
 .breadcrumb-leave-active {
   opacity: 0;
-  //transform: translateX(20px);
+  transform: translateX(30px) skewX(-50deg);
 }
 
-.breadcrumb-move {
-  transition: all .2s;
-}
-
-.breadcrumb-leave-active {
-  position: absolute;
-}
 
 
 .fade-transform-leave-active,
