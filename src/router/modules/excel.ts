@@ -18,7 +18,7 @@ const excelRouter = {
             path: 'export-excel',
             component: () => import('@/views/excel/export-excel.vue'),
             name: 'export-excel',
-            meta: { title: '导出 Excel',  }
+            meta: { title: '导出 Excel', }
         },
         {
             path: 'export-merge-header',
@@ -30,13 +30,13 @@ const excelRouter = {
             path: 'upload-excel',
             component: () => import('@/views/excel/upload-excel.vue'),
             name: 'upload-excel',
-            meta: { title: '上传 Excel',  }
+            meta: { title: '上传 Excel', }
         },
         {
             path: 'upload-style-excel',
             component: () => import('@/views/excel/export-style-excel.vue'),
             name: 'upload-style-excel',
-            meta: { title: '自定义样式导出 Excel',  }
+            meta: { title: '自定义样式导出 Excel' }
         },
     ]
 }

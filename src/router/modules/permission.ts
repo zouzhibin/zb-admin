@@ -17,7 +17,7 @@ const permissionRouter = {
             path: 'page',
             component: () => import('@/views/permission/page.vue'),
             name: 'page',
-            meta: { title: '页面权限', icon: 'trend-charts', roles:['other']  }
+            meta: { title: '页面权限', icon: 'trend-charts',  roles:['other']  }
         },
     ]
 }

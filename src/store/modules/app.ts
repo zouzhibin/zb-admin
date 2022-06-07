@@ -4,6 +4,7 @@ const state = {
     isCollapse: true,
     withoutAnimation:false,
     device: 'desktop',
+    isReload:true,
 }
 
 const mutations = {
@@ -21,6 +22,14 @@ const mutations = {
         state.isCollapse = false
         state.withoutAnimation = withoutAnimation
     },
+
+    SET_RELOAD:(state) => {
+        state.isReload = false
+        setTimeout(()=>{
+            state.isReload = true
+        },50)
+    },
+
 }
 const actions = {
     toggleDevice({ commit }, device) {
@@ -29,6 +38,9 @@ const actions = {
     closeSideBar({ commit }, { withoutAnimation }) {
         commit('CLOSE_SIDEBAR', withoutAnimation)
     },
+    setReload({commit}){
+        commit('SET_RELOAD')
+    }
 }
 
 

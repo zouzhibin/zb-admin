@@ -43,17 +43,17 @@ router.beforeEach(async(to, from, next) => {
         } catch (error) {
             next(`/login?redirect=${to.path}`)
         }
+        NProgress.done()
     }
   }else{
       if (whiteList.indexOf(to.path) !== -1) {
           next()
       } else {
           next(`/login?redirect=${to.path}`)
-          NProgress.done()
+
       }
+      NProgress.done()
   }
 })
 
-router.afterEach(() => {
-  NProgress.done()
-})
+

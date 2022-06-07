@@ -3,7 +3,7 @@
         <router-view v-slot="{ Component,route }">
           <transition name="fade-slide" mode="out-in" appear>
             <keep-alive :include="cachedViews">
-              <component :is="Component" :key="route.name" />
+              <component :is="Component" :key="route.name" v-if="isReload"/>
             </keep-alive>
           </transition>
         </router-view>
@@ -19,6 +19,10 @@
 
     const cachedViews = computed(()=>{
       return store.state.tagsView.cachedViews
+    })
+
+    const isReload = computed(()=>{
+      return store.state.app.isReload
     })
 </script>
 
