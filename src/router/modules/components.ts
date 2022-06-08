@@ -52,13 +52,13 @@ const componentsRouter = {
         {
             path: 'input',
             component: () => import('@/views/components-demo/input.vue'),
-            name: 'input',
+            name: 'components-input',
             meta: { title: '输入框',  roles:['other']}
         },
         {
-            path: 'inputnumber',
+            path: 'components-inputnumber',
             component: () => import('@/views/components-demo/inputnumber.vue'),
-            name: 'inputnumber',
+            name: 'components-inputnumber',
             meta: { title: '数字输入框',  roles:['other']}
         },
         {

@@ -6,6 +6,7 @@
           <div v-for="tag in visitedViews"
                :ref="setTagRef"
                :path= "tag.path"
+               :data-id="tag.path"
                :fullPath="tag.fullPath"
                :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }"
                :key="tag.path"
@@ -13,7 +14,7 @@
                :class="isActive(tag)?'active':''"
                @click="routerGo(tag)">
             <div class="tags-view-item" >{{ tag.title }}</div>
-            <el-icon @click.prevent.stop="closeSelectedTag(tag)"  class="tag-icon">
+            <el-icon @click.prevent.stop="(e)=>closeSelectedTag(e,tag)"  class="tag-icon">
               <circle-close-filled /></el-icon>
           </div>
         </div>
@@ -62,12 +63,12 @@
   let obj = new WeakMap()
 
   let affixTags = ref([])
-  const tags = ref([])
+  const tags = ref(new Map())
   // 多个ref 添加tag
   const setTagRef = (el)=>{
     if(el){
       if(!obj.get(el)){
-        tags.value.push(el)
+        tags.value.set(el.dataset['id'],el)
       }
       obj.set(el,el)
     }
@@ -138,10 +139,14 @@
     }
   }
 
-  const closeSelectedTag = (view)=>{
+  const closeSelectedTag = (event,view)=>{
+    if(tags.value.get(view.path)){
+      tags.value.delete(view.path)
+    }
     store.dispatch('tagsView/delView', view).then(({ visitedViews }) => {
       if (isActive(view)) {
         toLastView(visitedViews, view)
+
       }
     })
   }
@@ -153,7 +158,7 @@
     })
   }
 
-  function handleScrollAction(currentTag,tagLists) {
+  function handleScrollAction(currentTag) {
     const scrollContainerRect = scrollContainer.value.getBoundingClientRect()
     let  { left:currx, width:currentWidth } = currentTag.getBoundingClientRect()
     const clientX = currx + currentWidth / 2;
@@ -169,17 +174,17 @@
 
   function moveToCurrentTag(){
     nextTick(() => {
-      for (const tag of tags.value) {
-        let path = tag.attributes.path.value
-        if (path === route.path) {
-          let fullPath = tag.attributes.fullPath.value
-          // 移动
-          handleScrollAction(tag,tags.value)
-          if (fullPath !== route.fullPath) {
-            store.dispatch('tagsView/updateVisitedView', route)
+      for (const [key, tag] of tags.value) {
+          let path = tag.attributes.path.value
+          if (path === route.path) {
+            let fullPath = tag.attributes.fullPath.value
+            // 移动
+            handleScrollAction(tag,tags.value)
+            if (fullPath !== route.fullPath) {
+              store.dispatch('tagsView/updateVisitedView', route)
+            }
+            break
           }
-          break
-        }
       }
     })
   }
@@ -200,7 +205,7 @@
       nextTick(()=>{
         setTimeout(()=>{
           moveToCurrentTag()
-        },50)
+        },100)
       })
     })
 
@@ -251,7 +256,7 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-   padding: 6px 10px;
+    padding: 6px 10px;
     font-size: 14px;
     cursor: pointer;
     margin-right: 10px;
@@ -269,12 +274,9 @@
     border-color: #42b983;
     //color: #42b983;
   }
-
   .tags-scroll-inner{
     display: flex;
-
     flex-wrap: nowrap;
-
   }
   .tag-icon{
     margin-left: 6px;
