@@ -21,6 +21,9 @@ html,body{
     background: #f6f8f9;
 
 }
+.el-pager li:focus{
+  border: none;
+}
 *{
   margin: 0;
   padding: 0;
