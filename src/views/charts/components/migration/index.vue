@@ -1,4 +1,3 @@
-
 <template>
   <div :id="id" :class="className" :style="{height:height,width:width}" />
 </template>
@@ -7,7 +6,8 @@ import { geoJson } from './get.js'
 import * as echarts from 'echarts'
 import { EChartsType } from 'echarts/core'
 import { onMounted } from 'vue'
-
+import {cityIconData} from '../js/data.js'
+import logo from '@/assets/logo.png'
 const props = defineProps({
   className: {
     type: String,
@@ -132,6 +132,12 @@ var convertToLineData = function (data, gps) {
 }
 
 const options = {
+  tooltip:{
+    trigger: 'item',
+    formatter(val){
+      // console.log('val==========',val)
+    }
+  },
   backgroundColor: '#001540',
   geo: {
     show: true,
@@ -194,6 +200,7 @@ const options = {
           }
         }
       },
+
       roam: true,
       itemStyle: {
         normal: {
@@ -258,7 +265,41 @@ const options = {
         }
       },
       data: convertToLineData(mapData, geoGpsMap)
-    }
+    },
+    {
+      type:'scatter',
+      zlevel: 16,
+      coordinateSystem: 'geo',
+      symbolSize:30,
+      symbol:`image://${logo}`,
+      data:cityIconData,
+      rippleEffect: {
+        period: 4, brushType: 'stroke', scale: 4
+      },
+      tooltip:{
+        trigger:'item',
+        padding:0,
+        borderColor:'black',
+        background:'rgba(0,0,0,0.7)',
+        textStyle: {
+          fontSize:20
+        },
+        formatter(val){
+          console.log('val=======',val)
+          let tipHtml = `
+                     <div class="m-info" style=" opacity: 0.95;background: rgba(25,27,29,1);" >
+                         <div class="title" style="padding-left: 12px;
+                         padding-top: 10px;
+                         padding-bottom: 10px;
+                         background: rgba(25,27,29,1);font-size: 20px;color: white;padding-right: 20px">${val.name}</div>
+<!--                         <div class="content" style=" padding: 12px; background: rgba(0,2,4,1);">-->
+          <!--                               <div style=" font-size: 22px; color: #ff0000;">258944</div>-->
+          <!--                        </div>-->
+          </div>`
+          return tipHtml
+          }
+      }
+    },
   ]
 }
 let chart:EChartsType
