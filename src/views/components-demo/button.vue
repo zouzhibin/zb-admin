@@ -143,7 +143,6 @@
         </div>
       </el-card>
 
-
       <el-card class="box-card">
         <template #header>
           <div class="card-header">
@@ -173,7 +172,7 @@ import {
   Message,
   Search,
   Share,
-  Star,
+  Star
 } from '@element-plus/icons-vue'
 </script>
 <style>

@@ -73,229 +73,244 @@
 
 </template>
 <script lang="ts">
-export default { name: 'comprehensive' };
 </script>
 <script lang="ts" setup>
-  import {ref, reactive, onMounted} from "vue";
-  import * as dayjs from 'dayjs'
-  import { ElMessage,ElMessageBox } from 'element-plus'
-  import type { FormInstance } from 'element-plus'
-  const loading = ref(true)
-  import ComprehensiveTable from './components/comprehensive.vue'
-  const data = []
-  for(let i=0;i<100;i++){
-    data.push({
-      date: '2016-05-02',
-      name: '王五'+i,
-      price: 1+i,
-      province: '上海',
-      admin:"admin",
-      sex:i%2?1:0,
-      checked:true,
-      id:i+1,
-      age:0,
-      city: '普陀区',
-      address: '上海市普上海',
-      zip: 200333
-    })
-  }
-  const column = [
-    { type:'selection', width:60 },
-    { name: 'id', label: 'id',width:80, },
-    { name: 'name',
-      label: '姓名',
-      inSearch:true,
-      valueType:'input',
-      width:80
-    },
-    { name: 'age',
-      label: '年龄',
-      align:'right',
-    },
-    { name: 'sex',
-      label: '性别',
-      slot:true,
-      inSearch:true,
-      options:[{
-        value:1,
-        label:'男'
-      },{
-        value:0,
-        label:'女'
-      }],
-      valueType:'select',
-    },
+import { ref, reactive, onMounted } from 'vue'
+import * as dayjs from 'dayjs'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import type { FormInstance } from 'element-plus'
+import ComprehensiveTable from './components/comprehensive.vue'
+export default { name: 'comprehensive' }
+const loading = ref(true)
+const data = []
+for (let i = 0; i < 100; i++) {
+  data.push({
+    date: '2016-05-02',
+    name: '王五' + i,
+    price: 1 + i,
+    province: '上海',
+    admin: 'admin',
+    sex: i % 2 ? 1 : 0,
+    checked: true,
+    id: i + 1,
+    age: 0,
+    city: '普陀区',
+    address: '上海市普上海',
+    zip: 200333
+  })
+}
+const column = [
+  { type: 'selection', width: 60 },
+  { name: 'id', label: 'id', width: 80 },
+  {
+    name: 'name',
+    label: '姓名',
+    inSearch: true,
+    valueType: 'input',
+    width: 80
+  },
+  {
+    name: 'age',
+    label: '年龄',
+    align: 'right'
+  },
+  {
+    name: 'sex',
+    label: '性别',
+    slot: true,
+    inSearch: true,
+    options: [{
+      value: 1,
+      label: '男'
+    }, {
+      value: 0,
+      label: '女'
+    }],
+    valueType: 'select'
+  },
+  {
+    name: 'price',
+    label: '价格',
+    inSearch: true,
+    valueType: 'input'
+  },
+  {
+    name: 'admin',
+    label: '账号',
+    inSearch: true,
+    valueType: 'input'
+  },
+  {
+    name: 'address',
+    label: '地址',
+    inSearch: true,
+    valueType: 'input'
+  },
+  {
+    name: 'date',
+    label: '日期',
+    sorter: true,
+    inSearch: true,
+    valueType: 'input'
+  },
+  { name: 'province', label: '省份' },
+  { name: 'city', label: '城市' },
+  { name: 'zip', label: '邮编' },
+  { name: 'operation', slot: true, fixed: 'right', width: 200 }
+]
+const list = ref(data)
+
+const formSize = ref('default')
+const ruleFormRef = ref<FormInstance>()
+const ruleForm = reactive({
+  name: '',
+  sex: null,
+  price: null
+})
+
+const rules = reactive({
+  name: [
+    { required: true, message: '请输入活动名称活动区域', trigger: 'blur' },
+    { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+  ],
+  price: [
+    { required: true, message: '请输入价格', trigger: 'blur' }
+  ],
+  sex: [
     {
-      name: 'price',
-      label: '价格',
-      inSearch:true,
-      valueType:'input',
-    },
-    { name: 'admin', label: '账号', inSearch:true,
-      valueType:'input',},
-    { name: 'address', label: '地址', inSearch:true,
-      valueType:'input', },
-    { name: 'date', label: '日期',sorter:true, inSearch:true,
-      valueType:'input', },
-    { name: 'province', label: '省份' },
-    { name: 'city', label: '城市' },
-    { name: 'zip', label: '邮编' },
-    { name: 'operation',slot:true,fixed:'right',width:200 }
+      required: true,
+      message: '请选择性别',
+      trigger: 'change'
+    }
   ]
-  const list = ref(data)
+})
 
-  const formSize = ref('default')
-  const ruleFormRef = ref<FormInstance>()
-  const ruleForm = reactive({
-    name: '',
-    sex: null,
-    price:null,
-  })
+const dialogVisible = ref(false)
+const title = ref('新增')
+const rowObj = ref({})
+const selectObj = ref([])
 
-  const rules = reactive({
-    name: [
-      { required: true, message: '请输入活动名称活动区域', trigger: 'blur' },
-      { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
-    ],
-    price:[
-      { required: true, message: '请输入价格', trigger: 'blur' },
-    ],
-    sex: [
-      {
-        required: true,
-        message: '请选择性别',
-        trigger: 'change',
-      },
-    ],
-  })
-
-  const dialogVisible = ref(false)
-  const title = ref('新增')
-  const rowObj = ref({})
-  const selectObj = ref([])
-
-  const handleClose = async (done:  () => void) => {
-    await ruleFormRef.value.validate((valid, fields) => {
-      if (valid) {
-        let obj = {
-          id:Date.now(),
-          ...ruleForm,
-          age:0,
-          city: '普陀区',
-          address: '上海市普上海',
-          zip: 200333,
-          province: '上海',
-          admin:"admin",
-          date: dayjs().format('YYYY-MM-DD')
+const handleClose = async (done: () => void) => {
+  await ruleFormRef.value.validate((valid, fields) => {
+    if (valid) {
+      const obj = {
+        id: Date.now(),
+        ...ruleForm,
+        age: 0,
+        city: '普陀区',
+        address: '上海市普上海',
+        zip: 200333,
+        province: '上海',
+        admin: 'admin',
+        date: dayjs().format('YYYY-MM-DD')
       }
-      if(title.value==='新增'){
-        list.value = [obj,...list.value]
+      if (title.value === '新增') {
+        list.value = [obj, ...list.value]
         ElMessage.success('添加成功')
-      }else {
-        list.value.forEach(item=>{
-          if(item.id===rowObj.value.id){
-            item.name=obj.name
-            item.sex=obj.sex
-            item.price=obj.price
+      } else {
+        list.value.forEach(item => {
+          if (item.id === rowObj.value.id) {
+            item.name = obj.name
+            item.sex = obj.sex
+            item.price = obj.price
           }
         })
       }
-        dialogVisible.value = false
-        console.log('submit!',obj)
-      } else {
-        console.log('error submit!', fields)
-      }
-    })
-  }
-
-  const add = ()=>{
-    title.value='新增'
-    dialogVisible.value = true
-  }
-
-  const batchDelete = ()=>{
-      if(!selectObj.value.length){
-        return ElMessage.error('未选中任何行')
-      }
-    ElMessageBox.confirm(
-            '你确定要删除选中项吗?',
-            '温馨提示',
-            {
-              confirmButtonText: '确定',
-              cancelButtonText: '取消',
-              type: 'warning',
-              draggable: true,
-            }
-    )
-            .then(() => {
-
-              ElMessage.success('模拟删除成功')
-              list.value = list.value.concat([])
-            })
-            .catch(() => {
-
-            })
-  }
-  const selectionChange = (val)=>{
-    selectObj.value = val
-  }
-
-  const edit = (row)=>{
-    title.value='编辑'
-    rowObj.value = row
-    dialogVisible.value = true
-    ruleForm.name = row.name
-    ruleForm.sex = row.sex
-    ruleForm.price = row.price
-  }
-
-  const del = (row)=>{
-    console.log('row==',row)
-    ElMessageBox.confirm(
-            '你确定要删除当前项吗?',
-            '温馨提示',
-            {
-              confirmButtonText: '确定',
-              cancelButtonText: '取消',
-              type: 'warning',
-              draggable: true,
-            }
-    )
-            .then(() => {
-              list.value = list.value.filter(item=>item.id!==row.id)
-              ElMessage.success('删除成功')
-              loading.value = true
-              setTimeout(()=>{
-                loading.value = false
-              },500)
-            })
-            .catch(() => {
-
-            })
-  }
-
-  const reset = ()=>{
-    loading.value = true
-    setTimeout(()=>{
-      loading.value = false
-    },500)
-    ElMessage.success('触发重置方法')
-  }
-
-  const onSubmit = (val)=>{
-    console.log('val===',val)
-    ElMessage.success('触发查询方法')
-    loading.value = true
-    setTimeout(()=>{
-      loading.value = false
-    },500)
-  }
-
-  onMounted(()=>{
-    setTimeout(()=>{
-      loading.value = false
-    },500)
+      dialogVisible.value = false
+      console.log('submit!', obj)
+    } else {
+      console.log('error submit!', fields)
+    }
   })
+}
+
+const add = () => {
+  title.value = '新增'
+  dialogVisible.value = true
+}
+
+const batchDelete = () => {
+  if (!selectObj.value.length) {
+    return ElMessage.error('未选中任何行')
+  }
+  ElMessageBox.confirm(
+    '你确定要删除选中项吗?',
+    '温馨提示',
+    {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+      draggable: true
+    }
+  )
+    .then(() => {
+      ElMessage.success('模拟删除成功')
+      list.value = list.value.concat([])
+    })
+    .catch(() => {
+
+    })
+}
+const selectionChange = (val) => {
+  selectObj.value = val
+}
+
+const edit = (row) => {
+  title.value = '编辑'
+  rowObj.value = row
+  dialogVisible.value = true
+  ruleForm.name = row.name
+  ruleForm.sex = row.sex
+  ruleForm.price = row.price
+}
+
+const del = (row) => {
+  console.log('row==', row)
+  ElMessageBox.confirm(
+    '你确定要删除当前项吗?',
+    '温馨提示',
+    {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+      draggable: true
+    }
+  )
+    .then(() => {
+      list.value = list.value.filter(item => item.id !== row.id)
+      ElMessage.success('删除成功')
+      loading.value = true
+      setTimeout(() => {
+        loading.value = false
+      }, 500)
+    })
+    .catch(() => {
+
+    })
+}
+
+const reset = () => {
+  loading.value = true
+  setTimeout(() => {
+    loading.value = false
+  }, 500)
+  ElMessage.success('触发重置方法')
+}
+
+const onSubmit = (val) => {
+  console.log('val===', val)
+  ElMessage.success('触发查询方法')
+  loading.value = true
+  setTimeout(() => {
+    loading.value = false
+  }, 500)
+}
+
+onMounted(() => {
+  setTimeout(() => {
+    loading.value = false
+  }, 500)
+})
 </script>
 
 <style scoped>

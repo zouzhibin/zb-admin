@@ -5,7 +5,6 @@
 
 </template>
 
-
 <script setup lang="ts">
 import MigrationCharts from './components/migration/index.vue'
 

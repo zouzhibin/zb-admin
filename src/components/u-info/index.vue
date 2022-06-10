@@ -20,22 +20,21 @@
             </div>
         </el-popover>
 
-
     </div>
 
 </template>
 
 <script lang="ts" setup>
-    import { ref } from 'vue'
-    import type { TabsPaneContext } from 'element-plus'
+import { ref } from 'vue'
+import type { TabsPaneContext } from 'element-plus'
 
-    const activeName = ref('first')
-    const toGitHub = ()=>{
-        window.open('https://github.com/zouzhibin/vue-admin-perfect')
-    }
-    const handleClick = (tab: TabsPaneContext, event: Event) => {
-        console.log(tab, event)
-    }
+const activeName = ref('first')
+const toGitHub = () => {
+  window.open('https://github.com/zouzhibin/vue-admin-perfect')
+}
+const handleClick = (tab: TabsPaneContext, event: Event) => {
+  console.log(tab, event)
+}
 </script>
 
 <style lang="scss" scoped>

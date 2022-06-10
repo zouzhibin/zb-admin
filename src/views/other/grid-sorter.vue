@@ -37,61 +37,61 @@
   </u-container-layout>
 </template>
 <script lang="ts" setup>
-  // 参考文档 https://sortablejs.github.io/vue.draggable.next/#/transition-example-2
-  // https://github.com/SortableJS/vue.draggable.next/blob/master/package.json
-  import draggable from "vuedraggable";
-  import {computed, ref,reactive} from "vue";
-  import {getColor} from '@/utils/index'
+// 参考文档 https://sortablejs.github.io/vue.draggable.next/#/transition-example-2
+// https://github.com/SortableJS/vue.draggable.next/blob/master/package.json
+import draggable from 'vuedraggable'
+import { computed, ref, reactive } from 'vue'
+import { getColor } from '@/utils/index'
 
-  const message = ref([]);
-  const tags = ref([]);
+const message = ref([])
+const tags = ref([])
 
-  let icon = ['management','baseball','Basketball','BellFilled','Bell',
-    'AddLocation','Aim','AlarmClock','Apple','ArrowDownBold','Burger',
-    'Brush','BrushFilled','RemoveFilled','QuestionFilled','Promotion','Printer',
-    'School','Setting','WarningFilled','ZoomOut','WalletFilled','User',
-    'ToiletPaper','Sunrise','Sunny','SwitchButton','TakeawayBox','Ticket',
-    'StarFilled','Stamp','Stopwatch','SortDown','SemiSelect','Search',
-  ]
+const icon = ['management', 'baseball', 'Basketball', 'BellFilled', 'Bell',
+  'AddLocation', 'Aim', 'AlarmClock', 'Apple', 'ArrowDownBold', 'Burger',
+  'Brush', 'BrushFilled', 'RemoveFilled', 'QuestionFilled', 'Promotion', 'Printer',
+  'School', 'Setting', 'WarningFilled', 'ZoomOut', 'WalletFilled', 'User',
+  'ToiletPaper', 'Sunrise', 'Sunny', 'SwitchButton', 'TakeawayBox', 'Ticket',
+  'StarFilled', 'Stamp', 'Stopwatch', 'SortDown', 'SemiSelect', 'Search'
+]
 
-  // 随机生成颜色
-  for(let i=0;i<30;i++){
-    message.value.push({
-      name:i,
-      order:i+1,
-      icon:icon[i],
-      color:getColor()
-    })
-  }
-
-  const drag = ref(false)
-
-  // 设置排序参数
-  const dragOptions = computed(()=>{
-    return{
-          animation: 200,
-          group: "description",
-          disabled: false,
-          ghostClass: "ghost" // 滑动颜色
-        };
+// 随机生成颜色
+for (let i = 0; i < 30; i++) {
+  message.value.push({
+    name: i,
+    order: i + 1,
+    icon: icon[i],
+    color: getColor()
   })
+}
 
-  const sorter = ()=>{
-    message.value =  message.value.sort((a, b) => a.name - b.name);
+const drag = ref(false)
+
+// 设置排序参数
+const dragOptions = computed(() => {
+  return {
+    animation: 200,
+    group: 'description',
+    disabled: false,
+    ghostClass: 'ghost' // 滑动颜色
   }
+})
 
-  const onMoveCallback = (val) => {
-    console.log('拖动前的索引 :' + val.moved.newIndex);
-    console.log('拖动后的索引 :' + val.moved.oldIndex);
-  };
-  // 查看最新的数据
-  const getdata = () => {
-    console.log(11111111);
-  };
-  // 查看最新的数据
-  const getDataAction = () => {
-    console.log(message.value);
-  };
+const sorter = () => {
+  message.value = message.value.sort((a, b) => a.name - b.name)
+}
+
+const onMoveCallback = (val) => {
+  console.log('拖动前的索引 :' + val.moved.newIndex)
+  console.log('拖动后的索引 :' + val.moved.oldIndex)
+}
+// 查看最新的数据
+const getdata = () => {
+  console.log(11111111)
+}
+// 查看最新的数据
+const getDataAction = () => {
+  console.log(message.value)
+}
 </script>
 
 <style lang="scss" scoped>

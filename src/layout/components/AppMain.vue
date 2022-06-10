@@ -13,18 +13,18 @@
 </template>
 
 <script lang="ts" setup>
-    import USetting from '@/components/u-setting/index.vue'
-    import {useStore} from "vuex";
-    import {computed, ref,} from 'vue'
-    const store = useStore()
+import USetting from '@/components/u-setting/index.vue'
+import { useStore } from 'vuex'
+import { computed, ref } from 'vue'
+const store = useStore()
 
-    const cachedViews = computed(()=>{
-      return store.state.tagsView.cachedViews
-    })
+const cachedViews = computed(() => {
+  return store.state.tagsView.cachedViews
+})
 
-    const isReload = computed(()=>{
-      return store.state.app.isReload
-    })
+const isReload = computed(() => {
+  return store.state.app.isReload
+})
 </script>
 
 <style lang="scss" scoped>
@@ -40,7 +40,6 @@
     //padding-top: 70px;
     //  background: white;
   }
-
 
   //// 主内容区动画
   //.main-enter-active {

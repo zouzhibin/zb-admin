@@ -63,27 +63,26 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {computed, ref} from "vue";
-import { ElMessage,ElMessageBox  } from 'element-plus'
+import { computed, ref, reactive } from 'vue'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import type { FormInstance } from 'element-plus'
+
 const ruleFormRef = ref<FormInstance>()
-const emit = defineEmits(['reset','onSubmit','selection-change'])
-let props = defineProps({
-  columns:{
-    type:Array,
-    default:()=>[]
+const emit = defineEmits(['reset', 'onSubmit', 'selection-change'])
+const props = defineProps({
+  columns: {
+    type: Array,
+    default: () => []
   },
-  data:{
-    type:Array,
-    default:()=>[]
+  data: {
+    type: Array,
+    default: () => []
   },
-  loading:{
-    type:Boolean,
-    default:false
+  loading: {
+    type: Boolean,
+    default: false
   }
 })
-
-
 
 const currentPage1 = ref(1)
 const isExpand = ref(true)
@@ -95,29 +94,26 @@ const handleCurrentChange = (val: number) => {
   currentPage1.value = val
 }
 
-const list = computed(()=>{
-  let arr = JSON.parse(JSON.stringify(props.data))
-  return arr.splice((currentPage1.value-1)*10,10)
+const list = computed(() => {
+  const arr = JSON.parse(JSON.stringify(props.data))
+  return arr.splice((currentPage1.value - 1) * 10, 10)
 })
 
-
 const listLoading = ref(false)
-const confirmEdit = (row)=>{
+const confirmEdit = (row) => {
   row.edit = false
 }
-const cancelEdit = (row)=>{
+const cancelEdit = (row) => {
   row.edit = false
 }
 
-import { reactive } from 'vue'
-
-let obj = {}
-let search = []
-for(let item of props.columns){
-  if(item.inSearch){
+const obj = {}
+const search = []
+for (const item of props.columns) {
+  if (item.inSearch) {
     obj[item.name] = null
   }
-  if(item.inSearch){
+  if (item.inSearch) {
     search.push(item)
   }
 }
@@ -125,38 +121,35 @@ const formSearchData = ref(search)
 const formInline = reactive(obj)
 
 const onSubmit = () => {
-  console.log('submit!',formInline)
-  emit('onSubmit',formInline)
+  console.log('submit!', formInline)
+  emit('onSubmit', formInline)
 }
 
-const reset = (formEl: FormInstance | undefined)=>{
-  formSearchData.value.forEach(item=>{
+const reset = (formEl: FormInstance | undefined) => {
+  formSearchData.value.forEach(item => {
     formInline[item.name] = null
   })
   emit('reset')
 }
-const deleteAction = (row)=>{
+const deleteAction = (row) => {
   ElMessageBox.confirm(
-      '你确定要删除当前项吗?',
-      '温馨提示',
-      {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning',
-        draggable: true,
-      }
+    '你确定要删除当前项吗?',
+    '温馨提示',
+    {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+      draggable: true
+    }
   )
-      .then(() => {
-        list.value = list.value.filter(item=>item.id!==row.id)
-        ElMessage.success('删除成功')
+    .then(() => {
+      list.value = list.value.filter(item => item.id !== row.id)
+      ElMessage.success('删除成功')
+    })
+    .catch(() => {
 
-      })
-      .catch(() => {
-
-      })
-
+    })
 }
-
 
 </script>
 <style scoped>

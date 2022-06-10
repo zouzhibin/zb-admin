@@ -90,93 +90,90 @@
 
 </template>
 <script lang="ts">
-export default { name: 'inline-table' };
 </script>
 <script lang="ts" setup >
-  import {computed, ref} from "vue";
-  import { ElMessage,ElMessageBox  } from 'element-plus'
-  const data = [
-  ]
-  for(let i=0;i<100;i++){
-    data.push({
-      date: '2016-05-02',
-      name: '王五'+i,
-      price: 1+i,
-      province: '上海',
-      admin:"admin",
-      sex:i%2?1:0,
-      checked:true,
-      id:i+1,
-      img:"https://img1.baidu.com/it/u=300787145,1214060415&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500",
-      age:0,
-      city: '普陀区',
-      address: '上海市普上海',
-      zip: 200333
+import { computed, ref, reactive } from 'vue'
+import { ElMessage, ElMessageBox } from 'element-plus'
+
+export default { name: 'inline-table' }
+const data = [
+]
+for (let i = 0; i < 100; i++) {
+  data.push({
+    date: '2016-05-02',
+    name: '王五' + i,
+    price: 1 + i,
+    province: '上海',
+    admin: 'admin',
+    sex: i % 2 ? 1 : 0,
+    checked: true,
+    id: i + 1,
+    img: 'https://img1.baidu.com/it/u=300787145,1214060415&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500',
+    age: 0,
+    city: '普陀区',
+    address: '上海市普上海',
+    zip: 200333
+  })
+}
+
+const currentPage1 = ref(1)
+const handleSizeChange = (val: number) => {
+  console.log(`${val} items per page`)
+}
+const handleCurrentChange = (val: number) => {
+  console.log(`current page: ${val}`)
+  currentPage1.value = val
+}
+
+const transData = ref(data)
+const loading = ref(false)
+
+const list = computed(() => {
+  const arr = JSON.parse(JSON.stringify(transData.value))
+  return arr.splice((currentPage1.value - 1) * 10, 10)
+})
+
+const listLoading = ref(false)
+
+const confirmEdit = (row) => {
+  row.edit = false
+}
+
+const cancelEdit = (row) => {
+  row.edit = false
+}
+
+const formInline1 = reactive({
+  username: ''
+})
+
+const onSubmit = () => {
+  console.log('submit!')
+  loading.value = true
+  setTimeout(() => {
+    loading.value = false
+  }, 500)
+}
+
+const deleteAction = (row) => {
+  ElMessageBox.confirm(
+    '你确定要删除当前项吗?',
+    '温馨提示',
+    {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+      draggable: true
+    }
+  )
+    .then(() => {
+      transData.value = transData.value.filter(item => item.id !== row.id)
+      ElMessage.success('删除成功')
     })
-  }
+    .catch(() => {
 
-  const currentPage1 = ref(1)
-  const handleSizeChange = (val: number) => {
-    console.log(`${val} items per page`)
-  }
-  const handleCurrentChange = (val: number) => {
-    console.log(`current page: ${val}`)
-    currentPage1.value = val
-  }
-
-  const transData = ref(data)
-  const loading = ref(false)
-
-  const list = computed(()=>{
-    let arr = JSON.parse(JSON.stringify(transData.value))
-    return arr.splice((currentPage1.value-1)*10,10)
-  })
-
-
-  const listLoading = ref(false)
-
-  const confirmEdit = (row)=>{
-    row.edit = false
-  }
-
-  const cancelEdit = (row)=>{
-    row.edit = false
-  }
-
-  import { reactive } from 'vue'
-
-  const formInline1 = reactive({
-    username: '',
-  })
-
-  const onSubmit = () => {
-    console.log('submit!')
-    loading.value = true
-    setTimeout(()=>{
-      loading.value = false
-    },500)
-  }
-
-  const deleteAction = (row)=>{
-    ElMessageBox.confirm(
-        '你确定要删除当前项吗?',
-        '温馨提示',
-        {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning',
-          draggable: true,
-        }
-    )
-        .then(() => {
-          transData.value = transData.value.filter(item=>item.id!==row.id)
-          ElMessage.success('删除成功')
-        })
-        .catch(() => {
-
-        })
-
-  }
+    })
+}
 
 </script>
 
