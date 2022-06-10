@@ -1,10 +1,11 @@
 <template>
-  <section class="app-main"  >
+  <section class="app-main" v-if="isReload" >
         <router-view v-slot="{ Component,route }">
           <transition name="fade-slide" mode="out-in" appear>
-            <keep-alive :include="cachedViews">
-                <component :is="Component" :key="route.name" />
+            <keep-alive v-if="route.meta&&route.meta.keepAlive">
+                <component :is="Component" :key="route.path" />
             </keep-alive>
+            <component :is="Component" :key="route.path" v-else/>
           </transition>
         </router-view>
       <u-setting/>

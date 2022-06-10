@@ -143,7 +143,6 @@
       margin-top: 18px;
       line-height: 30px;
       text-align: left;
-      color: red;
     }
   }
   .card-header {
