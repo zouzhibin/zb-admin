@@ -2,28 +2,23 @@
 <template>
   <u-container-layout class="row">
     <div style="margin-bottom: 10px">卡片拖拽排序</div>
-    <el-button class="btn " @click="sorter" type="primary" style="margin-bottom: 20px">
-      还原
-    </el-button>
-
+    <el-button class="btn " @click="sorter" type="primary" style="margin-bottom: 20px">还原</el-button>
+    <el-button class="btn " @click="getDataAction" type="primary" style="margin-bottom: 20px;margin-left: 20px">获取数据</el-button>
     <div class="col-6" style="">
       <el-row :gutter="10">
-      <draggable
-          class="list-group"
-          tag="transition-group"
-          :component-data="{
-          tag: 'ul',
-          type: 'transition-group',
-          name: !drag ? 'flip-list' : null
-        }"
-          v-model="message"
-          v-bind="dragOptions"
-          @start="drag = true"
+        <draggable
+          :list="message"
+          :animation="300"
           @end="drag = false"
+          @start="drag = true"
           item-key="order"
-      >
-        <template #item="{ element }">
-
+          v-bind="dragOptions"
+          class="list-group"
+          ghost-class="ghost"
+          @change="onMoveCallback"
+          :move="getdata"
+        >
+          <template #item="{ element }">
             <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="6"
             >
               <el-card shadow="hover" style="width: 100%" class="list-group-item">
@@ -35,33 +30,21 @@
                 <div style="margin-top: 10px">按住拖拽排序</div>
               </el-card>
             </el-col>
-
-
-
-        </template>
-      </draggable>
+          </template>
+        </draggable>
       </el-row>
     </div>
   </u-container-layout>
 </template>
-<!--<li class="list-group-item" :style="{backgroundColor:`${element.color}` }">-->
-<!--  <i-->
-<!--          :class="-->
-<!--                element.fixed ? 'fa fa-anchor' : 'glyphicon glyphicon-pushpin'-->
-<!--              "-->
-<!--          @click="element.fixed = !element.fixed"-->
-<!--          aria-hidden="true"-->
-<!--  ></i>-->
-<!--  {{ element.name }}-->
-<!--</li>-->
 <script lang="ts" setup>
   // 参考文档 https://sortablejs.github.io/vue.draggable.next/#/transition-example-2
   // https://github.com/SortableJS/vue.draggable.next/blob/master/package.json
   import draggable from "vuedraggable";
-  import {computed, ref} from "vue";
+  import {computed, ref,reactive} from "vue";
   import {getColor} from '@/utils/index'
 
   const message = ref([]);
+  const tags = ref([]);
 
   let icon = ['management','baseball','Basketball','BellFilled','Bell',
     'AddLocation','Aim','AlarmClock','Apple','ArrowDownBold','Burger',
@@ -81,7 +64,6 @@
     })
   }
 
-
   const drag = ref(false)
 
   // 设置排序参数
@@ -97,6 +79,19 @@
   const sorter = ()=>{
     message.value =  message.value.sort((a, b) => a.name - b.name);
   }
+
+  const onMoveCallback = (val) => {
+    console.log('拖动前的索引 :' + val.moved.newIndex);
+    console.log('拖动后的索引 :' + val.moved.oldIndex);
+  };
+  // 查看最新的数据
+  const getdata = () => {
+    console.log(11111111);
+  };
+  // 查看最新的数据
+  const getDataAction = () => {
+    console.log(message.value);
+  };
 </script>
 
 <style lang="scss" scoped>

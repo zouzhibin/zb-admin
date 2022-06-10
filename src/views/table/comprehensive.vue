@@ -72,6 +72,9 @@
   </u-container-layout>
 
 </template>
+<script lang="ts">
+export default { name: 'comprehensive' };
+</script>
 <script lang="ts" setup>
   import {ref, reactive, onMounted} from "vue";
   import * as dayjs from 'dayjs'
@@ -294,9 +297,7 @@
     },500)
   })
 </script>
-<script lang="ts">
-  export default { name: 'comprehensive' };
-</script>
+
 <style scoped>
 .edit-input {
   padding-right: 100px;

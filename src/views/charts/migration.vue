@@ -13,6 +13,6 @@ import MigrationCharts from './components/migration/index.vue'
 
 <style>
 .echarts-map{
-  height: calc(100vh - 95px);
+  height: calc(100vh - 93px);
 }
 </style>

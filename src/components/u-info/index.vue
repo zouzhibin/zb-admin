@@ -12,9 +12,9 @@
             <div>
                 <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
                     <el-tab-pane label="通知" name="first">
-                       <div class="item-child"> github开源地址：<el-button type="text" @click="toGitHub">点我</el-button></div>
-                        <div class="item-child"> github开源地址：<el-button type="text" @click="toGitHub">点我</el-button></div>
-                        <div class="item-child"> github开源地址：<el-button type="text" @click="toGitHub">点我</el-button></div>
+                       <div class="item-child"> github开源地址：<el-button type="primary" link @click="toGitHub">点我</el-button></div>
+                        <div class="item-child"> github开源地址：<el-button type="primary" link @click="toGitHub">点我</el-button></div>
+                        <div class="item-child"> github开源地址：<el-button type="primary" link @click="toGitHub">点我</el-button></div>
                     </el-tab-pane>
                 </el-tabs>
             </div>

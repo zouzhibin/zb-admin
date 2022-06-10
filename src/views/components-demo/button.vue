@@ -68,8 +68,8 @@
           </div>
         </template>
         <div>
-          <el-button type="text" class="item">文字按钮</el-button>
-          <el-button type="text" disabled class="item">文字按钮</el-button>
+          <el-button type="primary" link class="item">文字按钮</el-button>
+          <el-button type="primary" link disabled class="item">文字按钮</el-button>
         </div>
       </el-card>
 

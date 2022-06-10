@@ -89,7 +89,9 @@
   </u-container-layout>
 
 </template>
-
+<script lang="ts">
+export default { name: 'inline-table' };
+</script>
 <script lang="ts" setup >
   import {computed, ref} from "vue";
   import { ElMessage,ElMessageBox  } from 'element-plus'
@@ -177,9 +179,7 @@
   }
 
 </script>
-<script lang="ts">
-export default { name: 'inline-table' };
-</script>
+
 <style scoped>
 .edit-input {
   padding-right: 100px;

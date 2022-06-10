@@ -22,7 +22,7 @@
       <el-form-item>
         <el-button  @click="reset(ruleFormRef)">重置</el-button>
         <el-button type="primary" @click="onSubmit">查询</el-button>
-        <el-button type="text" @click="isExpand=!isExpand">{{ isExpand?'合并':'展开' }}<el-icon>
+        <el-button link @click="isExpand=!isExpand" type="primary">{{ isExpand?'合并':'展开' }}<el-icon>
           <arrow-down v-if="!isExpand"/>
           <arrow-up  v-else/>
         </el-icon></el-button>

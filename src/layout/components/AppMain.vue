@@ -1,9 +1,9 @@
 <template>
-  <section class="app-main" v-if="isReload" >
+  <section class="app-main"  v-if="isReload">
         <router-view v-slot="{ Component,route }">
           <transition name="fade-slide" mode="out-in" appear>
             <keep-alive v-if="route.meta&&route.meta.keepAlive">
-                <component :is="Component" :key="route.path" />
+              <component :is="Component" :key="route.path" />
             </keep-alive>
             <component :is="Component" :key="route.path" v-else/>
           </transition>
