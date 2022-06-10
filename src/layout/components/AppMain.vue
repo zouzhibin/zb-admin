@@ -1,9 +1,9 @@
 <template>
-  <section class="app-main" >
+  <section class="app-main"  >
         <router-view v-slot="{ Component,route }">
           <transition name="fade-slide" mode="out-in" appear>
             <keep-alive :include="cachedViews">
-              <component :is="Component" :key="route.name" v-if="isReload"/>
+                <component :is="Component" :key="route.name" />
             </keep-alive>
           </transition>
         </router-view>
@@ -28,7 +28,7 @@
 
 <style lang="scss" scoped>
   .app-main{
-    padding: 20px;
+    //padding: 20px;
     /*padding-top: 110px;*/
     //min-height: 100%;
     //overflow: auto;
@@ -37,7 +37,7 @@
       overflow: hidden;
     box-sizing: border-box;
     //padding-top: 70px;
-      background: white;
+    //  background: white;
   }
 
 

@@ -2,6 +2,7 @@
   <div class="echarts-map">
     <migration-charts height="100%" width="100%" id="migration"/>
   </div>
+
 </template>
 
 
@@ -12,6 +13,6 @@ import MigrationCharts from './components/migration/index.vue'
 
 <style>
 .echarts-map{
-  height: calc(100vh - 150px);
+  height: calc(100vh - 93px);
 }
 </style>

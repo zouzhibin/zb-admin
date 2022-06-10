@@ -1,5 +1,5 @@
 <template>
-  <div class="m-upload-excel">
+  <u-container-layout class="m-upload-excel">
     <el-upload
         style="width: 100%"
         class="upload-demo"
@@ -19,7 +19,7 @@
         </el-table-column>
       </el-table>
     </div>
-  </div>
+  </u-container-layout>
 </template>
 
 <script setup lang="ts">

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <u-container-layout>
     <splitpanes style="height: 800px">
       <pane min-size="20" class="left">1</pane>
       <pane>
@@ -11,7 +11,7 @@
       </pane>
       <pane class="item4">5</pane>
     </splitpanes>
-  </div>
+  </u-container-layout>
 </template>
 
 <script lang="ts" setup>

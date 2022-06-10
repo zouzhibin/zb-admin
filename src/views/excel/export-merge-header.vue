@@ -1,6 +1,6 @@
 
 <template>
-  <div>
+  <u-container-layout>
     <div style="margin-bottom: 15px">
       <el-input v-model="input" placeholder="请输入文件名"  style="width: 200px;margin-right: 10px"/>
       <el-button @click="exportExcelAction" type="primary">
@@ -20,7 +20,7 @@
         <el-table-column :prop="item.name" :label="item.label" :width="item.width"  v-else/>
       </template>
     </el-table>
-  </div>
+  </u-container-layout>
 </template>
 
 <script lang="ts" setup>

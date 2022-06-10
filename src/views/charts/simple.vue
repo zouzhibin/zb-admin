@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%;">
+  <u-container-layout style="width: 100%;">
     <el-row class="row-bg" :gutter="10">
       <el-col :xs="24" :sm="12" :lg="8">
         <el-card class="box-card">
@@ -105,7 +105,7 @@
 
 
 
-  </div>
+  </u-container-layout>
 </template>
 <script setup lang="ts">
   import LineCharts from './components/simple/line.vue'

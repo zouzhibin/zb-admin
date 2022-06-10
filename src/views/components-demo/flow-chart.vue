@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <u-container-layout>
     <zb-pipeline/>
-  </div>
+  </u-container-layout>
 </template>
 
 <script lang="ts" setup>

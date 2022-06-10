@@ -2,7 +2,7 @@
   <div
           class="m-layout-header"
           :style="{left:`${mode==='horizontal'?0:isCollapse?'56':'210'}px`}">
-    <div class="header" :class="{
+        <div class="header" :class="{
             transverseMenu:mode==='horizontal'
           }">
       <menu-slide v-if="mode==='horizontal'"/>
@@ -161,4 +161,5 @@
     display: flex;
     align-items: center;
   }
+
 </style>

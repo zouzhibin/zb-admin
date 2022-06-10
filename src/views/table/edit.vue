@@ -1,4 +1,5 @@
 <template>
+  <u-container-layout>
     <div>
       <div style="display: flex;justify-content: flex-end">
         <el-radio-group v-model="radio">
@@ -24,6 +25,8 @@
         <el-button type="primary" @click="config">提交</el-button>
       </div>
     </div>
+  </u-container-layout>
+
 </template>
 
 <script lang="ts" setup>

@@ -1,6 +1,7 @@
 <template>
   <div class="m-screenful">
     <el-icon
+        class="full-screen"
             title="全屏"
             @click.stop="click"
             style="margin-right: 10px;cursor: pointer" ><full-screen /></el-icon>
@@ -57,5 +58,10 @@
     justify-content: center;
     cursor: pointer;
     transition: all .3s;
+  }
+  .transverseMenu{
+    .full-screen{
+      color: white;
+    }
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <u-container-layout>
     <div>
       <el-button type="primary" @click="print(1)">打印图片</el-button>
       <el-button type="primary" @click="print(2)">打印表格</el-button>
@@ -14,7 +14,7 @@
         <el-table-column prop="address" label="地址" />
       </el-table>
     </div>
-  </div>
+  </u-container-layout>
 </template>
 
 <script lang="ts" setup>

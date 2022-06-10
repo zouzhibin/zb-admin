@@ -1,6 +1,6 @@
 
 <template>
-    <div>
+    <u-container-layout>
         <el-input v-model="inputData" placeholder="请输入" style="width:400px;max-width:100%;" />
         <el-button type="primary" @click="handleQrcode(1)">
             <el-icon style="margin-right: 6px"><collection /></el-icon> 生成二维码
@@ -9,7 +9,7 @@
         <div>
             <vue-qr  :logoSrc="src" :text="inputData" :size="200"></vue-qr>
         </div>
-    </div>
+    </u-container-layout>
 </template>
 <script lang="ts" setup>
     import {ref} from 'vue'

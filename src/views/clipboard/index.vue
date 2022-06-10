@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <u-container-layout>
         <el-card style="margin-bottom: 20px">
             <div style="margin-bottom: 10px">输入内容，并点击复制按钮</div>
             <el-input v-model="inputData" placeholder="请输入" style="width:400px;max-width:100%;" />
@@ -11,7 +11,7 @@
             <div style="margin-bottom: 10px">复制成功后可在这粘贴测试</div>
             <el-input v-model="testValue" placeholder="请输入" style="width:400px;max-width:100%;" />
         </el-card>
-    </div>
+    </u-container-layout>
 </template>
 <script lang="ts" setup>
     import {ref} from 'vue'

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <u-container-layout>
     <div style="margin-bottom: 15px;display: flex;align-items: center">
       <el-input v-model="input" placeholder="请输入文件名"  style="width: 200px;margin-right: 10px"/>
      <div>
@@ -18,7 +18,7 @@
         <el-table-column :prop="item.name" :label="item.label" :width="item.width" />
       </template>
     </el-table>
-  </div>
+  </u-container-layout>
 </template>
 
 <script lang="ts" setup>

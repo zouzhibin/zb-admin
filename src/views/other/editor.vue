@@ -1,36 +1,39 @@
 <template>
-  <el-form
-      ref="formRef"
-      :model="dynamicValidateForm"
-      label-width="80px"
-      class="demo-dynamic"
-  >
-    <el-form-item
-        prop="title"
-        label="标题"
-        :rules="[
+  <u-container-layout>
+    <el-form
+        ref="formRef"
+        :model="dynamicValidateForm"
+        label-width="80px"
+        class="demo-dynamic"
+    >
+      <el-form-item
+          prop="title"
+          label="标题"
+          :rules="[
         {  required: true,  message: '请输入标题', trigger: 'blur',  },
 
       ]"
-    >
-      <el-input v-model="dynamicValidateForm.title" />
-    </el-form-item>
-    <el-form-item
-        prop="content"
-        label="标题"
-        :rules="[
+      >
+        <el-input v-model="dynamicValidateForm.title" />
+      </el-form-item>
+      <el-form-item
+          prop="content"
+          label="标题"
+          :rules="[
         {  required: true,  message: '请输入内容', trigger: 'blur',  },
 
       ]"
-    >
-      <u-wang-edior v-model="dynamicValidateForm.content"/>
-    </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="submitForm(formRef)">保存</el-button>
-<!--      <el-button @click="preview">预览</el-button>-->
-      <el-button @click="resetForm(formRef)">取消</el-button>
-    </el-form-item>
-  </el-form>
+      >
+        <u-wang-edior v-model="dynamicValidateForm.content"/>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="submitForm(formRef)">保存</el-button>
+        <!--      <el-button @click="preview">预览</el-button>-->
+        <el-button @click="resetForm(formRef)">取消</el-button>
+      </el-form-item>
+    </el-form>
+  </u-container-layout>
+
 </template>
 
 <script lang="ts" setup>

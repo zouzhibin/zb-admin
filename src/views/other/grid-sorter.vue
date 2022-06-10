@@ -1,6 +1,6 @@
 
 <template>
-  <div class="row">
+  <u-container-layout class="row">
     <div style="margin-bottom: 10px">卡片拖拽排序</div>
     <el-button class="btn " @click="sorter" type="primary" style="margin-bottom: 20px">
       还原
@@ -42,7 +42,7 @@
       </draggable>
       </el-row>
     </div>
-  </div>
+  </u-container-layout>
 </template>
 <!--<li class="list-group-item" :style="{backgroundColor:`${element.color}` }">-->
 <!--  <i-->

@@ -1,76 +1,79 @@
 <template>
-  <div class="app-container">
-    <comprehensive-table
-            :loading="loading"
-            @selection-change="selectionChange"
-            :columns="column" :data="list" @reset="reset" @onSubmit="onSubmit">
-      <template v-slot:btn>
-       <div style="display: flex;justify-content: flex-end">
-         <el-button type="primary" @click="add"><el-icon><plus /></el-icon> 添加</el-button>
-         <el-button type="danger" @click="batchDelete"><el-icon><delete /></el-icon>删除</el-button>
-       </div>
-      </template>
-      <template v-slot:sex="scope">{{scope.row.sex?'男':'女'}}</template>
-      <template v-slot:operation="scope">
-        <el-button
-            type="primary"
-            size="small"
-            icon="Edit"
-            @click="edit(scope.row)"
-        >
-          编辑
-        </el-button>
-        <el-button
-                @click="del(scope.row)"
-            type="danger"
-            size="small"
-            icon="Delete"
-        >
-          删除
-        </el-button>
-      </template>
-    </comprehensive-table>
+  <u-container-layout>
+    <div class="app-container">
+      <comprehensive-table
+          :loading="loading"
+          @selection-change="selectionChange"
+          :columns="column" :data="list" @reset="reset" @onSubmit="onSubmit">
+        <template v-slot:btn>
+          <div style="display: flex;justify-content: flex-end">
+            <el-button type="primary" @click="add"><el-icon><plus /></el-icon> 添加</el-button>
+            <el-button type="danger" @click="batchDelete"><el-icon><delete /></el-icon>删除</el-button>
+          </div>
+        </template>
+        <template v-slot:sex="scope">{{scope.row.sex?'男':'女'}}</template>
+        <template v-slot:operation="scope">
+          <el-button
+              type="primary"
+              size="small"
+              icon="Edit"
+              @click="edit(scope.row)"
+          >
+            编辑
+          </el-button>
+          <el-button
+              @click="del(scope.row)"
+              type="danger"
+              size="small"
+              icon="Delete"
+          >
+            删除
+          </el-button>
+        </template>
+      </comprehensive-table>
 
-    <el-dialog
-            v-model="dialogVisible"
-            :title="title"
-            width="50%"
-    >
-      <el-form
-              ref="ruleFormRef"
-              :model="ruleForm"
-              :rules="rules"
-              label-width="120px"
-              class="demo-ruleForm"
-              :size="formSize"
+      <el-dialog
+          v-model="dialogVisible"
+          :title="title"
+          width="50%"
       >
-        <el-form-item label="活动名称" prop="name">
-          <el-input v-model="ruleForm.name" />
-        </el-form-item>
-        <el-form-item label="性别" prop="sex">
-          <el-radio-group v-model="ruleForm.sex">
-            <el-radio :label="1" >男</el-radio>
-            <el-radio :label="0" >女</el-radio>
-          </el-radio-group>
-        </el-form-item>
-        <el-form-item label="价格" prop="price">
-          <el-input v-model="ruleForm.price" />
-        </el-form-item>
-      </el-form>
-      <template #footer>
+        <el-form
+            ref="ruleFormRef"
+            :model="ruleForm"
+            :rules="rules"
+            label-width="120px"
+            class="demo-ruleForm"
+            :size="formSize"
+        >
+          <el-form-item label="活动名称" prop="name">
+            <el-input v-model="ruleForm.name" />
+          </el-form-item>
+          <el-form-item label="性别" prop="sex">
+            <el-radio-group v-model="ruleForm.sex">
+              <el-radio :label="1" >男</el-radio>
+              <el-radio :label="0" >女</el-radio>
+            </el-radio-group>
+          </el-form-item>
+          <el-form-item label="价格" prop="price">
+            <el-input v-model="ruleForm.price" />
+          </el-form-item>
+        </el-form>
+        <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
         <el-button type="primary" @click="handleClose(ruleFormRef)"
         >确定</el-button
         >
       </span>
-      </template>
-    </el-dialog>
+        </template>
+      </el-dialog>
 
-  </div>
+    </div>
+  </u-container-layout>
+
 </template>
 <script lang="ts" setup>
-import {ref, reactive, onMounted} from "vue";
+  import {ref, reactive, onMounted} from "vue";
   import * as dayjs from 'dayjs'
   import { ElMessage,ElMessageBox } from 'element-plus'
   import type { FormInstance } from 'element-plus'

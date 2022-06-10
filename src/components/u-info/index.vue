@@ -6,7 +6,7 @@
         >
             <template #reference>
                 <el-badge :value="3"  class="item-info-pop">
-                    <el-icon><Bell /></el-icon>
+                    <el-icon class="bell"><Bell /></el-icon>
                 </el-badge>
             </template>
             <div>
@@ -57,5 +57,10 @@
         align-items: center;
         font-size: 13px;
     }
+}
+.transverseMenu{
+  .bell{
+    color: white;
+  }
 }
 </style>

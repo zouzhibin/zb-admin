@@ -1,5 +1,5 @@
 <template>
-  <div class="m-permission-page">
+  <u-container-layout class="m-permission-page">
     <div style="margin-bottom: 20px">
       权限列表{{store.getters.roles}}
     </div>
@@ -7,7 +7,7 @@
       <el-radio-button label="other" />
       <el-radio-button label="admin" />
     </el-radio-group>
-  </div>
+  </u-container-layout>
 </template>
 
 <script lang="ts" setup>

@@ -1,56 +1,59 @@
    <template>
-    <div>
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+     <u-container-layout>
+       <div>
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                     <span>任意时间点
                   </span>
-                </div>
-            </template>
-            <div>
-                <el-time-picker v-model="value4" placeholder="选择时间" />
-            </div>
-        </el-card>
+             </div>
+           </template>
+           <div>
+             <el-time-picker v-model="value4" placeholder="选择时间" />
+           </div>
+         </el-card>
 
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                 <span>限制时间选择范围
               </span>
-                </div>
-            </template>
-            <div>
-                <el-time-picker
-                        v-model="value1"
-                        :disabled-hours="disabledHours"
-                        :disabled-minutes="disabledMinutes"
-                        :disabled-seconds="disabledSeconds"
-                        placeholder="选择时间"
-                />
-            </div>
-        </el-card>
+             </div>
+           </template>
+           <div>
+             <el-time-picker
+                 v-model="value1"
+                 :disabled-hours="disabledHours"
+                 :disabled-minutes="disabledMinutes"
+                 :disabled-seconds="disabledSeconds"
+                 placeholder="选择时间"
+             />
+           </div>
+         </el-card>
 
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                     <span>任意时间范围
                   </span>
-                </div>
-            </template>
-            <div>
-                <el-time-picker
-                        v-model="value3"
-                        is-range
-                        range-separator="-"
-                        start-placeholder="开始时间"
-                        end-placeholder="结束时间"
-                />
-            </div>
-        </el-card>
+             </div>
+           </template>
+           <div>
+             <el-time-picker
+                 v-model="value3"
+                 is-range
+                 range-separator="-"
+                 start-placeholder="开始时间"
+                 end-placeholder="结束时间"
+             />
+           </div>
+         </el-card>
 
 
 
-    </div>
+       </div>
+     </u-container-layout>
+
 </template>
 <script lang="ts" setup>
     import { ref } from 'vue'

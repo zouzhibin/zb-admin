@@ -1,8 +1,8 @@
 <template>
-  <div style="min-height: 300px">
+  <u-container-layout style="min-height: 300px">
     <el-button @contextmenu.prevent="rightClick">右键菜单</el-button>
     <u-right-click-menu :left="clientX" :top="clientY" @ok="operatingRightAction" :data="data"/>
-  </div>
+  </u-container-layout>
 </template>
 
 <script lang="ts" setup>

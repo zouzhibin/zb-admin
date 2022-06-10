@@ -1,5 +1,5 @@
 <template>
-    <div class="mark-down">
+    <u-container-layout class="mark-down">
       <el-alert
           title="Markdown 是基于 md-editor-v3"
           type="success"
@@ -11,7 +11,7 @@
       <div style="margin-top: 20px;flex-shrink: 0">
         <el-button type="primary" @click="submit">提交</el-button>
       </div>
-    </div>
+    </u-container-layout>
 </template>
 <script lang="ts">
   // https://imzbf.github.io/md-editor-v3/index

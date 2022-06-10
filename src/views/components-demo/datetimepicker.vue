@@ -1,80 +1,83 @@
    <template>
-    <div>
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+     <u-container-layout>
+       <div>
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                     <span>日期和时间点
                   </span>
-                </div>
-            </template>
-            <div>
-                <el-date-picker
-                        v-model="value1"
-                        type="datetime"
-                        placeholder="选择日期时间点"
-                />
-            </div>
-        </el-card>
+             </div>
+           </template>
+           <div>
+             <el-date-picker
+                 v-model="value1"
+                 type="datetime"
+                 placeholder="选择日期时间点"
+             />
+           </div>
+         </el-card>
 
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                 <span>日期时间格式
               </span>
-                </div>
-            </template>
-            <div>
-                <el-date-picker
-                        v-model="value4"
-                        type="datetime"
-                        placeholder="选择时间"
-                        format="YYYY/MM/DD hh:mm:ss"
-                />
-            </div>
-        </el-card>
+             </div>
+           </template>
+           <div>
+             <el-date-picker
+                 v-model="value4"
+                 type="datetime"
+                 placeholder="选择时间"
+                 format="YYYY/MM/DD hh:mm:ss"
+             />
+           </div>
+         </el-card>
 
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                     <span>日期和时间范围
                   </span>
-                </div>
-            </template>
-            <div>
-                <el-date-picker
-                        :shortcuts="shortcuts1"
-                        v-model="value3"
-                        type="datetimerange"
-                        range-separator="-"
-                        start-placeholder="开始日期"
-                        end-placeholder="结束日期"
-                />
-            </div>
-        </el-card>
+             </div>
+           </template>
+           <div>
+             <el-date-picker
+                 :shortcuts="shortcuts1"
+                 v-model="value3"
+                 type="datetimerange"
+                 range-separator="-"
+                 start-placeholder="开始日期"
+                 end-placeholder="结束日期"
+             />
+           </div>
+         </el-card>
 
 
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                     <span>默认的起始与结束时刻
                   </span>
-                </div>
-            </template>
-            <div>
-                <el-date-picker
-                        v-model="value5"
-                        type="datetimerange"
-                        start-placeholder="开始日期"
-                        end-placeholder="结束日期"
-                        :default-time="defaultTime1"
-                />
-            </div>
-        </el-card>
+             </div>
+           </template>
+           <div>
+             <el-date-picker
+                 v-model="value5"
+                 type="datetimerange"
+                 start-placeholder="开始日期"
+                 end-placeholder="结束日期"
+                 :default-time="defaultTime1"
+             />
+           </div>
+         </el-card>
 
 
 
 
-    </div>
+       </div>
+     </u-container-layout>
+
 </template>
 <script lang="ts" setup>
     import { ref } from 'vue'

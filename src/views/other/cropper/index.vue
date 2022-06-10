@@ -1,5 +1,5 @@
 <template>
-  <div class="m-cropper">
+  <u-container-layout class="m-cropper">
     <div class="left">
       <div class="cropper-content">
         <vue-cropper
@@ -50,7 +50,7 @@
         <img :src="option.cropImg" style="width: 100%;height: 100%" v-if="option.cropImg"/>
       </div>
     </div>
-  </div>
+  </u-container-layout>
 </template>
 
 <script lang="ts" setup>

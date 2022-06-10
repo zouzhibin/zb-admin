@@ -1,113 +1,116 @@
    <template>
-    <div>
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+     <u-container-layout>
+       <div>
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                     <span>基础用法
                   </span>
-                </div>
-            </template>
-            <div>
-                <el-input v-model="input" placeholder="请输入内容" />
-            </div>
-        </el-card>
+             </div>
+           </template>
+           <div>
+             <el-input v-model="input" placeholder="请输入内容" />
+           </div>
+         </el-card>
 
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                 <span>禁用状态
               </span>
-                </div>
-            </template>
-            <div>
-                <el-input v-model="input" disabled placeholder="请输入内容" />
-            </div>
-        </el-card>
+             </div>
+           </template>
+           <div>
+             <el-input v-model="input" disabled placeholder="请输入内容" />
+           </div>
+         </el-card>
 
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                     <span>一键清空
                   </span>
-                </div>
-            </template>
-            <div>
-                <el-input v-model="input" placeholder="请输入内容" clearable />
-            </div>
-        </el-card>
+             </div>
+           </template>
+           <div>
+             <el-input v-model="input" placeholder="请输入内容" clearable />
+           </div>
+         </el-card>
 
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                     <span>格式化
                   </span>
-                </div>
-            </template>
-            <div>
-                <el-input
-                        v-model="input"
-                        placeholder="请输入内容"
-                        :formatter="(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
-                        :parser="(value) => value.replace(/\$\s?|(,*)/g, '')"
-                />
-            </div>
-        </el-card>
+             </div>
+           </template>
+           <div>
+             <el-input
+                 v-model="input"
+                 placeholder="请输入内容"
+                 :formatter="(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
+                 :parser="(value) => value.replace(/\$\s?|(,*)/g, '')"
+             />
+           </div>
+         </el-card>
 
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                     <span>密码框
                   </span>
-                </div>
-            </template>
-            <div>
-                <el-input
-                        v-model="input"
-                        type="password"
-                        placeholder="请输入密码"
-                        show-password
-                />
-            </div>
-        </el-card>
+             </div>
+           </template>
+           <div>
+             <el-input
+                 v-model="input"
+                 type="password"
+                 placeholder="请输入密码"
+                 show-password
+             />
+           </div>
+         </el-card>
 
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                     <span>带 icon 的输入框
                   </span>
-                </div>
-            </template>
-            <div>
-                <el-input
-                        v-model="input"
-                        placeholder="请输入内容"
-                        :suffix-icon="Calendar"
-                />
-                <el-input
-                        v-model="input2"
-                        placeholder="请输入内容"
-                        :prefix-icon="Search"
-                />
-            </div>
-        </el-card>
-        <el-card class="box-card">
-            <template #header>
-                <div class="card-header">
+             </div>
+           </template>
+           <div>
+             <el-input
+                 v-model="input"
+                 placeholder="请输入内容"
+                 :suffix-icon="Calendar"
+             />
+             <el-input
+                 v-model="input2"
+                 placeholder="请输入内容"
+                 :prefix-icon="Search"
+             />
+           </div>
+         </el-card>
+         <el-card class="box-card">
+           <template #header>
+             <div class="card-header">
                     <span>文本域
                   </span>
-                </div>
-            </template>
-            <div>
-                <el-input
-                        v-model="textarea"
-                        :rows="2"
-                        type="textarea"
-                        placeholder="请输入内容"
-                />
-            </div>
-        </el-card>
+             </div>
+           </template>
+           <div>
+             <el-input
+                 v-model="textarea"
+                 :rows="2"
+                 type="textarea"
+                 placeholder="请输入内容"
+             />
+           </div>
+         </el-card>
 
-    </div>
+       </div>
+     </u-container-layout>
+
 </template>
 <script lang="ts" setup>
     import { ref } from 'vue'

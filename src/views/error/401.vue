@@ -1,6 +1,6 @@
 
 <template>
-    <div class="m-error-page">
+    <u-container-layout class="m-error-page">
         <div class="error-page">
             <div class="img">
                 <img :src="fourPng" style="width: 100%">
@@ -11,7 +11,7 @@
                 <el-button type="primary" @click="goBackHome">返回首页</el-button></div>
 
         </div>
-    </div>
+    </u-container-layout>
 </template>
 
 <script lang="ts" setup>

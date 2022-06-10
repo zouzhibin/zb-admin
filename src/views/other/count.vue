@@ -1,5 +1,5 @@
 <template>
-  <div class="components-container">
+  <u-container-layout class="components-container">
     <count-to ref="example" class="example" :start-val="options.startValInput" :end-val="options.endValInput" :duration="options.durationInput" :decimals="options.decimals"
                :prefix="options.prefix" :suffix="options.suffix" :autoplay="true" :separator="options.separator"></count-to>
     <div style="margin-top: 40px;">
@@ -29,7 +29,7 @@
       <el-button type="primary" @click="start">开始</el-button>
       <el-button type="danger" @click="pauseResume">暂停/恢复</el-button>
     </div>
-  </div>
+  </u-container-layout>
 </template>
 
 <script lang="ts" setup>

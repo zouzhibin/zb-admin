@@ -1,10 +1,13 @@
 <template>
-  <ul v-infinite-scroll="load" class="infinite-list" style="overflow: auto">
-    <li v-for="i in count" :key="i" class="infinite-list-item">{{ i }}</li>
-    <div v-if="isLoading"
-         style="height: 50px;width: 100%;display: flex;align-items: center;justify-content: center"
-    >正在加载中...</div>
-  </ul>
+  <u-container-layout>
+    <ul v-infinite-scroll="load" class="infinite-list" style="overflow: auto">
+      <li v-for="i in count" :key="i" class="infinite-list-item">{{ i }}</li>
+      <div v-if="isLoading"
+           style="height: 50px;width: 100%;display: flex;align-items: center;justify-content: center"
+      >正在加载中...</div>
+    </ul>
+  </u-container-layout>
+
 </template>
 
 <script lang="ts" setup>
