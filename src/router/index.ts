@@ -11,6 +11,7 @@ import permissionRouter from './modules/permission'
 import tableRouter from './modules/table'
 import errorRouter from './modules/error'
 import excelRouter from './modules/excel'
+import nestedRouter from './modules/nested'
 
 
 interface extendRoute {
@@ -101,6 +102,7 @@ export const asyncRoutes = [
   chatRouter,
   componentsRouter,
   othersRouter,
+  nestedRouter,
     excelRouter,
     zipRoutes,
   errorRouter,
