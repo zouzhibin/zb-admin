@@ -11,7 +11,7 @@ const nestedRouter = {
     name: 'nested',
     meta: {
         title: '路由嵌套',
-        icon: 'School'
+        icon: 'HelpFilled'
     },
     children: [
       {
@@ -52,7 +52,7 @@ const nestedRouter = {
             path: 'menu1-3',
             component: () => import('@/views/nested/menu1/menu1-3/index.vue'),
             name: 'menu1-3',
-            meta: { title: 'menu1-3' }
+            meta: { title: '菜单 1-3' }
           }
         ]
       },

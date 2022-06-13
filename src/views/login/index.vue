@@ -112,7 +112,6 @@
     })
   }
 </script>
-
 <style lang="scss" scoped>
 $dark_gray:#889aa4;
   ::v-deep(input){
@@ -121,9 +120,9 @@ $dark_gray:#889aa4;
     -webkit-appearance: none;
     border-radius: 0;
     padding: 12px 5px 12px 15px;
-    color: #fff;
+    //
     height: 47px;
-    caret-color: #fff;
+    //caret-color: #fff;
   }
   .login-box{
     width: 80%;
