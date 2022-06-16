@@ -35,7 +35,9 @@ const isReload = computed(() => {
     //overflow: auto;
     //flex: 1;
     //overflow: auto;
-      overflow: hidden;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
     box-sizing: border-box;
     //padding-top: 70px;
     //  background: white;

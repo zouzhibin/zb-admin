@@ -101,6 +101,8 @@
     //padding: 20px;
     /*background: #f6f8f9;*/
     padding-top: 93px;
+    box-sizing: border-box;
+    height: 100vh;
     position: relative;
   }
   .app-main-hide-tag{

@@ -12,6 +12,9 @@ import MigrationCharts from './components/migration/index.vue'
 
 <style lang="scss" scoped>
 .echarts-map{
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
   height: calc(100vh - 93px);
   position: relative;
   .info{

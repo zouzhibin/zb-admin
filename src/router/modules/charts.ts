@@ -31,12 +31,12 @@ const chartsRouter = {
             name: 'charts-simple',
             meta: { title: '简单图表', roles:['other'] }
         },
-        // {
-        //     path: 'complex',
-        //     component: () => import('@/views/charts/complex.vue'),
-        //     name: 'charts-complex',
-        //     meta: { title: '复杂图表', roles:['other'] }
-        // },
+        {
+            path: 'complex',
+            component: () => import('@/views/charts/complex.vue'),
+            name: 'charts-complex',
+            meta: { title: '复杂图表', roles:['other'] }
+        },
     ]
 }
 
