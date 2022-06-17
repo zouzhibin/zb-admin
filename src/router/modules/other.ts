@@ -54,12 +54,12 @@ const othersRouter = {
       name: 'qrcode',
       meta: { title: '生成二维码' }
     },
-    // {
-    //   path: 'water-marker',
-    //   component: () => import('@/views/other/water-marker.vue'),
-    //   name: 'water-marker',
-    //   meta: { title: '生成水印' }
-    // },
+    {
+      path: 'water-marker',
+      component: () => import('@/views/other/water-marker.vue'),
+      name: 'water-marker',
+      meta: { title: '生成水印' }
+    },
     {
       path: 'right-menu',
       component: () => import('@/views/other/right-menu.vue'),

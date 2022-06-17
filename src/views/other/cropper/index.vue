@@ -1,8 +1,9 @@
 <template>
   <u-container-layout class="m-cropper">
-    <div class="left">
-      <div class="cropper-content">
-        <vue-cropper
+    <div style="display: flex">
+      <div class="left">
+        <div class="cropper-content">
+          <vue-cropper
             ref="cropper"
             :img="option.img"
             :output-size="option.size"
@@ -19,35 +20,36 @@
             :auto-crop-height="option.autoCropHeight"
             :center-box="option.centerBox"
             @real-time="realTime"
-        />
-      </div>
-      <el-button type="primary" @click.prevent="zoom(1)">放大</el-button>
-      <el-button type="primary" @click.prevent="zoom(-1)">缩小</el-button>
-      <el-button type="primary" @click.prevent="rotateLeft">向左旋转</el-button>
-      <el-button type="primary" @click.prevent="rotateRight">向右旋转</el-button>
-      <el-button type="primary" @click.prevent="reset">清除</el-button>
-      <el-button type="primary" @click.prevent="cropImage">获取结果</el-button>
-      <el-button type="primary" @click.prevent="down('base64')">下载图片</el-button>
-      <el-upload
+          />
+        </div>
+        <el-button type="primary" @click.prevent="zoom(1)">放大</el-button>
+        <el-button type="primary" @click.prevent="zoom(-1)">缩小</el-button>
+        <el-button type="primary" @click.prevent="rotateLeft">向左旋转</el-button>
+        <el-button type="primary" @click.prevent="rotateRight">向右旋转</el-button>
+        <el-button type="primary" @click.prevent="reset">清除</el-button>
+        <el-button type="primary" @click.prevent="cropImage">获取结果</el-button>
+        <el-button type="primary" @click.prevent="down('base64')">下载图片</el-button>
+        <el-upload
           class="upload-demo"
           :show-file-list="false"
           action
           :before-upload="beforeUpload"
-      >
-        <el-button type="primary">选择上传图片</el-button>
-      </el-upload>
-    </div>
-
-    <div>
-      <h4 style="margin-top: 10px">实时预览</h4>
-      <div class="show-preview" :style="{'width': option.previews.w + 'px', 'height': option.previews.h + 'px',  'overflow': 'hidden', 'margin': '5px'}">
-        <div :style="option.previews.div">
-          <img :src="option.previews.url" :style="option.previews.img">
-        </div>
+        >
+          <el-button type="primary">选择上传图片</el-button>
+        </el-upload>
       </div>
-      <h4 style="margin-top: 10px">获取结果</h4>
-      <div style="background: #ccc;width: 100px;height: 100px">
-        <img :src="option.cropImg" style="width: 100%;height: 100%" v-if="option.cropImg"/>
+
+      <div>
+        <h4 style="margin-top: 10px">实时预览</h4>
+        <div class="show-preview" :style="{'width': option.previews.w + 'px', 'height': option.previews.h + 'px',  'overflow': 'hidden', 'margin': '5px'}">
+          <div :style="option.previews.div">
+            <img :src="option.previews.url" :style="option.previews.img">
+          </div>
+        </div>
+        <h4 style="margin-top: 10px">获取结果</h4>
+        <div style="background: #ccc;width: 100px;height: 100px">
+          <img :src="option.cropImg" style="width: 100%;height: 100%" v-if="option.cropImg"/>
+        </div>
       </div>
     </div>
   </u-container-layout>
