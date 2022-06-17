@@ -11,7 +11,7 @@
   height: 100%;
     /*background: #f6f8f9;*/
     /*background: goldenrod;*/
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Avenir,  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

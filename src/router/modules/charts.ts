@@ -8,7 +8,7 @@ const chartsRouter = {
     redirect: 'noRedirect',
     name: 'Charts',
     meta: {
-        title: '图表',
+        title: '可视化图表',
         icon: 'trend-charts',
         roles:['other']
     },
@@ -36,6 +36,12 @@ const chartsRouter = {
             component: () => import('@/views/charts/complex.vue'),
             name: 'charts-complex',
             meta: { title: '复杂图表', roles:['other'] }
+        },
+        {
+          path: 'animation',
+          component: () => import('@/views/charts/animation.vue'),
+          name: 'charts-animation',
+          meta: { title: '动画', roles:['other'] }
         },
     ]
 }
