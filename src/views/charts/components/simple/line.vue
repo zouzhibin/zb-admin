@@ -1,19 +1,28 @@
 <template>
-  <div :id="id" :class="className" :style="{height:height,width:width}" />
+  <div :id="id" :class="className" :style="{height:height,width:width}" ref="chartsRef"/>
 </template>
 <script lang="ts" setup>
-import * as echarts from "echarts";
-import {EChartsType} from "echarts/core";
-import {onMounted} from "vue";
+import * as echarts from 'echarts'
+import { EChartsType } from 'echarts/core'
+import { onMounted, ref } from 'vue'
+const chartsRef = ref<HTMLElement|null>()
 
-let props = defineProps({
+const props = defineProps({
   className: {
     type: String,
     default: 'chart'
   },
-  config:{
+  xAxisData: {
+    type: Array,
+    default: () => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  config: {
     type: Object,
-    default: ()=>{}
+    default: () => {}
+  },
+  seriesData: {
+    type: Array,
+    default: () => [150, 230, 224, 218, 135, 147, 260]
   },
   id: {
     type: String,
@@ -34,33 +43,37 @@ const options = {
     left: '2%',
     right: '2%',
     bottom: '2%',
-    containLabel: true
+    containLabel: true,
   },
   xAxis: {
     type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    data: props.xAxisData
   },
   yAxis: {
     type: 'value'
   },
   series: [
     {
-      data: [150, 230, 224, 218, 135, 147, 260],
+      data: props.seriesData,
       type: 'line'
     }
-  ]
-};
-let chart:EChartsType;
-const initChart =()=> {
-  let chart = echarts.init(document.getElementById(props.id))
+  ],
+  ...props.config
+}
+let chart:EChartsType
+const initChart = () => {
+  const chart = echarts.init(chartsRef.value)
   chart.setOption(options)
   return chart
 }
-onMounted(()=>{
+onMounted(() => {
   chart = initChart()
-  window.addEventListener('resize',function (){
-    chart&&chart.resize()
+  window.addEventListener('resize', function () {
+    chart && chart.resize()
   })
-
 })
 </script>
+
+<style>
+
+</style>

@@ -55,7 +55,7 @@ const options = {
   series: [
     {
       data: props.seriesData,
-      type: 'line'
+      type: 'bar'
     }
   ],
   ...props.config
