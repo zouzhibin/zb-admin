@@ -161,7 +161,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import VueCropper from 'vue-cropperjs';
 import 'cropperjs/dist/cropper.css';
 // import imgSrc from "@/assets/image/berserk.jpg"

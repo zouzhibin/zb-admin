@@ -2,9 +2,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
+//
 import './permission'
-import SvgIcon from './icons/index'
+import 'virtual:svg-icons-register'
+import SvgIcon from '@/components/SvgIcon/index.vue'// svg component
 import ElementPlus from 'element-plus'
 import UContainerLayout from '@/components/u-container-layout/index.vue'
 import 'element-plus/dist/index.css'
@@ -22,7 +23,9 @@ Object.keys(ElIconsModules).forEach((key) => {//循环遍历组件名称
     }
 });
 
-import '@/styles/index.scss' // global css
-app.use(store).use(router).use(ElementPlus,{
+app.use(store)
+app.use(router)
+
+app.use(ElementPlus,{
     locale: zhCn,
 }).mount('#app')

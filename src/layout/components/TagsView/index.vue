@@ -42,7 +42,7 @@
   import { useStore } from 'vuex'
   import {useRoute,useRouter} from 'vue-router'
 
-  const path = require('path')
+  import path from 'path-browserify'
   const store = useStore()
   const route = useRoute()
   const router = useRouter()

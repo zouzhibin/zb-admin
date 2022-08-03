@@ -4,7 +4,7 @@
   </component>
 </template>
 
-<script>
+<script lang="ts">
 import { isExternal } from '@/utils/validate.js'
 
 export default {

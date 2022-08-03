@@ -81,7 +81,7 @@
     username: 'admin',
     password: 'admin',
   })
-
+  console.log(11111111)
   const rules = reactive({
     password: [{ validator: validatePass, trigger: 'blur' }],
     username: [{ validator: validateUsername, trigger: 'blur' }],

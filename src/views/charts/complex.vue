@@ -12,8 +12,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import LineCharts from './components/complex/line/index'
-import BarCharts from './components/complex/bar/index'
+import LineCharts from './components/complex/line/index.vue'
+import BarCharts from './components/complex/bar/index.vue'
 
 </script>
 <style lang="scss" scoped>

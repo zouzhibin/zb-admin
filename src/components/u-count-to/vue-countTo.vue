@@ -3,7 +3,7 @@
       {{displayValue}}
     </span>
 </template>
-<script>
+<script lang="ts">
 import { requestAnimationFrame, cancelAnimationFrame } from './requestAnimationFrame.js'
 export default {
   props: {

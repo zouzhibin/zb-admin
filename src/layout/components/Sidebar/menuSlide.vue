@@ -14,7 +14,6 @@
 </template>
 
 <script lang="ts" setup>
-
     import SidebarItem from './SidebarItem.vue'
     import logo from './Logo.vue'
     import {useRoute} from 'vue-router'
@@ -25,14 +24,11 @@
     const store = useStore()
     const route = useRoute()
 
-
     // 获取路由
     const permission_routes = computed(()=>{
+      console.log('permission_routes',store.state.permission.routes)
         return store.state.permission.routes
     })
-
-
-    // console.log('permission_routes',permission_routes)
 
     const activeMenu = computed(()=>{
         const { meta, path } = route

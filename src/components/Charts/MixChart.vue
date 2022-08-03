@@ -2,7 +2,7 @@
   <div :id="id" :class="className" :style="{height:height,width:width}" />
 </template>
 
-<script>
+<script lang="ts">
 import echarts from 'echarts'
 import resize from './mixins/resize'
 

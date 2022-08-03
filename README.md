@@ -43,7 +43,16 @@ vue3.0 + Typescript + vuex + vue-router + Element-Plus scss
 - 其他各组件
 
 
-## 项目 master 分支 基于vue3.0 + Typescript + vuex + vue-router + Element-Plus scss
+## 分支管理
+- master 技术采用 vite + vue3.0 + Typescript + vuex + vue-router + Element-Plus scss
+  ```
+  注意：使用 Vite 构建工具，需要 Node.js 版本 >= 12.0.0  查看 Node.js 版本 node-v
+  ```
+- webpack 技术采用 webpack + vue3.0 + Typescript + vuex + vue-router + Element-Plus scss
+- uniapp 技术采用 uniapp +vuex +element scss
+
+
+## 项目 master 分支 基于vite + vue3.0 + Typescript + vuex + vue-router + Element-Plus scss 
 ```
 # 克隆项目
 git clone https://github.com/zouzhibin/vue-admin-perfect.git

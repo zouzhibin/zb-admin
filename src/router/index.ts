@@ -71,7 +71,7 @@ const clipboardTable = {
 
     ]
 }
-
+// //
 const zipRoutes = {
     path: '/zip',
     component: Layout,
@@ -94,8 +94,8 @@ const zipRoutes = {
 
     ]
 }
-
-// 异步组件
+//
+// // 异步组件
 export const asyncRoutes = [
   tableRouter,
   chartsRouter,

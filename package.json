@@ -1,17 +1,18 @@
 {
-  "name": "vue-admin-perfect",
-  "version": "0.1.0",
+  "name": "my-vue-app",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "npm run serve",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@better-scroll/core": "^2.4.2",
     "clipboard": "^2.0.10",
     "core-js": "^3.6.5",
+    "dayjs": "^1.11.4",
     "echarts": "^5.3.1",
     "echarts-liquidfill": "^3.1.0",
     "element-plus": "^2.1.4",
@@ -21,8 +22,10 @@
     "mavon-editor": "^2.10.4",
     "md-editor-v3": "^1.11.3",
     "nprogress": "^0.2.0",
+    "path-browserify": "^1.0.1",
     "path-to-regexp": "^6.2.0",
     "print-js": "^1.6.0",
+    "sass": "^1.54.0",
     "splitpanes": "^3.1.1",
     "svg-sprite-loader": "^6.0.11",
     "vue": "^3.0.0",
@@ -38,32 +41,15 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.18.0",
-    "@typescript-eslint/parser": "^4.18.0",
-    "@vue/cli-plugin-babel": "~4.5.8",
-    "@vue/cli-plugin-eslint": "~4.5.8",
-    "@vue/cli-plugin-router": "~4.5.8",
-    "@vue/cli-plugin-typescript": "~4.5.8",
-    "@vue/cli-plugin-vuex": "~4.5.8",
-    "@vue/cli-service": "~4.5.8",
-    "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-standard": "^5.1.2",
-    "@vue/eslint-config-typescript": "^7.0.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^7.0.0",
-    "lint-staged": "^9.5.0",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
-    "typescript": "~4.1.5"
-  },
-  "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
+    "@vitejs/plugin-vue": "^3.0.0",
+    "dart-sass": "^1.25.0",
+    "fast-glob": "^3.2.11",
+    "typescript": "^4.6.4",
+    "unplugin-auto-import": "^0.10.3",
+    "unplugin-vue-components": "^0.21.2",
+    "vite": "^3.0.0",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vue-tsc": "^0.38.4"
   }
 }

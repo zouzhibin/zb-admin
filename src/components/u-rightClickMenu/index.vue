@@ -6,7 +6,7 @@
         class="operating" @click.stop="operatingRightAction($event,item)">{{item.label}}</div>
   </div>
 </template>
-<script>
+<script lang="ts">
 export default {
   props: {
     data:{
