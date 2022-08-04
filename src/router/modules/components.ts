@@ -19,18 +19,8 @@ const componentsRouter = {
             name: 'button',
             meta: { title: '按钮',   }
         },
-        {
-            path: 'upload',
-            component: () => import('@/views/components-demo/upload.vue'),
-            name: 'upload',
-            meta: { title: '上传图片',  }
-        },
-        {
-            path: 'form',
-            component: () => import('@/views/components-demo/form.vue'),
-            name: 'form',
-            meta: { title: '表单',  roles:['other']}
-        },
+
+
         {
             path: 'link',
             component: () => import('@/views/components-demo/link.vue'),

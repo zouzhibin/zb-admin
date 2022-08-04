@@ -42,12 +42,18 @@ const othersRouter = {
       name: 'grid-sorter',
       meta: { title: '卡片拖拽' }
     },
-    // {
-    //     path: 'splitpane',
-    //     component: () => import('@/views/other/splitpane.vue'),
-    //     name: 'splitpane',
-    //     meta: { title: '分割模块',}
-    // },
+    {
+      path: 'form',
+      component: () => import('@/views/other/form.vue'),
+      name: 'form',
+      meta: { title: '表单',  roles:['other']}
+    },
+    {
+      path: 'upload',
+      component: () => import('@/views/other/upload.vue'),
+      name: 'upload',
+      meta: { title: '上传图片',  }
+    },
     {
       path: 'qrcode',
       component: () => import('@/views/other/qrcode.vue'),
