@@ -1,5 +1,4 @@
-const ExcelJS = require("exceljs");
-
+import ExcelJS from 'exceljs'
 const autoWidthAction = (val,width=10)=>{
     if (val == null) {
         width = 10;

@@ -25,7 +25,7 @@
 <script setup lang="ts">
   import {ref} from "vue";
 
-  const ExcelJS = require("exceljs");
+  import ExcelJS from "exceljs";
   import { UploadFilled } from '@element-plus/icons-vue'
   import {ElMessage} from "element-plus";
   const tableData = ref([])
