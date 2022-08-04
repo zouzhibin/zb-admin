@@ -12,6 +12,7 @@ import tableRouter from './modules/table'
 import errorRouter from './modules/error'
 import excelRouter from './modules/excel'
 import nestedRouter from './modules/nested'
+import systemRouter from './modules/system'
 
 
 interface extendRoute {
@@ -108,6 +109,7 @@ export const asyncRoutes = [
   errorRouter,
   externalLink,
   clipboardTable,
+    systemRouter,
   permissionRouter,
 
   {

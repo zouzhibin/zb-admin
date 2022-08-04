@@ -19,6 +19,7 @@
                 <div>性别：男</div>
                 <div>现住址：中国-浙江-杭州</div>
                 <div>邮箱：1135957121@qq.com</div>
+                <div>微信：19550102670(欢迎加)</div>
                 <div>技术栈：JavaScript、HTML、CSS、Vue、Node、React</div>
               </div>
               <el-divider></el-divider>

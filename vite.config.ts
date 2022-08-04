@@ -58,4 +58,14 @@ export default defineConfig({
     https: false,
     proxy: {},
   },
+  // 生产环境打包配置
+  //去除 console debugger
+  // build: {
+  //   terserOptions: {
+  //     compress: {
+  //       drop_console: true,
+  //       drop_debugger: true,
+  //     },
+  //   },
+  // },
 })
