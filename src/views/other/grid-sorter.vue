@@ -19,9 +19,9 @@
           :move="getdata"
         >
           <template #item="{ element }">
-            <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="6"
+            <el-col :xs="6" :sm="6" :md="6" :lg="4" :xl="4"
             >
-              <el-card shadow="hover" style="width: 100%" class="list-group-item">
+              <el-card shadow="hover"  class="list-group-item">
                 <el-icon :size="30"
                          :color="element.color"
                          style="width: 100%;display: flex;justify-content: center">
@@ -50,8 +50,8 @@ const icon = ['management', 'baseball', 'Basketball', 'BellFilled', 'Bell',
   'AddLocation', 'Aim', 'AlarmClock', 'Apple', 'ArrowDownBold', 'Burger',
   'Brush', 'BrushFilled', 'RemoveFilled', 'QuestionFilled', 'Promotion', 'Printer',
   'School', 'Setting', 'WarningFilled', 'ZoomOut', 'WalletFilled', 'User',
-  'ToiletPaper', 'Sunrise', 'Sunny', 'SwitchButton', 'TakeawayBox', 'Ticket',
-  'StarFilled', 'Stamp', 'Stopwatch', 'SortDown', 'SemiSelect', 'Search'
+  // 'ToiletPaper', 'Sunrise', 'Sunny', 'SwitchButton', 'TakeawayBox', 'Ticket',
+  // 'StarFilled', 'Stamp', 'Stopwatch', 'SortDown', 'SemiSelect', 'Search'
 ]
 
 // 随机生成颜色
@@ -105,6 +105,7 @@ const getDataAction = () => {
   align-items: center;
   justify-content: center;
   min-height: 100px;
+
   /*padding: 0.75rem 1.25rem;*/
   background-color: #fff;
   font-weight: 500;
@@ -123,6 +124,10 @@ const getDataAction = () => {
 .ghost {
   opacity: 0.5;
   background: #c8ebfb;
+}
+.list-group{
+  display: flex;
+  flex-wrap: wrap;
 }
 /*.list-group {*/
 /*  display: flex;*/
