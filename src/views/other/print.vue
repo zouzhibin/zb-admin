@@ -5,7 +5,7 @@
       <el-button type="primary" @click="print(2)">打印表格</el-button>
     </div>
     <div style="margin-top: 20px">
-      <img :src="im1" style="width: 50%;"/>
+      <img :src="im1" style="width: 50%" />
     </div>
     <div>
       <el-table :data="tableData" style="width: 100%">
@@ -44,18 +44,18 @@
     },
   ]
 
-  const print = (type)=>{
+  const print = (type) => {
     switch (type) {
       case 1:
         printJS({
-          type:'image',
-          printable:im1,
-          documentTitle: '打印图片'
+          type: 'image',
+          printable: im1,
+          documentTitle: '打印图片',
         })
-        break;
+        break
       case 2:
         printJS({
-          type:'json',
+          type: 'json',
           documentTitle: '打印表格',
           printable: tableData,
           gridStyle: 'text-align: center;border: 1px solid lightgray;font-size: 12px;',
@@ -65,13 +65,11 @@
             { field: 'address', displayName: '地址' },
           ],
         })
-        break;
+        break
       case 3:
-        break;
+        break
     }
   }
 </script>
 
-<style>
-
-</style>
+<style></style>

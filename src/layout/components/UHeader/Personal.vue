@@ -1,21 +1,17 @@
 <template>
-  <el-dialog
-      v-model="dialogVisible"
-      title="修改密码"
-      width="60%"
-  >
+  <el-dialog v-model="dialogVisible" title="修改密码" width="60%">
     <el-form
-        ref="ruleFormRef"
-        :model="ruleForm"
-        :rules="rules"
-        label-width="120px"
-        class="demo-ruleForm"
-        :size="formSize"
+      ref="ruleFormRef"
+      :model="ruleForm"
+      :rules="rules"
+      label-width="120px"
+      class="demo-ruleForm"
+      :size="formSize"
     >
-      <el-form-item label="姓名" >
+      <el-form-item label="姓名">
         <el-input v-model="ruleForm.name" disabled></el-input>
       </el-form-item>
-      <el-form-item label="手机号码" >
+      <el-form-item label="手机号码">
         <el-input v-model="ruleForm.mobile" disabled></el-input>
       </el-form-item>
       <el-form-item label="修改密码" prop="password">
@@ -25,23 +21,21 @@
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="primary" @click="submitForm(ruleFormRef)"
-        >确定</el-button
-        >
+        <el-button type="primary" @click="submitForm(ruleFormRef)">确定</el-button>
       </span>
     </template>
   </el-dialog>
 </template>
 
 <script lang="ts" setup>
-  import { ref,defineExpose,reactive, } from 'vue'
+  import { ref, defineExpose, reactive } from 'vue'
   import { ElMessageBox } from 'element-plus'
   import type { ElForm } from 'element-plus'
   const dialogVisible = ref(false)
-  const show = ()=>{
+  const show = () => {
     dialogVisible.value = true
   }
-  const hide = ()=>{
+  const hide = () => {
     dialogVisible.value = false
   }
   type FormInstance = InstanceType<typeof ElForm>
@@ -85,7 +79,7 @@
 </script>
 
 <style scoped>
-.dialog-footer button:first-child {
-  margin-right: 10px;
-}
+  .dialog-footer button:first-child {
+    margin-right: 10px;
+  }
 </style>

@@ -5,45 +5,45 @@
 </template>
 
 <script lang="ts">
-import { isExternal } from '@/utils/validate.js'
+  import { isExternal } from '@/utils/validate.js'
 
-export default {
-  props: {
-    to: {
-      type: String,
-      required: true
-    }
-  },
-  computed: {
-    isExternal() {
-      return isExternal(this.to)
+  export default {
+    props: {
+      to: {
+        type: String,
+        required: true,
+      },
     },
-    type() {
-      if (this.isExternal) {
-        return 'a'
-      }
-      return 'router-link'
-    }
-  },
-  methods: {
-    linkProps(to) {
-      if (this.isExternal) {
-        return {
-          href: to,
-          target: '_blank',
-          rel: 'noopener'
+    computed: {
+      isExternal() {
+        return isExternal(this.to)
+      },
+      type() {
+        if (this.isExternal) {
+          return 'a'
         }
-      }
-      return {
-        to: to
-      }
-    }
+        return 'router-link'
+      },
+    },
+    methods: {
+      linkProps(to) {
+        if (this.isExternal) {
+          return {
+            href: to,
+            target: '_blank',
+            rel: 'noopener',
+          }
+        }
+        return {
+          to: to,
+        }
+      },
+    },
   }
-}
 </script>
 
 <style lang="scss" scoped>
-a{
-  text-decoration: none;
-}
+  a {
+    text-decoration: none;
+  }
 </style>

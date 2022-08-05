@@ -5,20 +5,18 @@
 </template>
 
 <script lang="ts" setup>
+  import Chart from '@/components/Charts/LineMarker.vue'
 
-import Chart from '@/components/Charts/LineMarker.vue'
-
-// export default {
-//   // name: 'LineChart',
-//   // components: { Chart }
-// }
+  // export default {
+  //   // name: 'LineChart',
+  //   // components: { Chart }
+  // }
 </script>
 
 <style scoped>
-.chart-container{
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 130px);
-}
+  .chart-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 130px);
+  }
 </style>
-

@@ -1,24 +1,30 @@
 <template>
   <div
-          class="m-layout-header"
-          :style="{left:`${mode==='horizontal'?0:isCollapse?'56':'210'}px`}">
-        <div class="header" :class="{
-            transverseMenu:mode==='horizontal'
-          }">
-      <menu-slide v-if="mode==='horizontal'"/>
-      <div class="left" v-if="mode==='vertical'">
+    class="m-layout-header"
+    :style="{ left: `${mode === 'horizontal' ? 0 : isCollapse ? '56' : '210'}px` }"
+  >
+    <div
+      class="header"
+      :class="{
+        transverseMenu: mode === 'horizontal',
+      }"
+    >
+      <menu-slide v-if="mode === 'horizontal'" />
+      <div class="left" v-if="mode === 'vertical'">
         <div>
           <el-icon class="icon" v-if="isCollapse" @click="handleCollapse"><expand /></el-icon>
-          <el-icon class="icon" v-else @click="handleCollapse"><fold/></el-icon>
+          <el-icon class="icon" v-else @click="handleCollapse"><fold /></el-icon>
         </div>
-        <u-hamburger/>
+        <u-hamburger />
       </div>
       <div class="right">
-        <u-info/>
-        <u-screen-full/>
+        <u-info />
+        <u-screen-full />
         <el-dropdown @command="commandAction">
           <span class="el-dropdown-link">
-             <el-avatar :icon="UserFilled" :size="30" style="margin-right: 6px"/>{{ userInfo.username }}
+            <el-avatar :icon="UserFilled" :size="30" style="margin-right: 6px" />{{
+              userInfo.username
+            }}
             <el-icon class="el-icon--right">
               <arrow-down />
             </el-icon>
@@ -32,8 +38,8 @@
         </el-dropdown>
       </div>
     </div>
-    <tag-views v-if="isShowTag"/>
-    <personal ref="person"/>
+    <tag-views v-if="isShowTag" />
+    <personal ref="person" />
   </div>
 </template>
 
@@ -41,68 +47,59 @@
   import { UserFilled } from '@element-plus/icons-vue'
   import Personal from './Personal.vue'
   import TagViews from '../TagsView/index.vue'
-  import UHamburger from "@/components/u-Hamburger/index.vue"
+  import UHamburger from '@/components/u-Hamburger/index.vue'
   import UScreenFull from '@/components/u-screenfull/index.vue'
   import UInfo from '@/components/u-info/index.vue'
   import MenuSlide from '../Sidebar/menuSlide.vue'
-  import {computed, ref,} from 'vue'
-  import {useRouter} from 'vue-router'
+  import { computed, ref } from 'vue'
+  import { useRouter } from 'vue-router'
   import { ElMessageBox, ElMessage } from 'element-plus'
-  import {useStore} from "vuex";
+  import { useStore } from 'vuex'
 
   const store = useStore()
   const person = ref()
   const router = useRouter()
 
-  const isCollapse = computed(()=>{
+  const isCollapse = computed(() => {
     return !store.state.app.isCollapse
   })
-  const mode = computed(()=>{
+  const mode = computed(() => {
     return store.state.setting.mode
   })
 
-  const isShowTag = computed(()=>{
+  const isShowTag = computed(() => {
     return store.state.setting.isShowTag
   })
 
-  const userInfo = computed(()=>{
+  const userInfo = computed(() => {
     return store.state.user.userInfo
   })
 
-
-  const logOut = async ()=>{
-    ElMessageBox.confirm(
-        '确定退出登录吗？',
-        '退出登录',
-        {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning',
-        }
-    )
-        .then(async () => {
-          try {
-            await store.dispatch('user/logout')
-            router.push({path:'/login'})
-            store.dispatch('permission/clearRoutes')
-            store.dispatch('tagsView/clearVisitedView')
-          }catch (e) {
-
-          }
-        })
-        .catch(() => {
-
-        })
+  const logOut = async () => {
+    ElMessageBox.confirm('确定退出登录吗？', '退出登录', {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+    })
+      .then(async () => {
+        try {
+          await store.dispatch('user/logout')
+          router.push({ path: '/login' })
+          store.dispatch('permission/clearRoutes')
+          store.dispatch('tagsView/clearVisitedView')
+        } catch (e) {}
+      })
+      .catch(() => {})
   }
 
-  const commandAction = (key:number)=>{
-    switch (key){
+  const commandAction = (key: number) => {
+    switch (key) {
       case 1:
         logOut()
-        break;
+        break
       case 2:
         person.value.show()
-        break;
+        break
     }
   }
   const handleCollapse = () => {
@@ -111,16 +108,16 @@
 </script>
 
 <style lang="scss" scoped>
-.mobile{
-  .m-layout-header{
-    left: 0!important;
+  .mobile {
+    .m-layout-header {
+      left: 0 !important;
+    }
   }
-}
-  .icon{
-    font-size:24px;
+  .icon {
+    font-size: 24px;
     cursor: pointer;
   }
-  .header{
+  .header {
     height: 60px;
     width: 100%;
     display: flex;
@@ -128,21 +125,21 @@
     padding: 0 10px;
     box-sizing: border-box;
     justify-content: space-between;
-    .left{
+    .left {
       display: flex;
       align-items: center;
     }
-    .right{
+    .right {
       display: flex;
       align-items: center;
     }
   }
-  .m-layout-header{
+  .m-layout-header {
     position: fixed;
     top: 0;
     background: white;
     left: 0;
-    z-index:99;
+    z-index: 99;
     right: 0;
     transition: left 0.28s;
     flex-shrink: 0;
@@ -150,7 +147,7 @@
 
     box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
   }
-  .el-dropdown{
+  .el-dropdown {
     display: flex;
     height: 100%;
     align-items: center;
@@ -161,5 +158,4 @@
     display: flex;
     align-items: center;
   }
-
 </style>

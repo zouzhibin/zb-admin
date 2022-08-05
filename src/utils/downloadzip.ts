@@ -88,7 +88,7 @@ export async function downloadFiles2ZipWithFolder(params: IDownloadFiles2ZipWith
 
 async function handleFolder(zip: JsZip, folder: IFolder) {
     console.log({folder})
-    let folderPromises: Promise<any>[] = [];
+    const folderPromises: Promise<any>[] = [];
     const promises = folder?.files?.map(async param => await handleEachFile(param, zip, folder.folderName));
     await Promise.all([...promises, ...folderPromises]);
 }
@@ -169,7 +169,7 @@ function handleDataWithRender(worksheet: Worksheet, sheet: ISheet) {
 // @ts-ignore
 function getValueFromRender(renderResult: any) {
     if (renderResult?.type) {
-        let children = renderResult?.props?.children;
+        const children = renderResult?.props?.children;
         if (children?.type) {
             return getValueFromRender(children);
         } else {

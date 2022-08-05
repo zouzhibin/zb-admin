@@ -4,8 +4,7 @@
       <el-card class="box-card">
         <template #header>
           <div class="card-header">
-        <span>基础用法
-      </span>
+            <span>基础用法 </span>
           </div>
         </template>
         <div>
@@ -21,8 +20,7 @@
       <el-card class="box-card">
         <template #header>
           <div class="card-header">
-        <span>禁用状态
-      </span>
+            <span>禁用状态 </span>
           </div>
         </template>
         <div>
@@ -38,8 +36,7 @@
       <el-card class="box-card">
         <template #header>
           <div class="card-header">
-                    <span>下划线
-                  </span>
+            <span>下划线 </span>
           </div>
         </template>
         <div>
@@ -51,8 +48,7 @@
       <el-card class="box-card">
         <template #header>
           <div class="card-header">
-                    <span>图标
-                  </span>
+            <span>图标 </span>
           </div>
         </template>
         <div>
@@ -62,37 +58,34 @@
           </el-link>
         </div>
       </el-card>
-
-
     </div>
   </u-container-layout>
-
 </template>
 <script lang="ts" setup>
-    import { Edit, View as IconView } from '@element-plus/icons-vue'
+  import { Edit, View as IconView } from '@element-plus/icons-vue'
 </script>
 <style lang="scss" scoped>
-    .card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .el-link {
-        margin-right: 8px;
-    }
-    .el-link .el-icon--right.el-icon {
-        vertical-align: text-bottom;
-    }
-    .text {
-        font-size: 14px;
-    }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .el-link {
+    margin-right: 8px;
+  }
+  .el-link .el-icon--right.el-icon {
+    vertical-align: text-bottom;
+  }
+  .text {
+    font-size: 14px;
+  }
 
-    .item {
-        margin-bottom: 18px;
-    }
+  .item {
+    margin-bottom: 18px;
+  }
 
-    .box-card {
-        width: 100%;
-        margin-bottom:20px;
-    }
+  .box-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 </style>

@@ -1,19 +1,18 @@
 #app {
-
   .main-container {
     min-height: 100%;
-    transition: margin-left .28s;
+    transition: margin-left 0.28s;
     margin-left: $sideBarWidth;
     position: relative;
   }
 
-  .hideSliderLayout{
+  .hideSliderLayout {
     margin-left: 0;
-    .el-menu--horizontal{
+    .el-menu--horizontal {
       border-bottom: none;
     }
   }
-  .transverseMenu{
+  .transverseMenu {
     background-color: $menuBg;
   }
 
@@ -86,11 +85,11 @@
       }
     }
 
-    .is-active>.el-sub-menu__title {
+    .is-active > .el-sub-menu__title {
       color: $subMenuActiveText !important;
     }
 
-    & .nest-menu .el-sub-menu>.el-sub-menu__title,
+    & .nest-menu .el-sub-menu > .el-sub-menu__title,
     & .el-sub-menu .el-menu-item {
       min-width: $sideBarWidth !important;
       background-color: $subMenuBg !important;
@@ -130,7 +129,7 @@
     .el-submenu {
       overflow: hidden;
 
-      &>.el-submenu__title {
+      & > .el-submenu__title {
         padding: 0 !important;
 
         .svg-icon {
@@ -149,8 +148,8 @@
 
     .el-menu--collapse {
       .el-sub-menu {
-        &>.el-sub-menu__title {
-          &>span {
+        & > .el-sub-menu__title {
+          & > span {
             height: 0;
             width: 0;
             overflow: hidden;
@@ -173,7 +172,7 @@
     }
 
     .sidebar-container {
-      transition: transform .28s;
+      transition: transform 0.28s;
       width: $sideBarWidth !important;
     }
 
@@ -187,7 +186,6 @@
   }
 
   .withoutAnimation {
-
     .main-container,
     .sidebar-container {
       transition: none;
@@ -197,7 +195,7 @@
 
 // when menu collapsed
 .el-menu--vertical {
-  &>.el-menu {
+  & > .el-menu {
     .svg-icon {
       margin-right: 16px;
     }
@@ -207,7 +205,7 @@
     }
   }
 
-  .nest-menu .el-sub-menu>.el-sub-menu__title,
+  .nest-menu .el-sub-menu > .el-sub-menu__title,
   .el-menu-item {
     &:hover {
       // you can use $subMenuHover
@@ -216,7 +214,7 @@
   }
 
   // the scroll bar appears when the subMenu is too long
-  >.el-menu--popup {
+  > .el-menu--popup {
     max-height: 100vh;
     overflow-y: auto;
 

@@ -1,96 +1,97 @@
 <template>
   <div class="item-charts">
-    <line-charts width="100%" height="100%" :config="lineConfig"/>
+    <line-charts width="100%" height="100%" :config="lineConfig" />
   </div>
 </template>
 <script setup lang="ts">
-import LineCharts from './components/line.vue'
-import { reactive } from 'vue'
+  import LineCharts from './components/line.vue'
+  import { reactive } from 'vue'
 
-const lineConfig = reactive({
-  grid: {
-    top: '10%',
-    left: '3%',
-    right: '4%',
-    bottom: '10%',
-    containLabel: true
-  },
-  tooltip: {
-    trigger: 'axis',
-    backgroundColor: 'rgba(0,0,0,0.7)',
-    borderWidth: 0,
-    borderColor: 'rgba(0,0,0,0.7)',
-    formatter: (name, val) => {
-      const tipHtml = `
+  const lineConfig = reactive({
+    grid: {
+      top: '10%',
+      left: '3%',
+      right: '4%',
+      bottom: '10%',
+      containLabel: true,
+    },
+    tooltip: {
+      trigger: 'axis',
+      backgroundColor: 'rgba(0,0,0,0.7)',
+      borderWidth: 0,
+      borderColor: 'rgba(0,0,0,0.7)',
+      formatter: (name, val) => {
+        const tipHtml = `
                      <div class="m-info" style=" opacity: 0.95;font-size: 12px; color: white;" >
                          <div class="title" ></div>
                          <div class="title" >完成占比${name[0].data}</div>
                  </div>`
-      return tipHtml
-    }
-  },
-  yAxis: {
-    // 设置坐标轴的 文字样式
-    axisLabel: {
-      color: '#bbdaff',
-      margin: 20 // 刻度标签与轴线之间的距离。
-    },
-    // 坐标轴轴线相关设置。
-    splitLine: {
-      lineStyle: {
-        color: '#2d5baf'
-      }
-    }
-  },
-  xAxis: {
-    splitLine: {
-      show: false
-    },
-    // 坐标轴轴线相关设置。
-    axisLine: {
-      lineStyle: {
-        color: '#2d5baf'
-      }
-    },
-    type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    axisLabel: { // 设置坐标轴的 文字样式
-      color: '#bbdaff',
-      margin: 20 // 刻度标签与轴线之间的距离。
-    },
-    boundaryGap: false, // 设置坐标轴两边的留白 ，从刻度原点开始，
-    axisTick: { // 取消坐标轴刻度线
-      show: false
-    }
-  },
-  series: [
-    {
-      data: [154, 230, 224, 218, 135, 147, 260],
-      type: 'line',
-      // smooth:false,   //关键点，为true是不支持虚线的，实线就用true
-      symbolSize: 12, // 拐点圆的大小
-      symbol: 'circle',
-      markLine: {
-        silent: true
+        return tipHtml
       },
-      itemStyle: {
-        normal: {
-          color: '#920783', // 设置 symbol的颜色
-          lineStyle: {
-            width: 3,
-            color: '#920783',
-            type: 'solid' // 'dotted'虚线 'solid'实线
-          }
-        }
-      }
-
-    }]
-})
-
+    },
+    yAxis: {
+      // 设置坐标轴的 文字样式
+      axisLabel: {
+        color: '#bbdaff',
+        margin: 20, // 刻度标签与轴线之间的距离。
+      },
+      // 坐标轴轴线相关设置。
+      splitLine: {
+        lineStyle: {
+          color: '#2d5baf',
+        },
+      },
+    },
+    xAxis: {
+      splitLine: {
+        show: false,
+      },
+      // 坐标轴轴线相关设置。
+      axisLine: {
+        lineStyle: {
+          color: '#2d5baf',
+        },
+      },
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      axisLabel: {
+        // 设置坐标轴的 文字样式
+        color: '#bbdaff',
+        margin: 20, // 刻度标签与轴线之间的距离。
+      },
+      boundaryGap: false, // 设置坐标轴两边的留白 ，从刻度原点开始，
+      axisTick: {
+        // 取消坐标轴刻度线
+        show: false,
+      },
+    },
+    series: [
+      {
+        data: [154, 230, 224, 218, 135, 147, 260],
+        type: 'line',
+        // smooth:false,   //关键点，为true是不支持虚线的，实线就用true
+        symbolSize: 12, // 拐点圆的大小
+        symbol: 'circle',
+        markLine: {
+          silent: true,
+        },
+        itemStyle: {
+          normal: {
+            color: '#920783', // 设置 symbol的颜色
+            lineStyle: {
+              width: 3,
+              color: '#920783',
+              type: 'solid', // 'dotted'虚线 'solid'实线
+            },
+          },
+        },
+      },
+    ],
+  })
 </script>
 <style lang="scss" scoped>
-.item-charts{
-  height: 100%;
-  width: 100%;
-}
+  .item-charts {
+    height: 100%;
+    width: 100%;
+  }
 </style>

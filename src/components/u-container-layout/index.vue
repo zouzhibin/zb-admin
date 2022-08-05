@@ -6,18 +6,16 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
-  .m-container-layout{
+  .m-container-layout {
     //margin: 20px;
     padding: 20px;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    .m-container-layout-inner{
+    .m-container-layout-inner {
       background: white;
       padding: 20px;
       width: 100%;

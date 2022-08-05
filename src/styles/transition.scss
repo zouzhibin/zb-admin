@@ -27,7 +27,6 @@
   transform: translateX(20px);
 }
 
-
 // 面包屑动画
 .breadcrumb-enter-active {
   transition: all 0.25s;
@@ -37,8 +36,6 @@
   opacity: 0;
   transform: translateX(30px) skewX(-50deg);
 }
-
-
 
 .fade-transform-leave-active,
 .fade-transform-enter-active {

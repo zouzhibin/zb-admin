@@ -12,22 +12,21 @@
   </div>
 </template>
 <script setup lang="ts">
-import LineCharts from './components/complex/line/index.vue'
-import BarCharts from './components/complex/bar/index.vue'
-
+  import LineCharts from './components/complex/line/index.vue'
+  import BarCharts from './components/complex/bar/index.vue'
 </script>
 <style lang="scss" scoped>
-  .m-complex{
+  .m-complex {
     height: 100%;
     width: 100%;
     background-color: #030409;
-    .m-complex-inner{
+    .m-complex-inner {
       padding: 20px;
       display: flex;
       flex-wrap: wrap;
     }
   }
-  .item-complex{
+  .item-complex {
     width: 454px;
     height: 292px;
     background-image: url('../../assets/image/charts/1-1-bg.png');
@@ -35,5 +34,4 @@ import BarCharts from './components/complex/bar/index.vue'
     background-size: contain;
     background-repeat: no-repeat;
   }
-
 </style>

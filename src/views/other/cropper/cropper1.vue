@@ -3,11 +3,11 @@
     <div class="left">
       <div class="cropper-content">
         <vue-cropper
-            ref="cropper"
-            :src="options.imgSrc"
-            @crop="cropmove"
-            :minCropBoxWidth="options.minCropBoxWidth"
-            preview=".preview"
+          ref="cropper"
+          :src="options.imgSrc"
+          @crop="cropmove"
+          :minCropBoxWidth="options.minCropBoxWidth"
+          preview=".preview"
         />
       </div>
       <div>
@@ -19,33 +19,21 @@
         <el-button type="primary" @click.prevent="move(0, 10)">向下移动</el-button>
         <el-button type="primary" @click.prevent="rotate(90)">旋转90度</el-button>
         <el-button type="primary" @click.prevent="rotate(-90)">旋转-90度</el-button>
-        <el-button type="primary"
-                   ref="flipX"
-                   @click.prevent="flipXAction">翻转 X</el-button>
-        <el-button type="primary"
-                   ref="flipY"
-                   @click.prevent="flipYAction">翻转 Y</el-button>
+        <el-button type="primary" ref="flipX" @click.prevent="flipXAction">翻转 X</el-button>
+        <el-button type="primary" ref="flipY" @click.prevent="flipYAction">翻转 Y</el-button>
         <el-button type="primary" @click.prevent="reset">重置</el-button>
         <el-button type="primary" @click.prevent="cropImage">获取结果</el-button>
-        <el-upload
-            class="upload-demo"
-            :show-file-list="false"
-            action
-
-           :before-upload="beforeUpload"
-
-        >
+        <el-upload class="upload-demo" :show-file-list="false" action :before-upload="beforeUpload">
           <el-button type="primary">选择上传图片</el-button>
         </el-upload>
       </div>
     </div>
 
     <div>
-      <div class="preview" >
-      </div>
+      <div class="preview"> </div>
       <h4 style="margin-top: 10px">得到结果</h4>
-      <div style="background: #ccc;width: 100px;height: 100px">
-        <img :src="options.cropImg" style="width: 100%;height: 100%" v-if="options.cropImg"/>
+      <div style="background: #ccc; width: 100px; height: 100px">
+        <img :src="options.cropImg" style="width: 100%; height: 100%" v-if="options.cropImg" />
       </div>
     </div>
   </div>
@@ -54,10 +42,10 @@
 <script lang="ts" setup>
   // http://github.xyxiao.cn/vue-cropper/example/
   // https://codepen.io/xyxiao001/pen/yLooYKg
-  import VueCropper from 'vue-cropperjs';
+  import VueCropper from 'vue-cropperjs'
   import imgSrc from '@/assets/image/cro.jpg'
-  import 'cropperjs/dist/cropper.css';
-  import {reactive, ref} from 'vue'
+  import 'cropperjs/dist/cropper.css'
+  import { reactive, ref } from 'vue'
   import { ElMessage, ElMessageBox } from 'element-plus'
   import type { UploadProps, UploadUserFile } from 'element-plus'
 
@@ -66,10 +54,9 @@
   const flipY = ref()
 
   const options = reactive({
-    cropImg:null,
-    imgSrc:imgSrc,
-    minCropBoxWidth:200,
-
+    cropImg: null,
+    imgSrc: imgSrc,
+    minCropBoxWidth: 200,
   })
 
   const handleRemove: UploadProps['onRemove'] = (file, uploadFiles) => {
@@ -82,74 +69,72 @@
 
   const handleExceed: UploadProps['onExceed'] = (files, uploadFiles) => {
     ElMessage.warning(
-        `The limit is 3, you selected ${files.length} files this time, add up to ${
-            files.length + uploadFiles.length
-        } totally`
+      `The limit is 3, you selected ${files.length} files this time, add up to ${
+        files.length + uploadFiles.length
+      } totally`,
     )
   }
 
   const beforeRemove: UploadProps['beforeRemove'] = (uploadFile, uploadFiles) => {
-    return ElMessageBox.confirm(
-        `Cancel the transfert of ${uploadFile.name} ?`
-    ).then(
-        () => true,
-        () => false
+    return ElMessageBox.confirm(`Cancel the transfert of ${uploadFile.name} ?`).then(
+      () => true,
+      () => false,
     )
   }
 
-  const cropmove = (e)=>{
+  const cropmove = (e) => {
     // console.log('eeeeee',e)
   }
 
-  const zoom = (percent)=> {
-    cropper.value.relativeZoom(percent);
+  const zoom = (percent) => {
+    cropper.value.relativeZoom(percent)
   }
 
-  const move = (offsetX, offsetY)=>{
-    cropper.value.move(offsetX, offsetY);
+  const move = (offsetX, offsetY) => {
+    cropper.value.move(offsetX, offsetY)
   }
 
-  const rotate = (deg)=> {
-    cropper.value.rotate(deg);
+  const rotate = (deg) => {
+    cropper.value.rotate(deg)
   }
 
-  const flipXAction=()=> {
-    const dom = flipX.value;
-    let scale = dom.getAttribute('data-scale');
-    scale = scale ? -scale : -1;
-    cropper.value.scaleX(scale);
-    dom.setAttribute('data-scale', scale);
+  const flipXAction = () => {
+    const dom = flipX.value
+    let scale = dom.getAttribute('data-scale')
+    scale = scale ? -scale : -1
+    cropper.value.scaleX(scale)
+    dom.setAttribute('data-scale', scale)
   }
-  const flipYAction=()=> {
-    const dom = flipY.value;
-    let scale = dom.getAttribute('data-scale');
-    scale = scale ? -scale : -1;
-    cropper.value.scaleY(scale);
-    dom.setAttribute('data-scale', scale);
-  }
-
-  const cropImage=()=>{
-    options.cropImg = cropper.value.getCroppedCanvas().toDataURL();
+  const flipYAction = () => {
+    const dom = flipY.value
+    let scale = dom.getAttribute('data-scale')
+    scale = scale ? -scale : -1
+    cropper.value.scaleY(scale)
+    dom.setAttribute('data-scale', scale)
   }
 
-  const reset = ()=> {
-    cropper.value.reset();
+  const cropImage = () => {
+    options.cropImg = cropper.value.getCroppedCanvas().toDataURL()
   }
 
-  const beforeUpload = (file, fileList)=>{
+  const reset = () => {
+    cropper.value.reset()
+  }
+
+  const beforeUpload = (file, fileList) => {
     return new Promise((resolve, reject) => {
       var reader = new FileReader()
       // let res = !/\.(gif|jpg|jpeg|png|bmp|GIF|JPG|PNG)$/
-      let reg = (/\.jpg$|\.jpeg$|\.gif$|\.png$/i)
+      let reg = /\.jpg$|\.jpeg$|\.gif$|\.png$/i
       reader.readAsDataURL(file)
       let name = file.name
-      if(reg.test(name)){
-        reader.onload = (e:FileReader)=>{
+      if (reg.test(name)) {
+        reader.onload = (e: FileReader) => {
           resolve(e.target.result)
           options.imgSrc = e.target.result
-          cropper.value.replace(e.target.result);
+          cropper.value.replace(e.target.result)
         }
-      }else{
+      } else {
         ElMessage.error('请上传图片')
         reject()
       }
@@ -158,23 +143,21 @@
 </script>
 
 <style lang="scss" scoped>
-  .cropper-content{
+  .cropper-content {
     display: flex;
     width: 400px;
     text-align: center;
-
   }
-  ::v-deep(.el-button){
+  ::v-deep(.el-button) {
     margin-top: 15px;
   }
-  .m-cropper{
+  .m-cropper {
     display: flex;
-    .left{
+    .left {
       width: 400px;
       margin-right: 30px;
-
     }
-    .preview{
+    .preview {
       width: 200px;
       height: 200px;
       margin-top: 20px;

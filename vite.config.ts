@@ -5,6 +5,8 @@ import vue from '@vitejs/plugin-vue'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import path from 'path'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+// 增加 vue文件 script name值
+import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 // import viteCompression from 'vite-plugin-compression'
 function resolve (dir) {
   return path.join(__dirname, '.', dir)
@@ -13,6 +15,7 @@ function resolve (dir) {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(),
+    vueSetupExtend(),
     // AutoImport({
     //   resolvers: [ElementPlusResolver()],
     // }),

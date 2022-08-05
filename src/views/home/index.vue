@@ -1,4 +1,3 @@
-
 <template>
   <u-container-layout>
     <div>
@@ -35,47 +34,70 @@
               <div style="margin-bottom: 15px"><h5>最喜欢的一句话</h5></div>
               <div>---------- 开心最重要</div>
               <el-divider></el-divider>
-              <div style="margin-bottom: 15px"><h5>如果对你有帮助的话，可以麻烦点一颗 star! 你的鼓励是我继续优化的动力~~</h5></div>
+              <div style="margin-bottom: 15px"
+                ><h5>如果对你有帮助的话，可以麻烦点一颗 star! 你的鼓励是我继续优化的动力~~</h5></div
+              >
             </div>
           </el-card>
         </el-col>
         <el-col :xs="24" :sm="12" :lg="16">
-          <el-row class="custom" :gutter="10" >
+          <el-row class="custom" :gutter="10">
             <el-col :xs="24" :sm="12" :lg="8">
               <el-card style="margin-bottom: 10px">
                 <div class="grid-content">
-                  <div class="left"><el-icon style="font-size: 24px;color: white"><user /></el-icon></div>
+                  <div class="left"
+                    ><el-icon style="font-size: 24px; color: white"><user /></el-icon
+                  ></div>
                   <div class="right">
-                    <h2 style="color: #2d8cf0"><count-to :start-val="0" :end-val="5268" :duration="2000"
-                                                         :autoplay="true" ></count-to></h2>
-                    <div>用户访问量
-                    </div>
+                    <h2 style="color: #2d8cf0"
+                      ><count-to
+                        :start-val="0"
+                        :end-val="5268"
+                        :duration="2000"
+                        :autoplay="true"
+                      ></count-to
+                    ></h2>
+                    <div>用户访问量 </div>
                   </div>
                 </div>
               </el-card>
             </el-col>
             <el-col :xs="24" :sm="12" :lg="8">
               <el-card style="margin-bottom: 10px">
-                <div class="grid-content" >
-                  <div class="left"  style="background: #64d572"><el-icon style="font-size: 24px;color: white"><user /></el-icon></div>
+                <div class="grid-content">
+                  <div class="left" style="background: #64d572"
+                    ><el-icon style="font-size: 24px; color: white"><user /></el-icon
+                  ></div>
                   <div class="right">
-                    <h2 style="color: #64d572"><count-to :start-val="0" :end-val="9599" :duration="2000"
-                                                         :autoplay="true" ></count-to></h2>
-                    <div>系统消息
-                    </div>
+                    <h2 style="color: #64d572"
+                      ><count-to
+                        :start-val="0"
+                        :end-val="9599"
+                        :duration="2000"
+                        :autoplay="true"
+                      ></count-to
+                    ></h2>
+                    <div>系统消息 </div>
                   </div>
                 </div>
               </el-card>
             </el-col>
             <el-col :xs="24" :sm="12" :lg="8">
               <el-card style="margin-bottom: 10px">
-                <div class="grid-content" >
-                  <div class="left" style="background: #f25e43"><el-icon style="font-size: 24px;color: white"><user /></el-icon></div>
+                <div class="grid-content">
+                  <div class="left" style="background: #f25e43"
+                    ><el-icon style="font-size: 24px; color: white"><user /></el-icon
+                  ></div>
                   <div class="right">
-                    <h2 style="color: #f25e43"><count-to :start-val="0" :end-val="595453" :duration="2000"
-                                                         :autoplay="true" ></count-to></h2>
-                    <div>数量
-                    </div>
+                    <h2 style="color: #f25e43"
+                      ><count-to
+                        :start-val="0"
+                        :end-val="595453"
+                        :duration="2000"
+                        :autoplay="true"
+                      ></count-to
+                    ></h2>
+                    <div>数量 </div>
                   </div>
                 </div>
               </el-card>
@@ -88,13 +110,26 @@
               </div>
             </template>
             <div style="display: flex">
-              <el-card style="flex: 1;margin-right: 20px;cursor: pointer" class="card-item" @click="goTo('https://ext.dcloud.net.cn/plugin?id=7511')">
-                <div style="color: white;margin-bottom: 10px"><h3>zb-table</h3></div>
-                <div style="font-size: 12px;color: white">uniapp 表格组件 支持固定表头和首列、上拉加载更多、及固定多列，表格自适应内容，排序，多选checkbox、可点击删除，编辑、合计功能，兼容多端</div>
+              <el-card
+                style="flex: 1; margin-right: 20px; cursor: pointer"
+                class="card-item"
+                @click="goTo('https://ext.dcloud.net.cn/plugin?id=7511')"
+              >
+                <div style="color: white; margin-bottom: 10px"><h3>zb-table</h3></div>
+                <div style="font-size: 12px; color: white"
+                  >uniapp 表格组件
+                  支持固定表头和首列、上拉加载更多、及固定多列，表格自适应内容，排序，多选checkbox、可点击删除，编辑、合计功能，兼容多端</div
+                >
               </el-card>
-              <el-card style="flex: 1;cursor: pointer" class="card-item" @click="goTo('https://github.com/zouzhibin/vue-admin-perfect')">
-                <div style="color: white;margin-bottom: 10px"><h3>vue-admin-perfect</h3></div>
-                <div style="font-size: 12px;color: white">系统基于vue3+vuex+ element-plus+ts后台管理系统</div>
+              <el-card
+                style="flex: 1; cursor: pointer"
+                class="card-item"
+                @click="goTo('https://github.com/zouzhibin/vue-admin-perfect')"
+              >
+                <div style="color: white; margin-bottom: 10px"><h3>vue-admin-perfect</h3></div>
+                <div style="font-size: 12px; color: white"
+                  >系统基于vue3+vuex+ element-plus+ts后台管理系统</div
+                >
               </el-card>
             </div>
           </el-card>
@@ -108,39 +143,35 @@
               <bar-charts height="300px" width="100%" id="bar1"></bar-charts>
             </div>
           </el-card>
-
         </el-col>
       </el-row>
     </div>
   </u-container-layout>
-
 </template>
 <script setup lang="ts">
-  import {
-    User,
-  } from '@element-plus/icons-vue'
-  import {ref} from "vue";
+  import { User } from '@element-plus/icons-vue'
+  import { ref } from 'vue'
   import CountTo from '@/components/u-count-to/vue-countTo.vue'
-  import BarCharts from "@/views/charts/components/simple/bar.vue"
+  import BarCharts from '@/views/charts/components/simple/bar.vue'
   const circleUrl = ref('https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png')
 
-  const goTo = (url)=>{
-    window.open(url,'_blank')
+  const goTo = (url) => {
+    window.open(url, '_blank')
   }
 </script>
 
 <style scoped lang="scss">
-  .personal{
-    .name{
+  .personal {
+    .name {
       margin-top: 15px;
       font-size: 24px;
       font-weight: 500;
       color: rgb(38, 38, 38);
     }
-    .description{
+    .description {
       margin-top: 8px;
     }
-    .list{
+    .list {
       margin-top: 18px;
       line-height: 30px;
       text-align: left;
@@ -155,9 +186,9 @@
   .text {
     font-size: 14px;
   }
-  .grid-content{
+  .grid-content {
     display: flex;
-    .left{
+    .left {
       width: 40%;
       height: 100px;
       display: flex;
@@ -165,16 +196,16 @@
       justify-content: center;
       background: #2d8cf0;
     }
-    .right{
+    .right {
       display: flex;
       flex-direction: column;
       padding-left: 20px;
       justify-content: center;
     }
   }
-  .custom{
-    ::v-deep(.el-card__body){
-        padding: 0;
+  .custom {
+    ::v-deep(.el-card__body) {
+      padding: 0;
     }
   }
   .item {
@@ -186,8 +217,7 @@
     margin-bottom: 10px;
     width: 100%;
   }
-  .card-item{
-
+  .card-item {
     background: linear-gradient(50deg, #1890ff, #77e19d);
   }
 </style>

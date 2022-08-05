@@ -1,8 +1,8 @@
 <template>
   <div class="zb-pipeline">
-    <zb-pipeline-start/>
+    <zb-pipeline-start />
   </div>
 </template>
 <script lang="ts" setup>
-import ZbPipelineStart from './zb-pipeline-start'
+  import ZbPipelineStart from './zb-pipeline-start'
 </script>

@@ -17,8 +17,8 @@ export function parseTime(time, cFormat) {
   if (typeof time === 'object') {
     date = time
   } else {
-    if ((typeof time === 'string')) {
-      if ((/^[0-9]+$/.test(time))) {
+    if (typeof time === 'string') {
+      if (/^[0-9]+$/.test(time)) {
         // support "1548221490638"
         time = parseInt(time)
       } else {
@@ -28,7 +28,7 @@ export function parseTime(time, cFormat) {
       }
     }
 
-    if ((typeof time === 'number') && (time.toString().length === 10)) {
+    if (typeof time === 'number' && time.toString().length === 10) {
       time = time * 1000
     }
     date = new Date(time)
@@ -40,12 +40,14 @@ export function parseTime(time, cFormat) {
     h: date.getHours(),
     i: date.getMinutes(),
     s: date.getSeconds(),
-    a: date.getDay()
+    a: date.getDay(),
   }
   const time_str = format.replace(/{([ymdhisa])+}/g, (result, key) => {
     const value = formatObj[key]
     // Note: getDay() returns 0 on Sunday
-    if (key === 'a') { return ['日', '一', '二', '三', '四', '五', '六'][value ] }
+    if (key === 'a') {
+      return ['日', '一', '二', '三', '四', '五', '六'][value]
+    }
     return value.toString().padStart(2, '0')
   })
   return time_str
@@ -81,15 +83,7 @@ export function formatTime(time, option) {
     return parseTime(time, option)
   } else {
     return (
-      d.getMonth() +
-      1 +
-      '月' +
-      d.getDate() +
-      '日' +
-      d.getHours() +
-      '时' +
-      d.getMinutes() +
-      '分'
+      d.getMonth() + 1 + '月' + d.getDate() + '日' + d.getHours() + '时' + d.getMinutes() + '分'
     )
   }
 }
@@ -124,7 +118,7 @@ export function byteLength(str) {
     const code = str.charCodeAt(i)
     if (code > 0x7f && code <= 0x7ff) s++
     else if (code > 0x7ff && code <= 0xffff) s += 2
-    if (code >= 0xDC00 && code <= 0xDFFF) i--
+    if (code >= 0xdc00 && code <= 0xdfff) i--
   }
   return s
 }
@@ -150,10 +144,10 @@ export function cleanArray(actual) {
 export function param(json) {
   if (!json) return ''
   return cleanArray(
-    Object.keys(json).map(key => {
+    Object.keys(json).map((key) => {
       if (json[key] === undefined) return ''
       return encodeURIComponent(key) + '=' + encodeURIComponent(json[key])
-    })
+    }),
   ).join('&')
 }
 
@@ -168,7 +162,7 @@ export function param2Obj(url) {
   }
   const obj = {}
   const searchArr = search.split('&')
-  searchArr.forEach(v => {
+  searchArr.forEach((v) => {
     const index = v.indexOf('=')
     if (index !== -1) {
       const name = v.substring(0, index)
@@ -202,7 +196,7 @@ export function objectMerge(target, source) {
   if (Array.isArray(source)) {
     return source.slice()
   }
-  Object.keys(source).forEach(property => {
+  Object.keys(source).forEach((property) => {
     const sourceProperty = source[property]
     if (typeof sourceProperty === 'object') {
       target[property] = objectMerge(target[property], sourceProperty)
@@ -227,8 +221,7 @@ export function toggleClass(element, className) {
     classString += '' + className
   } else {
     classString =
-      classString.substr(0, nameIndex) +
-      classString.substr(nameIndex + className.length)
+      classString.substr(0, nameIndex) + classString.substr(nameIndex + className.length)
   }
   element.className = classString
 }
@@ -254,7 +247,7 @@ export function getTime(type) {
 export function debounce(func, wait, immediate) {
   let timeout, args, context, timestamp, result
 
-  const later = function() {
+  const later = function () {
     // 据上一次触发时间间隔
     const last = +new Date() - timestamp
 
@@ -271,7 +264,7 @@ export function debounce(func, wait, immediate) {
     }
   }
 
-  return function(...args) {
+  return function (...args) {
     context = this
     timestamp = +new Date()
     const callNow = immediate && !timeout
@@ -298,7 +291,7 @@ export function deepClone(source) {
     throw new Error('error arguments', 'deepClone')
   }
   const targetObj = source.constructor === Array ? [] : {}
-  Object.keys(source).forEach(keys => {
+  Object.keys(source).forEach((keys) => {
     if (source[keys] && typeof source[keys] === 'object') {
       targetObj[keys] = deepClone(source[keys])
     } else {
@@ -356,70 +349,77 @@ export function removeClass(ele, cls) {
   }
 }
 
-
 export function getColor() {
-  var str = '#';
-  var arr = ['1', '2', '3', '4', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+  var str = '#'
+  var arr = ['1', '2', '3', '4', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
   for (var i = 0; i < 6; i++) {
-    var num = parseInt(Math.random() * 16);
-    str += arr[num];
+    var num = parseInt(Math.random() * 16)
+    str += arr[num]
   }
-  return str;
+  return str
 }
 // 检查给定的值是否是数组
-export const isArray = function(value) {
-  return objToString.call(value) === "[object Array]";
-};
-var funProto = Function.prototype;
-var objProto = Object.prototype;
+export const isArray = function (value) {
+  return objToString.call(value) === '[object Array]'
+}
+var funProto = Function.prototype
+var objProto = Object.prototype
 
-var getPrototypeOf = Object.getPrototypeOf;
+var getPrototypeOf = Object.getPrototypeOf
 
-var objToString = objProto.toString;
-var hasOwnProperty = objProto.hasOwnProperty;
-var funToString = funProto.toString;
+var objToString = objProto.toString
+var hasOwnProperty = objProto.hasOwnProperty
+var funToString = funProto.toString
 // 检查给定的值是否是字符串
-export const isString = function(value) {
-  return objToString.call(value) === "[object String]";
-};
+export const isString = function (value) {
+  return objToString.call(value) === '[object String]'
+}
 // 检查给定的值是否是纯对象，纯对象是指通过 {} 或 new Object() 声明的对象
-export const isPlainObject = function(value) {
-  if (!value || objToString.call(value) !== "[object Object]") {
-    return false;
+export const isPlainObject = function (value) {
+  if (!value || objToString.call(value) !== '[object Object]') {
+    return false
   }
 
-  var prototype = getPrototypeOf(value);
+  var prototype = getPrototypeOf(value)
 
   if (prototype === null) {
-    return true;
+    return true
   }
 
-  var constructor = hasOwnProperty.call(prototype, "constructor") && prototype.constructor;
+  var constructor = hasOwnProperty.call(prototype, 'constructor') && prototype.constructor
 
-  return typeof constructor === "function" && funToString.call(constructor) === funToString.call(Object);
-};
+  return (
+    typeof constructor === 'function' && funToString.call(constructor) === funToString.call(Object)
+  )
+}
 
 // // 深度克隆 array 数组或 json 对象，返回克隆后的副本
-export const deepObjClone = function(obj){
+export const deepObjClone = function (obj) {
   let weakMap = new WeakMap()
-  function clone (obj){
-    if(obj==null){return obj}
-    if(obj instanceof Date){ return new Date(obj) }
-    if(obj instanceof RegExp){ return new RegExp(obj)}
-    if(typeof obj !== 'object') return obj
+  function clone(obj) {
+    if (obj == null) {
+      return obj
+    }
+    if (obj instanceof Date) {
+      return new Date(obj)
+    }
+    if (obj instanceof RegExp) {
+      return new RegExp(obj)
+    }
+    if (typeof obj !== 'object') return obj
 
-    if(weakMap.get(obj)){
+    if (weakMap.get(obj)) {
       return weakMap.get(obj)
     }
-    var copy =  new obj.constructor
-    weakMap.set(obj,copy)
-    for(var key in obj){
-      if(Object.prototype.hasOwnProperty.call(obj, key)){
-        var value = obj[key];
-        copy[key] = clone(value);
+    var copy = new obj.constructor()
+    weakMap.set(obj, copy)
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        var value = obj[key]
+        copy[key] = clone(value)
       }
     }
-    return copy;
+    return copy
   }
-  return clone (obj)
-};
+  return clone(obj)
+}

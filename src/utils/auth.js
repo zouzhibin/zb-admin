@@ -1,4 +1,3 @@
-
 const TokenKey = 'zb-token'
 
 export function getToken() {
@@ -6,9 +5,9 @@ export function getToken() {
 }
 
 export function setToken(token) {
-  return localStorage.TokenKey = token
+  return (localStorage.TokenKey = token)
 }
 
 export function removeToken() {
-  return localStorage.TokenKey =''
+  return (localStorage.TokenKey = '')
 }
