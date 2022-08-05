@@ -9,7 +9,7 @@ export default {
   name: 'UniEleGit',
   data() {
     return {
-      url: 'https://gitee.com/nickzhan/uni-element-ui-admin'
+      url: 'https://github.com/zouzhibin/vue-admin-perfect'
     }
   },
   methods: {
