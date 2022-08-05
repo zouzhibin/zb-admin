@@ -44,6 +44,7 @@
       </el-table-column>
     </el-table>
     <el-dialog
+        @close="close"
         v-model="dialogVisible"
         :title="title"
         width="50%"
@@ -64,8 +65,8 @@
       </el-form-item>
       <el-form-item label="性别" prop="sex">
         <el-radio-group v-model="ruleForm.sex">
-          <el-radio :label="1" >男</el-radio>
-          <el-radio :label="0" >女</el-radio>
+          <el-radio label="男" >男</el-radio>
+          <el-radio label="女" >女</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="角色" prop="role">
@@ -85,8 +86,6 @@
       </span>
     </template>
     </el-dialog>
-
-
   </u-container-layout>
 </template>
 
@@ -137,16 +136,22 @@
       dialogVisible.value = true
     }
     const ruleForm = reactive({
-      name: '',
-      sex: null,
-      price:null,
+      username: '',
+      nickname: null,
+      sex:null,
+      role:null,
     })
     const edit = (row)=>{
       title.value='编辑'
-      // rowObj.value = row
       dialogVisible.value = true
+      ruleForm.nickname = row.nickname
+      ruleForm.username = row.username
+      ruleForm.sex = row.sex
+      ruleForm.role = row.role
     }
-
+    function close(){
+      ruleFormRef.value.resetFields()
+    }
     const del = (row)=>{
       ElMessageBox.confirm(
           '你确定要删除当前项吗?',
