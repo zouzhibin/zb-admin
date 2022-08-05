@@ -94,7 +94,6 @@ var convertToLineData = function(data, gps) {
   for (var i = 0; i < data.length; i++) {
     var dataItem = data[i];
     var toCoord = geoCoordMap[dataItem.name];
-    debugger;
     var fromCoord = gps; //郑州
     //  var toCoord = geoGps[Math.random()*3];
     if (fromCoord && toCoord) {

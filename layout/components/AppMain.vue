@@ -32,6 +32,7 @@ export default {
   mounted() {
     // 关闭标签触发
     Global.$on("removeCache", (name, view) => {
+
       this.removeCache(name, view);
     });
   },
@@ -52,6 +53,7 @@ export default {
     },
     // 移除keep-alive缓存
     removeCache(name, view = {}) {
+
       let vnode = this.getVnode();
       if (!vnode) return false;
       let componentInstance = vnode.parent.componentInstance;
@@ -64,6 +66,9 @@ export default {
     },
     // 移除其他
     closeOthersTags({ componentInstance, thisKey }) {
+      if(!componentInstance.cache){
+        return
+      }
       Object.keys(componentInstance.cache).forEach((key, index) => {
         if (key != thisKey) {
           // 销毁实例(这里存在多个key指向一个缓存的情况可能前面一个已经清除掉了所有要加判断)
@@ -79,6 +84,9 @@ export default {
     },
     // 移除所有缓存
     closeAllTags({ componentInstance }) {
+      if(!componentInstance.cache){
+        return
+      }
       // 销毁实例
       Object.keys(componentInstance.cache).forEach((key) => {
         if (componentInstance.cache[key]) {
@@ -93,21 +101,27 @@ export default {
     // 移除单个缓存
     closeSelectedTag({ componentInstance, regKey }) {
       let reg = new RegExp(`^${regKey}`);
-      Object.keys(componentInstance.cache).forEach((key, i) => {
-        if (reg.test(key)) {
-          // 销毁实例
-          if (componentInstance.cache[key]) {
-            componentInstance.cache[key].componentInstance.$destroy();
+      if(componentInstance.cache){
+        Object.keys(componentInstance.cache).forEach((key, i) => {
+          if (reg.test(key)) {
+            // 销毁实例
+            if (componentInstance.cache[key]) {
+              componentInstance.cache[key].componentInstance.$destroy();
+            }
+            // 删除缓存
+            delete componentInstance.cache[key];
+            // 移除key中对应的key
+            componentInstance.keys.splice(i, 1);
           }
-          // 删除缓存
-          delete componentInstance.cache[key];
-          // 移除key中对应的key
-          componentInstance.keys.splice(i, 1);
-        }
-      });
+        });
+      }
+
     },
     // 刷新单个缓存
     refreshSelectedTag({ componentInstance, thisKey }) {
+      if(!componentInstance.cache){
+        return
+      }
       Object.keys(componentInstance.cache).forEach((key, index) => {
         if (null != thisKey && key.replace("/redirect", "") == thisKey) {
           // 1 销毁实例(这里存在多个key指向一个缓存的情况可能前面一个已经清除掉了所有要加判断)

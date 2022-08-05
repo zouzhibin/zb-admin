@@ -9,7 +9,7 @@ export default {
   name: 'UniEleDoc',
   data() {
     return {
-      url: 'https://gitee.com/nickzhan/uni-element-ui-admin/blob/master/README.md'
+      url: 'https://github.com/zouzhibin/vue-admin-perfect'
     }
   },
   methods: {

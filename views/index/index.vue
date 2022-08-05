@@ -14,8 +14,8 @@
 			<div v-for="(item,index) in links" :key="index">
 				<span class="text" @click="goto(item.url)">{{ item.title }}</span>
 			</div>
-			
-			
+
+
 			<div class="flink">
 				<span class="flink-title">友情链接</span>
 				<div v-for="(item,index) in flinks" :key="index">
@@ -30,14 +30,9 @@ export default {
 	data() {
 		return {
 			links: [
-				{title: '源码地址', url: 'https://gitee.com/nickzhan/uni-element-ui-admin'},
-				{title: '文档地址', url: 'https://gitee.com/nickzhan/uni-element-ui-admin/blob/master/README.md'},
-				{title: 'DCloud插件市场地址', url: 'https://ext.dcloud.net.cn/plugin?id=5953'},
-				{title: '作者的博客园', url: 'https://www.cnblogs.com/mihuk'},
+				{title: '源码地址', url: 'https://github.com/zouzhibin/vue-admin-perfect'},
+				{title: '文档地址', url: 'https://github.com/zouzhibin/vue-admin-perfect'},
 			],
-			flinks: [
-				{title: 'ElementUI-V2官网', url: 'https://element.eleme.cn/#/zh-CN'}
-			]
 		}
 	},
 	methods: {
