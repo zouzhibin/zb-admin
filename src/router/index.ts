@@ -1,6 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw,createWebHashHistory,Router } from 'vue-router'
 import Layout from "@/layout/index.vue";
 
+// 扩展继承属性
+interface extendRoute {
+    hidden?:boolean
+}
+
 // 引入组件
 import chartsRouter from './modules/charts'
 import chatRouter from './modules/chat'
@@ -14,19 +19,24 @@ import excelRouter from './modules/excel'
 import nestedRouter from './modules/nested'
 import systemRouter from './modules/system'
 
-
-interface extendRoute {
-  hidden?:boolean
-}
-
 /**
- * alwaysShow 如果设置为true，将始终显示根菜单，无论其子路由长度如何
- * hidden 如果“hidden:true”不会显示在侧边栏中（默认值为false）
- * keepAlive 设为true 缓存
+ * path ==> 路由路径
+ * name ==> 路由名称
+ * component ==> 路由组件
+ * redirect ==> 路由重定向
+ * alwaysShow ==> 如果设置为true，将始终显示根菜单，无论其子路由长度如何
+ * hidden ==> 如果“hidden:true”不会显示在侧边栏中（默认值为false）
+ * keepAlive ==> 设为true 缓存
+ * meta ==> 路由元信息
+ * meta.title ==> 路由标题
+ * meta.icon ==> 菜单icon
  */
 
-
 export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
+    {
+        path: "/",
+        redirect: { name: "login" }
+    },
   {
     path: '/login',
     name: 'Login',
@@ -34,7 +44,6 @@ export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
     hidden: true,
     meta: { title: '登录',}
   },
-
   {
     path: '/',
     name: 'layout',
@@ -49,7 +58,6 @@ export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
       },
     ]
   },
-
 ]
 
 const clipboardTable = {
@@ -95,37 +103,33 @@ const zipRoutes = {
 
     ]
 }
-//
+
 // // 异步组件
 export const asyncRoutes = [
-  tableRouter,
-  chartsRouter,
-  chatRouter,
-  componentsRouter,
-  othersRouter,
-  nestedRouter,
+    tableRouter,
+    chartsRouter,
+    chatRouter,
+    componentsRouter,
+    othersRouter,
+    nestedRouter,
     excelRouter,
     zipRoutes,
-  errorRouter,
-  externalLink,
-  clipboardTable,
+    errorRouter,
+    externalLink,
+    clipboardTable,
     systemRouter,
-  permissionRouter,
+    permissionRouter,
 
-  {
-    path: '/:pathMatch(.*)',
-    redirect: '/error/404'
-  }
+    {
+        path: '/:pathMatch(.*)',
+        redirect: '/error/404'
+    }
 ]
-
 
 const router = createRouter({
   // history: createWebHistory(process.env.BASE_URL), // history
   history: createWebHashHistory(), // hash
   routes:constantRoutes
 })
-
-
-
 
 export default router

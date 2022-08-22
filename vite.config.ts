@@ -22,6 +22,7 @@ export default defineConfig({
     // Components({
     //   resolvers: [ElementPlusResolver()],
     // }),
+    // * 使用 svg 图标
     createSvgIconsPlugin({
       // 指定需要缓存的图标文件夹
       iconDirs: [path.resolve(process.cwd(), 'src/icons/svg')],
@@ -55,11 +56,20 @@ export default defineConfig({
   },
   //启动服务配置
   server: {
+    // 服务器主机名，如果允许外部访问，可设置为 "0.0.0.0" 也可设置成你的ip地址
     host: '0.0.0.0',
     port: 8100,
     open: true,
     https: false,
-    proxy: {},
+    cors: true,
+    // 代理跨域（模拟示例）
+    proxy: {
+      // "/api": {
+      //   target: "", // easymock
+      //   changeOrigin: true,
+      //   rewrite: path => path.replace(/^\/api/, "")
+      // }
+    }
   },
   // 生产环境打包配置
   //去除 console debugger

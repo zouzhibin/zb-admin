@@ -17,13 +17,12 @@ router.beforeEach(async(to, from, next) => {
   if(typeof(to.meta.title) === 'string'){
       document.title = to.meta.title ||'vue-admin-perfect'
   }
-  // 确定用户是否已登录
+  // 确定用户是否已登录过，存在Token
   const hasToken = getToken()
   if (hasToken) {
     if (to.path === '/login') {
       // 如果已登录，请重定向到主页
       next({ path: '/' })
-         NProgress.done()
     } else {
         try {
             // 路由添加进去了没有及时更新 需要重新进去一次拦截
@@ -40,7 +39,6 @@ router.beforeEach(async(to, from, next) => {
         } catch (error) {
             next(`/login?redirect=${to.path}`)
         }
-        NProgress.done()
     }
   }else{
       if (whiteList.indexOf(to.path) !== -1) {
@@ -49,8 +47,11 @@ router.beforeEach(async(to, from, next) => {
           next(`/login?redirect=${to.path}`)
 
       }
-      NProgress.done()
   }
 })
+
+router.afterEach(() => {
+    NProgress.done();
+});
 
 
