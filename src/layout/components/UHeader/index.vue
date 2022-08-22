@@ -141,10 +141,9 @@
     left: 0;
     z-index: 99;
     right: 0;
-    transition: left 0.28s;
+    transition: left 0.3s;
     flex-shrink: 0;
     box-sizing: border-box;
-
     box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
   }
   .el-dropdown {

@@ -18,7 +18,7 @@
 
 <script lang="ts">
   import { computed, defineComponent, ref } from 'vue'
-  import Sidebar from './components/Sidebar/index.vue'
+  import Sidebar from './Sidebar/index.vue'
   import UHeader from './components/UHeader/index.vue'
   import AppMain from './components/AppMain.vue'
   import { useResizeHandler } from './hooks/useResizeHandler'
