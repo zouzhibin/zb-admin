@@ -13,10 +13,10 @@
       </div>
     </div>
     <el-drawer v-model="drawer" title="主题配置" size="300px">
-      <div class="theme-item">
-        <label>标签</label>
-        <el-color-picker v-model="themeConfig.primary" :predefine="colorList" @change="changePrimary" />
-      </div>
+<!--      <div class="theme-item">-->
+<!--        <label>标签</label>-->
+<!--        <el-color-picker v-model="themeConfig.primary" :predefine="colorList" @change="changePrimary" />-->
+<!--      </div>-->
       <div class="theme-item">
         <label>菜单布局</label>
         <el-select
