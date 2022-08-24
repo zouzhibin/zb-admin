@@ -33,10 +33,6 @@ import systemRouter from './modules/system'
  */
 
 export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
-    {
-        path: "/",
-        redirect: { name: "login" }
-    },
   {
     path: '/login',
     name: 'Login',
