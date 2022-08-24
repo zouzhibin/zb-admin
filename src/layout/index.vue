@@ -1,7 +1,7 @@
 <template>
   <div class="g-container-layout" :class="classObj">
     <div v-if="device === 'mobile' && !isCollapse" class="drawer-bg" @click="handleClickOutside" />
-    <sidebar class="sidebar-container" v-if="mode === 'vertical'" />
+<!--    <sidebar class="sidebar-container" v-if="mode === 'vertical'" />-->
     <div
       class="main-container"
       :class="{
@@ -18,7 +18,7 @@
 
 <script lang="ts">
   import { computed, defineComponent, ref } from 'vue'
-  import Sidebar from './Sidebar/index.vue'
+  // import Sidebar from './Sidebar/index.vue'
   import UHeader from './components/UHeader/index.vue'
   import AppMain from './components/AppMain.vue'
   import { useResizeHandler } from './hooks/useResizeHandler'
@@ -28,7 +28,7 @@
   export default defineComponent({
     name: 'layout',
     components: {
-      Sidebar,
+      // Sidebar,
       UHeader,
       AppMain,
     },
