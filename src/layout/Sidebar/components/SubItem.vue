@@ -15,7 +15,7 @@
         <el-icon :size="20"> <component :is="item.meta?.icon"></component></el-icon>
         <span>{{ item.meta && item.meta.title }}</span>
       </template>
-      <sidebar-item
+      <sub-item
           v-for="child in item.children"
           :key="child.path"
           :item="child"

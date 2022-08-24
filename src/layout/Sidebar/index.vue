@@ -2,16 +2,17 @@
   <div :class="{ 'has-logo': isCollapse }">
     <logo :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
-      <menu/>
+      <u-menu/>
     </el-scrollbar>
   </div>
 </template>
 
 <script lang="ts" setup>
-import Menu from './components/Menu.vue'
+import UMenu from './components/Menu.vue'
 import logo from './components/Logo.vue'
 import { useStore, mapGetters } from 'vuex' // useStore ===vue2.0中的this.$store
 import { ref, computed } from 'vue'
+
 
 // 在setup中获取store
 const store = useStore()
