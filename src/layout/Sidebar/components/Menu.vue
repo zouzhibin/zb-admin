@@ -9,7 +9,7 @@
     class="el-menu-vertical-demo"
     :collapse="isCollapse"
   >
-    <sidebar-item
+    <sub-item
       v-for="route in permission_routes"
       :key="route.path"
       :item="route"
@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-  import SidebarItem from './SidebarItem.vue'
+  import SubItem from './SubItem.vue'
   import logo from './Logo.vue'
   import { useRoute } from 'vue-router'
   import { useStore, mapGetters } from 'vuex' // useStore ===vue2.0中的this.$store

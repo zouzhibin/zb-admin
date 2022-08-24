@@ -10,7 +10,7 @@
     >
       <u-header />
       <div class="m-container-content" :class="{ 'app-main-hide-tag': !isShowTag }">
-        <app-main />
+        <u-main />
       </div>
     </div>
   </div>
@@ -18,9 +18,9 @@
 
 <script lang="ts">
   import { computed, defineComponent, ref } from 'vue'
-  import Sidebar from './components/Sidebar/index.vue'
-  import UHeader from './components/UHeader/index.vue'
-  import AppMain from './components/AppMain.vue'
+  import Sidebar from './Sidebar/index.vue'
+  import UHeader from './Header/index.vue'
+  import UMain from './Main/index.vue'
   import { useResizeHandler } from './hooks/useResizeHandler'
 
   import { useStore } from 'vuex'
@@ -30,7 +30,7 @@
     components: {
       Sidebar,
       UHeader,
-      AppMain,
+      UMain,
     },
     setup() {
       const store = useStore()

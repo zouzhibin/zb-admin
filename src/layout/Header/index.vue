@@ -9,7 +9,7 @@
         transverseMenu: mode === 'horizontal',
       }"
     >
-      <menu-slide v-if="mode === 'horizontal'" />
+      <u-menu v-if="mode === 'horizontal'" />
       <div class="left" v-if="mode === 'vertical'">
         <div>
           <el-icon class="icon" v-if="isCollapse" @click="handleCollapse"><expand /></el-icon>
@@ -45,12 +45,12 @@
 
 <script lang="ts" setup>
   import { UserFilled } from '@element-plus/icons-vue'
-  import Personal from './Personal.vue'
+  import Personal from './components/Personal.vue'
   import TagViews from '../TagsView/index.vue'
   import UHamburger from '@/components/u-Hamburger/index.vue'
   import UScreenFull from '@/components/u-screenfull/index.vue'
   import UInfo from '@/components/u-info/index.vue'
-  import MenuSlide from '../Sidebar/menuSlide.vue'
+  import UMenu from '../Sidebar/components/Menu.vue'
   import { computed, ref } from 'vue'
   import { useRouter } from 'vue-router'
   import { ElMessageBox, ElMessage } from 'element-plus'
@@ -141,10 +141,9 @@
     left: 0;
     z-index: 99;
     right: 0;
-    transition: left 0.28s;
+    transition: left 0.3s;
     flex-shrink: 0;
     box-sizing: border-box;
-
     box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
   }
   .el-dropdown {
@@ -157,5 +156,17 @@
     color: var(--el-color-primary);
     display: flex;
     align-items: center;
+  }
+  .transverseMenu{
+    display: flex;
+    .el-menu{
+      overflow: hidden;
+    }
+    .right{
+      display: flex;
+      justify-content: flex-end;
+      min-width:300px ;
+      flex-shrink: 0;
+    }
   }
 </style>

@@ -1,15 +1,9 @@
 <template>
-  <div class="sidebar-logo-container" :class="{ collapse: isCollapse }">
-    <transition name="sidebarLogoFade">
-      <router-link v-if="isCollapse" key="collapse" class="sidebar-logo-link" to="/">
-        <img v-if="logo" :src="logo" class="sidebar-logo" />
-        <h1 v-else class="sidebar-title">Perfect </h1>
-      </router-link>
-      <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <img v-if="logo" :src="logo" class="sidebar-logo" />
-        <h1 class="sidebar-title"> {{ title }}</h1>
-      </router-link>
-    </transition>
+  <div class="sidebar-logo-container" >
+    <router-link  key="collapse" class="sidebar-logo-link" to="/">
+      <img :src="logo" class="sidebar-logo" />
+      <h1 class="sidebar-title" v-if="!isCollapse">{{ title }} </h1>
+    </router-link>
   </div>
 </template>
 
@@ -27,14 +21,14 @@
 </script>
 
 <style lang="scss" scoped>
-  .sidebarLogoFade-enter-active {
-    transition: opacity 1.5s;
-  }
-
-  .sidebarLogoFade-enter,
-  .sidebarLogoFade-leave-to {
-    opacity: 0;
-  }
+  //.sidebarLogoFade-enter-active {
+  //  transition: opacity 1.5s;
+  //}
+  //
+  //.sidebarLogoFade-enter,
+  //.sidebarLogoFade-leave-to {
+  //  opacity: 0;
+  //}
 
   .sidebar-logo-container {
     position: relative;
