@@ -1,16 +1,24 @@
 import {Module} from "vuex";
 
 const state = {
+    themeConfig:{
+        // 菜单展示模式 默认 vertical   horizontal / vertical
+        mode: 'vertical',
+        // tagsView 是否展示
+        showTag:true, // 默认展示
+        // 页脚
+        footer: true
+    },
     isShowTag: true,
     mode: 'vertical',
 }
 
 const mutations = {
     SET_TAG: (state, value) => {
-        state.isShowTag = value
+        state.themeConfig.showTag = value
     },
     SET_MODE: (state, value) => {
-        state.mode = value
+        state.themeConfig.mode = value
     },
 }
 const actions = {

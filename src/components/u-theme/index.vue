@@ -13,8 +13,12 @@
       </div>
     </div>
     <el-drawer v-model="drawer" title="主题配置" size="300px">
-      <div class="drawer-item">
-        <label>布局</label>
+      <div class="theme-item">
+        <label>标签</label>
+        <el-color-picker v-model="themeConfig.primary" :predefine="colorList" @change="changePrimary" />
+      </div>
+      <div class="theme-item">
+        <label>菜单布局</label>
         <el-select
           v-model="layout"
           placeholder="请选择"
@@ -25,7 +29,7 @@
           <el-option label="横向" value="horizontal"></el-option>
         </el-select>
       </div>
-      <div class="drawer-item">
+      <div class="theme-item">
         <label>标签</label>
         <el-switch v-model="tag" @change="(val) => changeSwitch(val, 1)" />
       </div>
@@ -34,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
+import {computed, ref} from 'vue'
   const drawer = ref(false)
   const tag = ref(true)
   const layout = ref('vertical')
@@ -51,6 +55,8 @@
         return
     }
   }
+
+  const themeConfig = computed(()=>store.state.setting.themeConfig)
 
   const changeSwitch = (val, type) => {
     switch (type) {
@@ -116,11 +122,18 @@
         box-shadow 0.15s ease;
     }
   }
-  .drawer-item {
+
+  ::v-deep(.el-drawer__title) {
+    font-weight: bold;
+    color: black;
+  }
+  .theme-item {
     width: 100%;
     display: flex;
     margin-bottom: 15px;
     align-items: center;
+    font-size: 14px;
+    color: black;
     justify-content: space-between;
   }
 </style>

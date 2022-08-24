@@ -31,7 +31,6 @@
 
   // 获取路由
   const permission_routes = computed(() => {
-    console.log('permission_routes', store.state.permission.routes)
     return store.state.permission.routes
   })
 
@@ -51,6 +50,6 @@
 
   // 横向
   const mode = computed(() => {
-    return store.state.setting.mode
+    return store.state.setting.themeConfig.mode
   })
 </script>

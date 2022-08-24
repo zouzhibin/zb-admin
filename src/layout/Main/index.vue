@@ -8,12 +8,12 @@
         <component :is="Component" :key="route.path" v-else />
       </transition>
     </router-view>
-    <u-setting />
+    <u-theme />
   </section>
 </template>
 
 <script lang="ts" setup>
-  import USetting from '@/components/u-setting/index.vue'
+  import UTheme from '@/components/u-theme/index.vue'
   import { useStore } from 'vuex'
   import { computed, ref } from 'vue'
   const store = useStore()

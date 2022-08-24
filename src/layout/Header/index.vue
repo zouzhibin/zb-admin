@@ -38,7 +38,7 @@
         </el-dropdown>
       </div>
     </div>
-    <tag-views v-if="isShowTag" />
+    <tag-views v-if="showTag" />
     <personal ref="person" />
   </div>
 </template>
@@ -64,11 +64,11 @@
     return !store.state.app.isCollapse
   })
   const mode = computed(() => {
-    return store.state.setting.mode
+    return store.state.setting.themeConfig.mode
   })
 
-  const isShowTag = computed(() => {
-    return store.state.setting.isShowTag
+  const showTag = computed(() => {
+    return store.state.setting.themeConfig.showTag
   })
 
   const userInfo = computed(() => {

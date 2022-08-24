@@ -9,7 +9,7 @@
       }"
     >
       <u-header />
-      <div class="m-container-content" :class="{ 'app-main-hide-tag': !isShowTag }">
+      <div class="m-container-content" :class="{ 'app-main-hide-tag': !showTag }">
         <u-main />
       </div>
     </div>
@@ -51,18 +51,18 @@
       const handleClickOutside = () => {
         store.dispatch('app/closeSideBar', { withoutAnimation: false })
       }
-      const isShowTag = computed(() => {
-        return store.state.setting.isShowTag
+      const showTag = computed(() => {
+        return store.state.setting.themeConfig.showTag
       })
 
       const mode = computed(() => {
-        return store.state.setting.mode
+        return store.state.setting.themeConfig.mode
       })
       return {
         isCollapse,
         device,
         classObj,
-        isShowTag,
+        showTag,
         mode,
         handleClickOutside,
       }
