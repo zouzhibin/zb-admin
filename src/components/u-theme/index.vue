@@ -18,6 +18,10 @@
 <!--        <el-color-picker v-model="themeConfig.primary" :predefine="colorList" @change="changePrimary" />-->
 <!--      </div>-->
       <div class="theme-item">
+        <label>暗黑模式</label>
+        <switch-dark></switch-dark>
+      </div>
+      <div class="theme-item">
         <label>菜单布局</label>
         <el-select
           v-model="layout"
@@ -31,7 +35,7 @@
       </div>
       <div class="theme-item">
         <label>标签</label>
-        <el-switch v-model="tag" @change="(val) => changeSwitch(val, 1)" />
+        <el-switch v-model="showTag" @change="(val) => changeSwitch(val, 1)" />
       </div>
     </el-drawer>
   </div>
@@ -39,12 +43,13 @@
 
 <script lang="ts" setup>
 import {computed, ref} from 'vue'
+  import SwitchDark from './components/switchDark.vue'
   const drawer = ref(false)
-  const tag = ref(true)
+
   const layout = ref('vertical')
   import { useStore } from 'vuex'
-
   const store = useStore()
+  const showTag = ref(store.state.setting.themeConfig.showTag)
   const operator = (type) => {
     switch (type) {
       case 1:
@@ -72,6 +77,11 @@ import {computed, ref} from 'vue'
 </script>
 
 <style lang="scss" scoped>
+::v-deep(.el-drawer__header){
+  border-bottom: 1px solid #ebeef5;
+  padding: 15px 20px 14px;
+  margin-bottom: 0;
+}
   .m-setting-fix {
     position: fixed;
     top: 50%;
@@ -135,5 +145,8 @@ import {computed, ref} from 'vue'
     font-size: 14px;
     color: black;
     justify-content: space-between;
+    label{
+      color: black;
+    }
   }
 </style>

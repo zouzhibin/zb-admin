@@ -4,10 +4,12 @@ const state = {
     themeConfig:{
         // 菜单展示模式 默认 vertical   horizontal / vertical
         mode: 'vertical',
-        // tagsView 是否展示
-        showTag:true, // 默认展示
+        // tagsView 是否展示 默认展示
+        showTag:true,
         // 页脚
-        footer: true
+        footer: true,
+        // 深色模式 切换暗黑模式
+        isDark: false,
     },
     isShowTag: true,
     mode: 'vertical',
