@@ -1,12 +1,6 @@
 <template>
   <div class="m-screenful">
-    <el-icon
-      class="full-screen"
-      title="全屏"
-      @click.stop="click"
-      style="margin-right: 10px; cursor: pointer"
-      ><full-screen
-    /></el-icon>
+    <svg-icon :icon-class="isFullscreen?'exit-fullscreen':'fullscreen'" @click="click" />
   </div>
 </template>
 
@@ -29,7 +23,6 @@
   const change = () => {
     isFullscreen.value = screenfull.isFullscreen
   }
-
   const init = () => {
     if (screenfull.isEnabled) {
       screenfull.on('change', change)
@@ -41,7 +34,6 @@
       screenfull.off('change', change)
     }
   }
-
   onMounted(() => {
     init()
   })
@@ -53,9 +45,9 @@
 
 <style lang="scss" scoped>
   .m-screenful {
-    width: 40px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    padding-right: 0;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s;

@@ -2,17 +2,28 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-//
+import 'default-passive-events'
+
+// 权限路由
 import './permission'
+// svg-icons注册导入
 import 'virtual:svg-icons-register'
 import SvgIcon from '@/components/SvgIcon/index.vue'// svg component
+// UI框架 element-plus
 import ElementPlus from 'element-plus'
 import UContainerLayout from '@/components/u-container-layout/index.vue'
 import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
+// 引入暗黑模式 element-plus 2.2 内置暗黑模式
+import 'element-plus/theme-chalk/dark/css-vars.css'
+// 自定义暗黑模式
+import "@/styles/element-dark.scss";
+
 const app = createApp(App)
 app.component('svg-icon',SvgIcon)
 app.component('u-container-layout',UContainerLayout)
+
+// 注册icon组件
 import * as ElIconsModules from '@element-plus/icons-vue'
 // 全局注册element-plus icon图标组件
 Object.keys(ElIconsModules).forEach((key) => {//循环遍历组件名称

@@ -24,7 +24,7 @@
   import { ElMessage, ElMessageBox } from 'element-plus'
   import { downloadFiles2Zip } from '@/utils/downloadzip'
   const data = []
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 10; i++) {
     data.push({
       date: '2016-05-02',
       name: '王五' + i,

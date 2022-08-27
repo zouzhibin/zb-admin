@@ -20,7 +20,6 @@
 
 <script lang="ts" setup>
   import SubItem from './SubItem.vue'
-  import logo from './Logo.vue'
   import { useRoute } from 'vue-router'
   import { useStore, mapGetters } from 'vuex' // useStore ===vue2.0中的this.$store
   import { ref, computed } from 'vue'

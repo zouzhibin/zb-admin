@@ -12,8 +12,6 @@
   const isDark = ref(store.state.setting.themeConfig.isDark)
 
   const changeSwitch = ()=>{
-    console.log('1111111111')
-
     toggleDark()
   }
 </script>

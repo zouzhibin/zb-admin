@@ -21,7 +21,7 @@
       left: 0;
       width: 100%;
       font-weight: bold;
-      z-index: 999;
+      z-index: 9;
     }
     ::v-deep(.el-card) {
       border-radius: 0;

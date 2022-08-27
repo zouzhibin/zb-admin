@@ -18,13 +18,13 @@ const errorRouter = {
             path: '404',
             component: () => import('@/views/error/404.vue'),
             name: '404',
-            meta: { title: '404', }
+            meta: { title: '404', icon: 'MenuIcon' }
         },
         {
             path: '401',
             component: () => import('@/views/error/401.vue'),
             name: '401',
-            meta: { title: '401', }
+            meta: { title: '401', icon: 'MenuIcon'}
         },
     ]
 }

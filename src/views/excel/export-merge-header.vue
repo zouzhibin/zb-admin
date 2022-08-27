@@ -31,7 +31,7 @@
   import { ElMessage, ElMessageBox } from 'element-plus'
   import { exportMultiHeaderExcel } from '@/utils/exprotExcel'
   const data = []
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 10; i++) {
     data.push({
       date: '2016-05-02',
       name: '王五' + i,

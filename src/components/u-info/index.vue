@@ -3,7 +3,7 @@
     <el-popover width="200px" placement="bottom">
       <template #reference>
         <el-badge :value="3" class="item-info-pop">
-          <el-icon class="bell"><Bell /></el-icon>
+          <el-icon class="bell" style="font-size: 22px;"><Bell /></el-icon>
         </el-badge>
       </template>
       <div>
@@ -40,17 +40,17 @@
 
 <style lang="scss" scoped>
   .m-info {
-    width: 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s;
     .item-info-pop {
-      //  width:100% ;
-      //height: 100%;
       display: flex;
       align-items: center;
+    }
+    .bell{
+      color: black;
     }
     .item-child {
       display: flex;

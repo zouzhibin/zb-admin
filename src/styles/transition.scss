@@ -27,6 +27,19 @@
   transform: translateX(20px);
 }
 
+// logo动画
+.sidebarLogoFade-enter-active {
+  transition: opacity 1.5s;
+}
+.sidebarLogoFade-enter-from{
+  opacity: 0;
+}
+.sidebarLogoFade-leave-to {
+  opacity: 0;
+}
+
+
+
 // 面包屑动画
 .breadcrumb-enter-active {
   transition: all 0.25s;

@@ -10,25 +10,19 @@ const state = {
         footer: true,
         // 深色模式 切换暗黑模式
         isDark: false,
+        // 显示侧边栏Logo
+        showLogo:true
     },
-    isShowTag: true,
-    mode: 'vertical',
 }
 
 const mutations = {
-    SET_TAG: (state, value) => {
-        state.themeConfig.showTag = value
-    },
-    SET_MODE: (state, value) => {
-        state.themeConfig.mode = value
+    SET_THEME_CONFIG : (state, {key, val}) => {
+        state.themeConfig[key] = val
     },
 }
 const actions = {
-    setTag({ commit }, value) {
-        commit('SET_TAG', value)
-    },
-    setMode({ commit }, value) {
-        commit('SET_MODE', value)
+    setThemeConfig({ commit }, data) {
+        commit('SET_THEME_CONFIG', data)
     },
 }
 

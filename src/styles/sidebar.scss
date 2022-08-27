@@ -47,7 +47,7 @@
 
     &.has-logo {
       .el-scrollbar {
-        height: calc(100% - 50px);
+        height: calc(100% - 60px);
       }
     }
 
@@ -56,7 +56,7 @@
     }
 
     a {
-      display: inline-block;
+      //display: inline-block;
       width: 100%;
       overflow: hidden;
     }

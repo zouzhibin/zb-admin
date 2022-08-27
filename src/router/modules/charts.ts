@@ -13,35 +13,29 @@ const chartsRouter = {
         roles:['other']
     },
     children: [
-        // {
-        //     path: 'map',
-        //     component: () => import('@/views/charts/map.vue'),
-        //     name: 'map',
-        //     meta: { title: '地图', noCache: true , roles:['other'] }
-        // },
         {
             path: 'migration',
             component: () => import('@/views/charts/migration.vue'),
             name: 'migration',
-            meta: { title: '迁徙图',  roles:['other'] }
+            meta: { title: '迁徙图',  roles:['other'] , icon: 'MenuIcon' }
         },
         {
             path: 'simple',
             component: () => import('@/views/charts/simple.vue'),
             name: 'charts-simple',
-            meta: { title: '简单图表', roles:['other'] }
+            meta: { title: '简单图表', roles:['other'] , icon: 'MenuIcon'}
         },
         {
             path: 'complex',
             component: () => import('@/views/charts/complex.vue'),
             name: 'charts-complex',
-            meta: { title: '复杂图表', roles:['other'] }
+            meta: { title: '复杂图表', roles:['other'] , icon: 'MenuIcon'}
         },
         {
           path: 'animation',
           component: () => import('@/views/charts/animation.vue'),
           name: 'charts-animation',
-          meta: { title: '动画', roles:['other'] }
+          meta: { title: '动画', roles:['other'],icon: 'MenuIcon' }
         },
     ]
 }

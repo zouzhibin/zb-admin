@@ -1,7 +1,7 @@
 <template>
   <div
     class="m-layout-header"
-    :style="{ left: `${mode === 'horizontal' ? 0 : isCollapse ? '56' : '210'}px` }"
+    :style="{ left: `${mode === 'horizontal' ? 0 : isCollapse ? '60' : '210'}px` }"
   >
     <div
       class="header"
@@ -18,8 +18,12 @@
         <u-hamburger />
       </div>
       <div class="right">
-        <u-info />
-        <u-screen-full />
+        <u-header-search class="right-item-menu"/>
+
+        <u-info class="right-item-menu"/>
+
+        <u-screen-full class="right-item-menu"/>
+
         <el-dropdown @command="commandAction">
           <span class="el-dropdown-link">
             <el-avatar :icon="UserFilled" :size="30" style="margin-right: 6px" />{{
@@ -50,6 +54,7 @@
   import UHamburger from '@/components/u-Hamburger/index.vue'
   import UScreenFull from '@/components/u-screenfull/index.vue'
   import UInfo from '@/components/u-info/index.vue'
+  import UHeaderSearch from '@/components/u-headerSearch/index.vue'
   import UMenu from '../Sidebar/components/Menu.vue'
   import { computed, ref } from 'vue'
   import { useRouter } from 'vue-router'
@@ -132,6 +137,9 @@
     .right {
       display: flex;
       align-items: center;
+      .right-item-menu{
+        margin-right: 22px;
+      }
     }
   }
   .m-layout-header {

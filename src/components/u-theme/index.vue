@@ -22,34 +22,40 @@
         <switch-dark></switch-dark>
       </div>
       <div class="theme-item">
-        <label>菜单布局</label>
+        <label>导航栏布局</label>
         <el-select
           v-model="layout"
           placeholder="请选择"
           style="width: 150px"
-          @change="(val) => changeSwitch(val, 2)"
+          @change="(val) => changeSwitch('mode',val)"
         >
           <el-option label="纵向" value="vertical"></el-option>
           <el-option label="横向" value="horizontal"></el-option>
         </el-select>
       </div>
       <div class="theme-item">
-        <label>标签</label>
-        <el-switch v-model="showTag" @change="(val) => changeSwitch(val, 1)" />
+        <label>标签栏</label>
+        <el-switch v-model="showTag" @change="(val) => changeSwitch('showTag',val)" />
+      </div>
+      <div class="theme-item">
+        <label>侧边栏 Logo</label>
+        <el-switch v-model="showLogo" @change="(val) => changeSwitch('showLogo',val)" />
       </div>
     </el-drawer>
   </div>
 </template>
 
 <script lang="ts" setup>
-import {computed, ref} from 'vue'
+  import {computed, ref} from 'vue'
   import SwitchDark from './components/switchDark.vue'
+  import { useStore } from 'vuex'
+
+  const store = useStore()
+  const layout = ref(store.state.setting.themeConfig.mode)
+  const showTag = ref(store.state.setting.themeConfig.showTag)
+  const showLogo = ref(store.state.setting.themeConfig.showLogo)
   const drawer = ref(false)
 
-  const layout = ref('vertical')
-  import { useStore } from 'vuex'
-  const store = useStore()
-  const showTag = ref(store.state.setting.themeConfig.showTag)
   const operator = (type) => {
     switch (type) {
       case 1:
@@ -60,20 +66,10 @@ import {computed, ref} from 'vue'
         return
     }
   }
-
-  const themeConfig = computed(()=>store.state.setting.themeConfig)
-
-  const changeSwitch = (val, type) => {
-    switch (type) {
-      // 是否显示tag
-      case 1:
-        store.dispatch('setting/setTag', val)
-        return
-      case 2:
-        store.dispatch('setting/setMode', val)
-        return
-    }
+  const changeSwitch = (key,val) => {
+    store.dispatch('setting/setThemeConfig', {key, val})
   }
+
 </script>
 
 <style lang="scss" scoped>
@@ -145,8 +141,6 @@ import {computed, ref} from 'vue'
     font-size: 14px;
     color: black;
     justify-content: space-between;
-    label{
-      color: black;
-    }
+
   }
 </style>

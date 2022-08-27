@@ -7,8 +7,6 @@
     position: relative;
     width: 100%;
     height: 100%;
-    /*background: #f6f8f9;*/
-    /*background: goldenrod;*/
     font-family: Avenir, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -17,6 +15,8 @@
   html,
   body {
     height: 100%;
+  }
+  body{
     background: #f6f8f9;
   }
   .el-pager li:focus {

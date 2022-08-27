@@ -1,6 +1,6 @@
 <template>
-  <div :class="{ 'has-logo': isCollapse }">
-    <logo :collapse="isCollapse" />
+  <div :class="{ 'has-logo': themeConfig.showLogo }">
+    <logo :isCollapse="isCollapse" v-if="themeConfig.showLogo"/>
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <u-menu/>
     </el-scrollbar>
@@ -13,7 +13,6 @@ import logo from './components/Logo.vue'
 import { useStore, mapGetters } from 'vuex' // useStore ===vue2.0中的this.$store
 import { ref, computed } from 'vue'
 
-
 // 在setup中获取store
 const store = useStore()
 
@@ -21,6 +20,8 @@ const store = useStore()
 const isCollapse = computed(() => {
   return !store.state.app.isCollapse
 })
+// 设置
+const themeConfig = computed(() =>store.state.setting.themeConfig )
 </script>
 
 <style lang="scss">

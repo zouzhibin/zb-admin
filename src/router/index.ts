@@ -7,17 +7,18 @@ interface extendRoute {
 }
 
 // 引入组件
-import chartsRouter from './modules/charts'
-import chatRouter from './modules/chat'
-import componentsRouter from './modules/components'
-import othersRouter from './modules/other'
-import externalLink from './modules/externalLink'
+//
 import permissionRouter from './modules/permission'
 import tableRouter from './modules/table'
 import errorRouter from './modules/error'
 import excelRouter from './modules/excel'
 import nestedRouter from './modules/nested'
 import systemRouter from './modules/system'
+import chartsRouter from './modules/charts'
+import chatRouter from './modules/chat'
+import componentsRouter from './modules/components'
+import othersRouter from './modules/other'
+import externalLink from './modules/externalLink'
 
 /**
  * path ==> 路由路径

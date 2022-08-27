@@ -16,19 +16,19 @@ const systemRouter = {
             path: 'user',
             component: () => import('@/views/system/user.vue'),
             name: 'user',
-            meta: { title: '用户管理', roles: ['other'] }
+            meta: { title: '用户管理', roles: ['other'] , icon: 'MenuIcon'}
         },
         {
             path: 'role',
             component: () => import('@/views/system/role.vue'),
             name: 'role',
-            meta: { title: '角色管理', roles: ['other'] }
+            meta: { title: '角色管理', roles: ['other'], icon: 'MenuIcon' }
         },
         {
             path: 'menu',
             component: () => import('@/views/system/menu.vue'),
             name: 'menu',
-            meta: { title: '菜单管理', roles: ['other'] }
+            meta: { title: '菜单管理', roles: ['other'] , icon: 'MenuIcon'}
         },
     ]
 }
