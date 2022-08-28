@@ -33,19 +33,25 @@ const mutations = {
         }
     },
     DEL_VISITED_VIEW: (state, view) => {
-        for (const [i, v] of state.visitedViews.entries()) {
-            if (v.path === view.path) {
-                state.visitedViews.splice(i, 1)
-                break
-            }
-        }
-        for (const i of state.cachedViews) {
-            if (i === view.name) {
-                const index = state.cachedViews.indexOf(i)
-                state.cachedViews.splice(index, 1)
-                break
-            }
-        }
+        state.visitedViews = state.visitedViews.filter(v=>{
+            return v.path !== view.path
+        })
+        state.cachedViews = state.cachedViews.filter(v=>{
+            return v.path !== view.path
+        })
+        // for (const [i, v] of state.visitedViews.entries()) {
+        //     if (v.path === view.path) {
+        //         state.visitedViews.splice(i, 1)
+        //         break
+        //     }
+        // }
+        // for (const i of state.cachedViews) {
+        //     if (i === view.name) {
+        //         const index = state.cachedViews.indexOf(i)
+        //         state.cachedViews.splice(index, 1)
+        //         break
+        //     }
+        // }
 
     },
     DEL_CACHED_VIEW: (state, view) => {

@@ -102,7 +102,6 @@ const generateRoutes = (routes, basePath = '/', prefixTitle = [])=>{
 }
 
 const change=(val)=> {
-  console.log('===========',val)
   if(val){
     router.push({
       path: val,
@@ -113,10 +112,7 @@ const change=(val)=> {
   isShowSearch.value = false
 }
 onMounted(()=>{
-  console.log(routes.value)
   searchPool.value = generateRoutes(JSON.parse(JSON.stringify(routes.value)))
-
-  console.log('==========',searchPool)
 })
 
 const querySearch=(query)=> {

@@ -13,7 +13,6 @@
       className: { type: String },
     },
     setup(props) {
-      console.log(11111111)
       const iconName = computed(() => {
         return props.iconClass ? `#icon-${props.iconClass}` : '#icon'
       })

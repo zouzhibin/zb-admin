@@ -1,0 +1,39 @@
+<template>
+  <el-dropdown trigger="click" @command="setAssemblySize">
+    <svg-icon class-name="size-icon" icon-class="size" style="font-size: 22px;"/>
+    <template #dropdown>
+      <el-dropdown-menu>
+        <el-dropdown-item v-for="item in assemblySizeList" :key="item" :disabled="globalComSize === item" :command="item">
+          {{ assemblySizeListCh[item] }}
+        </el-dropdown-item>
+      </el-dropdown-menu>
+    </template>
+  </el-dropdown>
+</template>
+
+<script setup lang="ts">
+import { reactive, computed } from "vue";
+import {useStore} from "vuex";
+const store = useStore()
+
+const globalComSize = computed(():string=>store.state.setting.themeConfig.globalComSize)
+
+const assemblySizeListCh = reactive<{ [key: string]: any }>({
+  default: "默认",
+  large: "大型",
+  small: "小型"
+});
+
+const assemblySizeList = reactive<string[]>(["default", "large", "small"]);
+
+
+const setAssemblySize = (item: string) => {
+  if (globalComSize.value === item) return;
+  store.dispatch('setting/setThemeConfig', {key:'globalComSize', val:item})
+
+};
+</script>
+
+<style scoped lang="scss">
+
+</style>

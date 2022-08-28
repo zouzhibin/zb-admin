@@ -1,6 +1,19 @@
 <template>
-  <router-view></router-view>
+  <el-config-provider :size="globalComSize" :locale="zhCn">
+    <router-view></router-view>
+  </el-config-provider>
 </template>
+
+<script lang="ts" setup>
+  import {computed} from "vue";
+  import {useStore} from "vuex";
+  // 配置element中文
+  import zhCn from 'element-plus/es/locale/lang/zh-cn'
+
+  const store = useStore()
+  // 配置全局组件大小
+  const globalComSize = computed(():string=>store.state.setting.themeConfig.globalComSize)
+</script>
 
 <style lang="scss">
   #app {
@@ -20,6 +33,12 @@
     background: #f6f8f9;
   }
   .el-pager li:focus {
+    border: none;
+  }
+  .el-dropdown:focus {
+    border: none;
+  }
+  .svg-icon:focus {
     border: none;
   }
   * {

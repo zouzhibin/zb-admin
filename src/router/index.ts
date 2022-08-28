@@ -103,10 +103,11 @@ const zipRoutes = {
 
 // // 异步组件
 export const asyncRoutes = [
-    tableRouter,
     chartsRouter,
+    tableRouter,
+
     chatRouter,
-    componentsRouter,
+    // componentsRouter,
     othersRouter,
     nestedRouter,
     excelRouter,

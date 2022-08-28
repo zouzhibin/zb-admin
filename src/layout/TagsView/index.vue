@@ -23,12 +23,19 @@
         </div>
       </better-scroll>
     </div>
-    <el-tooltip class="box-item" effect="dark" content="点击刷新" placement="bottom-end">
-      <div class="refresh" @click="refresh">
-        <div class="refresh-inner">
-          <el-icon><Refresh /> </el-icon> </div
-      ></div>
-    </el-tooltip>
+    <el-dropdown trigger="click">
+        <el-button class="el-dropdown-link" type="primary">
+          更多 <el-icon class="el-icon--right"><arrow-down /></el-icon>
+        </el-button>
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item @click="refresh">刷新当页</el-dropdown-item>
+          <el-dropdown-item @click="closeCurrentTab">关闭当前</el-dropdown-item>
+          <el-dropdown-item @click="closeOtherTab">关闭其他</el-dropdown-item>
+          <el-dropdown-item @click="closeAllTab">关闭所有</el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
   </div>
 </template>
 
@@ -135,15 +142,35 @@
     }
   }
 
-  const closeSelectedTag = (event, view) => {
+  const closeSelectedTag = async (event, view) => {
     if (tags.value.get(view.path)) {
       tags.value.delete(view.path)
     }
-    store.dispatch('tagsView/delView', view).then(({ visitedViews }) => {
-      if (isActive(view)) {
-        toLastView(visitedViews, view)
+    let { visitedViews } = await store.dispatch('tagsView/delView', view)
+    if (isActive(view)) {
+      toLastView(visitedViews, view)
+    }
+  }
+
+  // 关闭当前
+  const closeCurrentTab = (event)=>{
+    closeSelectedTag(event,route)
+  }
+
+  // 关闭其他
+  const closeOtherTab= async ()=>{
+    const { name } = route
+    for(let item of visitedViews.value){
+      if(item.name!==name){
+        await closeSelectedTag(null,item)
       }
-    })
+    }
+  }
+
+  // 关闭所有 去首页
+  const closeAllTab = ()=>{
+    store.dispatch('tagsView/delAllViews')
+    router.push('/')
   }
 
   const routerGo = (tag) => {
@@ -259,14 +286,13 @@
       display: block;
     }
     &.active {
-      background-color: #42b983;
+      background-color: $primaryColor;
       color: #fff;
-      border-color: #42b983;
+      border-color: $primaryColor;
     }
   }
   .item-tag-wrap:hover {
-    border-color: #42b983;
-    //color: #42b983;
+    border-color: $primaryColor;
   }
   .tags-scroll-inner {
     display: flex;

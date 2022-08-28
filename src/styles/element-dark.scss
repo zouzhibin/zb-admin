@@ -136,5 +136,12 @@ html.dark {
     color: var(--el-text-color-primary) !important;
   }
 
+  // icon
+  .m-info .bell,
+  .m-setting .bell,
+  .m-headerSearch .bell{
+    color: white!important;
+  }
+
 
 }

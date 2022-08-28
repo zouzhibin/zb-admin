@@ -12,11 +12,12 @@
         </div>
       </div>
     </div>
-    <el-drawer v-model="drawer" title="主题配置" size="300px">
-<!--      <div class="theme-item">-->
-<!--        <label>标签</label>-->
-<!--        <el-color-picker v-model="themeConfig.primary" :predefine="colorList" @change="changePrimary" />-->
-<!--      </div>-->
+    <el-drawer
+        v-model="drawer" title="主题配置" size="300px">
+      <div class="theme-item">
+        <label>标签</label>
+        <el-color-picker v-model="primary" :predefine="predefineColor" @change="changePrimary" />
+      </div>
       <div class="theme-item">
         <label>暗黑模式</label>
         <switch-dark></switch-dark>
@@ -49,12 +50,28 @@
   import {computed, ref} from 'vue'
   import SwitchDark from './components/switchDark.vue'
   import { useStore } from 'vuex'
+  import {ElMessage} from "element-plus";
+  import {PRIMARY_COLOR} from "@/config/index";
+  import {getDarkColor,getLightColor} from '@/utils/index'
 
   const store = useStore()
   const layout = ref(store.state.setting.themeConfig.mode)
   const showTag = ref(store.state.setting.themeConfig.showTag)
   const showLogo = ref(store.state.setting.themeConfig.showLogo)
-  const drawer = ref(false)
+  const primary = ref(store.state.setting.themeConfig.primary)
+  const drawer = computed({
+    get() {
+      return store.state.setting.themeConfig.showSetting;
+    },
+    set() {
+      changeSwitch('showSetting',!store.state.setting.themeConfig.showSetting)
+    }
+  })
+
+  // 预定义主题颜色
+  const predefineColor = [
+    '#409EFF', '#1890ff', '#304156','#212121','#11a983', '#13c2c2', '#6959CD', '#f5222d'
+  ];
 
   const operator = (type) => {
     switch (type) {
@@ -68,6 +85,24 @@
   }
   const changeSwitch = (key,val) => {
     store.dispatch('setting/setThemeConfig', {key, val})
+  }
+  // 修改主题颜色
+  const changePrimary = (val)=>{
+    if (!val) {
+      primary.value = val = PRIMARY_COLOR;
+      ElMessage({ type: "success", message: `主题颜色已重置为 ${PRIMARY_COLOR}` });
+    }
+    // 颜色加深
+    document.documentElement.style.setProperty("--el-color-primary-dark-2", `${getDarkColor(val, 0.1)}`);
+    document.documentElement.style.setProperty("--el-color-primary", val);
+    // 颜色变浅
+    for (let i = 1; i <= 9; i++) {
+      document.documentElement.style.setProperty(
+          `--el-color-primary-light-${i}`,
+          `${getLightColor(val, i / 10)}`
+      );
+    }
+    changeSwitch('primary',val)
   }
 
 </script>
