@@ -37,9 +37,11 @@
   }
   .el-dropdown:focus {
     border: none;
+    outline: none!important;
   }
   .svg-icon:focus {
-    border: none;
+    border: none!important;
+    outline: none!important;
   }
   * {
     margin: 0;

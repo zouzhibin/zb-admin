@@ -18,6 +18,8 @@
         <u-hamburger />
       </div>
       <div class="right">
+        <language class="right-item-menu"/>
+
         <global-com-size class="right-item-menu"/>
 
         <u-header-search class="right-item-menu"/>
@@ -56,6 +58,7 @@
   import Personal from './components/Personal.vue'
   import TagViews from '../TagsView/index.vue'
   import GlobalComSize from './components/globalComSize.vue'
+  import Language from './components/Language.vue'
   import UHamburger from '@/components/u-Hamburger/index.vue'
   import USetting from './components/Setting.vue'
   import UScreenFull from '@/components/u-screenfull/index.vue'
