@@ -12,7 +12,7 @@
       :autoplay="true"
       :separator="options.separator"
     ></count-to>
-    <div style="margin-top: 40px">
+    <div style="margin-top: 40px;margin-bottom: 30px">
       <label class="label"
         >起始值:
         <el-input-number
@@ -76,6 +76,15 @@
       <el-button type="primary" @click="start">开始</el-button>
       <el-button type="danger" @click="pauseResume">暂停/恢复</el-button>
     </div>
+    <el-descriptions title="配置项 " :column="1" border class="descriptions">
+      <el-descriptions-item label="startValInput"> 起始值，默认为0 </el-descriptions-item>
+      <el-descriptions-item label="endValInput"> 最终值，默认为2017 </el-descriptions-item>
+      <el-descriptions-item label="durationInput"> 持续时间，默认为3000 </el-descriptions-item>
+      <el-descriptions-item label="decimals"> 小数位数 </el-descriptions-item>
+      <el-descriptions-item label="separator"> 分隔符，默认为 ',' </el-descriptions-item>
+      <el-descriptions-item label="prefix"> 前缀 </el-descriptions-item>
+      <el-descriptions-item label="suffix"> 后缀 </el-descriptions-item>
+    </el-descriptions>
   </u-container-layout>
 </template>
 
@@ -93,10 +102,7 @@
     separator: ',',
   })
   const handleChange = (val, type) => {
-    // switch (type) {
-    //   case 'startValInput':
-    //     break;
-    // }
+
   }
   const start = () => {
     example.value.start()
