@@ -25,14 +25,14 @@
     </div>
     <el-dropdown trigger="click">
         <el-button class="el-dropdown-link" type="primary">
-          更多 <el-icon class="el-icon--right"><arrow-down /></el-icon>
+          {{ $t("tagsView.more") }} <el-icon class="el-icon--right"><arrow-down /></el-icon>
         </el-button>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item @click="refresh">刷新当页</el-dropdown-item>
-          <el-dropdown-item @click="closeCurrentTab">关闭当前</el-dropdown-item>
-          <el-dropdown-item @click="closeOtherTab">关闭其他</el-dropdown-item>
-          <el-dropdown-item @click="closeAllTab">关闭所有</el-dropdown-item>
+          <el-dropdown-item @click="refresh">{{ $t("tagsView.refresh") }}</el-dropdown-item>
+          <el-dropdown-item @click="closeCurrentTab"> {{ $t("tagsView.closeCurrent") }}</el-dropdown-item>
+          <el-dropdown-item @click="closeOtherTab"> {{ $t("tagsView.closeOther") }}</el-dropdown-item>
+          <el-dropdown-item @click="closeAllTab"> {{ $t("tagsView.closeAll") }}</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>

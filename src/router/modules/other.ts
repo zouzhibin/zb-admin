@@ -6,7 +6,7 @@ const othersRouter = {
   path: '/other',
   component: Layout,
   redirect: 'noRedirect',
-  name: 'other',
+  name: 'expansionComponents',
   meta: {
     title: '扩展组件',
     icon: 'management'

@@ -11,31 +11,31 @@
               <div class="name"></div>
               <div class="description"></div>
               <div class="list">
-                <div>昵称：小狼</div>
-                <div>职业：前端</div>
-                <div>公司：小公司</div>
-                <div>年龄：~~</div>
-                <div>性别：男</div>
-                <div>现住址：中国-浙江-杭州</div>
-                <div>邮箱：1135957121@qq.com</div>
-                <div>微信：19550102670(欢迎加)</div>
-                <div>技术栈：JavaScript、HTML、CSS、Vue、Node、React</div>
+                <div><span class="label">{{ $t("home.nickName") }}</span>：{{ $t("home.Wolf") }}</div>
+                <div><span class="label">{{ $t("home.job") }}</span>：{{ $t("home.web") }}</div>
+                <div><span class="label">{{ $t("home.company") }}</span>：小公司</div>
+                <div><span class="label">{{ $t("home.age") }}</span>：~~</div>
+                <div><span class="label">{{ $t("home.sex") }}</span>：{{ $t("home.male") }}</div>
+                <div><span class="label">{{ $t("home.currentAddress") }}</span>：中国-浙江-杭州</div>
+                <div><span class="label">{{ $t("home.mail") }}</span>：1135957121@qq.com</div>
+                <div><span class="label">{{ $t("home.WeChat") }}</span>：19550102670(欢迎加)</div>
+                <div><span class="label">{{ $t("home.technologyStack") }}</span>：JavaScript、HTML、CSS、Vue、Node、React</div>
               </div>
               <el-divider></el-divider>
-              <div style="margin-bottom: 15px"><h5>个性标签</h5></div>
+              <div style="margin-bottom: 15px"><h5>{{ $t("home.PersonalityLabel") }}</h5></div>
               <div>
-                <el-tag style="margin-right: 10px">怕麻烦</el-tag>
-                <el-tag style="margin-right: 10px">健身运动</el-tag>
-                <el-tag style="margin-right: 10px">睡觉</el-tag>
-                <el-tag style="margin-right: 10px">漫威</el-tag>
+                <el-tag style="margin-right: 10px">{{ $t("home.trouble") }}</el-tag>
+                <el-tag style="margin-right: 10px">{{ $t("home.fitness") }}</el-tag>
+                <el-tag style="margin-right: 10px">{{ $t("home.sleep") }}</el-tag>
+                <el-tag style="margin-right: 10px">{{ $t("home.Marvel") }}</el-tag>
                 <el-tag>向往</el-tag>
               </div>
               <el-divider></el-divider>
-              <div style="margin-bottom: 15px"><h5>最喜欢的一句话</h5></div>
-              <div>---------- 开心最重要</div>
+              <div style="margin-bottom: 15px"><h5>{{ $t("home.favoriteSentence") }}</h5></div>
+              <div>---------- {{ $t("home.happy") }}</div>
               <el-divider></el-divider>
               <div style="margin-bottom: 15px"
-                ><h5>如果对你有帮助的话，可以麻烦点一颗 star! 你的鼓励是我继续优化的动力~~</h5></div
+                ><h5>{{ $t("home.impression") }}~~</h5></div
               >
             </div>
           </el-card>
@@ -175,6 +175,9 @@
       margin-top: 18px;
       line-height: 30px;
       text-align: left;
+      .label{
+        font-weight: bold;
+      }
     }
   }
   .card-header {

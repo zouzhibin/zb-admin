@@ -4,7 +4,7 @@ import en from "./modules/en";
 
 const i18n = createI18n({
 	legacy: false, // 如果要支持 compositionAPI，此项必须设置为 false
-	locale: "zh", // 设置语言类型
+	locale: "zh", // 设置语言类型 通过切换locale的值来实现语言切换
 	globalInjection: true, // 全局注册$t方法
 	messages: {
 		zh,

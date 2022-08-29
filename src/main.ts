@@ -18,9 +18,12 @@ import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 // 自定义暗黑模式
 import "@/styles/element-dark.scss";
-
+// i18n
+import I18n from "@/language/index";
 
 const app = createApp(App)
+
+// 注册全局组件
 app.component('svg-icon',SvgIcon)
 app.component('u-container-layout',UContainerLayout)
 
@@ -34,7 +37,7 @@ Object.keys(ElIconsModules).forEach((key) => {//循环遍历组件名称
         app.component(key + "Icon", ElIconsModules[key]);
     }
 });
-
+app.use(I18n)
 app.use(store)
 app.use(router)
 app.use(ElementPlus).mount('#app')

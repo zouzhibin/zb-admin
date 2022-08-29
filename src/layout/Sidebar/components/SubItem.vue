@@ -6,14 +6,15 @@
           <el-icon :size="20">
             <component :is="onlyOneChild?.meta.icon"></component>
           </el-icon>
-          <template #title>{{ onlyOneChild.meta && onlyOneChild.meta.title }}</template>
+<!--          <template #title>{{ onlyOneChild.meta && onlyOneChild.meta.title }}</template>-->
+          <template #title>{{ generateTitle(onlyOneChild) }}</template>
         </el-menu-item>
       </app-link>
     </template>
     <el-sub-menu :index="resolvePath(item.path)" v-else popper-append-to-body>
       <template #title>
         <el-icon :size="20"> <component :is="item.meta?.icon"></component></el-icon>
-        <span>{{ item.meta && item.meta.title }}</span>
+        <span>{{ generateTitle(item) }}</span>
       </template>
       <sub-item
           v-for="child in item.children"
@@ -25,7 +26,8 @@
   </template>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="subItem">
+import { generateTitle } from '@/utils/i18n'
 import { isExternal } from '@/utils/validate.js'
 import AppLink from './Link.vue'
 import path from 'path-browserify'

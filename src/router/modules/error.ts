@@ -8,7 +8,7 @@ const errorRouter = {
     path: '/error',
     component: Layout,
     redirect: 'noRedirect',
-    name: 'error',
+    name: 'errorPages',
     meta: {
         title: '错误页面',
         icon: 'School'

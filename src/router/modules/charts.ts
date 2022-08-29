@@ -6,7 +6,7 @@ const chartsRouter = {
     path: '/charts',
     component: Layout,
     redirect: 'noRedirect',
-    name: 'Charts',
+    name: 'visualizationChart',
     meta: {
         title: '可视化图表',
         icon: 'trend-charts',

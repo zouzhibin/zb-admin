@@ -63,7 +63,7 @@ const clipboardTable = {
     redirect: 'noRedirect',
     name: 'clipboard',
     meta: {
-        title: 'clipboard',
+        title: '剪贴板',
         icon: 'document-copy',
         roles:['other']
     },
@@ -71,8 +71,10 @@ const clipboardTable = {
         {
             path: 'index',
             component: () => import('@/views/clipboard/index.vue'),
-            name: 'map',
-            meta: { title: '剪贴板',  roles:['other'] ,icon: 'document-copy',}
+            name: 'clipboardIndex',
+            meta: {
+                title: '剪贴板',  roles:['other'] ,icon: 'document-copy',
+            }
         },
 
     ]

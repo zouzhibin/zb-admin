@@ -15,13 +15,17 @@
 
 <script lang="ts" setup>
 import {useStore} from "vuex";
+import { useI18n } from "vue-i18n";
 import {computed, reactive} from "vue";
-const store = useStore()
 
+const store = useStore()
+const i18n = useI18n();
 const language = computed(():string=>store.state.setting.themeConfig.language)
 
 const setLanguage = (val)=>{
+  i18n.locale.value = val;
   store.dispatch('setting/setThemeConfig', {key:'language', val})
+
 }
 
 </script>
@@ -47,7 +51,7 @@ const setLanguage = (val)=>{
   }
 }
 .transverseMenu {
-  .bell {
+  .size-icon {
     color: white;
   }
 }
