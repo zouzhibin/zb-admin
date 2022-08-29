@@ -23,29 +23,36 @@ vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-p
 - 使用 Prettier 统一格式化代码，集成 Eslint、代码校验规范
 - 其他各组件
 
+## 安装
+- Clone
+```
+ # 克隆项目
+  git clone https://github.com/zouzhibin/vue-admin-perfect.git
+```
+
 ## 分支管理
 - master 技术采用 vite + vue3.0 + Typescript + vuex + vue-router + Element-Plus scss
   ```
   注意：使用 Vite 构建工具，需要 Node.js 版本 >= 12.0.0  查看 Node.js 版本 node-v
-  
-  # 克隆项目
-  git clone https://github.com/zouzhibin/vue-admin-perfect.git
-  # 安装依赖
-  yarn
-  # 本地开发 启动项目
-  yarn dev
   ```
+- vue-i18n 语言切换版本
 - webpack 技术采用 webpack + vue3.0 + Typescript + vuex + vue-router + Element-Plus scss
-- uniapp 技术采用 uniapp +vuex +element scss
+- uniapp uniapp版本 uniapp +vuex +element scss
   ```
-  # 克隆项目 切换 uniapp分支
-  git clone https://github.com/zouzhibin/vue-admin-perfect.git
-  # 安装依赖
-  yarn
   # 本地开发 启动项目
   借助hbuilder工具运行浏览器启动
   ```
 
+## 下载依赖
+```
+ npm install
+ cnpm install
+ yarn 
+```
+## 运行
+```
+ npm run build 
+```
 ## eslint+prettier
 ```
 # eslint 检测代码
