@@ -14,13 +14,13 @@ const othersRouter = {
   children: [
     {
       path: 'editor',
-      component: () => import('@/views/other/editor.vue'),
+      component: () => import('@/views/other/editor/index.vue'),
       name: 'editor',
       meta: { title: '富文本编辑器', roles: ['other'] , icon: 'MenuIcon'}
     },
     {
       path: 'mark-down',
-      component: () => import('@/views/other/mark-down.vue'),
+      component: () => import('@/views/other/markDown/index.vue'),
       name: 'mark-down',
       meta: { title: 'markDown', roles: ['other'] , icon: 'MenuIcon'}
     },
@@ -59,6 +59,12 @@ const othersRouter = {
       component: () => import('@/views/other/qrcode.vue'),
       name: 'qrcode',
       meta: { title: '生成二维码', icon: 'MenuIcon' }
+    },
+    {
+      path: 'svgIcon',
+      component: () => import('@/views/other/svgIcon/index.vue'),
+      name: 'svgIcon',
+      meta: { title: 'svg图标', icon: 'MenuIcon' }
     },
     {
       path: 'water-marker',

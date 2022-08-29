@@ -73,11 +73,12 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         // }
       }
     },
+    // 生产环境打包配置
+    //去除 console debugger
     esbuild: {
       pure:mode==='production' ? ["console.log", "debugger"] : []
     },
-    // 生产环境打包配置
-    //去除 console debugger
+
     // build: {
     //   terserOptions: {
     //     compress: {

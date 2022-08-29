@@ -10,12 +10,12 @@
 
 <style lang="scss" scoped>
   .m-container-layout {
-    //margin: 20px;
     padding: 20px;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
     .m-container-layout-inner {
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
       background: white;
       padding: 20px;
       width: 100%;

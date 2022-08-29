@@ -117,7 +117,7 @@
     position: fixed;
     top: 50%;
     right: 0;
-    z-index: 1997;
+    z-index: 99999;
     padding: 10px 0 0 0;
     margin: 0;
     text-align: center;

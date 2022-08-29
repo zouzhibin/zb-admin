@@ -9,7 +9,7 @@ const tableRouter = {
     redirect: 'noRedirect',
     name: 'table',
     meta: {
-        title: '表格',
+        title: '超级表格',
         icon: 'School'
     },
     children: [
@@ -26,8 +26,8 @@ const tableRouter = {
             meta: { title: '行内编辑', keepAlive: true  , icon: 'MenuIcon'}
         },
         {
-            path: 'edit-table',
-            component: () => import('@/views/table/edit.vue'),
+            path: 'editableProTable',
+            component: () => import('@/views/table/EditableProTable.vue'),
             name: 'edit-table',
             meta: { title: '可编辑表格', keepAlive: true  , icon: 'MenuIcon'}
         },
