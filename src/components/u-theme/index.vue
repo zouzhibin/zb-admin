@@ -52,19 +52,21 @@
   import { useStore } from 'vuex'
   import {ElMessage} from "element-plus";
   import {PRIMARY_COLOR} from "@/config/index";
+  import {useSettingStore} from "@/storeNew/modules/setting"
   import {getDarkColor,getLightColor} from '@/utils/index'
-
+  const SettingStore = useSettingStore()
   const store = useStore()
-  const layout = ref(store.state.setting.themeConfig.mode)
-  const showTag = ref(store.state.setting.themeConfig.showTag)
-  const showLogo = ref(store.state.setting.themeConfig.showLogo)
-  const primary = ref(store.state.setting.themeConfig.primary)
+  const layout = ref(SettingStore.themeConfig.mode)
+  const showTag = ref(SettingStore.themeConfig.showTag)
+  const showLogo = ref(SettingStore.themeConfig.showLogo)
+  const primary = ref(SettingStore.themeConfig.primary)
+
   const drawer = computed({
     get() {
-      return store.state.setting.themeConfig.showSetting;
+      return SettingStore.themeConfig.showSetting;
     },
     set() {
-      changeSwitch('showSetting',!store.state.setting.themeConfig.showSetting)
+      changeSwitch('showSetting',!SettingStore.themeConfig.showSetting)
     }
   })
 
@@ -84,7 +86,7 @@
     }
   }
   const changeSwitch = (key,val) => {
-    store.dispatch('setting/setThemeConfig', {key, val})
+    SettingStore.setThemeConfig({key, val})
   }
   // 修改主题颜色
   const changePrimary = (val)=>{
@@ -117,7 +119,7 @@
     position: fixed;
     top: 50%;
     right: 0;
-    z-index: 99999;
+    z-index: 999;
     padding: 10px 0 0 0;
     margin: 0;
     text-align: center;

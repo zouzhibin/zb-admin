@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import pinia from "./storeNew";
 import 'default-passive-events'
 
 // 权限路由
@@ -20,6 +21,7 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 import "@/styles/element-dark.scss";
 
 
+
 const app = createApp(App)
 app.component('svg-icon',SvgIcon)
 app.component('u-container-layout',UContainerLayout)
@@ -34,7 +36,8 @@ Object.keys(ElIconsModules).forEach((key) => {//循环遍历组件名称
         app.component(key + "Icon", ElIconsModules[key]);
     }
 });
-
+app.use(pinia)
 app.use(store)
 app.use(router)
+
 app.use(ElementPlus).mount('#app')

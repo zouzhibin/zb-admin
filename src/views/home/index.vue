@@ -35,7 +35,7 @@
               <div>---------- 开心最重要</div>
               <el-divider></el-divider>
               <div style="margin-bottom: 15px"
-                ><h5>如果对你有帮助的话，可以麻烦点一颗 star! 你的鼓励是我继续优化的动力~~</h5></div
+                ><h5>如果对你有帮助的话，可以麻烦点一颗 Star、Fork、Watch! 你的鼓励是我继续优化的动力~~</h5></div
               >
             </div>
           </el-card>

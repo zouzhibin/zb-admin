@@ -8,11 +8,10 @@
 </template>
 
 <script lang="ts" setup>
-  import {useStore} from "vuex";
-
-  const store = useStore()
+  import {useSettingStore} from "@/storeNew/modules/setting"
+  const SettingStore = useSettingStore()
   const changeSwitch = (key,val) => {
-    store.dispatch('setting/setThemeConfig', {key, val})
+    SettingStore.setThemeConfig({key, val})
   }
 </script>
 
