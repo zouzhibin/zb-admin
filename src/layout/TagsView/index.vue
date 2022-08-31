@@ -16,7 +16,9 @@
             @click="routerGo(tag)"
           >
             <div class="tags-view-item">{{ tag.title }}</div>
-            <el-icon @click.prevent.stop="(e) => closeSelectedTag(e, tag)" class="tag-icon">
+            <el-icon
+                v-if="!isAffix(tag)"
+                @click.prevent.stop="(e) => closeSelectedTag(e, tag)" class="tag-icon">
               <circle-close-filled
             /></el-icon>
           </div>
@@ -169,11 +171,9 @@
   }
 
   // 关闭所有 去首页
-  const closeAllTab = ()=>{
-    if(route.fullPath!=='/home'){
-      TagsViewStore.delAllViews()
-    }
-    router.push('/')
+  const closeAllTab = async ()=>{
+    let visitedViews = await TagsViewStore.delAllViews()
+    toLastView(visitedViews,route)
   }
 
   const routerGo = (tag) => {

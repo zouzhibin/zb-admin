@@ -31,6 +31,7 @@ import externalLink from './modules/externalLink'
  * meta ==> 路由元信息
  * meta.title ==> 路由标题
  * meta.icon ==> 菜单icon
+ * meta.affix ==> 如果设置为true将会出现在 标签栏中
  */
 
 export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [

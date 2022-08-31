@@ -1,4 +1,5 @@
-import { defineConfig,ConfigEnv, UserConfig } from 'vite'
+import { defineConfig,ConfigEnv, UserConfig,loadEnv  } from 'vite'
+// vite.config.ts中无法使用import.meta.env 所以需要引入
 import vue from '@vitejs/plugin-vue'
 // import AutoImport from 'unplugin-auto-import/vite'
 // import Components from 'unplugin-vue-components/vite'
@@ -75,9 +76,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     },
     // 生产环境打包配置
     //去除 console debugger
-    esbuild: {
-      pure:mode==='production' ? ["console.log", "debugger"] : []
-    },
+    // esbuild: {
+    //   pure:mode==='production' ? ["console.log", "debugger"] : []
+    // },
 
     // build: {
     //   terserOptions: {
