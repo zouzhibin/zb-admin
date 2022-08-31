@@ -21,17 +21,19 @@
 <script lang="ts" setup>
   import SubItem from './SubItem.vue'
   import { useRoute } from 'vue-router'
-  import { useStore, mapGetters } from 'vuex' // useStore ===vue2.0中的this.$store
+  import {usePermissionStore} from "@/store/modules/permission"
+  import {useSettingStore} from "@/store/modules/setting"
   import { ref, computed } from 'vue'
 
   // 在setup中获取store
-  const store = useStore()
   const route = useRoute()
+  const PermissionStore = usePermissionStore()
+  const SettingStore = useSettingStore()
 
   // 获取路由
-  const permission_routes = computed(() => {
-    return store.state.permission.routes
-  })
+  const permission_routes = computed(() => PermissionStore.permission_routes)
+
+
 
   const activeMenu = computed(() => {
     const { meta, path } = route
@@ -43,12 +45,8 @@
   })
 
   // 是否折叠
-  const isCollapse = computed(() => {
-    return !store.state.app.isCollapse
-  })
+  const isCollapse = computed(() => !SettingStore.isCollapse)
 
   // 横向
-  const mode = computed(() => {
-    return store.state.setting.themeConfig.mode
-  })
+  const mode = computed(() => SettingStore.themeConfig.mode)
 </script>

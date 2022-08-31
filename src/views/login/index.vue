@@ -64,12 +64,13 @@
   import { ref, reactive } from 'vue'
   import type { FormInstance } from 'element-plus'
   import { useRouter } from 'vue-router'
-  import { useStore } from 'vuex'
+  import {useUserStore} from "@/store/modules/user"
   import { ElMessage } from 'element-plus'
   const ruleFormRef = ref<FormInstance>()
   const router = useRouter()
-  const store = useStore()
+  const UserStore = useUserStore()
 
+  // 自定义校验规则
   const validateUsername = (rule: any, value: any, callback: any) => {
     if (!value) {
       return callback(new Error('请输入用户名'))
@@ -83,16 +84,19 @@
       callback()
     }
   }
-  const ruleForm = reactive({
-    username: 'admin',
-    password: 'admin',
-  })
-  console.log(11111111)
   const rules = reactive({
     password: [{ validator: validatePass, trigger: 'blur' }],
     username: [{ validator: validateUsername, trigger: 'blur' }],
   })
+
+  // 表单数据
+  const ruleForm = reactive({
+    username: 'admin',
+    password: '123456',
+  })
+
   const passwordType = ref('password')
+
   const showPwd = () => {
     if (passwordType.value === 'password') {
       passwordType.value = ''
@@ -100,13 +104,14 @@
       passwordType.value = 'password'
     }
   }
+
   const submitForm = (formEl: FormInstance | undefined) => {
     if (!formEl) return
     formEl.validate(async (valid) => {
       console.log('valid==', valid)
       if (valid) {
         // 登录
-        await store.dispatch('user/login', ruleForm)
+        await UserStore.login( ruleForm)
         ElMessage.success('登录成功')
         router.push({
           path: '/',
@@ -119,73 +124,5 @@
   }
 </script>
 <style lang="scss" scoped>
-  $dark_gray: #889aa4;
-  ::v-deep(input) {
-    background: transparent;
-    border: 0;
-    -webkit-appearance: none;
-    border-radius: 0;
-    padding: 12px 5px 12px 15px;
-    //
-    height: 47px;
-    //caret-color: #fff;
-  }
-  .login-box {
-    width: 80%;
-    max-width: 500px;
-  }
-  .show-pwd {
-    position: absolute;
-    right: 10px;
-    top: 7px;
-    font-size: 16px;
-    color: $dark_gray;
-    cursor: pointer;
-    user-select: none;
-  }
-  .login-container {
-    background-color: #2d3a4b;
-    video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      -o-object-fit: cover;
-      object-fit: cover;
-      z-index: -1;
-    }
-    .bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      -o-object-fit: cover;
-      object-fit: cover;
-      z-index: -1;
-    }
-    min-height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .login-box-content-right {
-      position: relative;
-      display: inline-block;
-      margin-left: 10px;
-      width: 100%;
-      height: 370px;
-      overflow: hidden;
-      .login-form {
-        margin-top: 20px;
-      }
-    }
-  }
+  @import "./index";
 </style>

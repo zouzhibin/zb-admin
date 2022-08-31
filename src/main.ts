@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import pinia from "./store";
 import 'default-passive-events'
 
 // 权限路由
@@ -21,6 +21,7 @@ import "@/styles/element-dark.scss";
 // i18n
 import I18n from "@/language/index";
 
+
 const app = createApp(App)
 
 // 注册全局组件
@@ -39,5 +40,7 @@ Object.keys(ElIconsModules).forEach((key) => {//循环遍历组件名称
 });
 app.use(I18n)
 app.use(store)
+app.use(pinia)
 app.use(router)
+
 app.use(ElementPlus).mount('#app')

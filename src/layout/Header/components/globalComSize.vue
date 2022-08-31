@@ -13,10 +13,10 @@
 
 <script setup lang="ts">
 import { reactive, computed } from "vue";
-import {useStore} from "vuex";
-const store = useStore()
+import {useSettingStore} from "@/store/modules/setting"
+const SettingStore = useSettingStore()
 
-const globalComSize = computed(():string=>store.state.setting.themeConfig.globalComSize)
+const globalComSize = computed(():string=>SettingStore.themeConfig.globalComSize)
 
 const assemblySizeListCh = reactive<{ [key: string]: any }>({
   default: "默认",
@@ -26,11 +26,9 @@ const assemblySizeListCh = reactive<{ [key: string]: any }>({
 
 const assemblySizeList = reactive<string[]>(["default", "large", "small"]);
 
-
 const setAssemblySize = (item: string) => {
   if (globalComSize.value === item) return;
-  store.dispatch('setting/setThemeConfig', {key:'globalComSize', val:item})
-
+  SettingStore.setThemeConfig({key:'globalComSize', val:item})
 };
 </script>
 

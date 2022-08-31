@@ -42,25 +42,26 @@
 <script lang="ts" setup>
   import { computed, nextTick, onMounted, reactive, ref, watch } from 'vue'
   import betterScroll from './betterScroll.vue'
-  import { useStore } from 'vuex'
   import { useRoute, useRouter } from 'vue-router'
 
+  import {useSettingStore} from "@/store/modules/setting"
+  import {useTagsViewStore} from "@/store/modules/tagsView"
+  import {usePermissionStore} from "@/store/modules/permission"
+
   import path from 'path-browserify'
-  const store = useStore()
   const route = useRoute()
   const router = useRouter()
+  const SettingStore = useSettingStore()
+  const TagsViewStore = useTagsViewStore()
+  const PermissionStore = usePermissionStore()
 
   const refresh = () => {
-    store.dispatch('app/setReload')
+    SettingStore.setReload()
   }
 
-  const routes = computed(() => {
-    return store.state.permission.routes
-  })
+  const routes = computed(() => PermissionStore.routes)
 
-  const visitedViews = computed(() => {
-    return store.state.tagsView.visitedViews
-  })
+  const visitedViews = computed(() => TagsViewStore.visitedViews)
 
   const bsScroll = ref<Expose.BetterScroll>()
   let obj = new WeakMap()
@@ -107,7 +108,7 @@
     let affixTag = (affixTags.value = filterAffixTags(routesNew))
     for (const tag of affixTag) {
       if (tag.name) {
-        store.dispatch('tagsView/addVisitedView', tag)
+        TagsViewStore.addVisitedView(tag)
       }
     }
   }
@@ -124,7 +125,7 @@
       return
     }
     if (name) {
-      store.dispatch('tagsView/addView', route)
+      TagsViewStore.addView(route)
     }
     return false
   }
@@ -146,7 +147,7 @@
     if (tags.value.get(view.path)) {
       tags.value.delete(view.path)
     }
-    let { visitedViews } = await store.dispatch('tagsView/delView', view)
+    let { visitedViews } = await TagsViewStore.delView(view)
     if (isActive(view)) {
       toLastView(visitedViews, view)
     }
@@ -169,7 +170,9 @@
 
   // 关闭所有 去首页
   const closeAllTab = ()=>{
-    store.dispatch('tagsView/delAllViews')
+    if(route.fullPath!=='/home'){
+      TagsViewStore.delAllViews()
+    }
     router.push('/')
   }
 
@@ -203,7 +206,7 @@
           // 移动
           handleScrollAction(tag, tags.value)
           if (fullPath !== route.fullPath) {
-            store.dispatch('tagsView/updateVisitedView', route)
+            TagsViewStore.updateVisitedView(route)
           }
           break
         }
@@ -235,7 +238,7 @@
         to.fullPath === '/home'
       ) {
         let whiteList = ['/error/404', '/error/401']
-        await store.dispatch('tagsView/removeView', whiteList)
+        await TagsViewStore.removeView(whiteList)
       }
       next()
     })

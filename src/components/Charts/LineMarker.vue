@@ -5,9 +5,6 @@
   import * as echarts from 'echarts'
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { EChartsType } from 'echarts/core'
-  import { useStore } from 'vuex'
-  // 在setup中获取store
-  const store = useStore()
   let props = defineProps({
     className: {
       type: String,

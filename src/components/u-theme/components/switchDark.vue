@@ -3,13 +3,12 @@
 </template>
 
 <script setup lang="ts" name="switchDark">
-  import { useStore, mapGetters } from 'vuex'
   import {computed, ref} from "vue";
+  import {useSettingStore} from "@/store/modules/setting"
   import {toggleDark} from '../../../hooks/dark'
-  const store = useStore()
-
+  const SettingStore = useSettingStore()
   // 横向
-  const isDark = ref(store.state.setting.themeConfig.isDark)
+  const isDark = ref(SettingStore.themeConfig.isDark)
 
   const changeSwitch = ()=>{
     toggleDark()

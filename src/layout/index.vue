@@ -16,58 +16,38 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
   import { computed, defineComponent, ref } from 'vue'
+  import {useSettingStore} from "@/store/modules/setting"
   import Sidebar from './Sidebar/index.vue'
   import UHeader from './Header/index.vue'
   import UMain from './Main/index.vue'
+
   import { useResizeHandler } from './hooks/useResizeHandler'
 
-  import { useStore } from 'vuex'
+   const SettingStore = useSettingStore()
 
-  export default defineComponent({
-    name: 'layout',
-    components: {
-      Sidebar,
-      UHeader,
-      UMain,
-    },
-    setup() {
-      const store = useStore()
       // 是否折叠
       const isCollapse = computed(() => {
-        return !store.state.app.isCollapse
+        return !useSettingStore.isCollapse
       })
       let { device } = useResizeHandler()
-
+      // 当屏幕切换的时候进行变换
       const classObj = computed(() => {
         return {
-          hideSidebar: !store.state.app.isCollapse,
-          openSidebar: store.state.app.isCollapse,
-          withoutAnimation: store.state.app.withoutAnimation,
+          hideSidebar: !SettingStore.isCollapse,
+          openSidebar: SettingStore.isCollapse,
+          withoutAnimation: SettingStore.withoutAnimation,
           mobile: device.value === 'mobile',
         }
       })
+      // 移动端点击
       const handleClickOutside = () => {
-        store.dispatch('app/closeSideBar', { withoutAnimation: false })
+        SettingStore.closeSideBar({ withoutAnimation: false })
       }
-      const showTag = computed(() => {
-        return store.state.setting.themeConfig.showTag
-      })
+      const showTag = computed(() => SettingStore.themeConfig.showTag)
 
-      const mode = computed(() => {
-        return store.state.setting.themeConfig.mode
-      })
-      return {
-        isCollapse,
-        device,
-        classObj,
-        showTag,
-        mode,
-        handleClickOutside,
-      }
-    },
-  })
+      const mode = computed(() => SettingStore.themeConfig.mode)
 </script>
 
 <style lang="scss" scoped>

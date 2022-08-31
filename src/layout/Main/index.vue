@@ -14,17 +14,17 @@
 
 <script lang="ts" setup>
   import UTheme from '@/components/u-theme/index.vue'
-  import { useStore } from 'vuex'
+
   import { computed, ref } from 'vue'
-  const store = useStore()
+  import {useSettingStore} from "@/store/modules/setting"
+  import {useTagsViewStore} from "@/store/modules/tagsView"
+  const SettingStore = useSettingStore()
+  const TagsViewStore = useTagsViewStore()
 
-  const cachedViews = computed(() => {
-    return store.state.tagsView.cachedViews
-  })
+  const cachedViews = computed(() =>TagsViewStore.cachedViews)
 
-  const isReload = computed(() => {
-    return store.state.app.isReload
-  })
+  const isReload = computed(() => SettingStore.isReload)
+
 </script>
 
 <style lang="scss" scoped>

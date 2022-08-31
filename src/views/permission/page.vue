@@ -10,16 +10,16 @@
 
 <script lang="ts" setup>
   import { computed, ref } from 'vue'
-  import { useStore } from 'vuex'
-  const store = useStore()
+  import {useUserStore} from "@/store/modules/user"
+  const UserStore = useUserStore()
 
   const switchRoles = computed({
     get() {
-      return store.getters.roles[0]
+      return UserStore.roles[0]
     },
     set(val) {
       ;(async () => {
-        await store.dispatch('user/getInfo', [val])
+        await UserStore.getInfo([val])
         location.reload()
       })()
     },

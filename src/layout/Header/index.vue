@@ -68,26 +68,23 @@
   import { computed, ref } from 'vue'
   import { useRouter } from 'vue-router'
   import { ElMessageBox, ElMessage } from 'element-plus'
-  import { useStore } from 'vuex'
+  import {useSettingStore} from "@/store/modules/setting"
+  import {useUserStore} from "@/store/modules/user"
+  import {usePermissionStore} from "@/store/modules/permission"
 
-  const store = useStore()
   const person = ref()
   const router = useRouter()
+  const SettingStore = useSettingStore()
+  const UserStore = useUserStore()
+  const PermissionStore = usePermissionStore()
 
-  const isCollapse = computed(() => {
-    return !store.state.app.isCollapse
-  })
-  const mode = computed(() => {
-    return store.state.setting.themeConfig.mode
-  })
-
-  const showTag = computed(() => {
-    return store.state.setting.themeConfig.showTag
-  })
-
-  const userInfo = computed(() => {
-    return store.state.user.userInfo
-  })
+  const isCollapse = computed(() =>!SettingStore.isCollapse)
+  // menu 布局
+  const mode = computed(() => SettingStore.themeConfig.mode)
+  // 显示 tag
+  const showTag = computed(() =>SettingStore.themeConfig.showTag)
+  // 用户信息
+  const userInfo = computed(() => UserStore.userInfo)
 
   const logOut = async () => {
     ElMessageBox.confirm('确定退出登录吗？', '退出登录', {
@@ -97,9 +94,9 @@
     })
       .then(async () => {
         try {
-          await store.dispatch('user/logout')
+          await UserStore.logout()
           router.push({ path: '/login' })
-          store.dispatch('permission/clearRoutes')
+          PermissionStore.clearRoutes()
           store.dispatch('tagsView/clearVisitedView')
         } catch (e) {}
       })
@@ -117,7 +114,7 @@
     }
   }
   const handleCollapse = () => {
-    store.commit('app/SET_COLLAPSE', isCollapse.value)
+    SettingStore.setCollapse(isCollapse.value)
   }
 </script>
 

@@ -10,18 +10,14 @@
 <script lang="ts" setup>
 import UMenu from './components/Menu.vue'
 import logo from './components/Logo.vue'
-import { useStore, mapGetters } from 'vuex' // useStore ===vue2.0中的this.$store
+import {useSettingStore} from "@/store/modules/setting"
 import { ref, computed } from 'vue'
 
-// 在setup中获取store
-const store = useStore()
-
+const SettingStore = useSettingStore()
 // 是否折叠
-const isCollapse = computed(() => {
-  return !store.state.app.isCollapse
-})
+const isCollapse = computed(() => !SettingStore.isCollapse)
 // 设置
-const themeConfig = computed(() =>store.state.setting.themeConfig )
+const themeConfig = computed(() =>SettingStore.themeConfig )
 </script>
 
 <style lang="scss">
