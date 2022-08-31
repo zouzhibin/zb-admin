@@ -21,8 +21,8 @@
 <script lang="ts" setup>
   import SubItem from './SubItem.vue'
   import { useRoute } from 'vue-router'
-  import {usePermissionStore} from "@/storeNew/modules/permission"
-  import {useSettingStore} from "@/storeNew/modules/setting"
+  import {usePermissionStore} from "@/store/modules/permission"
+  import {useSettingStore} from "@/store/modules/setting"
   import { ref, computed } from 'vue'
 
   // 在setup中获取store
@@ -32,6 +32,8 @@
 
   // 获取路由
   const permission_routes = computed(() => PermissionStore.permission_routes)
+
+
 
   const activeMenu = computed(() => {
     const { meta, path } = route

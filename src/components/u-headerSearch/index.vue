@@ -26,22 +26,19 @@
 
 <script lang="ts" setup>
 import {computed, onMounted, ref, watch} from 'vue'
-import {useStore} from "vuex";
 import path from 'path-browserify'
 import Fuse from 'fuse.js'
 import { useVueFuse } from 'vue-fuse'
 import {useRouter} from "vue-router";
 const router = useRouter()
-// 在setup中获取store
-const store = useStore()
 const isShowSearch = ref(false);
 const options = ref([]);
 const searchPool = ref([]);
 const search = ref('');
 const fuse = ref(null);
-
-
-const routes = computed(() => store.state.permission.routes)
+import {usePermissionStore} from "@/store/modules/permission"
+const PermissionStore = usePermissionStore()
+const routes = computed(() => PermissionStore.routes)
 
 const handleSearch = () => {
   isShowSearch.value = true
@@ -116,10 +113,8 @@ onMounted(()=>{
 })
 
 const querySearch=(query)=> {
-  console.log('====query=====',query,fuse.value)
   if (query !== '') {
     options.value = fuse.value.search(query)
-    console.log('=====ddddddddddd=====',options.value )
   } else {
     options.value = []
   }

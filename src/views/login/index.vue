@@ -64,7 +64,7 @@
   import { ref, reactive } from 'vue'
   import type { FormInstance } from 'element-plus'
   import { useRouter } from 'vue-router'
-  import {useUserStore} from "@/storeNew/modules/user"
+  import {useUserStore} from "@/store/modules/user"
   import { ElMessage } from 'element-plus'
   const ruleFormRef = ref<FormInstance>()
   const router = useRouter()

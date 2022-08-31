@@ -1,8 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
-import pinia from "./storeNew";
+import pinia from "./store";
 import 'default-passive-events'
 
 // 权限路由
@@ -37,7 +36,6 @@ Object.keys(ElIconsModules).forEach((key) => {//循环遍历组件名称
     }
 });
 app.use(pinia)
-app.use(store)
 app.use(router)
 
 app.use(ElementPlus).mount('#app')

@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-  import {useSettingStore} from "@/storeNew/modules/setting"
+  import {useSettingStore} from "@/store/modules/setting"
   const SettingStore = useSettingStore()
   const changeSwitch = (key,val) => {
     SettingStore.setThemeConfig({key, val})

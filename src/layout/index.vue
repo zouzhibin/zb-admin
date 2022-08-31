@@ -18,14 +18,13 @@
 
 <script lang="ts" setup>
   import { computed, defineComponent, ref } from 'vue'
-  import {useSettingStore} from "@/storeNew/modules/setting"
+  import {useSettingStore} from "@/store/modules/setting"
   import Sidebar from './Sidebar/index.vue'
   import UHeader from './Header/index.vue'
   import UMain from './Main/index.vue'
 
   import { useResizeHandler } from './hooks/useResizeHandler'
 
-    import { useStore } from 'vuex'
    const SettingStore = useSettingStore()
 
       // 是否折叠

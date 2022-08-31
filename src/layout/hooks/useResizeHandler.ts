@@ -1,4 +1,4 @@
-import {useSettingStore} from "@/storeNew/modules/setting"
+import {useSettingStore} from "@/store/modules/setting"
 import {computed, onMounted, onUnmounted, watch} from "vue";
 import {useRoute} from "vue-router";
 

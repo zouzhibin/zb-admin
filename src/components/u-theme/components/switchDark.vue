@@ -4,7 +4,7 @@
 
 <script setup lang="ts" name="switchDark">
   import {computed, ref} from "vue";
-  import {useSettingStore} from "@/storeNew/modules/setting"
+  import {useSettingStore} from "@/store/modules/setting"
   import {toggleDark} from '../../../hooks/dark'
   const SettingStore = useSettingStore()
   // 横向

@@ -65,12 +65,10 @@
   import { computed, ref } from 'vue'
   import { useRouter } from 'vue-router'
   import { ElMessageBox, ElMessage } from 'element-plus'
-  import {useSettingStore} from "@/storeNew/modules/setting"
-  import {useUserStore} from "@/storeNew/modules/user"
-  import {usePermissionStore} from "@/storeNew/modules/permission"
-  import { useStore } from 'vuex'
+  import {useSettingStore} from "@/store/modules/setting"
+  import {useUserStore} from "@/store/modules/user"
+  import {usePermissionStore} from "@/store/modules/permission"
 
-  const store = useStore()
   const person = ref()
   const router = useRouter()
   const SettingStore = useSettingStore()

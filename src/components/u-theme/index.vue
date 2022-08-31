@@ -49,13 +49,11 @@
 <script lang="ts" setup>
   import {computed, ref} from 'vue'
   import SwitchDark from './components/switchDark.vue'
-  import { useStore } from 'vuex'
   import {ElMessage} from "element-plus";
   import {PRIMARY_COLOR} from "@/config/index";
-  import {useSettingStore} from "@/storeNew/modules/setting"
+  import {useSettingStore} from "@/store/modules/setting"
   import {getDarkColor,getLightColor} from '@/utils/index'
   const SettingStore = useSettingStore()
-  const store = useStore()
   const layout = ref(SettingStore.themeConfig.mode)
   const showTag = ref(SettingStore.themeConfig.showTag)
   const showLogo = ref(SettingStore.themeConfig.showLogo)
