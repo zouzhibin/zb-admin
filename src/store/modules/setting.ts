@@ -31,7 +31,9 @@ export const useSettingStore = defineStore({
             // 主题颜色
             primary:PRIMARY_COLOR,
             // element组件大小
-            globalComSize:'default'
+            globalComSize:'default',
+            // 中英文切换，默认中文
+            language:'zh'
         },
     }),
     getters: {},

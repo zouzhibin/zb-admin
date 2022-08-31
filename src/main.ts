@@ -39,7 +39,6 @@ Object.keys(ElIconsModules).forEach((key) => {//循环遍历组件名称
     }
 });
 app.use(I18n)
-app.use(store)
 app.use(pinia)
 app.use(router)
 

@@ -14,18 +14,17 @@
 </template>
 
 <script lang="ts" setup>
-import {useStore} from "vuex";
+import {useSettingStore} from "@/store/modules/setting"
 import { useI18n } from "vue-i18n";
 import {computed, reactive} from "vue";
 
-const store = useStore()
+const SettingStore = useSettingStore()
 const i18n = useI18n();
-const language = computed(():string=>store.state.setting.themeConfig.language)
+const language = computed(():string=>SettingStore.themeConfig.language)
 
 const setLanguage = (val)=>{
   i18n.locale.value = val;
-  store.dispatch('setting/setThemeConfig', {key:'language', val})
-
+  SettingStore.setThemeConfig({key:'language', val})
 }
 
 </script>
