@@ -1,12 +1,7 @@
 # 简介
 vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-plus实现。它使用了最新的前端技术栈、动态路由，权限验证，并且有着丰富的组件。
 
-## 效果预览
-
 ### 在线预览点击 —— [企业级、通用型中后台前端解决方案 ](http://182.61.5.190:8889/)
-
-### 附上github地址点击跳转 [vue-admin-perfect](https://github.com/zouzhibin/vue-admin-perfect)
-
 
 ## 项目功能
 - 使用Vue3.0开发，单文件组件采用＜script setup＞
@@ -31,12 +26,13 @@ vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-p
 ```
 
 ## 分支管理
-- master 技术采用 vite + vue3.0 + Typescript + vuex + vue-router + Element-Plus scss
+- master 技术采用 vite + vue3.0 + Typescript + pinia
   ```
   注意：使用 Vite 构建工具，需要 Node.js 版本 >= 12.0.0  查看 Node.js 版本 node-v
   ```
+- vite-vuex vite + vue3.0 + Typescript + vuex
 - vue-i18n 语言切换版本
-- webpack 技术采用 webpack + vue3.0 + Typescript + vuex + vue-router + Element-Plus scss
+- webpack 技术采用 webpack + vue3.0 + Typescript + vuex
 - uniapp uniapp版本 uniapp +vuex +element scss
   ```
   # 本地开发 启动项目
