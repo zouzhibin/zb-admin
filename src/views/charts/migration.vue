@@ -14,6 +14,7 @@
     box-sizing: border-box;
     width: 100%;
     overflow: hidden;
+    background: #001540;
     height: calc(100vh - 93px);
     position: relative;
     .info {

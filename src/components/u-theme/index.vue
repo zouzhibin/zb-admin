@@ -15,7 +15,7 @@
     <el-drawer
         v-model="drawer" title="主题配置" size="300px">
       <div class="theme-item">
-        <label>标签</label>
+        <label>主题颜色</label>
         <el-color-picker v-model="primary" :predefine="predefineColor" @change="changePrimary" />
       </div>
       <div class="theme-item">

@@ -140,7 +140,7 @@
         // console.log('val==========',val)
       },
     },
-    backgroundColor: '#001540',
+    // backgroundColor: '#001540',// 设置背景色
     geo: {
       show: true,
       map: 'china',
