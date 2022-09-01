@@ -23,7 +23,7 @@
     </el-form>
     <el-descriptions title="配置项 " :column="1" border class="descriptions">
       <el-descriptions-item label="value"> 双向绑定的 value 值，使用示例：v-model='content' </el-descriptions-item>
-      <el-descriptions-item label="参考文档"> 	<a href="https://www.wangeditor.com/v5/for-frame.html"> https://www.wangeditor.com/v5/for-frame.html </a> </el-descriptions-item>
+      <el-descriptions-item label="参考文档"> 	<a href="https://www.wangeditor.com/v5/for-frame.html" target="_blank"> https://www.wangeditor.com/v5/for-frame.html </a> </el-descriptions-item>
 
     </el-descriptions>
 

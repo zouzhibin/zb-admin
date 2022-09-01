@@ -11,13 +11,14 @@ import 'virtual:svg-icons-register'
 import SvgIcon from '@/components/SvgIcon/index.vue'// svg component
 // UI框架 element-plus
 import ElementPlus from 'element-plus'
-import UContainerLayout from '@/components/u-container-layout/index.vue'
 import 'element-plus/dist/index.css'
-
 // 引入暗黑模式 element-plus 2.2 内置暗黑模式
 import 'element-plus/theme-chalk/dark/css-vars.css'
 // 自定义暗黑模式
 import "@/styles/element-dark.scss";
+
+// 引入全局组件布局
+import UContainerLayout from '@/components/u-container-layout/index.vue'
 // i18n
 import I18n from "@/language/index";
 
