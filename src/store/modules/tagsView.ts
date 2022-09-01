@@ -47,10 +47,10 @@ export const useTagsViewStore = defineStore({
         delVisitedView(view){
             return new Promise(resolve => {
                 this.visitedViews = this.visitedViews.filter(v=>{
-                    return v.path !== view.path
+                    return (v.path !== view.path||v.meta.affix)
                 })
                 this.cachedViews = this.cachedViews.filter(v=>{
-                    return v.path !== view.path
+                    return (v.path !== view.path||v.meta.affix)
                 })
                 resolve([...this.visitedViews])
             })
@@ -69,8 +69,9 @@ export const useTagsViewStore = defineStore({
         },
         delAllViews(){
             return new Promise((resolve) => {
-                this.visitedViews = []
-                this.visitedViews = []
+                this.visitedViews = this.visitedViews.filter(v=>v.meta.affix)
+                console.log('===============',this.visitedViews)
+                this.cachedViews = this.visitedViews.filter(v=>v.meta.affix)
                 resolve([...this.visitedViews])
             })
         },
