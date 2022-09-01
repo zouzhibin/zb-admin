@@ -70,7 +70,6 @@ export const useTagsViewStore = defineStore({
         delAllViews(){
             return new Promise((resolve) => {
                 this.visitedViews = this.visitedViews.filter(v=>v.meta.affix)
-                console.log('===============',this.visitedViews)
                 this.cachedViews = this.visitedViews.filter(v=>v.meta.affix)
                 resolve([...this.visitedViews])
             })

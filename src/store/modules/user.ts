@@ -46,6 +46,7 @@ export const useUserStore = defineStore({
         },
 
     },
+    // 进行持久化存储
     persist: {
         // 本地存储的名称
         key: "userState",
