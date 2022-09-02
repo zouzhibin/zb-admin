@@ -68,12 +68,14 @@
   import {useSettingStore} from "@/store/modules/setting"
   import {useUserStore} from "@/store/modules/user"
   import {usePermissionStore} from "@/store/modules/permission"
+  import {useTagsViewStore} from "@/store/modules/tagsView"
 
   const person = ref()
   const router = useRouter()
   const SettingStore = useSettingStore()
   const UserStore = useUserStore()
   const PermissionStore = usePermissionStore()
+  const TagsViewStore = useTagsViewStore()
 
   const isCollapse = computed(() =>!SettingStore.isCollapse)
   // menu 布局
@@ -94,7 +96,7 @@
           await UserStore.logout()
           router.push({ path: '/login' })
           PermissionStore.clearRoutes()
-          store.dispatch('tagsView/clearVisitedView')
+          TagsViewStore.clearVisitedView()
         } catch (e) {}
       })
       .catch(() => {})
@@ -150,7 +152,7 @@
     top: 0;
     background: white;
     left: 0;
-    z-index: 99;
+    z-index: 9;
     right: 0;
     transition: left 0.3s;
     flex-shrink: 0;
