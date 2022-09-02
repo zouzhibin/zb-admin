@@ -10,6 +10,7 @@ interface extendRoute {
 //
 import permissionRouter from './modules/permission'
 import tableRouter from './modules/table'
+import dataScreenRouter from './modules/dataScreen'
 import errorRouter from './modules/error'
 import excelRouter from './modules/excel'
 import nestedRouter from './modules/nested'
@@ -104,6 +105,7 @@ const zipRoutes = {
 
 // // 异步组件
 export const asyncRoutes = [
+    dataScreenRouter,
     chartsRouter,
     tableRouter,
 
