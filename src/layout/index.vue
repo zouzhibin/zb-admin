@@ -29,7 +29,7 @@
 
       // 是否折叠
       const isCollapse = computed(() => {
-        return !useSettingStore.isCollapse
+        return !SettingStore.isCollapse
       })
       let { device } = useResizeHandler()
       // 当屏幕切换的时候进行变换
@@ -78,7 +78,7 @@
     top: 0;
     height: 100%;
     position: absolute;
-    z-index: 999;
+    z-index: 90;
   }
   .m-container-content {
     //padding: 20px;
