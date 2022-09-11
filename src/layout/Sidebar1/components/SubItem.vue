@@ -1,20 +1,18 @@
 <template>
   <template v-if="!item.hidden">
     <template v-if="!item.alwaysShow && hasOneShowingChild(item.children, item)">
-        <a-menu-item :key="resolvePath(onlyOneChild.path)" v-if="onlyOneChild.meta">
-          <template #icon>
-            <span :style="{fontSize: '16px', width:'16px'}">
-              <component :is="onlyOneChild?.meta.icon" ></component>
-            </span>
-          </template>
-          <app-link  :to="resolvePath(onlyOneChild.path)">
-            <span>{{ onlyOneChild.meta && onlyOneChild.meta.title }}</span>
-          </app-link>
-        </a-menu-item>
+      <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
+        <el-menu-item :index="resolvePath(onlyOneChild.path)">
+          <el-icon :size="20">
+            <component :is="onlyOneChild?.meta.icon"></component>
+          </el-icon>
+          <template #title>{{ onlyOneChild.meta && onlyOneChild.meta.title }}</template>
+        </el-menu-item>
+      </app-link>
     </template>
-    <a-sub-menu :key="resolvePath(item.path)" v-else popper-append-to-body>
-      <template #icon> <component :is="item.meta?.icon" :style="{fontSize: '16px', width:'16px'}"></component></template>
+    <el-sub-menu :index="resolvePath(item.path)" v-else popper-append-to-body>
       <template #title>
+        <el-icon :size="20"> <component :is="item.meta?.icon"></component></el-icon>
         <span>{{ item.meta && item.meta.title }}</span>
       </template>
       <sub-item
@@ -23,7 +21,7 @@
           :item="child"
           :base-path="resolvePath(child.path)"
       />
-    </a-sub-menu>
+    </el-sub-menu>
   </template>
 </template>
 

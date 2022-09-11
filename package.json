@@ -15,10 +15,12 @@
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\""
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^6.1.0",
     "@better-scroll/core": "^2.4.2",
     "@vueuse/core": "^9.1.1",
     "@wangeditor/editor": "^5.1.14",
     "@wangeditor/editor-for-vue": "^5.1.12",
+    "ant-design-vue": "^3.2.12",
     "axios": "^0.27.2",
     "clipboard": "^2.0.10",
     "core-js": "^3.6.5",

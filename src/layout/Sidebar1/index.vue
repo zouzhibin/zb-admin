@@ -1,9 +1,9 @@
 <template>
   <div :class="{ 'has-logo': themeConfig.showLogo }">
     <logo :isCollapse="isCollapse" v-if="themeConfig.showLogo"/>
-<!--    <el-scrollbar wrap-class="scrollbar-wrapper">-->
+    <el-scrollbar wrap-class="scrollbar-wrapper">
       <u-menu/>
-<!--    </el-scrollbar>-->
+    </el-scrollbar>
   </div>
 </template>
 

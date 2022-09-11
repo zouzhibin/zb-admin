@@ -17,6 +17,10 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 // 自定义暗黑模式
 import "@/styles/element-dark.scss";
 
+// 引入 ant-design-vue
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
+
 // 引入全局组件布局
 import UContainerLayout from '@/components/u-container-layout/index.vue'
 
@@ -35,6 +39,7 @@ Object.keys(ElIconsModules).forEach((key) => {//循环遍历组件名称
     }
 });
 app.use(pinia)
+app.use(Antd)
 app.use(router)
 
 app.use(ElementPlus).mount('#app')
