@@ -1,15 +1,16 @@
 <template>
   <div :class="{ 'has-logo': themeConfig.showLogo }">
     <logo :isCollapse="isCollapse" v-if="themeConfig.showLogo"/>
-<!--    <el-scrollbar wrap-class="scrollbar-wrapper">-->
+    <Scrollbar wrap-class="scrollbar-wrapper">
       <u-menu/>
-<!--    </el-scrollbar>-->
+    </Scrollbar>
   </div>
 </template>
 
 <script lang="ts" setup>
 import UMenu from './components/Menu.vue'
 import logo from './components/Logo.vue'
+import {Scrollbar} from '@/components/Scrollbar'
 import {useSettingStore} from "@/store/modules/setting"
 import { ref, computed } from 'vue'
 

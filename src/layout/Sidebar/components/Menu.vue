@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 210px">
+  <div>
     <a-menu
         v-model:openKeys="state.openKeys"
         v-model:selectedKeys="state.selectedKeys"
