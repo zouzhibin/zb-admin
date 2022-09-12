@@ -108,9 +108,7 @@ export const asyncRoutes = [
     dataScreenRouter,
     chartsRouter,
     tableRouter,
-
     chatRouter,
-    // componentsRouter,
     othersRouter,
     nestedRouter,
     excelRouter,
@@ -120,7 +118,6 @@ export const asyncRoutes = [
     clipboardTable,
     systemRouter,
     permissionRouter,
-
     {
         path: '/:pathMatch(.*)',
         redirect: '/error/404'

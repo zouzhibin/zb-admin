@@ -26,9 +26,9 @@
       </better-scroll>
     </div>
     <el-dropdown trigger="click">
-        <el-button class="el-dropdown-link" type="primary">
-          更多 <el-icon class="el-icon--right"><arrow-down /></el-icon>
-        </el-button>
+      <div class="item-tag-wrap more">
+          <div class="tags-view-item">更多 <el-icon class="el-icon--right"><arrow-down /></el-icon></div>
+      </div>
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item @click="refresh">刷新当页</el-dropdown-item>
@@ -252,7 +252,10 @@
     align-items: center;
     padding-left: 10px;
     .tags-view {
+      height: 30px;
       background: white;
+      display: flex;
+      align-items: center;
       flex: 1;
       box-sizing: border-box;
       overflow: hidden;
@@ -280,7 +283,7 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-    padding: 6px 10px;
+    padding: 4px 12px;
     font-size: 14px;
     cursor: pointer;
     margin-right: 10px;
@@ -308,10 +311,19 @@
     position: relative;
     z-index: 2;
     white-space: nowrap;
+    font-size: 12px;
     .tags-inner {
       display: flex;
       align-items: center;
       white-space: nowrap;
+    }
+  }
+  .more{
+    background-color: $primaryColor;
+    color: white;
+    .tags-view-item{
+      display: flex;
+      align-items: center;
     }
   }
 </style>

@@ -11,12 +11,12 @@
 
 <style lang="scss" scoped>
   .echarts-map {
-    box-sizing: border-box;
+    position: relative;
     width: 100%;
+    height: 100%;
     overflow: hidden;
     background: #001540;
-    height: calc(100vh - 93px);
-    position: relative;
+    box-sizing: border-box;
     .info {
       position: absolute;
       left: 0;
