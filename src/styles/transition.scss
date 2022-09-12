@@ -40,15 +40,30 @@
 
 
 
-// 面包屑动画
-.breadcrumb-enter-active {
-  transition: all 0.25s;
+// 面包屑动画 方案1
+//.breadcrumb-enter-active {
+//  transition: all 0.25s;
+//}
+//.breadcrumb-enter-from,
+//.breadcrumb-leave-active {
+//  opacity: 0;
+//  transform: translateX(30px) skewX(-50deg);
+//}
+/* 面包屑动画 方案2 */
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+  transition: all 0.2s ease;
 }
 .breadcrumb-enter-from,
 .breadcrumb-leave-active {
   opacity: 0;
-  transform: translateX(30px) skewX(-50deg);
+  transform: translateX(10px);
 }
+.breadcrumb-leave-active {
+  position: absolute;
+  z-index: -1;
+}
+
 
 .fade-transform-leave-active,
 .fade-transform-enter-active {

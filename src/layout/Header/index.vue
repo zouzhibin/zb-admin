@@ -131,8 +131,9 @@
     cursor: pointer;
   }
   .header {
-    height: 60px;
+    height: 50px;
     width: 100%;
+    border-bottom: 1px solid #eee;
     display: flex;
     align-items: center;
     padding: 0 10px;

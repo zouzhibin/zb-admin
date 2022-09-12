@@ -25,13 +25,6 @@
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
   }
-  html,
-  body {
-    height: 100%;
-  }
-  body{
-    background: #f6f8f9;
-  }
   .el-pager li:focus {
     border: none;
   }
@@ -42,9 +35,5 @@
   .svg-icon:focus {
     border: none!important;
     outline: none!important;
-  }
-  * {
-    margin: 0;
-    padding: 0;
   }
 </style>

@@ -8,6 +8,10 @@
         hideSliderLayout: mode === 'horizontal',
       }"
     >
+      <div
+          :style="{
+        height:`${showTag?80:50}px`
+      }"></div>
       <u-header />
       <div class="m-container-content" :class="{ 'app-main-hide-tag': !showTag }">
         <u-main />
@@ -25,29 +29,29 @@
 
   import { useResizeHandler } from './hooks/useResizeHandler'
 
-   const SettingStore = useSettingStore()
+  const SettingStore = useSettingStore()
 
-      // 是否折叠
-      const isCollapse = computed(() => {
-        return !SettingStore.isCollapse
-      })
-      let { device } = useResizeHandler()
-      // 当屏幕切换的时候进行变换
-      const classObj = computed(() => {
-        return {
-          hideSidebar: !SettingStore.isCollapse,
-          openSidebar: SettingStore.isCollapse,
-          withoutAnimation: SettingStore.withoutAnimation,
-          mobile: device.value === 'mobile',
-        }
-      })
-      // 移动端点击
-      const handleClickOutside = () => {
-        SettingStore.closeSideBar({ withoutAnimation: false })
-      }
-      const showTag = computed(() => SettingStore.themeConfig.showTag)
+  // 是否折叠
+  const isCollapse = computed(() => {
+    return !SettingStore.isCollapse
+  })
+  let { device } = useResizeHandler()
+  // 当屏幕切换的时候进行变换
+  const classObj = computed(() => {
+    return {
+      hideSidebar: !SettingStore.isCollapse,
+      openSidebar: SettingStore.isCollapse,
+      withoutAnimation: SettingStore.withoutAnimation,
+      mobile: device.value === 'mobile',
+    }
+  })
+  // 移动端点击
+  const handleClickOutside = () => {
+    SettingStore.closeSideBar({ withoutAnimation: false })
+  }
+  const showTag = computed(() => SettingStore.themeConfig.showTag)
 
-      const mode = computed(() => SettingStore.themeConfig.mode)
+  const mode = computed(() => SettingStore.themeConfig.mode)
 </script>
 
 <style lang="scss" scoped>
@@ -81,14 +85,9 @@
     z-index: 90;
   }
   .m-container-content {
-    //padding: 20px;
-    /*background: #f6f8f9;*/
-    padding-top: 93px;
-    box-sizing: border-box;
-    height: 100vh;
+    display: flex;
+    flex: 1;
     position: relative;
-  }
-  .app-main-hide-tag {
-    padding-top: 80px;
+    box-sizing: border-box;
   }
 </style>

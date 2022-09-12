@@ -1,6 +1,6 @@
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
-    <transition-group name="breadcrumb">
+    <transition-group name="breadcrumb" mode="out-in">
       <el-breadcrumb-item v-for="(item, index) in obj.levelList" :key="item.path">
         <span
           v-if="item.redirect === 'noRedirect' || index == obj.levelList.length - 1"

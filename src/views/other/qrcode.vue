@@ -1,12 +1,14 @@
 <template>
   <u-container-layout>
-    <el-input v-model="inputData" placeholder="请输入" style="width: 400px; max-width: 100%" />
-    <el-button type="primary" @click="handleQrcode(1)">
-      <el-icon style="margin-right: 6px"><collection /></el-icon> 生成普通二维码
-    </el-button>
-    <el-button type="primary" @click="handleQrcode(2)">生成带logo</el-button>
-    <el-button type="primary" @click="handleQrcode(3)">生成随机颜色二维码</el-button>
-    <el-button type="primary" @click="handleQrcode(4)">下载</el-button>
+    <div style="display: flex">
+      <el-input v-model="inputData" placeholder="请输入" style="width: 400px; max-width: 100%" />
+      <el-button type="primary" @click="handleQrcode(1)">
+        <el-icon style="margin-right: 6px"><collection /></el-icon> 生成普通二维码
+      </el-button>
+      <el-button type="primary" @click="handleQrcode(2)">生成带logo</el-button>
+      <el-button type="primary" @click="handleQrcode(3)">生成随机颜色二维码</el-button>
+      <el-button type="primary" @click="handleQrcode(4)">下载</el-button>
+    </div>
     <div>
       <vue-qr :logoSrc="logoSrc" :text="inputData" :size="200" :callback="qrcodeCallback" :color-dark="randomColor" ></vue-qr>
     </div>

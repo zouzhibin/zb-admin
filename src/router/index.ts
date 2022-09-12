@@ -8,7 +8,6 @@ interface extendRoute {
 
 // 引入组件
 //
-import permissionRouter from './modules/permission'
 import tableRouter from './modules/table'
 import dataScreenRouter from './modules/dataScreen'
 import errorRouter from './modules/error'
@@ -110,9 +109,7 @@ export const asyncRoutes = [
     dataScreenRouter,
     chartsRouter,
     tableRouter,
-
     chatRouter,
-    // componentsRouter,
     othersRouter,
     nestedRouter,
     excelRouter,
@@ -121,8 +118,6 @@ export const asyncRoutes = [
     externalLink,
     clipboardTable,
     systemRouter,
-    permissionRouter,
-
     {
         path: '/:pathMatch(.*)',
         redirect: '/error/404'

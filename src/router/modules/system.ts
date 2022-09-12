@@ -13,6 +13,12 @@ const systemRouter = {
     },
     children: [
         {
+            path: 'page',
+            component: () => import('@/views/system/page.vue'),
+            name: 'page',
+            meta: { title: '页面权限', icon: 'trend-charts',  roles:['other']  }
+        },
+        {
             path: 'user',
             component: () => import('@/views/system/user.vue'),
             name: 'user',

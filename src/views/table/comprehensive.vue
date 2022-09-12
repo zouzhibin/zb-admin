@@ -1,21 +1,21 @@
 <template>
   <u-container-layout>
-    <div class="app-container">
-      <comprehensive-table
-        :loading="loading"
-        @selection-change="selectionChange"
-        :columns="column"
-        :data="list"
-        @reset="reset"
-        @onSubmit="onSubmit"
+    <div class="app-container" ref="appContainer">
+      <PropTable
+          :loading="loading"
+          @selection-change="selectionChange"
+          :columns="column"
+          :data="list"
+          @reset="reset"
+          @onSubmit="onSubmit"
       >
         <template v-slot:btn>
           <div style="display: flex; justify-content: flex-end">
             <el-button type="primary" @click="add"
-              ><el-icon><plus /></el-icon> 添加</el-button
+            ><el-icon><plus /></el-icon> 添加</el-button
             >
             <el-button type="danger" @click="batchDelete"
-              ><el-icon><delete /></el-icon>删除</el-button
+            ><el-icon><delete /></el-icon>删除</el-button
             >
           </div>
         </template>
@@ -28,16 +28,16 @@
             删除
           </el-button>
         </template>
-      </comprehensive-table>
+      </PropTable>
 
       <el-dialog v-model="dialogVisible" :title="title" width="50%">
         <el-form
-          ref="ruleFormRef"
-          :model="ruleForm"
-          :rules="rules"
-          label-width="120px"
-          class="demo-ruleForm"
-          :size="formSize"
+            ref="ruleFormRef"
+            :model="ruleForm"
+            :rules="rules"
+            label-width="120px"
+            class="demo-ruleForm"
+            :size="formSize"
         >
           <el-form-item label="活动名称" prop="name">
             <el-input v-model="ruleForm.name" />
@@ -63,12 +63,13 @@
   </u-container-layout>
 </template>
 <script lang="ts" setup name="comprehensive">
-  import { ref, reactive, onMounted } from 'vue'
+import {ref, reactive, onMounted, nextTick} from 'vue'
   import * as dayjs from 'dayjs'
   import { ElMessage, ElMessageBox } from 'element-plus'
   import type { FormInstance } from 'element-plus'
   const loading = ref(true)
-  import ComprehensiveTable from './components/comprehensive.vue'
+  const appContainer = ref(null)
+  import PropTable from '@/components/Table/PropTable/index.vue'
   const data = []
   for (let i = 0; i < 100; i++) {
     data.push({
@@ -120,7 +121,7 @@
     { name: 'province', label: '省份' },
     { name: 'city', label: '城市' },
     { name: 'zip', label: '邮编' },
-    { name: 'operation', slot: true, fixed: 'right', width: 200 },
+    { name: 'operation', slot: true, fixed: 'right', width: 200,label: '操作'  },
   ]
   const list = ref(data)
 
@@ -257,6 +258,9 @@
   }
 
   onMounted(() => {
+    nextTick(()=>{
+      // let data = appContainer.value.
+    })
     setTimeout(() => {
       loading.value = false
     }, 500)
@@ -266,6 +270,14 @@
 <style scoped>
   .edit-input {
     padding-right: 100px;
+  }
+  .app-container{
+    flex: 1;
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+
   }
   .cancel-btn {
     position: absolute;

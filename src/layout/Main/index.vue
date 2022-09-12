@@ -1,5 +1,5 @@
 <template>
-  <section class="app-main" v-if="isReload">
+  <div class="app-main" v-if="isReload">
     <router-view v-slot="{ Component, route }">
       <transition name="fade-slide" mode="out-in" appear>
         <keep-alive v-if="route.meta && route.meta.keepAlive">
@@ -9,7 +9,7 @@
       </transition>
     </router-view>
     <u-theme />
-  </section>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -29,18 +29,11 @@
 
 <style lang="scss" scoped>
   .app-main {
-    //padding: 20px;
-    /*padding-top: 110px;*/
-    //min-height: 100%;
-    //overflow: auto;
-    //flex: 1;
-    //overflow: auto;
+    flex: 1;
+    display: flex;
     overflow-x: hidden;
-    height: 100%;
     width: 100%;
     box-sizing: border-box;
-    //padding-top: 70px;
-    //  background: white;
   }
 
   //// 主内容区动画

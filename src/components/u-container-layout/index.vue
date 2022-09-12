@@ -10,17 +10,20 @@
 
 <style lang="scss" scoped>
   .m-container-layout {
-    padding: 20px;
-    box-sizing: border-box;
     width: 100%;
     height: 100%;
+    display: flex;
+    padding: 20px;
+    box-sizing: border-box;
     .m-container-layout-inner {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
       background: white;
       padding: 20px;
       width: 100%;
       box-sizing: border-box;
-      min-height: 100%;
     }
   }
 </style>

@@ -20,7 +20,7 @@ defineProps<{ isCollapse: boolean }>();
   .sidebar-logo-container {
     position: relative;
     width: 100%;
-    height: 60px;
+    height: 50px;
     display: flex;
     align-items: center;
     background: #2b2f3a;
