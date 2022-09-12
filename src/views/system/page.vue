@@ -1,6 +1,6 @@
 <template>
   <u-container-layout class="m-permission-page">
-    <div style="margin-bottom: 20px"> 权限列表{{ store.getters.roles }} </div>
+    <div style="margin-bottom: 20px"> 权限列表{{ UserStore.roles }} </div>
     <el-radio-group v-model="switchRoles">
       <el-radio-button label="other" />
       <el-radio-button label="admin" />

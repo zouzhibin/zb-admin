@@ -57,3 +57,15 @@ body{
   box-shadow: inset 0 0 6px rgb(0 0 0 / 20%);
 }
 
+
+/* nprogress样式 */
+#nprogress .bar {
+  background: $primaryColor !important;
+}
+#nprogress .spinner-icon {
+  border-top-color: $primaryColor !important;
+  border-left-color: $primaryColor !important;
+}
+#nprogress .peg {
+  box-shadow: 0 0 10px $primaryColor, 0 0 5px $primaryColor !important;
+}
