@@ -1,10 +1,10 @@
 <template>
   <el-menu
     :default-active="activeMenu"
-    active-text-color="#ffd04b"
     background-color="#304156"
     text-color="#fff"
     :mode="mode"
+    :unique-opened="SettingStore.themeConfig.uniqueOpened"
     :collapse-transition="false"
     class="el-menu-vertical-demo"
     :collapse="isCollapse"

@@ -1,4 +1,4 @@
-# 简介
+## 简介
 vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-plus实现。它使用了最新的前端技术栈、动态路由，权限验证，并且有着丰富的组件。
 
 ### 在线预览点击 —— [企业级、通用型中后台前端解决方案 ](http://182.61.5.190:8889/)
@@ -58,23 +58,40 @@ npm run lint
 npm run lint:prettier
 ```
 
-## 目录结构介绍
-
+## 文件目录结构
 ```
-├─assets    放置一些静态文件
-├─components 放置组件
-├─layout 首页布局
-│  ├─components
-│  │  ├─Sidebar 侧边栏配置
-│  │  ├─TagsView 标签栏配置
-│  │  └─UHeader 头部内容配置
-│  └─hooks
-├─router   路由配置
-├─store    数据存储
-├─styles   样式文件
-├─utils   工具方法
-└─views    页面配置方法
-└─permission  路由拦截 权限配置
+vue-admin-perfect
+├─ public                 # 静态资源文件（忽略打包）
+├─ src
+│  ├─ api                 # API 接口管理
+│  ├─ assets              # 静态资源文件
+│  ├─ components          # 全局组件
+│  ├─ config              # 全局配置项
+│  ├─ hooks               # 常用 Hooks
+│  ├─ language            # 语言国际化
+│  ├─ layout              # 框架布局
+│  ├─ routers             # 路由管理
+│  ├─ store               # pinia store
+│  ├─ styles              # 全局样式
+│  ├─ utils               # 工具库
+│  ├─ views               # 项目所有页面
+│  ├─ App.vue             # 入口页面
+│  └─ main.ts             # 入口文件
+├─ .env                   # vite 常用配置
+├─ .env.development       # 开发环境配置
+├─ .env.production        # 生产环境配置
+├─ .env.test              # 测试环境配置
+├─ .eslintignore          # 忽略 Eslint 校验
+├─ .eslintrc.cjs           # Eslint 校验配置
+├─ .gitignore             # git 提交忽略
+├─ .prettierignore        # 忽略 prettier 格式化
+├─ .prettierrc.config.js         # prettier 配置
+├─ index.html             # 入口 html
+├─ yarn.lock      # 依赖包包版本锁
+├─ package.json           # 依赖包管理
+├─ README.md              # README 介绍
+├─ tsconfig.json          # typescript 全局配置
+└─ vite.config.ts         # vite 配置
 ```
 
 

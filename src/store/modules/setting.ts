@@ -34,6 +34,15 @@ export const useSettingStore = defineStore({
             globalComSize:'default',
             // 中英文切换，默认中文
             language:'zh'
+            globalComSize:'default',
+            // 是否只保持一个子菜单的展开
+            uniqueOpened:true,
+            // 固定header
+            fixedHeader:true,
+            // 灰色模式
+            gray:false,
+            // 色弱模式
+            weak:false
         },
     }),
     getters: {},

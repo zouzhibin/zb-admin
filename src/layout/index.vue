@@ -8,10 +8,7 @@
         hideSliderLayout: mode === 'horizontal',
       }"
     >
-      <div
-          :style="{
-        height:`${showTag?80:50}px`
-      }"></div>
+      <div :style="{ height:`${showTag?80:50}px`  }" v-if="SettingStore.themeConfig.fixedHeader"></div>
       <u-header />
       <div class="m-container-content" :class="{ 'app-main-hide-tag': !showTag }">
         <u-main />
