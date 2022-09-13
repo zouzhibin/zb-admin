@@ -31,7 +31,15 @@ export const useSettingStore = defineStore({
             // 主题颜色
             primary:PRIMARY_COLOR,
             // element组件大小
-            globalComSize:'default'
+            globalComSize:'default',
+            // 是否只保持一个子菜单的展开
+            uniqueOpened:true,
+            // 固定header
+            fixedHeader:true,
+            // 灰色模式
+            gray:false,
+            // 色弱模式
+            weak:false
         },
     }),
     getters: {},

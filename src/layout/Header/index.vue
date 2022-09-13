@@ -1,6 +1,7 @@
 <template>
   <div
     class="m-layout-header"
+    :class="[SettingStore.themeConfig.fixedHeader&&'zb-fixed-header']"
     :style="{ left: `${mode === 'horizontal' ? 0 : isCollapse ? '60' : '210'}px` }"
   >
     <div
@@ -148,13 +149,15 @@
       }
     }
   }
-  .m-layout-header {
+  .zb-fixed-header{
     position: fixed;
     top: 0;
-    background: white;
     left: 0;
-    z-index: 9;
     right: 0;
+    z-index: 9;
+  }
+  .m-layout-header {
+    background: white;
     transition: left 0.3s;
     flex-shrink: 0;
     box-sizing: border-box;
