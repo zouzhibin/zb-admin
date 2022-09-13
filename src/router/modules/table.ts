@@ -15,13 +15,13 @@ const tableRouter = {
     children: [
         {
             path: 'comprehensive',
-            component: () => import('@/views/table/comprehensive.vue'),
+            component: () => import('@/views/table/ComprehensiveTable.vue'),
             name: 'comprehensive',
             meta: { title: '综合表格', keepAlive: true , icon: 'MenuIcon'}
         },
         {
             path: 'inline-table',
-            component: () => import('@/views/table/inline-edit-table.vue'),
+            component: () => import('@/views/table/InlineEditTable.vue'),
             name: 'inline-table',
             meta: { title: '行内编辑', keepAlive: true  , icon: 'MenuIcon'}
         },
@@ -32,10 +32,10 @@ const tableRouter = {
             meta: { title: '可编辑表格', keepAlive: true  , icon: 'MenuIcon'}
         },
         // {
-        //     path: 'multi-table',
-        //     component: () => import('@/views/table/multi-table.vue'),
-        //     name: 'multi-table',
-        //     meta: { title: '多级表头', noCache: true }
+        //     path: 'virtualTable',
+        //     component: () => import('@/views/table/VirtualTable.vue'),
+        //     name: 'virtualTable',
+        //     meta: { title: '虚拟表格', keepAlive: true  , icon: 'MenuIcon'}
         // },
     ]
 }
