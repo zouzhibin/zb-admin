@@ -1,14 +1,18 @@
 import { defineConfig,ConfigEnv, UserConfig,loadEnv  } from 'vite'
+import path from 'path'
 // vite.config.ts中无法使用import.meta.env 所以需要引入
 import vue from '@vitejs/plugin-vue'
+// 按需加载
 // import AutoImport from 'unplugin-auto-import/vite'
 // import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import path from 'path'
+//import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 // 增加 vue文件 script name值
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
+// 生产gz文件
 import viteCompression from 'vite-plugin-compression'
+
+
 function resolve (dir) {
   return path.join(__dirname, '.', dir)
 }

@@ -32,6 +32,7 @@
     flex: 1;
     display: flex;
     overflow-x: hidden;
+    flex-direction: column;
     width: 100%;
     box-sizing: border-box;
   }

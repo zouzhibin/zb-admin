@@ -36,36 +36,40 @@
         <slot name="btn"></slot>
       </div>
       <!-- ------------表格--------------->
-      <el-table
-          v-loading="loading"
-          @selection-change="(val) => emit('selection-change', val)"
-          :data="list"
-          :border="true"
-      >
-        <template v-for="item in columns">
-          <el-table-column
-              v-if="item.type"
-              :type="item.type"
-              :width="item.width"
-              :align="item.align"
-              :fixed="item.fixed"
-              :label="item.label"
-          />
-          <el-table-column
-              v-else
-              :prop="item.name"
-              :width="item.width"
-              :align="item.align"
-              :fixed="item.fixed"
-              :label="item.label"
-          >
-            <template #default="scope">
-              <span v-if="!item.slot">{{ scope.row[item.name] }}</span>
-              <slot v-else :name="item.name" :item="item" :row="scope.row"></slot>
-            </template>
-          </el-table-column>
-        </template>
-      </el-table>
+      <div class="table">
+        <el-table
+            class="zb-table"
+            v-loading="loading"
+            @selection-change="(val) => emit('selection-change', val)"
+            :data="list"
+            :border="true"
+        >
+          <template v-for="item in columns">
+            <el-table-column
+                v-if="item.type"
+                :type="item.type"
+                :width="item.width"
+                :align="item.align"
+                :fixed="item.fixed"
+                :label="item.label"
+            />
+            <el-table-column
+                v-else
+                :prop="item.name"
+                :width="item.width"
+                :align="item.align"
+                :fixed="item.fixed"
+                :label="item.label"
+            >
+              <template #default="scope">
+                <span v-if="!item.slot">{{ scope.row[item.name] }}</span>
+                <slot v-else :name="item.name" :item="item" :row="scope.row"></slot>
+              </template>
+            </el-table-column>
+          </template>
+        </el-table>
+      </div>
+      <!-- ------------分页--------------->
       <div class="pagination">
         <el-pagination
             v-model:currentPage="currentPage1"
@@ -182,15 +186,28 @@ const deleteAction = (row) => {
   flex-direction:column;
 
   .header{
+    padding: 16px 16px 0 16px;
+    margin-bottom: 16px;
     display: flex;
+    background: white;
   }
   .footer{
     flex: 1;
     display: flex;
+    padding: 16px;
     flex-direction: column;
     overflow: hidden;
+    background: white;
     .operator{
       margin-bottom: 15px
+    }
+    .table{
+      position: relative;
+      flex: 1;
+    }
+    .zb-table{
+      position: absolute;
+      height: 100%;
     }
   }
   .search-form{

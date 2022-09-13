@@ -21,6 +21,7 @@ import "@/styles/element-dark.scss";
 import UContainerLayout from '@/components/u-container-layout/index.vue'
 
 const app = createApp(App)
+
 app.component('svg-icon',SvgIcon)
 app.component('u-container-layout',UContainerLayout)
 
