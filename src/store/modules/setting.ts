@@ -33,8 +33,7 @@ export const useSettingStore = defineStore({
             // element组件大小
             globalComSize:'default',
             // 中英文切换，默认中文
-            language:'zh'
-            globalComSize:'default',
+            language:'zh',
             // 是否只保持一个子菜单的展开
             uniqueOpened:true,
             // 固定header
