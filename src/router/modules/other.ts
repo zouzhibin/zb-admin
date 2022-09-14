@@ -43,12 +43,6 @@ const othersRouter = {
       meta: { title: '卡片拖拽', icon: 'MenuIcon' }
     },
     {
-      path: 'form',
-      component: () => import('@/views/other/form.vue'),
-      name: 'form',
-      meta: { title: '表单',  roles:['other'], icon: 'MenuIcon'}
-    },
-    {
       path: 'upload',
       component: () => import('@/views/other/upload.vue'),
       name: 'upload',
