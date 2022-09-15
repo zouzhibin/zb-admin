@@ -16,7 +16,6 @@ import nestedRouter from './modules/nested'
 import systemRouter from './modules/system'
 import chartsRouter from './modules/charts'
 import chatRouter from './modules/chat'
-import componentsRouter from './modules/components'
 import othersRouter from './modules/other'
 import externalLink from './modules/externalLink'
 import formRouter from './modules/from'
@@ -120,10 +119,10 @@ export const asyncRoutes = [
     externalLink,
     clipboardTable,
     systemRouter,
-    // {
-    //     path: '/:pathMatch(.*)',
-    //     redirect: '/error/404'
-    // }
+    {
+        path: '/:pathMatch(.*)',
+        redirect: '/error/404'
+    }
 ]
 
 const router = createRouter({

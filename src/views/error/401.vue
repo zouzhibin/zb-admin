@@ -31,21 +31,14 @@
     height: 100%;
     display: flex;
     align-items: center;
-    min-height: calc(100vh - 205px);
     justify-content: center;
   }
   .error-page {
-    /*position: absolute;*/
-    /*top: 0;*/
     padding-top: 20px;
-    /*left: 0;*/
-    /*right: 0;*/
-    /*background: white;*/
-    /*bottom: 0;*/
     display: flex;
     align-items: center;
     .img {
-      width: 500px;
+      width: 300px;
     }
     .oops {
       font-size: 32px;

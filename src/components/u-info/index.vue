@@ -12,9 +12,11 @@
             <div class="item-child">
               github开源地址：<el-button type="primary" link @click="toGitHub">点我</el-button></div
             >
+            <el-divider style="margin-bottom: 15px"/>
             <div class="item-child">
               github开源地址：<el-button type="primary" link @click="toGitHub">点我</el-button></div
             >
+            <el-divider />
             <div class="item-child">
               github开源地址：<el-button type="primary" link @click="toGitHub">点我</el-button></div
             >
@@ -57,6 +59,10 @@
       align-items: center;
       font-size: 13px;
     }
+  }
+  ::v-deep(.el-divider--horizontal){
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
   .transverseMenu {
     .bell {

@@ -61,6 +61,12 @@ const othersRouter = {
       meta: { title: 'svg图标', icon: 'MenuIcon' }
     },
     {
+      path: 'iconfont',
+      component: () => import('@/views/other/iconfont/index.vue'),
+      name: 'iconfont',
+      meta: { title: '阿里图标库', icon: 'MenuIcon' }
+    },
+    {
       path: 'water-marker',
       component: () => import('@/views/other/water-marker.vue'),
       name: 'water-marker',
