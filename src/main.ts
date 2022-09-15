@@ -16,6 +16,9 @@ import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 // 自定义暗黑模式
 import "@/styles/element-dark.scss";
+// 引入阿里图标库
+import "@/assets/iconfont/iconfont.css";
+import "@/assets/iconfont/iconfont.js";
 
 // 引入全局组件布局
 import UContainerLayout from '@/components/u-container-layout/index.vue'

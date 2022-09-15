@@ -1,5 +1,5 @@
 <template>
-  <u-container-layout class="m-error-page">
+  <u-container-layout>
     <div class="error-page">
       <div class="img">
         <img :src="fourPng" style="width: 100%" />
@@ -29,22 +29,8 @@
 </script>
 
 <style lang="scss" scoped>
-  .m-error-page {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    min-height: calc(100vh - 205px);
-    justify-content: center;
-  }
   .error-page {
-    /*position: absolute;*/
-    /*top: 0;*/
-    padding-top: 20px;
-    /*left: 0;*/
-    /*right: 0;*/
-    /*background: white;*/
-    /*bottom: 0;*/
+    height: 100%;
     display: flex;
     align-items: center;
     .img {
