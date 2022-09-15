@@ -20,7 +20,7 @@ export default {
 		sleep: "睡觉",
 		Marvel: "漫威",
 		yearn: "向往",
-		impression: "如果对你有帮助的话，可以麻烦点一颗 star! 你的鼓励是我继续优化的动力~~",
+		impression: "如果对你有帮助的话，可以麻烦点一颗 star、fork、watch! 你的鼓励是我继续优化的动力~~",
 	},
 	route:{
 		home:'首页',
