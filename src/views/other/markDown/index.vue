@@ -14,9 +14,9 @@
   </u-container-layout>
 </template>
 <script lang="ts">
-//
 // https://www.jianshu.com/p/0b06128a6117
 import { defineComponent } from 'vue'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import MdEditor from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
 
@@ -28,6 +28,7 @@ export default defineComponent({
   methods: {
     submit() {
       console.log('this.text', this.text)
+      ElMessage.success(`提交数据:${this.text}`)
     },
   },
 })
@@ -40,7 +41,7 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   .md {
-    height: 600px;
+    height:100%;
   }
 }
 </style>
