@@ -42,7 +42,6 @@
                       :value="ite.value"
                   />
                 </el-select>
-
                 <span v-else>{{ filterOption(item, scope) }}</span>
               </template>
 
