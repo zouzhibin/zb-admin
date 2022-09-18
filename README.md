@@ -1,8 +1,12 @@
 ## 简介
 vue-element-perfect 是一个后台前端解决方案, 基于Vue3.0+TS+Element-plus实现。它使用了最新的前端技术栈、动态路由，权限验证，并且有着丰富的组件。
 
-### 在线预览点击 —— [企业级、通用型中后台前端解决方案 ](http://182.61.5.190:8889/)
+### 在线预览
+ - link —— [http://182.61.5.190:8889/ ](http://182.61.5.190:8889/)
 
+### git仓库
+- Gitee： —— [https://gitee.com/yuanzbz/vue-admin-perfect](https://gitee.com/yuanzbz/vue-admin-perfect)
+- GitHub： —— [https://github.com/zouzhibin/vue-admin-perfect](https://github.com/zouzhibin/vue-admin-perfect)
 ## 项目功能
 - 使用Vue3.0开发，单文件组件采用＜script setup＞
 - 登录逻辑，使用vue-router进行路由权限拦截，判断，路由懒加载

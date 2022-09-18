@@ -10,15 +10,15 @@
         <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
           <el-tab-pane label="通知" name="first">
             <div class="item-child">
-              github开源地址：<el-button type="primary" link @click="toGitHub">点我</el-button></div
+              GitHub开源地址：<el-button type="primary" link @click="toGitHub('https://github.com/zouzhibin/vue-admin-perfect')">点我</el-button></div
             >
             <el-divider style="margin-bottom: 15px"/>
             <div class="item-child">
-              github开源地址：<el-button type="primary" link @click="toGitHub">点我</el-button></div
+              Gitee开源地址：<el-button type="primary" link @click="toGitHub('https://gitee.com/yuanzbz/vue-admin-perfect')">点我</el-button></div
             >
             <el-divider />
             <div class="item-child">
-              github开源地址：<el-button type="primary" link @click="toGitHub">点我</el-button></div
+              github开源地址：<el-button type="primary" link @click="toGitHub('https://github.com/zouzhibin/vue-admin-perfect')">点我</el-button></div
             >
           </el-tab-pane>
         </el-tabs>
@@ -32,8 +32,8 @@
   import type { TabsPaneContext } from 'element-plus'
 
   const activeName = ref('first')
-  const toGitHub = () => {
-    window.open('https://github.com/zouzhibin/vue-admin-perfect')
+  const toGitHub = (link) => {
+    window.open(link)
   }
   const handleClick = (tab: TabsPaneContext, event: Event) => {
     console.log(tab, event)
