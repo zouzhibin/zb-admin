@@ -16,9 +16,15 @@ const formRouter = {
     children: [
         {
             path: 'validateForm',
-            component: () => import('@/views/form/validateForm.vue'),
+            component: () => import('@/views/form/validateForm/index.vue'),
             name: 'validate-form',
             meta: { title: '校验 Form', keepAlive: true , icon: 'MenuIcon'}
+        },
+        {
+            path: 'advancedForm',
+            component: () => import('@/views/form/advancedForm/index.vue'),
+            name: 'advanced-form',
+            meta: { title: '可收缩 Form', keepAlive: true , icon: 'MenuIcon'}
         },
     ]
 }
