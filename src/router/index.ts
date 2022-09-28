@@ -7,7 +7,6 @@ interface extendRoute {
 }
 
 // 引入组件
-//
 import tableRouter from './modules/table'
 import dataScreenRouter from './modules/dataScreen'
 import errorRouter from './modules/error'
@@ -19,6 +18,30 @@ import chatRouter from './modules/chat'
 import othersRouter from './modules/other'
 import externalLink from './modules/externalLink'
 import formRouter from './modules/from'
+import zipRoutes from './modules/zip'
+import clipboardTable from './modules/clipboard'
+
+
+// 异步组件
+export const asyncRoutes = [
+    dataScreenRouter,
+    chartsRouter,
+    tableRouter,
+    formRouter,
+    chatRouter,
+    othersRouter,
+    nestedRouter,
+    excelRouter,
+    zipRoutes,
+    errorRouter,
+    externalLink,
+    clipboardTable,
+    systemRouter,
+    {
+        path: '/:pathMatch(.*)',
+        redirect: '/error/404'
+    }
+]
 
 /**
  * path ==> 路由路径
@@ -32,6 +55,7 @@ import formRouter from './modules/from'
  * meta.title ==> 路由标题
  * meta.icon ==> 菜单icon
  * meta.affix ==> 如果设置为true将会出现在 标签栏中
+ * meta.breadcrumb ==> 如果设置为false，该项将隐藏在breadcrumb中（默认值为true）
  */
 
 export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
@@ -58,72 +82,8 @@ export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
   },
 ]
 
-const clipboardTable = {
-    path: '/clipboard',
-    component: Layout,
-    redirect: 'noRedirect',
-    name: 'clipboard',
-    meta: {
-        title: '剪贴板',
-        icon: 'document-copy',
-        roles:['other']
-    },
-    children: [
-        {
-            path: 'index',
-            component: () => import('@/views/clipboard/index.vue'),
-            name: 'clipboardIndex',
-            meta: {
-                title: '剪贴板',  roles:['other'] ,icon: 'document-copy',
-            }
-        },
 
-    ]
-}
-// //
-const zipRoutes = {
-    path: '/zip',
-    component: Layout,
-    isShow:true,
-    redirect: 'noRedirect',
-    name: 'zip',
-    alwaysShow:true,
-    meta: {
-        title: 'Zip',
-        icon: 'document-copy',
-        roles:['other']
-    },
-    children: [
-        {
-            path: 'download',
-            component: () => import('@/views/zip/download.vue'),
-            name: 'download',
-            meta: { title: 'Zip', roles:['other'] ,icon: 'document-copy',}
-        },
 
-    ]
-}
-
-// // 异步组件
-export const asyncRoutes = [
-    dataScreenRouter,
-    chartsRouter,
-    tableRouter,
-    formRouter,
-    chatRouter,
-    othersRouter,
-    nestedRouter,
-    excelRouter,
-    zipRoutes,
-    errorRouter,
-    externalLink,
-    clipboardTable,
-    systemRouter,
-    {
-        path: '/:pathMatch(.*)',
-        redirect: '/error/404'
-    }
-]
 
 const router = createRouter({
   // history: createWebHistory(process.env.BASE_URL), // history
