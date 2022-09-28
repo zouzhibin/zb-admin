@@ -49,7 +49,7 @@
                 v-if="item.type"
                 :type="item.type"
                 :width="item.width"
-                :align="item.align"
+                :align="item.align!=null?item.align:'center'"
                 :fixed="item.fixed"
                 :label="item.label"
             />
@@ -57,7 +57,7 @@
                 v-else
                 :prop="item.name"
                 :width="item.width"
-                :align="item.align"
+                :align="item.align!=null?item.align:'center'"
                 :fixed="item.fixed"
                 :label="item.label"
             >
@@ -186,18 +186,23 @@ const deleteAction = (row) => {
   flex-direction:column;
 
   .header{
+    display: flex;
     padding: 16px 16px 0 16px;
     margin-bottom: 16px;
-    display: flex;
+    border-radius: 4px;
     background: white;
+    box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+
   }
   .footer{
     flex: 1;
     display: flex;
     padding: 16px;
     flex-direction: column;
+    border-radius: 4px;
     overflow: hidden;
     background: white;
+    box-shadow: 0 0 12px rgb(0 0 0 / 5%);
     .operator{
       margin-bottom: 15px
     }

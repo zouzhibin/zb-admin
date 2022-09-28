@@ -2,10 +2,9 @@
   <div class="app-main" v-if="isReload">
     <router-view v-slot="{ Component, route }">
       <transition name="fade-slide" mode="out-in" appear>
-        <keep-alive v-if="route.meta && route.meta.keepAlive">
+        <keep-alive :include="cacheRoutes">
           <component :is="Component" :key="route.path" />
         </keep-alive>
-        <component :is="Component" :key="route.path" v-else />
       </transition>
     </router-view>
     <u-theme />
@@ -14,15 +13,13 @@
 
 <script lang="ts" setup>
   import UTheme from '@/components/u-theme/index.vue'
-
   import { computed, ref } from 'vue'
   import {useSettingStore} from "@/store/modules/setting"
-  import {useTagsViewStore} from "@/store/modules/tagsView"
+  import {usePermissionStore} from "@/store/modules/permission"
   const SettingStore = useSettingStore()
-  const TagsViewStore = useTagsViewStore()
+  const PermissionStor = usePermissionStore()
 
-  const cachedViews = computed(() =>TagsViewStore.cachedViews)
-
+  const cacheRoutes = computed(() =>PermissionStor.cacheRoutes)
   const isReload = computed(() => SettingStore.isReload)
 
 </script>

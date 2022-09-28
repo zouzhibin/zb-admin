@@ -87,7 +87,6 @@ for (let i = 0; i < 100; i++) {
 }
 const column = [
   { type: 'selection', width: 60 ,fixed: 'left'},
-  { name: 'id', label: 'id', width: 80,fixed: 'left' },
   { name: 'name', label: '姓名', inSearch: true, valueType: 'input', width: 80 },
   { name: 'age', label: '年龄', align: 'right' },
   {
@@ -107,16 +106,11 @@ const column = [
     ],
     valueType: 'select',
   },
-  {
-    name: 'price',
-    label: '价格',
-    inSearch: true,
-    valueType: 'input',
-  },
+  {name: 'price', label: '价格', inSearch: true, valueType: 'input',},
   { name: 'admin', label: '账号', inSearch: true, valueType: 'input' },
-  { name: 'address', label: '地址', inSearch: true, valueType: 'input' },
-  { name: 'date', label: '日期', sorter: true, inSearch: true, valueType: 'input' },
-  { name: 'province', label: '省份' },
+  { name: 'address', label: '地址', inSearch: true, valueType: 'input' , width: 180},
+  { name: 'date', label: '日期', sorter: true, inSearch: true, valueType: 'input', width: 180 },
+  { name: 'province', label: '省份' , width: 100},
   { name: 'city', label: '城市' },
   { name: 'zip', label: '邮编' },
   { name: 'operation', slot: true, fixed: 'right', width: 200,label: '操作'  },

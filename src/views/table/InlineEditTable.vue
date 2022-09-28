@@ -37,9 +37,9 @@
         </el-table-column>
         <el-table-column prop="price" label="价格" />
         <el-table-column prop="admin" label="账号" />
-        <el-table-column prop="address" label="地址" />
-        <el-table-column prop="date" label="日期" />
-        <el-table-column prop="province" label="省份" />
+        <el-table-column prop="address" label="地址" width="180"/>
+        <el-table-column prop="date" label="日期" width="180"/>
+        <el-table-column prop="province" label="省份" width="120"/>
         <el-table-column prop="city" label="城市" />
         <el-table-column prop="operator" label="操作" width="180px" fixed="right">
           <template #default="scope">

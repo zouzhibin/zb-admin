@@ -1,40 +1,7 @@
 import {defineStore} from 'pinia'
 import { asyncRoutes, constantRoutes } from '@/router/index'
-/**
- * 通过递归过滤异步路由表
- * @param routes asyncRoutes
- * @param roles
- */
-export function filterAsyncRoutes(routes, roles) {
-    const res = []
-    routes.forEach(route => {
-        const tmp = { ...route }
-        if (hasPermission(roles, tmp)) {
-            if (tmp.children) {
-                tmp.children = filterAsyncRoutes(tmp.children, roles)
-            }
-            res.push(tmp)
-        }
-    })
-    return res
-}
-
-/**
- * 使用 meta.role 来确定当前用户是否具有权限
- * @param roles
- * @param route
- */
-function hasPermission(roles, route) {
-    if (route.meta && route.meta.roles) {
-        return roles.some(role => route.meta.roles.includes(role))
-    } else {
-        // return true
-        return false
-    }
-}
-
-
-
+import {hasPermission,filterAsyncRoutes} from "@/utils/routers"
+import {filterKeepAlive} from "../../utils/routers";
 export const usePermissionStore = defineStore({
     // id: 必须的，在所有 Store 中唯一
     id:'permissionState',
@@ -43,7 +10,9 @@ export const usePermissionStore = defineStore({
         // 路由
         routes:[],
         // 动态路由
-        addRoutes:{},
+        addRoutes:[],
+        // 缓存路由
+        cacheRoutes:{},
     }),
     getters: {
         permission_routes:state=> {
@@ -55,6 +24,7 @@ export const usePermissionStore = defineStore({
         // 生成路由
         generateRoutes(roles){
             return new Promise(resolve => {
+                this.getCacheRoutes()
                 // 在这判断是否有权限，哪些角色拥有哪些权限
                 let accessedRoutes
                 if (roles&&roles.length&&!roles.includes('admin')) {
@@ -71,13 +41,14 @@ export const usePermissionStore = defineStore({
         clearRoutes(){
             this.routes = []
             this.addRoutes = []
+            this.cacheRoutes = []
+        },
+        getCacheRoutes(){
+            this.cacheRoutes = filterKeepAlive(asyncRoutes)
         }
     },
-    // persist: {
-    //     // 本地存储的名称
-    //     key: "permissionState",
-    //     //保存的位置
-    //     storage: window.localStorage,//localstorage
-    // },
 
 })
+
+
+

@@ -2,10 +2,14 @@ $dark_gray: #889aa4;
 ::v-deep(input) {
   background: transparent;
   border: 0;
+  color: white;
   -webkit-appearance: none;
   border-radius: 0;
   padding: 12px 5px 12px 15px;
   height: 47px;
+}
+::v-deep(.el-input__wrapper){
+  background: none;
 }
 .login-box {
   width: 80%;

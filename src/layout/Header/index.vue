@@ -1,9 +1,13 @@
 <template>
   <div
     class="m-layout-header"
-    :class="[SettingStore.themeConfig.fixedHeader&&'zb-fixed-header']"
-    :style="{ left: `${mode === 'horizontal' ? 0 : isCollapse ? '60' : '210'}px` }"
+    :class="[
+        SettingStore.themeConfig.fixedHeader&&'zb-fixed-header',
+        isCollapse?'fixed-header-collapse':'fixed-header-no-collapse'
+        ]"
+
   >
+<!--    :style="{ left: `${mode === 'horizontal' ? 0 : isCollapse ? '60' : '210'}px` }"-->
     <div
       class="header"
       :class="{
@@ -122,6 +126,7 @@
   .mobile {
     .m-layout-header {
       left: 0 !important;
+      width: 100%!important;
     }
   }
   .icon {
@@ -152,16 +157,23 @@
   .zb-fixed-header{
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
     z-index: 9;
   }
+
   .m-layout-header {
+    width: 100%;
     background: white;
-    transition: left 0.3s;
+    transition: width 0.28s;
     flex-shrink: 0;
     box-sizing: border-box;
     box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
+  }
+  .fixed-header-collapse{
+    width: calc(100% - 60px);
+  }
+  .fixed-header-no-collapse{
+    width: calc(100% - 210px);
   }
   .el-dropdown {
     display: flex;
