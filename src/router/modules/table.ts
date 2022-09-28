@@ -6,8 +6,8 @@ import Layout from "@/layout/index.vue";
 const tableRouter = {
     path: '/table',
     component: Layout,
-    redirect: 'noRedirect',
-    name: 'Table',
+    redirect: '/table/comprehensive',
+    name: 'table',
     meta: {
         title: '超级表格',
         icon: 'School'

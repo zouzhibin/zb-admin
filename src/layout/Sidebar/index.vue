@@ -11,7 +11,7 @@
 import UMenu from './components/Menu.vue'
 import logo from './components/Logo.vue'
 import {useSettingStore} from "@/store/modules/setting"
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 
 const SettingStore = useSettingStore()
 // 是否折叠

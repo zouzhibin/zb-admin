@@ -33,7 +33,9 @@ const setAssemblySize = (item: string) => {
 </script>
 
 <style scoped lang="scss">
-.transverseMenu .size-icon {
-  color: white;
+.transverseMenu {
+  .size-icon {
+    color: white;
+  }
 }
 </style>

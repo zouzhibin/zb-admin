@@ -2,12 +2,10 @@
   <div
     class="m-layout-header"
     :class="[
-        SettingStore.themeConfig.fixedHeader&&'zb-fixed-header',
-        isCollapse?'fixed-header-collapse':'fixed-header-no-collapse'
+        SettingStore.themeConfig.fixedHeader?'zb-fixed-header':'zb-no-fixed-header',
+          mode === 'horizontal'?'':isCollapse?'fixed-header-collapse':'fixed-header-no-collapse'
         ]"
-
   >
-<!--    :style="{ left: `${mode === 'horizontal' ? 0 : isCollapse ? '60' : '210'}px` }"-->
     <div
       class="header"
       :class="{
@@ -16,7 +14,7 @@
     >
       <u-menu v-if="mode === 'horizontal'" />
       <div class="left" v-if="mode === 'vertical'">
-        <div>
+        <div class="hamburger-container">
           <el-icon class="icon" v-if="isCollapse" @click="handleCollapse"><expand /></el-icon>
           <el-icon class="icon" v-else @click="handleCollapse"><fold /></el-icon>
         </div>
@@ -46,8 +44,10 @@
           </span>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item :command="1">退出登录</el-dropdown-item>
-              <el-dropdown-item :command="2">修改密码</el-dropdown-item>
+              <el-dropdown-item :command="2" >
+                <el-icon><Edit /></el-icon>修改密码</el-dropdown-item>
+              <el-dropdown-item :command="1" divided>
+                <el-icon><SwitchButton /></el-icon>退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -101,10 +101,14 @@
     })
       .then(async () => {
         try {
-          await UserStore.logout()
           router.push({ path: '/login' })
+          await UserStore.logout()
           PermissionStore.clearRoutes()
           TagsViewStore.clearVisitedView()
+          ElMessage({
+            type: "success",
+            message: "退出登录成功！"
+          });
         } catch (e) {}
       })
       .catch(() => {})
@@ -142,12 +146,13 @@
     border-bottom: 1px solid #eee;
     display: flex;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 10px 0 0;
     box-sizing: border-box;
     justify-content: space-between;
     .left {
       display: flex;
       align-items: center;
+      height: 100%;
     }
     .right {
       display: flex;
@@ -163,7 +168,18 @@
     right: 0;
     z-index: 9;
   }
-
+  .zb-no-fixed-header{
+    width: 100%!important;;
+  }
+  .hamburger-container{
+    padding: 0px 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    &:hover {
+      background: rgba(0, 0, 0, .025)
+    }
+  }
   .m-layout-header {
     width: 100%;
     background: white;

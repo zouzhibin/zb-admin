@@ -63,9 +63,12 @@
 <script lang="ts" setup>
   import { ref, reactive } from 'vue'
   import type { FormInstance } from 'element-plus'
+  import { ElNotification } from "element-plus";
   import { useRouter } from 'vue-router'
   import {useUserStore} from "@/store/modules/user"
   import { ElMessage } from 'element-plus'
+  import {getTimeState} from '@/utils/index'
+
   const ruleFormRef = ref<FormInstance>()
   const router = useRouter()
   const UserStore = useUserStore()
@@ -108,14 +111,18 @@
   const submitForm = (formEl: FormInstance | undefined) => {
     if (!formEl) return
     formEl.validate(async (valid) => {
-      console.log('valid==', valid)
       if (valid) {
         // 登录
         await UserStore.login( ruleForm)
-        ElMessage.success('登录成功')
         router.push({
           path: '/',
         })
+        ElNotification({
+          title: getTimeState(),
+          message: "欢迎登录 Vue Admin Perfect",
+          type: "success",
+          duration: 3000
+        });
       } else {
         console.log('error submit!')
         return false

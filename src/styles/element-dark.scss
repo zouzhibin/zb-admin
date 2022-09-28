@@ -104,7 +104,14 @@ html.dark {
       }
     }
   }
-
+  .zb-pro-table .header{
+    background: none!important;
+    border: var(--zb-border-light);
+  }
+  .zb-pro-table .footer{
+    background: none!important;
+    border: var(--zb-border-light);
+  }
   // m-layout-header
   .m-layout-header{
     color: var(--el-text-color-primary) !important;
@@ -143,5 +150,9 @@ html.dark {
     color: white!important;
   }
 
+  .el-table__header th {
+    font-weight: bold;
+    color: white;
+  }
 
 }

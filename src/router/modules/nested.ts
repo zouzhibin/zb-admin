@@ -7,7 +7,7 @@ import Layout from "@/layout/index.vue";
 const nestedRouter = {
     path: '/nested',
     component: Layout,
-    redirect: 'noRedirect',
+    redirect: '/form/menu1',
     name: 'nested',
     meta: {
         title: '路由嵌套',

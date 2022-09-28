@@ -3,7 +3,7 @@ import Layout from '@/layout/index.vue'
 const clipboardTable = {
     path: '/clipboard',
     component: Layout,
-    redirect: 'noRedirect',
+    redirect: '/clipboard/index',
     name: 'clipboard',
     meta: {
         title: 'clipboard',

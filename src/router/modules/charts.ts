@@ -5,8 +5,8 @@ import Layout from "@/layout/index.vue";
 const chartsRouter = {
     path: '/charts',
     component: Layout,
-    redirect: 'noRedirect',
-    name: 'visualizationChart',
+    redirect: '/charts/migration',
+    name: 'Charts',
     meta: {
         title: '可视化图表',
         icon: 'trend-charts',
