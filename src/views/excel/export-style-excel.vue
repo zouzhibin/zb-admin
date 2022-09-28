@@ -1,6 +1,6 @@
 <template>
   <u-container-layout>
-    <div style="margin-bottom: 15px; display: flex; align-items: center">
+    <div class=".header">
       <el-input
         v-model="input"
         placeholder="请输入文件名"
@@ -10,11 +10,13 @@
         <el-icon style="margin-right: 10px"><document-remove /></el-icon>导出样式 Excel
       </el-button>
     </div>
-    <el-table :data="list" style="width: 100%" border>
-      <template v-for="(item, index) in column" :key="index">
-        <el-table-column :prop="item.name" :label="item.label" :width="item.width" />
-      </template>
-    </el-table>
+    <div class="footer">
+      <el-table :data="list" class="table" border>
+        <template v-for="(item, index) in column" :key="index">
+          <el-table-column :prop="item.name" :label="item.label" :width="item.width" />
+        </template>
+      </el-table>
+    </div>
   </u-container-layout>
 </template>
 
@@ -88,4 +90,22 @@
   }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.header{
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-shrink: 0;
+}
+.footer{
+  flex: 1;
+  position: relative;
+  .table{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%
+  }
+}
+</style>

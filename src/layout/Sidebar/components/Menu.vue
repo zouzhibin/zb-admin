@@ -2,7 +2,7 @@
   <el-menu
     :default-active="activeMenu"
     background-color="#304156"
-    text-color="#fff"
+    text-color="#bfcbd9"
     :mode="mode"
     :unique-opened="SettingStore.themeConfig.uniqueOpened"
     :collapse-transition="false"
@@ -23,7 +23,7 @@
   import { useRoute } from 'vue-router'
   import {usePermissionStore} from "@/store/modules/permission"
   import {useSettingStore} from "@/store/modules/setting"
-  import { ref, computed } from 'vue'
+  import { computed } from 'vue'
 
   // 在setup中获取store
   const route = useRoute()
@@ -32,8 +32,6 @@
 
   // 获取路由
   const permission_routes = computed(() => PermissionStore.permission_routes)
-
-
 
   const activeMenu = computed(() => {
     const { meta, path } = route

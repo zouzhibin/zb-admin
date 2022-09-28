@@ -5,7 +5,7 @@ import Layout from '@/layout/index.vue'
 const systemRouter = {
     path: '/system',
     component: Layout,
-    redirect: 'noRedirect',
+    redirect: '/system/page',
     name: 'system',
     meta: {
         title: '系统管理',

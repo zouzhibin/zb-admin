@@ -7,7 +7,7 @@ import Layout from "@/layout/index.vue";
 const excelRouter = {
     path: '/excel',
     component: Layout,
-    redirect: 'noRedirect',
+    redirect: '/excel/export-excel',
     name: 'excel',
     meta: {
         title: 'Excel',

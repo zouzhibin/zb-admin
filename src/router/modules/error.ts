@@ -7,7 +7,7 @@ import Layout from "@/layout/index.vue";
 const errorRouter = {
     path: '/error',
     component: Layout,
-    redirect: 'noRedirect',
+    redirect: '/error/404',
     name: 'error',
     meta: {
         title: '错误页面',

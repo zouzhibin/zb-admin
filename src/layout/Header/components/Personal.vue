@@ -11,11 +11,11 @@
       <el-form-item label="姓名">
         <el-input v-model="ruleForm.name" disabled></el-input>
       </el-form-item>
-      <el-form-item label="手机号码">
-        <el-input v-model="ruleForm.mobile" disabled></el-input>
+      <el-form-item label="旧的密码" prop="password">
+        <el-input v-model="ruleForm.password" type="password"></el-input>
       </el-form-item>
-      <el-form-item label="修改密码" prop="password">
-        <el-input v-model="ruleForm.password"></el-input>
+      <el-form-item label="新的密码" prop="configPassword">
+        <el-input v-model="ruleForm.configPassword" type="password"></el-input>
       </el-form-item>
     </el-form>
     <template #footer>
@@ -29,9 +29,10 @@
 
 <script lang="ts" setup>
   import { ref, defineExpose, reactive } from 'vue'
-  import { ElMessageBox } from 'element-plus'
   import type { ElForm } from 'element-plus'
   const dialogVisible = ref(false)
+  import {useUserStore} from "@/store/modules/user"
+  const UserStore = useUserStore()
   const show = () => {
     dialogVisible.value = true
   }
@@ -43,15 +44,15 @@
   const formSize = ref('')
   const ruleFormRef = ref<FormInstance>()
   const ruleForm = reactive({
-    name: '',
-    mobile: '',
-    password: '',
+    name: UserStore.userInfo.username,
+    password: UserStore.userInfo.password,
+    configPassword: '',
   })
   const rules = reactive({
-    password: [
+    configPassword: [
       {
         required: true,
-        message: '请输入密码',
+        message: '请输入新的密码',
         trigger: 'blur',
       },
     ],

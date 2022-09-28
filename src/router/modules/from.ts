@@ -6,7 +6,7 @@ import Layout from "@/layout/index.vue";
 const formRouter = {
     path: '/form',
     component: Layout,
-    redirect: 'noRedirect',
+    redirect: '/form/validateForm',
     name: 'form',
     alwaysShow:true,
     meta: {

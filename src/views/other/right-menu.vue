@@ -1,6 +1,6 @@
 <template>
   <u-container-layout style="min-height: 300px">
-    <el-button @contextmenu.prevent="rightClick">右键菜单</el-button>
+    <el-button @contextmenu.prevent="rightClick" style="width: 200px">右键菜单</el-button>
     <u-right-click-menu :left="clientX" :top="clientY" @ok="operatingRightAction" :data="data" />
   </u-container-layout>
 </template>
@@ -8,6 +8,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
   import URightClickMenu from '@/components/u-rightClickMenu/index.vue'
+
   const clientX = ref(0)
   const clientY = ref(0)
   import { useRouter } from 'vue-router'
