@@ -4,7 +4,7 @@
 
 import Layout from "@/layout/index.vue";
 
-const nestedRouter = {
+const nestedRouter = [{
     path: '/nested',
     component: Layout,
     redirect: '/form/menu1',
@@ -64,6 +64,6 @@ const nestedRouter = {
         },
 
     ]
-}
+}]
 
 export default nestedRouter

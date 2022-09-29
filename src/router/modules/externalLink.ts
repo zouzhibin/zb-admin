@@ -2,7 +2,7 @@
 
 import Layout from "@/layout/index.vue";
 
-const externalLink = {
+const externalLink = [{
     path: '/external-link',
     component: Layout,
     redirect: 'noRedirect',
@@ -14,6 +14,6 @@ const externalLink = {
             meta: { title: 'Github地址',  icon: 'link' }
         },
     ]
-}
+}]
 
 export default externalLink

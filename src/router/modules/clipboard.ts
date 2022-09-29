@@ -1,6 +1,6 @@
 import Layout from '@/layout/index.vue'
 
-const clipboardTable = {
+const clipboardTable = [{
     path: '/clipboard',
     component: Layout,
     redirect: '/clipboard/index',
@@ -19,5 +19,5 @@ const clipboardTable = {
         },
 
     ]
-}
+}]
 export default clipboardTable

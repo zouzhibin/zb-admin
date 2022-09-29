@@ -57,7 +57,7 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item label="上传图片" prop="img">
-          <u-upload v-model="ruleForm.img" />
+          <Upload v-model="ruleForm.img" />
         </el-form-item>
         <el-form-item label="备注" prop="desc">
           <el-input v-model="ruleForm.desc" type="textarea" />
@@ -74,7 +74,7 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
 import type { FormInstance } from 'element-plus'
-import UUpload from './components/Upload.vue'
+import Upload from './components/Upload.vue'
 
 const formSize = ref('default')
 const ruleFormRef = ref<FormInstance>()

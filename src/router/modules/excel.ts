@@ -4,7 +4,7 @@
 
 import Layout from "@/layout/index.vue";
 
-const excelRouter = {
+const excelRouter = [{
     path: '/excel',
     component: Layout,
     redirect: '/excel/export-excel',
@@ -39,6 +39,6 @@ const excelRouter = {
             meta: { title: '自定义样式导出 Excel', icon: 'MenuIcon' }
         },
     ]
-}
+}]
 
 export default excelRouter

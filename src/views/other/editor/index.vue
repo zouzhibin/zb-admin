@@ -13,7 +13,7 @@
           label="标题"
           :rules="[{ required: true, message: '请输入内容', trigger: 'blur' }]"
       >
-        <u-wang-edior v-model="dynamicValidateForm.content" />
+        <wang-edior v-model="dynamicValidateForm.content" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm(formRef)">保存</el-button>
@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts" setup>
-import UWangEdior from '@/components/u-wangEdior/index.vue'
+import WangEdior from '@/components/WangEdior/index.vue'
 import { reactive, ref } from 'vue'
 import type { FormInstance } from 'element-plus'
 import { ElMessage } from 'element-plus'

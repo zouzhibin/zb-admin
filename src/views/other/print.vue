@@ -7,7 +7,7 @@
         <el-button type="primary" @click="print(3)">打印HTML</el-button>
       </div>
       <div style="margin-top: 20px">
-        <img :src="printImg" style="width: 300px" />
+        <img :src="logo" style="width: 200px" />
       </div>
       <div id="tableBox">
         <el-table :data="tableData" style="width: 100%">
@@ -36,7 +36,7 @@
 <script lang="ts" setup>
   import printJS from 'print-js'
   import '@/utils/Print'
-  import printImg from '@/assets/image/im1.jpeg'
+  import logo from '@/assets/logo.png'
 
   const tableData = [
     {
@@ -66,7 +66,7 @@
       case 1:
         printJS({
           type: 'image',
-          printable: [printImg],
+          printable: [logo],
           documentTitle: '打印图片',
         })
         break

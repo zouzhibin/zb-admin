@@ -4,7 +4,7 @@
 
 import Layout from "@/layout/index.vue";
 
-const errorRouter = {
+const errorRouter = [{
     path: '/error',
     component: Layout,
     redirect: '/error/404',
@@ -27,6 +27,6 @@ const errorRouter = {
             meta: { title: '401', icon: 'MenuIcon'}
         },
     ]
-}
+}]
 
 export default errorRouter

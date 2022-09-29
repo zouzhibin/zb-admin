@@ -1,12 +1,20 @@
 import { createRouter, createWebHistory, RouteRecordRaw,createWebHashHistory,Router } from 'vue-router'
 import Layout from "@/layout/index.vue";
-
 // 扩展继承属性
 interface extendRoute {
     hidden?:boolean
 }
+// * 导入所有router
+const metaRouters = import.meta.globEager("./modules/*.ts");
+// * 处理路由表
+export const routerArray: RouteRecordRaw[] = [];
+Object.keys(metaRouters).forEach(item => {
+    Object.keys(metaRouters[item]).forEach((key: any) => {
+        routerArray.push(...metaRouters[item][key]);
+    });
+});
 
-// 引入组件
+//
 import tableRouter from './modules/table'
 import dataScreenRouter from './modules/dataScreen'
 import errorRouter from './modules/error'
@@ -21,22 +29,21 @@ import formRouter from './modules/from'
 import zipRoutes from './modules/zip'
 import clipboardTable from './modules/clipboard'
 
-
 // 异步组件
 export const asyncRoutes = [
-    dataScreenRouter,
-    chartsRouter,
-    tableRouter,
-    formRouter,
-    chatRouter,
-    othersRouter,
-    nestedRouter,
-    excelRouter,
-    zipRoutes,
-    errorRouter,
-    externalLink,
-    clipboardTable,
-    systemRouter,
+    ...dataScreenRouter,
+    ...chartsRouter,
+    ...tableRouter,
+    ...formRouter,
+    ...chatRouter,
+    ...othersRouter,
+    ...nestedRouter,
+    ...excelRouter,
+    ...zipRoutes,
+    ...errorRouter,
+    ...externalLink,
+    ...clipboardTable,
+    ...systemRouter,
     {
         path: '/:pathMatch(.*)',
         redirect: '/error/404'
@@ -81,9 +88,6 @@ export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
     ]
   },
 ]
-
-
-
 
 const router = createRouter({
   // history: createWebHistory(process.env.BASE_URL), // history

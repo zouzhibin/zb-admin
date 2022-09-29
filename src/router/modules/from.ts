@@ -3,7 +3,7 @@
 
 import Layout from "@/layout/index.vue";
 
-const formRouter = {
+const formRouter = [{
     path: '/form',
     component: Layout,
     redirect: '/form/validateForm',
@@ -27,6 +27,6 @@ const formRouter = {
             meta: { title: '可收缩 Form', keepAlive: true , icon: 'MenuIcon'}
         },
     ]
-}
+}]
 
 export default formRouter
