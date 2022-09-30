@@ -43,7 +43,7 @@ export const usePermissionStore = defineStore({
             this.cacheRoutes = []
         },
         getCacheRoutes(){
-            this.cacheRoutes = filterKeepAlive(routerArray)
+            this.cacheRoutes = filterKeepAlive(asyncRoutes)
             return this.cacheRoutes
         }
     },

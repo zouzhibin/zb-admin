@@ -13,7 +13,7 @@
             :key="tag.path"
             class="item-tag-wrap"
             :class="isActive(tag) ? 'active' : ''"
-            @click="routerGo(tag)"
+            @click.stop="routerGo(tag)"
           >
             <div class="tags-view-item">{{ tag.title }}</div>
             <el-icon
@@ -177,6 +177,7 @@
   }
 
   const routerGo = (tag) => {
+    console.log(111111111111)
     router.push({
       path: tag.path,
       query: tag.query,

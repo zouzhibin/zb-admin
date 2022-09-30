@@ -4,16 +4,6 @@ import Layout from "@/layout/index.vue";
 interface extendRoute {
     hidden?:boolean
 }
-// * 导入所有router
-const metaRouters = import.meta.globEager("./modules/*.ts");
-// * 处理路由表
-export const routerArray: RouteRecordRaw[] = [];
-Object.keys(metaRouters).forEach(item => {
-    Object.keys(metaRouters[item]).forEach((key: any) => {
-        routerArray.push(...metaRouters[item][key]);
-    });
-});
-
 //
 import tableRouter from './modules/table'
 import dataScreenRouter from './modules/dataScreen'
