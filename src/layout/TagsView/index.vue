@@ -177,7 +177,6 @@
   }
 
   const routerGo = (tag) => {
-    console.log(111111111111)
     router.push({
       path: tag.path,
       query: tag.query,
