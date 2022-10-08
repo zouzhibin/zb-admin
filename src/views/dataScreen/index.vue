@@ -98,7 +98,8 @@ onBeforeUnmount(()=>{
   height: 1080px;
   box-sizing: border-box;
   overflow:hidden;
-  background: url("/static/screen/bg.png") no-repeat center center;
+  //background: url("/static/screen/bg.png") no-repeat center center;
+  background: #041c4a;
   .header{
     box-sizing: border-box;
     width: 100%;
