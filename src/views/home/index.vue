@@ -149,7 +149,7 @@
 <script setup lang="ts">
   import { User } from '@element-plus/icons-vue'
   import { ref } from 'vue'
-  import CountTo from '@/components/u-count-to/vue-countTo.vue'
+  import CountTo from '@/components/CountTo/index.vue'
   import BarCharts from '@/views/charts/components/simple/bar.vue'
   const circleUrl = ref('https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png')
 

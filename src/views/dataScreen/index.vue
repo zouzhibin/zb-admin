@@ -54,7 +54,7 @@
 <script lang="ts" setup>
 import {onBeforeUnmount, onMounted, ref} from 'vue'
 import FullScreenContainer from './components/full-screen-container.vue'
-import CountTo from '@/components/u-count-to/vue-countTo.vue'
+import CountTo from '@/components/CountTo/index.vue'
 import LineCharts from '@/views/charts/components/complex/line/index.vue'
 import BarCharts from '@/views/charts/components/complex/bar/index.vue'
 import MigrationCharts from '@/views/charts/components/migration/index.vue'
@@ -98,7 +98,8 @@ onBeforeUnmount(()=>{
   height: 1080px;
   box-sizing: border-box;
   overflow:hidden;
-  background: url("/static/screen/bg.png") no-repeat center center;
+  //background: url("/static/screen/bg.png") no-repeat center center;
+  background: #041c4a;
   .header{
     box-sizing: border-box;
     width: 100%;

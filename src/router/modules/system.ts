@@ -2,7 +2,7 @@
 
 import Layout from '@/layout/index.vue'
 
-const systemRouter = {
+const systemRouter = [{
     path: '/system',
     component: Layout,
     redirect: '/system/page',
@@ -37,6 +37,6 @@ const systemRouter = {
             meta: { title: '菜单管理', roles: ['other'] , icon: 'MenuIcon'}
         },
     ]
-}
+}]
 
 export default systemRouter

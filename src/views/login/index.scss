@@ -1,5 +1,5 @@
 $dark_gray: #889aa4;
-::v-deep(input) {
+:deep(input) {
   background: transparent;
   border: 0;
   color: white;

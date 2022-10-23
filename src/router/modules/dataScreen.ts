@@ -1,4 +1,4 @@
-const dataScreenRouter= {
+const dataScreenRouter= [{
 		path: "/dataScreen",
 		name: "dataScreen",
 		meta: {
@@ -6,7 +6,7 @@ const dataScreenRouter= {
 			icon:'Histogram'
 		},
 		component: () => import("@/views/dataScreen/index.vue")
-	}
+	}]
 ;
 
 export default dataScreenRouter;

@@ -193,7 +193,7 @@
     }
   }
 
-  ::v-deep(.el-drawer__title) {
+:deep(.el-drawer__title) {
     font-weight: bold;
     color: black;
   }

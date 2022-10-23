@@ -1,6 +1,6 @@
 import Layout from '@/layout/index.vue'
 
-const zipRoutes = {
+const zipRoutes = [{
     path: '/zip',
     component: Layout,
     isShow:true,
@@ -21,7 +21,7 @@ const zipRoutes = {
         },
 
     ]
-}
+}]
 
 
 export default zipRoutes

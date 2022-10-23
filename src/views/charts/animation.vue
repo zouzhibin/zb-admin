@@ -34,7 +34,7 @@
   </div>
 </template>
 <script setup lang="ts">
-  import CountTo from '@/components/u-count-to/vue-countTo.vue'
+  import CountTo from '@/components/CountTo/index.vue'
   import { nextTick, onMounted, ref } from 'vue'
 
   const mAnimation = ref<HTMLElement | null>()

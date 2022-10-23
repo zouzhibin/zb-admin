@@ -25,7 +25,7 @@
         <template #header>
           <span>多图片上传</span>
         </template>
-        <u-upload @update="update" v-model="imgs" />
+        <Upload @update="update" v-model="imgs" />
       </el-card>
 
       <el-card>
@@ -58,13 +58,13 @@
 </template>
 
 <script setup lang="ts">
-  import UUpload from '@/components/u-upload/index.vue'
+  import Upload from '@/components/Upload/index.vue'
   import { ElMessage } from 'element-plus'
-  import TwoPng from '@/assets/image/im1.jpeg'
-  import { reactive, ref } from 'vue'
+  import logo from '@/assets/logo.png'
+  import { ref } from 'vue'
   const imgs = ref([
     {
-      url: TwoPng,
+      url: logo,
       name: 'female.png',
       uid: '1651408956803',
       status: 'success',

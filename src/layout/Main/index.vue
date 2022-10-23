@@ -7,19 +7,19 @@
         </keep-alive>
       </transition>
     </router-view>
-    <u-theme />
+    <Theme />
   </div>
 </template>
 
 <script lang="ts" setup>
-  import UTheme from '@/components/u-theme/index.vue'
+  import Theme from '@/components/Theme/index.vue'
   import { computed, ref } from 'vue'
   import {useSettingStore} from "@/store/modules/setting"
   import {usePermissionStore} from "@/store/modules/permission"
   const SettingStore = useSettingStore()
   const PermissionStor = usePermissionStore()
 
-  const cacheRoutes = computed(() =>PermissionStor.cacheRoutes)
+  const cacheRoutes = computed(() =>PermissionStor.getCacheRoutes())
   const isReload = computed(() => SettingStore.isReload)
 
 </script>

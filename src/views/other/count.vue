@@ -89,7 +89,7 @@
 </template>
 
 <script lang="ts" setup>
-  import CountTo from '@/components/u-count-to/vue-countTo.vue'
+  import CountTo from '@/components/CountTo/index.vue'
   const example = ref()
   import { reactive, ref } from 'vue'
   let options = reactive({

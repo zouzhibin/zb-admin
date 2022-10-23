@@ -2,7 +2,7 @@
 
 import Layout from '@/layout/index.vue'
 
-const othersRouter = {
+const othersRouter = [{
   path: '/other',
   component: Layout,
   redirect: '/other/editor',
@@ -85,6 +85,6 @@ const othersRouter = {
       meta: { title: '数字自增长', icon: 'MenuIcon' }
     }
   ]
-}
+}]
 
 export default othersRouter

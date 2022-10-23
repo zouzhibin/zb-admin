@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia'
-import { asyncRoutes, constantRoutes } from '@/router/index'
+import { asyncRoutes, constantRoutes,routerArray } from '@/router/index'
 import {hasPermission,filterAsyncRoutes} from "@/utils/routers"
 import {filterKeepAlive} from "../../utils/routers";
 export const usePermissionStore = defineStore({
@@ -24,7 +24,6 @@ export const usePermissionStore = defineStore({
         // 生成路由
         generateRoutes(roles){
             return new Promise(resolve => {
-                this.getCacheRoutes()
                 // 在这判断是否有权限，哪些角色拥有哪些权限
                 let accessedRoutes
                 if (roles&&roles.length&&!roles.includes('admin')) {
@@ -45,6 +44,7 @@ export const usePermissionStore = defineStore({
         },
         getCacheRoutes(){
             this.cacheRoutes = filterKeepAlive(asyncRoutes)
+            return this.cacheRoutes
         }
     },
 

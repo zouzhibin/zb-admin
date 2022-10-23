@@ -12,26 +12,21 @@
         transverseMenu: mode === 'horizontal',
       }"
     >
-      <u-menu v-if="mode === 'horizontal'" />
+      <UMenu v-if="mode === 'horizontal'" />
       <div class="left" v-if="mode === 'vertical'">
-        <div class="hamburger-container">
-          <el-icon class="icon" v-if="isCollapse" @click="handleCollapse"><expand /></el-icon>
-          <el-icon class="icon" v-else @click="handleCollapse"><fold /></el-icon>
-        </div>
-        <u-hamburger />
+        <CollapseIcon/>
+        <Hamburger />
       </div>
       <div class="right">
-        <language class="right-item-menu"/>
+        <GlobalComSize class="right-item-menu"/>
 
-        <global-com-size class="right-item-menu"/>
+        <HeaderSearch class="right-item-menu"/>
 
-        <u-header-search class="right-item-menu"/>
+        <Remind class="right-item-menu"/>
 
-        <u-info class="right-item-menu"/>
+        <ScreenFull class="right-item-menu"/>
 
-        <u-screen-full class="right-item-menu"/>
-
-        <u-setting class="right-item-menu"/>
+        <Setting class="right-item-menu"/>
 
         <el-dropdown @command="commandAction">
           <span class="el-dropdown-link">
@@ -63,12 +58,12 @@
   import Personal from './components/Personal.vue'
   import TagViews from '../TagsView/index.vue'
   import GlobalComSize from './components/globalComSize.vue'
-  import Language from './components/Language.vue'
-  import UHamburger from '@/components/u-Hamburger/index.vue'
-  import USetting from './components/Setting.vue'
-  import UScreenFull from '@/components/u-screenfull/index.vue'
-  import UInfo from '@/components/u-info/index.vue'
-  import UHeaderSearch from '@/components/u-headerSearch/index.vue'
+  import Hamburger from '@/components/Hamburger/index.vue'
+  import Setting from './components/Setting.vue'
+  import ScreenFull from './components/ScreenFull.vue'
+  import Remind from './components/Remind'
+  import HeaderSearch from './components/HeaderSearch'
+  import CollapseIcon from './components/CollapseIcon'
   import UMenu from '../Sidebar/components/Menu.vue'
   import { computed, ref } from 'vue'
   import { useRouter } from 'vue-router'
@@ -136,10 +131,7 @@
       width: 100%!important;
     }
   }
-  .icon {
-    font-size: 24px;
-    cursor: pointer;
-  }
+
   .header {
     height: 50px;
     width: 100%;
@@ -171,15 +163,7 @@
   .zb-no-fixed-header{
     width: 100%!important;;
   }
-  .hamburger-container{
-    padding: 0px 15px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    &:hover {
-      background: rgba(0, 0, 0, .025)
-    }
-  }
+
   .m-layout-header {
     width: 100%;
     background: white;

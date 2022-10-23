@@ -3,7 +3,7 @@
 
 import Layout from "@/layout/index.vue";
 
-const tableRouter = {
+const tableRouter = [{
     path: '/table',
     component: Layout,
     redirect: '/table/comprehensive',
@@ -38,6 +38,6 @@ const tableRouter = {
         //     meta: { title: '虚拟表格', keepAlive: true  , icon: 'MenuIcon'}
         // },
     ]
-}
+}]
 
 export default tableRouter
