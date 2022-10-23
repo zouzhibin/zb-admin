@@ -18,6 +18,8 @@
         <Hamburger />
       </div>
       <div class="right">
+        <language class="right-item-menu"/>
+
         <GlobalComSize class="right-item-menu"/>
 
         <HeaderSearch class="right-item-menu"/>
@@ -56,6 +58,7 @@
 <script lang="ts" setup>
   import { UserFilled } from '@element-plus/icons-vue'
   import Personal from './components/Personal.vue'
+  import Language from './components/Language.vue'
   import TagViews from '../TagsView/index.vue'
   import GlobalComSize from './components/globalComSize.vue'
   import Hamburger from '@/components/Hamburger/index.vue'
