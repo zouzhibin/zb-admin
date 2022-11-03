@@ -109,7 +109,6 @@ function toLastView(activeTabPath) {
   router.push(nextTab.path);
   TagsViewStore.addVisitedView(nextTab)
 }
-// Tab Click
 const tabClick = (tabItem: TabsPaneContext) => {
   let path = tabItem.props.name as string;
   router.push(path);

@@ -1,32 +1,33 @@
 
-
-/** When your routing table is too long, you can split it into small modules**/
-
+import { RouteRecordRaw } from "vue-router";
 import Layout from "@/layout/index.vue";
-
-const errorRouter = [{
-    path: '/error',
-    component: Layout,
-    redirect: '/error/404',
-    name: 'error',
-    meta: {
-        title: '错误页面',
-        icon: 'School'
+// 扩展继承属性
+interface extendRoute {
+    hidden?:boolean
+}
+const errorRouter : Array<RouteRecordRaw&extendRoute> = [
+    {
+        path: "/403",
+        name: "403",
+        component: () => import("@/views/error/403.vue"),
+        hidden:true,
+        meta: {
+            requiresAuth: true,
+            title: "403页面",
+            key: "403"
+        }
     },
-    children: [
-        {
-            path: '404',
-            component: () => import('@/views/error/404.vue'),
-            name: '404',
-            meta: { title: '404', icon: 'MenuIcon' }
-        },
-        {
-            path: '401',
-            component: () => import('@/views/error/401.vue'),
-            name: '401',
-            meta: { title: '401', icon: 'MenuIcon'}
-        },
-    ]
-}]
+    {
+        path: "/404",
+        name: "404",
+        component: () => import("@/views/error/404.vue"),
+        hidden:true,
+        meta: {
+            requiresAuth: true,
+            title: "404页面",
+            key: "404"
+        }
+    }
+]
 
 export default errorRouter

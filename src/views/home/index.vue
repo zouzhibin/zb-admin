@@ -48,14 +48,17 @@
                   ><el-icon style="font-size: 24px; color: white"><user /></el-icon
                   ></div>
                   <div class="right">
-                    <h2 style="color: #2d8cf0"
+                    <div
+                        class="h2"
+                        style="color: #2d8cf0"
+                    >
                     ><count-to
                         :start-val="0"
                         :end-val="5268"
                         :duration="2000"
                         :autoplay="true"
                     ></count-to
-                    ></h2>
+                    ></div>
                     <div>用户访问量 </div>
                   </div>
                 </div>
@@ -68,14 +71,17 @@
                   ><el-icon style="font-size: 24px; color: white"><user /></el-icon
                   ></div>
                   <div class="right">
-                    <h2 style="color: #64d572"
+                    <div
+                        class="h2"
+                        style="color: #64d572"
+                    >
                     ><count-to
                         :start-val="0"
                         :end-val="9599"
                         :duration="2000"
                         :autoplay="true"
                     ></count-to
-                    ></h2>
+                    ></div>
                     <div>系统消息 </div>
                   </div>
                 </div>
@@ -88,14 +94,16 @@
                   ><el-icon style="font-size: 24px; color: white"><user /></el-icon
                   ></div>
                   <div class="right">
-                    <h2 style="color: #f25e43"
+                    <div
+                        class="h2"
+                        style="color: #f25e43"
                     ><count-to
                         :start-val="0"
                         :end-val="595453"
                         :duration="2000"
                         :autoplay="true"
                     ></count-to
-                    ></h2>
+                    ></div>
                     <div>数量 </div>
                   </div>
                 </div>
@@ -202,6 +210,10 @@
       flex-direction: column;
       padding-left: 20px;
       justify-content: center;
+      .h2{
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
     }
   }
   .custom {

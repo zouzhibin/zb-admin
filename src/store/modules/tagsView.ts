@@ -1,6 +1,5 @@
 import {defineStore} from 'pinia'
-import {  useRouter } from "vue-router";
-const router = useRouter()
+import router from "@/router/index";
 
 export const useTagsViewStore = defineStore({
     // id: 必须的，在所有 Store 中唯一
@@ -52,6 +51,13 @@ export const useTagsViewStore = defineStore({
             })
 
         },
+        toLastView(activeTabPath){
+            let index = this.visitedViews.findIndex(item=>item.path===activeTabPath)
+            const nextTab = this.visitedViews[index + 1] || this.visitedViews[index - 1];
+            if (!nextTab) return;
+            router.push(nextTab.path);
+            this.addVisitedView(nextTab)
+        },
         delVisitedView(path){
             return new Promise(resolve => {
                 this.visitedViews = this.visitedViews.filter(v=>{
@@ -82,9 +88,17 @@ export const useTagsViewStore = defineStore({
                 resolve([...this.visitedViews])
             })
         },
-        async goHome() {
-            router.push('/home');
+        delOtherViews(path){
+            this.visitedViews = this.visitedViews.filter(item => {
+                return item.path === path || item.meta.affix;
+            });
+            this.cachedViews = this.visitedViews.filter(item => {
+                return item.path === path || item.meta.affix;
+            });
+        },
+        goHome() {
             this.activeTabsValue = '/home';
+            router.push({path: '/home'});
         },
         updateVisitedView(view){
             for (let v of this.visitedViews) {
