@@ -231,8 +231,6 @@ const deleteAction = (row) => {
       height: 100%;
     }
   }
-
-
   ::v-deep{
     .el-table__header th{
       font-size: 15px;

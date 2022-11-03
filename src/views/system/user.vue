@@ -1,38 +1,44 @@
 <template>
-  <u-container-layout class="components-container">
-    <el-form :inline="true" :model="formInline" class="demo-form-inline" ref="ruleFormRef1">
-      <el-form-item label="用户名" prop="username">
-        <el-input v-model="formInline.username" />
-      </el-form-item>
-      <el-form-item>
-        <el-button @click="reset(ruleFormRef1)">重置</el-button>
-        <el-button type="primary" @click="onSubmit">查询</el-button>
-      </el-form-item>
-    </el-form>
-    <div style="margin-bottom: 15px; display: flex; justify-content: flex-end">
-      <el-button type="primary" @click="add">新增</el-button>
+  <div class="app-container">
+    <div class="header">
+      <el-form :inline="true" :model="formInline" ref="ruleFormRef1">
+        <el-form-item label="用户名" prop="username">
+          <el-input v-model="formInline.username" />
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="onSubmit" :icon="Search">查询</el-button>
+          <el-button @click="reset(ruleFormRef1)">重置</el-button>
+        </el-form-item>
+      </el-form>
     </div>
-    <el-table :data="tableData" style="width: 100%" border>
-      <el-table-column prop="username" label="用户名" />
-      <el-table-column prop="nickname" label="昵称" />
-      <el-table-column prop="sex" label="性别" />
-      <el-table-column prop="role" label="角色" />
-      <el-table-column prop="status" label="状态">
-        <template #default="scope">
-          <el-switch v-model="scope.row.status" @change="changeStatus(scope.row)" />
-        </template>
-      </el-table-column>
-      <el-table-column prop="status" label="操作">
-        <template #default="scope">
-          <el-button type="primary" size="small" icon="Edit" @click="edit(scope.row)">
-            编辑
-          </el-button>
-          <el-button @click="del(scope.row)" type="danger" size="small" icon="Delete">
-            删除
-          </el-button>
-        </template>
-      </el-table-column>
-    </el-table>
+    <div class="footer">
+      <div class="util">
+        <el-button type="primary" @click="add">新增</el-button>
+      </div>
+      <div class="table-inner">
+        <el-table :data="tableData" style="width: 100%" border>
+          <el-table-column prop="username" label="用户名" />
+          <el-table-column prop="nickname" label="昵称" />
+          <el-table-column prop="sex" label="性别" />
+          <el-table-column prop="role" label="角色" />
+          <el-table-column prop="status" label="状态">
+            <template #default="scope">
+              <el-switch v-model="scope.row.status" @change="changeStatus(scope.row)" />
+            </template>
+          </el-table-column>
+          <el-table-column prop="status" label="操作">
+            <template #default="scope">
+              <el-button type="primary" size="small" icon="Edit" @click="edit(scope.row)">
+                编辑
+              </el-button>
+              <el-button @click="del(scope.row)" type="danger" size="small" icon="Delete">
+                删除
+              </el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+      </div>
+    </div>
     <el-dialog @close="close" v-model="dialogVisible" :title="title" width="50%">
       <el-form
         ref="ruleFormRef"
@@ -69,13 +75,14 @@
         </span>
       </template>
     </el-dialog>
-  </u-container-layout>
+  </div>
 </template>
 
 <script lang="ts" setup>
   import { ElMessageBox, ElMessage, FormInstance } from 'element-plus'
+  import {Search } from '@element-plus/icons-vue'
   import { reactive, ref } from 'vue'
-  import { userData } from './data/user'
+  import { userData } from '@/mock/system'
   import * as dayjs from 'dayjs'
   const tableData = ref(userData)
   const dialogVisible = ref(false)
@@ -168,4 +175,43 @@
   }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.header{
+  display: flex;
+  padding: 16px 16px 0px 16px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  background: white;
+  box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+}
+.footer{
+  flex: 1;
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  border-radius: 4px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+  position: relative;
+  box-sizing: border-box;
+  .util{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+  .table-inner{
+    flex: 1;
+    position: relative;
+  }
+  .table{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%
+  }
+}
+
+</style>

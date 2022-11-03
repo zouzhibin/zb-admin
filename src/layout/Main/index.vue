@@ -10,7 +10,7 @@
       </router-view>
     </div>
     <Theme />
-
+    <Footer/>
   </div>
 </template>
 

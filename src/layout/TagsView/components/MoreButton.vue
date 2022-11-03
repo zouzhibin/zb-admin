@@ -6,10 +6,10 @@
     </el-button>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item @click="refresh">刷新当页</el-dropdown-item>
-        <el-dropdown-item @click="closeCurrentTab">关闭当前</el-dropdown-item>
-        <el-dropdown-item @click="closeOtherTab">关闭其他</el-dropdown-item>
-        <el-dropdown-item @click="closeAllTab">关闭所有</el-dropdown-item>
+        <el-dropdown-item @click="refresh"><el-icon :size="14"><Refresh /></el-icon> 刷新当页</el-dropdown-item>
+        <el-dropdown-item @click="closeCurrentTab"><el-icon :size="14"><FolderRemove/></el-icon> 关闭当前</el-dropdown-item>
+        <el-dropdown-item @click="closeOtherTab"><el-icon :size="14"><Close /></el-icon>关闭其他</el-dropdown-item>
+        <el-dropdown-item @click="closeAllTab"><el-icon :size="14"><FolderDelete /></el-icon>关闭所有</el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>
@@ -18,7 +18,9 @@
 import {computed} from "vue";
 import {useSettingStore} from "@/store/modules/setting"
 import {useTagsViewStore} from "@/store/modules/tagsView"
-
+import { useRouter,useRoute } from 'vue-router'
+const router = useRouter()
+const route = useRoute()
 const SettingStore = useSettingStore()
 const TagsViewStore = useTagsViewStore()
 const visitedViews = computed(() => TagsViewStore.visitedViews)
@@ -27,24 +29,19 @@ const refresh = () => {
 }
 // 关闭当前
 const closeCurrentTab = (event)=>{
-  closeSelectedTag(event,route)
+  TagsViewStore.toLastView(route.path)
+  TagsViewStore.delView(route.path)
+
 }
 // 关闭其他
 const closeOtherTab= async ()=>{
-  const { name } = route
-  for(let item of visitedViews.value){
-    if(item.name!==name){
-      await closeSelectedTag(null,item)
-    }
-  }
+  TagsViewStore.delOtherViews(route.path)
 }
-
-
 
 // 关闭所有 去首页
 const closeAllTab = async ()=>{
-  let visitedViews = await TagsViewStore.delAllViews()
-  await TagsViewStore.goHome()
+  await TagsViewStore.delAllViews()
+  TagsViewStore.goHome()
 }
 </script>
 <style lang="scss" scoped>
