@@ -1,34 +1,35 @@
 <template>
-  <u-container-layout>
-    <div style="margin-bottom: 15px">
+  <div class="app-container">
+    <div class="header">
       <el-input
         v-model="input"
         placeholder="请输入文件名"
         style="width: 200px; margin-right: 10px"
       />
       <el-button @click="exportExcelAction" type="primary">
-        <el-icon style="margin-right: 10px"><document-remove /></el-icon>导出 Excel
+        <el-icon style="margin-right: 6px"><Download /></el-icon>导出 Excel
       </el-button>
     </div>
-    <el-table :data="list" style="width: 100%" border>
-      <template v-for="(item, index) in column" :key="index">
-        <template v-if="item.children">
-          <el-table-column :prop="item.name" :label="item.label" :width="item.width">
-            <template v-for="(ite, i) in item.children" :key="i">
-              <el-table-column :prop="ite.name" :label="ite.label" :width="ite.width" />
-            </template>
-          </el-table-column>
+    <div class="footer">
+      <el-table :data="list" style="width: 100%" border>
+        <template v-for="(item, index) in column" :key="index">
+          <template v-if="item.children">
+            <el-table-column :prop="item.name" :label="item.label" :width="item.width">
+              <template v-for="(ite, i) in item.children" :key="i">
+                <el-table-column :prop="ite.name" :label="ite.label" :width="ite.width" />
+              </template>
+            </el-table-column>
+          </template>
+          <el-table-column :prop="item.name" :label="item.label" :width="item.width" v-else />
         </template>
-        <el-table-column :prop="item.name" :label="item.label" :width="item.width" v-else />
-      </template>
-    </el-table>
-  </u-container-layout>
+      </el-table>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
   import { ref, reactive } from 'vue'
   import * as dayjs from 'dayjs'
-  import { ElMessage, ElMessageBox } from 'element-plus'
   import { exportMultiHeaderExcel } from '@/utils/exprotExcel'
   const data = []
   for (let i = 0; i < 10; i++) {
@@ -73,4 +74,23 @@
   }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.header{
+  display: flex;
+  padding: 16px 16px 16px 16px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  background: white;
+  box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+}
+.footer{
+  flex: 1;
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  border-radius: 4px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+}
+</style>

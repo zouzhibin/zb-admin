@@ -11,7 +11,7 @@
       <div :style="{ height:`${showTag?90:50}px`  }" v-if="SettingStore.themeConfig.fixedHeader"></div>
       <u-header />
       <div class="m-container-content" :class="{ 'app-main-hide-tag': !showTag }">
-        <u-main />
+        <Main />
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
   import {useSettingStore} from "@/store/modules/setting"
   import Sidebar from './Sidebar/index.vue'
   import UHeader from './Header/index.vue'
-  import UMain from './Main/index.vue'
+  import Main from './Main/index.vue'
 
   import { useResizeHandler } from './hooks/useResizeHandler'
 

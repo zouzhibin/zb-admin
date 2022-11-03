@@ -74,7 +74,7 @@
         <template #default="scope">
           <el-button
               v-if="scope.row.edit"
-              type="success"
+              type="primary"
               size="small"
               icon="CircleCheckFilled"
               @click="confirmEdit(scope.row)"

@@ -16,8 +16,6 @@ import chatRouter from './modules/chat'
 import othersRouter from './modules/other'
 import externalLink from './modules/externalLink'
 import formRouter from './modules/from'
-import zipRoutes from './modules/zip'
-import clipboardTable from './modules/clipboard'
 
 // 异步组件
 export const asyncRoutes = [
@@ -29,14 +27,12 @@ export const asyncRoutes = [
     ...othersRouter,
     ...nestedRouter,
     ...excelRouter,
-    ...zipRoutes,
     ...errorRouter,
     ...externalLink,
-    ...clipboardTable,
     ...systemRouter,
     {
         path: '/:pathMatch(.*)',
-        redirect: '/error/404'
+        redirect: '/404'
     }
 ]
 

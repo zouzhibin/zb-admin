@@ -8,10 +8,16 @@ const othersRouter = [{
   redirect: '/other/editor',
   name: 'other',
   meta: {
-    title: '扩展组件',
+    title: '常用组件',
     icon: 'management'
   },
   children: [
+    {
+      path: 'clipboard',
+      component: () => import('@/views/other/clipboard/index.vue'),
+      name: 'clipboard',
+      meta: { title: '剪贴板',  roles:['other'] ,icon: 'MenuIcon',}
+    },
     {
       path: 'editor',
       component: () => import('@/views/other/editor/index.vue'),

@@ -1,7 +1,7 @@
 <template>
-  <u-container-layout>
-    <div class="inline-edit-table">
-      <el-form :inline="true" :model="formInline1" class="demo-form-inline">
+  <div class="app-container">
+    <div class="header">
+      <el-form :inline="true" :model="formInline1" >
         <el-form-item label="姓名">
           <el-input v-model="formInline1.username" placeholder="请输入姓名" />
         </el-form-item>
@@ -9,6 +9,9 @@
           <el-button type="primary" @click="onSubmit">搜索</el-button>
         </el-form-item>
       </el-form>
+    </div>
+    <div class="footer">
+
       <el-table :data="list" style="width: 100%" :border="true" v-loading="loading">
         <el-table-column prop="id" width="60" label="id" />
         <el-table-column prop="name" label="姓名" min-width="200px">
@@ -80,7 +83,7 @@
         />
       </div>
     </div>
-  </u-container-layout>
+  </div>
 </template>
 <script lang="ts" setup name="inline-table">
   import { computed, ref } from 'vue'
@@ -121,7 +124,6 @@
     return arr.splice((currentPage1.value - 1) * 10, 10)
   })
 
-  const listLoading = ref(false)
 
   const confirmEdit = (row) => {
     row.edit = false
@@ -160,16 +162,23 @@
   }
 </script>
 
-<style scoped>
-  .edit-input {
-    padding-right: 100px;
-  }
-  .cancel-btn {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-  }
-  .inline-edit-table {
-    width: 100%;
-  }
+<style scoped lang="scss">
+.header{
+  display: flex;
+  padding: 16px 16px 0px 16px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  background: white;
+  box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+}
+.footer{
+  flex: 1;
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  border-radius: 4px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+}
 </style>

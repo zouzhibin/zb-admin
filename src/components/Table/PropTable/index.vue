@@ -1,14 +1,18 @@
 <template>
   <div class="zb-pro-table">
     <div class="header">
-      <el-form :inline="true" :model="formInline" class="demo-form-inline search-form" ref="ruleFormRef" >
+      <el-form :inline="true"
+               class="search-form"
+               :model="formInline"  ref="ruleFormRef" >
         <template v-for="(item, index) in formSearchData" :key="index">
           <el-form-item :label="item.label" v-show="isExpand ? isExpand : index < 2">
             <template v-if="item.valueType === 'input'">
               <el-input v-model="formInline[item.name]" :placeholder="`请输入${item.label}`" />
             </template>
             <template v-if="item.valueType === 'select'">
-              <el-select v-model="formInline[item.name]" :placeholder="`请选择${item.label}`">
+              <el-select
+                  style="width: 100%"
+                  v-model="formInline[item.name]" :placeholder="`请选择${item.label}`">
                 <el-option
                     v-for="ite in item.options"
                     :key="ite.value"
@@ -192,7 +196,18 @@ const deleteAction = (row) => {
     border-radius: 4px;
     background: white;
     box-shadow: 0 0 12px rgb(0 0 0 / 5%);
-
+    .search-form{
+      flex: 1;
+      ::v-deep{
+        .el-input--default{
+          width: 200px;
+        }
+      }
+    }
+    .search{
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
   }
   .footer{
     flex: 1;
@@ -203,6 +218,7 @@ const deleteAction = (row) => {
     overflow: hidden;
     background: white;
     box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+    min-height: 300px;
     .operator{
       margin-bottom: 15px
     }
@@ -215,12 +231,7 @@ const deleteAction = (row) => {
       height: 100%;
     }
   }
-  .search-form{
-    flex: 1;
-  }
-  .search{
-    white-space: nowrap;
-  }
+
 
   ::v-deep{
     .el-table__header th{

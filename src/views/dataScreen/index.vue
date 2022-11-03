@@ -31,7 +31,7 @@
             <line-charts width="100%" height="100%" />
           </div>
           <div class="item-complex">
-            <bar-charts width="100%" height="100%" />
+            <MultilineCharts />
           </div>
         </div>
         <div class="middle">
@@ -41,10 +41,10 @@
         </div>
         <div class="right">
           <div class="item-complex" style="margin-bottom: 20px">
-            <line-charts width="100%" height="100%" />
+            <BarCharts width="100%" height="100%" />
           </div>
           <div class="item-complex">
-            <bar-charts width="100%" height="100%" />
+            <PieCharts />
           </div>
         </div>
       </div>
@@ -58,6 +58,8 @@ import CountTo from '@/components/CountTo/index.vue'
 import LineCharts from '@/views/charts/components/complex/line/index.vue'
 import BarCharts from '@/views/charts/components/complex/bar/index.vue'
 import MigrationCharts from '@/views/charts/components/migration/index.vue'
+import MultilineCharts from '@/components/DataScreen/Multiline/index'
+import PieCharts from '@/components/DataScreen/Pie/index'
 
 const timeDate = ref()
 const hourTime = ref()
@@ -93,171 +95,5 @@ onBeforeUnmount(()=>{
 </script>
 
 <style lang="scss" scoped>
-.m-data-screen{
-  width: 1920px;
-  height: 1080px;
-  box-sizing: border-box;
-  overflow:hidden;
-  //background: url("/static/screen/bg.png") no-repeat center center;
-  background: #041c4a;
-  .header{
-    box-sizing: border-box;
-    width: 100%;
-    height: 91px;
-    background: url("/static/screen/header-bg.png");
-    background-size:contain ;
-    background-repeat:no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .header-bg-title{
-      font-size: 42px;
-      font-weight: normal;
-      font-stretch: normal;
-      letter-spacing: 2px;
-      color: #ffffff;
-      margin-bottom: 14px;
-    }
-    .date{
-      top: 25px;
-      line-height: 68px;
-      font-size: 18px;
-      position: absolute;
-      letter-spacing: 0px;
-      color: #87caff;
-      right: 20px;
-    }
-  }
-  //.header{
-  //  width: 100%;
-  //  .header-bg-title{
-  //    width: 100%;
-  //  }
-  //
-  //}
-  .circle-bg{
-    animation:rotate 5s infinite linear;
-  }
-  @keyframes rotate{
-    0%{transform:rotate(0deg);}
-    100%{transform:rotate(360deg);}
-  }
-  .center{
-    padding-left: 40px;
-    padding-right: 50px;
-    padding-bottom: 40px;
-    padding-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .circle-bg {
-      animation: rotate 5s infinite linear;
-    }
-    @keyframes rotate {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-    .item {
-      display: flex;
-      /*align-items: center;*/
-      .item-icon {
-        width: 117px;
-        height: 109px;
-      }
-      .item-icon1 {
-        background: url('@/assets/image/center-inner1.png') no-repeat center 43%;
-      }
-      .item-right {
-        margin-left: 20px;
-        .item-right-inner {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-        .text-title {
-          font-size: 20px;
-          letter-spacing: 1px;
-          color: #ffffff;
-          /*margin-bottom: 6px;*/
-          /*height: 20px;*/
-        }
-        .text-number {
-          font-size: 44px;
-          letter-spacing: 2px;
-          color: #00e4ff;
-        }
-        .text-der {
-          overflow: hidden;
-          box-sizing: border-box;
-          display: flex;
-          font-size: 16px;
-          color: #ffffff;
-          letter-spacing: 1px;
-          .left {
-            margin-right: 10px;
-          }
-          img {
-            margin-right: 4px;
-            margin-top: 4px;
-            width: 11px;
-            height: 15px;
-          }
-          .right {
-            color: #ff0000;
-          }
-        }
-      }
-    }
-  }
-  .footer{
-    position: relative;
-    padding: 0 30px 0 24px;
-    display: flex;
-
-    .left{
-      box-sizing: border-box;
-      padding: 32px 0;
-      width: 568px;
-      //height: 701px;
-
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
-    .middle{
-      flex: 1;
-      position: relative;
-      .migration{
-        left: -18%;
-        top:-15%;
-        width: 900px;
-        height: 900px;
-        position: absolute;
-      }
-    }
-    .right{
-      width: 568px;
-      align-items: flex-end;
-      box-sizing: border-box;
-      padding: 32px 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background-size:contain ;
-      background-repeat:no-repeat;
-    }
-    .item-complex {
-      width: 558px;
-      height: 362px;
-      background-image: url('@/assets/image/charts/1-1-bg.png');
-      background-color: #042750;
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
-  }
-}
+@import "./index";
 </style>
