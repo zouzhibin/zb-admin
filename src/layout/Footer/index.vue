@@ -1,11 +1,11 @@
 <template>
-	<div class="footer ">
+	<div class="footer-layout">
 		<span href="/" target="_blank"> 2022 © VUE-ADMIN-PERFECT By ZB Technology. </span>
 	</div>
 </template>
 
 <style scoped lang="scss">
-.footer{
+.footer-layout{
   height: 40px;
   font-size: 12px;
   display: flex;

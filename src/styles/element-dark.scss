@@ -154,5 +154,24 @@ html.dark {
     font-weight: bold;
     color: white;
   }
+  .footer-layout{
+    background: none;
+    color: white;
+  }
+  .app-container-inner{
+    background: none;
+  }
+  .list-group-item{
+    background: none!important;
+    border: 1px solid white;
+  }
+  .app-container{
+    .header{
+      background: none;
+    }
+    .footer{
+      background: none;
+    }
+  }
 
 }

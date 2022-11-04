@@ -112,56 +112,24 @@
   }
 </script>
 
-<style scoped>
-  .example-btn {
-    display: inline-block;
-    margin-bottom: 0;
-    font-weight: 500;
-    text-align: center;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    background-image: none;
-    border: 1px solid transparent;
-    white-space: nowrap;
-    line-height: 1.5;
-    padding: 4px 15px;
-    font-size: 12px;
-    border-radius: 4px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    position: relative;
-    color: rgba(0, 0, 0, 0.65);
-    background-color: #fff;
-    border-color: #d9d9d9;
-  }
-
-  .example-btn:hover {
-    color: #4ab7bd;
-    background-color: #fff;
-    border-color: #4ab7bd;
-  }
+<style scoped lang="scss">
   .example {
-    font-size: 50px;
-    color: #f6416c;
     display: block;
     margin: 10px 0;
     text-align: center;
-    font-size: 80px;
+    font-size: 40px;
     font-weight: 500;
+    color: $primaryColor;
+    /*background: linear-gradient(0deg,#77e0a0,#75c3e9);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
   }
-
   .label {
     color: #2f4f4f;
     font-size: 16px;
     display: inline-block;
     margin: 15px 30px 15px 0;
   }
-
   input {
     position: relative;
     display: inline-block;
@@ -179,26 +147,22 @@
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
   }
-
   .startBtn {
     margin-left: 20px;
     font-size: 20px;
     color: #30b08f;
     background-color: #fff;
   }
-
   .startBtn:hover {
     background-color: #30b08f;
     color: #fff;
     border-color: #30b08f;
   }
-
   .pause-resume-btn {
     font-size: 20px;
     color: #e65d6e;
     background-color: #fff;
   }
-
   .pause-resume-btn:hover {
     background-color: #e65d6e;
     color: #fff;

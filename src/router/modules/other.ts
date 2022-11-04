@@ -32,7 +32,7 @@ const othersRouter = [{
     },
     {
       path: 'print',
-      component: () => import('@/views/other/print.vue'),
+      component: () => import('@/views/other/print/index.vue'),
       name: 'print',
       meta: { title: '打印' , icon: 'MenuIcon'}
     },
@@ -43,20 +43,20 @@ const othersRouter = [{
       meta: { title: '头像裁剪' , icon: 'MenuIcon'}
     },
     {
-      path: 'grid-sorter',
-      component: () => import('@/views/other/grid-sorter.vue'),
-      name: 'grid-sorter',
+      path: 'card-drag',
+      component: () => import('@/views/other/cardDrag/index.vue'),
+      name: 'card-drag',
       meta: { title: '卡片拖拽', icon: 'MenuIcon' }
     },
     {
       path: 'upload',
-      component: () => import('@/views/other/upload.vue'),
+      component: () => import('@/views/other/upload/index.vue'),
       name: 'upload',
       meta: { title: '上传图片', icon: 'MenuIcon' }
     },
     {
       path: 'qrcode',
-      component: () => import('@/views/other/qrcode.vue'),
+      component: () => import('@/views/other/qrcode/index.vue'),
       name: 'qrcode',
       meta: { title: '生成二维码', icon: 'MenuIcon' }
     },
@@ -74,19 +74,19 @@ const othersRouter = [{
     },
     {
       path: 'water-marker',
-      component: () => import('@/views/other/water-marker.vue'),
+      component: () => import('@/views/other/waterMarker/index.vue'),
       name: 'water-marker',
       meta: { title: '生成水印' , icon: 'MenuIcon'}
     },
     {
       path: 'right-menu',
-      component: () => import('@/views/other/right-menu.vue'),
+      component: () => import('@/views/other/rightMenu/index.vue'),
       name: 'right-menu',
       meta: { title: '右键菜单' , icon: 'MenuIcon'}
     },
     {
       path: 'count',
-      component: () => import('@/views/other/count.vue'),
+      component: () => import('@/views/other/count/index.vue'),
       name: 'count',
       meta: { title: '数字自增长', icon: 'MenuIcon' }
     }
