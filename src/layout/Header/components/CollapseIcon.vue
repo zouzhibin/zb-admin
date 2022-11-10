@@ -6,7 +6,7 @@
 </template>
 <script lang="ts" setup>
 import {useSettingStore} from "@/store/modules/setting"
-import {computed} from "_vue@3.2.40@vue";
+import {computed} from "vue";
 const SettingStore = useSettingStore()
 const isCollapse = computed(() =>!SettingStore.isCollapse)
 const handleCollapse = () => {

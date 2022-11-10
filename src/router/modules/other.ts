@@ -25,6 +25,12 @@ const othersRouter = [{
       meta: { title: '富文本编辑器', roles: ['other'] , icon: 'MenuIcon'}
     },
     {
+      path: 'code-mirror',
+      component: () => import('@/views/other/codeMirror/index.vue'),
+      name: 'code-mirror',
+      meta: { title: '代码编辑器', roles: ['other'] , icon: 'MenuIcon'}
+    },
+    {
       path: 'mark-down',
       component: () => import('@/views/other/markDown/index.vue'),
       name: 'mark-down',
