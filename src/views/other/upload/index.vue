@@ -1,6 +1,5 @@
 <template>
-  <u-container-layout>
-    <div>
+  <div class="app-container">
       <el-card style="margin-bottom: 10px">
         <template #header>
           <span>按钮上传</span>
@@ -21,14 +20,14 @@
           <el-button type="primary">点击上传</el-button>
         </el-upload>
       </el-card>
-      <el-card>
+      <el-card style="margin-bottom: 10px">
         <template #header>
           <span>多图片上传</span>
         </template>
         <Upload @update="update" v-model="imgs" />
       </el-card>
 
-      <el-card>
+      <el-card >
         <template #header>
           <span>拖拽上传</span>
         </template>
@@ -53,8 +52,7 @@
           <div class="el-upload__text"> 拖拽上传 <em>或者点击上传</em> </div>
         </el-upload>
       </el-card>
-    </div>
-  </u-container-layout>
+  </div>
 </template>
 
 <script setup lang="ts">

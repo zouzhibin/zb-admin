@@ -14,25 +14,25 @@ const systemRouter = [{
     children: [
         {
             path: 'page',
-            component: () => import('@/views/system/page.vue'),
+            component: () => import('@/views/system/page/index.vue'),
             name: 'page',
-            meta: { title: '页面权限', icon: 'trend-charts',  roles:['other']  }
+            meta: { title: '页面权限', icon: 'MenuIcon',  roles:['other']  }
         },
         {
             path: 'user',
-            component: () => import('@/views/system/user.vue'),
+            component: () => import('@/views/system/user/index.vue'),
             name: 'user',
             meta: { title: '用户管理', roles: ['other'] , icon: 'MenuIcon'}
         },
         {
             path: 'role',
-            component: () => import('@/views/system/role.vue'),
+            component: () => import('@/views/system/role/index.vue'),
             name: 'role',
             meta: { title: '角色管理', roles: ['other'], icon: 'MenuIcon' }
         },
         {
             path: 'menu',
-            component: () => import('@/views/system/menu.vue'),
+            component: () => import('@/views/system/menu/index.vue'),
             name: 'menu',
             meta: { title: '菜单管理', roles: ['other'] , icon: 'MenuIcon'}
         },

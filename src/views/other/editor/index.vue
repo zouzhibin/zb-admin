@@ -27,9 +27,6 @@
         <el-descriptions-item label="参考文档"> 	<a href="https://www.wangeditor.com/v5/for-frame.html" target="_blank"> https://www.wangeditor.com/v5/for-frame.html </a> </el-descriptions-item>
 
       </el-descriptions>
-
-
-
       <el-dialog
           v-model="dialogVisible"
           title="预览"

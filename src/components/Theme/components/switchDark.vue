@@ -4,13 +4,13 @@
 
 <script setup lang="ts" name="switchDark">
   import {computed, ref} from "vue";
+  import { useDark, useToggle } from '@vueuse/core'
   import {useSettingStore} from "@/store/modules/setting"
-  import {toggleDark} from '../../../hooks/dark'
   const SettingStore = useSettingStore()
-  // 横向
+  // // 横向
   const isDark = ref(SettingStore.themeConfig.isDark)
-
   const changeSwitch = ()=>{
-    toggleDark()
+    let isDark = useDark()
+    useToggle(isDark)
   }
 </script>
