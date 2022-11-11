@@ -21,9 +21,9 @@
   import {useSettingStore} from "@/store/modules/setting"
   import {usePermissionStore} from "@/store/modules/permission"
   const SettingStore = useSettingStore()
-  const PermissionStor = usePermissionStore()
+  const PermissionStore = usePermissionStore()
 
-  const cacheRoutes = computed(() =>PermissionStor.getCacheRoutes())
+  const cacheRoutes = computed(() =>PermissionStore.getCacheRoutes())
   const isReload = computed(() => SettingStore.isReload)
 
 </script>
