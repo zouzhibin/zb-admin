@@ -5,7 +5,7 @@
           <el-card class="box-card" style="height: 100%">
             <div class="personal">
               <div>
-                <el-avatar :size="50" :src="circleUrl" />
+                <el-avatar :size="50" :src="AvatarLogo" />
               </div>
               <div class="name"></div>
               <div class="description"></div>
@@ -52,7 +52,7 @@
                         class="h2"
                         style="color: #2d8cf0"
                     >
-                    ><count-to
+                    <count-to
                         :start-val="0"
                         :end-val="5268"
                         :duration="2000"
@@ -75,7 +75,7 @@
                         class="h2"
                         style="color: #64d572"
                     >
-                    ><count-to
+                    <count-to
                         :start-val="0"
                         :end-val="9599"
                         :duration="2000"
@@ -156,7 +156,6 @@
 </template>
 <script setup lang="ts">
   import { User } from '@element-plus/icons-vue'
-  import { ref } from 'vue'
   import AvatarLogo from '@/assets/image/avatar.png'
   import CountTo from '@/components/CountTo/index.vue'
   import BarCharts from '@/views/charts/components/simple/bar.vue'
