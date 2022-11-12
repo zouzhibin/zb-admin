@@ -7,11 +7,26 @@ const externalLink = [{
     component: Layout,
     redirect: 'noRedirect',
     name: 'external-link',
+    meta: {
+        title: '外部链接',
+        icon: 'link'
+    },
     children: [
         {
             path: 'https://github.com/zouzhibin/vue-admin-perfect',
-            name: 'external',
-            meta: { title: 'Github地址',  icon: 'link' }
+            name: 'github',
+            meta: { title: 'Github 地址',  icon: 'MenuIcon' }
+        },
+        {
+            path: 'https://gitee.com/yuanzbz/vue-admin-perfect?_from=gitee_search',
+            name: 'github',
+            meta: { title: 'Gitee 地址',  icon: 'MenuIcon' }
+        },
+        {
+            path: 'iframe',
+            component: () => import('@/views/externalLinks/iframe/index.vue'),
+            name: 'iframe',
+            meta: { title: '内嵌 iframe', icon: 'MenuIcon'  }
         },
     ]
 }]
