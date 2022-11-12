@@ -11,7 +11,7 @@ import errorRouter from './modules/error'
 import excelRouter from './modules/excel'
 import nestedRouter from './modules/nested'
 import systemRouter from './modules/system'
-import chartsRouter from './modules/charts'
+import echartsRouter from './modules/echarts'
 import chatRouter from './modules/chat'
 import othersRouter from './modules/other'
 import externalLink from './modules/externalLink'
@@ -20,7 +20,7 @@ import formRouter from './modules/from'
 // 异步组件
 export const asyncRoutes = [
     ...dataScreenRouter,
-    ...chartsRouter,
+    ...echartsRouter,
     ...tableRouter,
     ...formRouter,
     ...chatRouter,

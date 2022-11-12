@@ -137,7 +137,7 @@ export const menuData =[
             {
                 menuName:'菜单1',
                 menuType:'菜单',
-                menuRouter:'/charts',
+                menuRouter:'/echarts',
                 identification:'menu1:view',
                 parentId:1,
                 level:2,
@@ -147,7 +147,7 @@ export const menuData =[
                     {
                         menuName:'按钮1',
                         menuType:'按钮',
-                        menuRouter:'/charts',
+                        menuRouter:'/echarts',
                         identification:'menu1:view:btn1',
                         parentId:10,
                         id:20,
@@ -157,7 +157,7 @@ export const menuData =[
                     {
                         menuName:'按钮2',
                         menuType:'按钮',
-                        menuRouter:'/charts',
+                        menuRouter:'/echarts',
                         identification:'menu1:view:btn2',
                         parentId:10,
                         id:21,
@@ -167,7 +167,7 @@ export const menuData =[
                     {
                         menuName:'按钮3',
                         menuType:'按钮',
-                        menuRouter:'/charts',
+                        menuRouter:'/echarts',
                         identification:'menu1:view:btn2',
                         parentId:10,
                         id:22,

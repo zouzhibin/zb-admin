@@ -103,7 +103,7 @@
   import FunnelCharts from './components/simple/funnel.vue'
   import CandlestickCharts from './components/simple/candlestick.vue'
   import GraphCharts from './components/simple/graph.vue'
-  import PictorialBar from '@/views/charts/components/simple/pictorialBar.vue'
+  import PictorialBar from '@/views/echarts/components/simple/pictorialBar.vue'
 </script>
 
 <style>
