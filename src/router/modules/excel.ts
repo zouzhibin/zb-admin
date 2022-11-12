@@ -40,7 +40,7 @@ const excelRouter = [{
             path: 'zip',
             component: () => import('@/views/excel/zip/index.vue'),
             name: 'Zip',
-            meta: { title: 'Zip', roles:['other'] ,icon: 'MenuIcon',}
+            meta: { title: '导出 Zip', roles:['other'] ,icon: 'MenuIcon',}
         },
     ]
 }]

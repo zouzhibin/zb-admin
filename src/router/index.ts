@@ -16,7 +16,6 @@ import chatRouter from './modules/chat'
 import othersRouter from './modules/other'
 import externalLink from './modules/externalLink'
 import formRouter from './modules/from'
-import iframeRouter from './modules/iframe'
 
 // 异步组件
 export const asyncRoutes = [
@@ -31,7 +30,6 @@ export const asyncRoutes = [
     ...errorRouter,
     ...externalLink,
     ...systemRouter,
-    ...iframeRouter,
     {
         path: '/:pathMatch(.*)',
         redirect: '/404'
