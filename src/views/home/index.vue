@@ -5,7 +5,7 @@
         <el-card class="box-card" style="height: 100%">
           <div class="personal">
             <div>
-              <el-avatar :size="50" :src="circleUrl" />
+              <el-avatar :size="50" :src="AvatarLogo" />
             </div>
             <div class="name"></div>
             <div class="description"></div>
@@ -155,9 +155,9 @@
 <script setup lang="ts">
   import { User } from '@element-plus/icons-vue'
   import { ref } from 'vue'
+  import AvatarLogo from '@/assets/image/avatar.png'
   import CountTo from '@/components/CountTo/index.vue'
   import BarCharts from '@/views/charts/components/simple/bar.vue'
-  const circleUrl = ref('https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png')
 
   const goTo = (url) => {
     window.open(url, '_blank')
