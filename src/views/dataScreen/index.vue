@@ -55,9 +55,9 @@
 import {onBeforeUnmount, onMounted, ref} from 'vue'
 import FullScreenContainer from './components/full-screen-container.vue'
 import CountTo from '@/components/CountTo/index.vue'
-import LineCharts from '@/views/charts/components/complex/line/index.vue'
-import BarCharts from '@/views/charts/components/complex/bar/index.vue'
-import MigrationCharts from '@/views/charts/components/migration/index.vue'
+import LineCharts from '@/views/echarts/components/complex/line/index.vue'
+import BarCharts from '@/views/echarts/components/complex/bar/index.vue'
+import MigrationCharts from '@/views/echarts/components/migration/index.vue'
 import MultilineCharts from '@/components/DataScreen/Multiline/index'
 import PieCharts from '@/components/DataScreen/Pie/index'
 
