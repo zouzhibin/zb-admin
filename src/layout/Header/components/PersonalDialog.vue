@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="dialogVisible" title="修改密码" width="60%">
+  <el-dialog v-model="dialogVisible" title="修改密码" width="40%">
     <el-form
       ref="ruleFormRef"
       :model="ruleForm"

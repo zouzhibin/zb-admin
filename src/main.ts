@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import pinia from "./store";
-import 'default-passive-events'
+// import 'default-passive-events'
 
 // 权限路由
 import './permission'

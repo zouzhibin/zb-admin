@@ -6,7 +6,7 @@
           <div class="contact-nickname">{{ item.created_at }} 林峰</div>
           <div class="receive-message-wrap">
             <div class="avatar-show">
-              <img src="@/assets/image/avator.png" />
+              <img src="@/assets/image/avatar.png" />
             </div>
             <div style="position: relative; display: flex">
               <div class="receive-message-info" v-html="item.content"></div>
@@ -30,7 +30,7 @@
               </div>
             </div>
             <div class="avatar-show">
-              <img src="@/assets/image/avator.png" />
+              <img src="@/assets/image/avatar.png" />
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@
 <script lang="ts" setup>
   import { onMounted, ref, nextTick } from 'vue'
   import UToolbar from '../u-toolbar/index.vue'
-  import defalutAvator from '@/assets/image/avator.png'
+  import defalutAvator from '@/assets/image/avatar.png'
   import { chatData } from './chat.js'
   import { ElMessage } from 'element-plus'
   import dayjs from 'dayjs'
