@@ -5,6 +5,8 @@ export const userData =[
         sex:'男',
         role:'超级管理员',
         status:true,
+        photo:'15333333333',
+        describe:'超级管理员不可删除'
     },
     {
         username:'zhangsan',
@@ -12,6 +14,8 @@ export const userData =[
         sex:'女',
         role:'管理员',
         status:true,
+        photo:'15311111111',
+        describe:'管理员不可删除'
     },
     {
         username:'lisi',
@@ -19,6 +23,8 @@ export const userData =[
         sex:'男',
         role:'管理员',
         status:true,
+        photo:'13823456789',
+        describe:'测试账户'
     },
     {
         username:'wangwu',
@@ -26,6 +32,8 @@ export const userData =[
         sex:'男',
         role:'超级管理员',
         status:false,
+        photo:'13923456789',
+        describe:'超级管理员不可删除'
     },
     {
         username:'zhaoliu',
@@ -33,6 +41,8 @@ export const userData =[
         sex:'男',
         role:'普通用户',
         status:false,
+        photo:'14523456789',
+        describe:'普通测试用户'
     },
 
 ]
@@ -42,16 +52,22 @@ export const roleData =[
     {
         roleName:'超级管理员',
         roleId:'admin',
+        roleIdentification:'admin',
+        describe:'这是超级管理员，拥有一切权限',
         createTime:'2022-09-02',
     },
     {
         roleName:'管理员',
         roleId:'role',
+        roleIdentification:'admin',
+        describe:'普通管理员',
         createTime:'2022-09-02',
     },
     {
         roleName:'普通用户',
         roleId:'other',
+        describe:'测试用户',
+        roleIdentification:'other',
         createTime:'2022-09-02',
     },
 
