@@ -45,8 +45,8 @@ const logOut = async () => {
       type: 'warning',
     })
     .then(async () => {
-      await router.push({path: '/login'})
       await UserStore.logout()
+      await router.push({path: '/login'})
       TagsViewStore.clearVisitedView()
       ElMessage({
         type: "success",
