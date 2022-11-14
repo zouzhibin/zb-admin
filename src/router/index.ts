@@ -16,6 +16,7 @@ import chatRouter from './modules/chat'
 import othersRouter from './modules/other'
 import externalLink from './modules/externalLink'
 import formRouter from './modules/from'
+import functionPageRouter from './modules/functionPage'
 
 // 异步组件
 export const asyncRoutes = [
@@ -23,8 +24,9 @@ export const asyncRoutes = [
     ...echartsRouter,
     ...tableRouter,
     ...formRouter,
-    ...chatRouter,
     ...othersRouter,
+    ...functionPageRouter,
+    ...chatRouter,
     ...nestedRouter,
     ...excelRouter,
     ...errorRouter,
