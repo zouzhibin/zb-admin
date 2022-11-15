@@ -101,7 +101,7 @@ vue-admin-perfect
 ### 十、微信交流群
 |                                      微信二维码                                      |
 | :----------------------------------------------------------------------------------: |
-| <img src="http://182.61.5.190:8889/we.png" width=170/> |
+| <img src="https://gitee.com/yuanzbz/vue-admin-perfect/raw/master/src/assets/wechat.png" width=170/> |
 
 
 
