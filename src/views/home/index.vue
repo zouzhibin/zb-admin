@@ -3,6 +3,13 @@
     <el-row class="row-bg" :gutter="10">
       <el-col :xs="24" :sm="12" :lg="8">
         <el-card class="box-card" style="height: 100%">
+          <el-image
+              class="wechat"
+              src="http://182.61.5.190:8889/we.png"
+              :preview-src-list="['http://182.61.5.190:8889/we.png']"
+              style="max-width: 200px"
+              :data-resid="Date.now()"
+          />
           <div class="personal">
             <div>
               <el-avatar :size="50" :src="AvatarLogo" />
@@ -17,7 +24,7 @@
               <div>性别：男</div>
               <div>现住址：中国-浙江-杭州</div>
               <div>邮箱：1135957121@qq.com</div>
-              <div>微信：19550102670(欢迎加)</div>
+              <div>微信：19550102670(欢迎加微信入群)</div>
               <div>技术栈：JavaScript、HTML、CSS、Vue、Node、React</div>
             </div>
             <el-divider></el-divider>
@@ -222,8 +229,15 @@
 
   .box-card {
     //height: 100%;
+    position: relative;
     margin-bottom: 10px;
     width: 100%;
+    .wechat{
+      position: absolute;
+      width: 150px;
+      right: 0;
+      top: 0;
+    }
   }
   .card-item {
     background: linear-gradient(50deg, #1890ff, #77e19d);

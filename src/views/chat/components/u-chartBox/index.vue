@@ -9,7 +9,15 @@
               <img src="@/assets/image/avatar.png" />
             </div>
             <div style="position: relative; display: flex">
-              <div class="receive-message-info" v-html="item.content"></div>
+              <div class="receive-message-info" v-html="item.content" v-if="item.type===1"></div>
+              <div class="public-show-pic" v-else-if="item.type === 2">
+                <el-image
+                    :src="item.content"
+                    :preview-src-list="[item.content]"
+                    style="max-width: 200px"
+                    :data-resid="Date.now()"
+                />
+              </div>
             </div>
           </div>
         </div>

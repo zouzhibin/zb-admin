@@ -9,7 +9,8 @@ const systemRouter = [{
     name: 'system',
     meta: {
         title: '系统管理',
-        icon: 'ElementPlus'
+        icon: 'ElementPlus',
+        roles:['other']
     },
     children: [
         {
@@ -22,19 +23,19 @@ const systemRouter = [{
             path: 'user',
             component: () => import('@/views/system/user/index.vue'),
             name: 'user',
-            meta: { title: '用户管理', roles: ['other'] , icon: 'MenuIcon'}
+            meta: { title: '用户管理' , icon: 'MenuIcon'}
         },
         {
             path: 'role',
             component: () => import('@/views/system/role/index.vue'),
             name: 'role',
-            meta: { title: '角色管理', roles: ['other'], icon: 'MenuIcon' }
+            meta: { title: '角色管理', icon: 'MenuIcon' }
         },
         {
             path: 'menu',
             component: () => import('@/views/system/menu/index.vue'),
             name: 'menu',
-            meta: { title: '菜单管理', roles: ['other'] , icon: 'MenuIcon'}
+            meta: { title: '菜单管理',  icon: 'MenuIcon'}
         },
     ]
 }]
