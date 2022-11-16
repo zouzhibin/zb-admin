@@ -1367,10 +1367,10 @@
   "resolved" "https://registry.npmmirror.com/element-in-view/-/element-in-view-0.1.0.tgz"
   "version" "0.1.0"
 
-"element-plus@^2.2.20":
-  "integrity" "sha512-ludShd3f5kNRY4FLzeoNitLcwZ4qs2M/zwKeyeE7rUzZJAQ0BZtcT3SvZoEoBLmgxw9jHoonl4WIwon4UzhyRA=="
-  "resolved" "https://r.cnpmjs.org/element-plus/-/element-plus-2.2.20.tgz"
-  "version" "2.2.20"
+"element-plus@^2.2.21":
+  "integrity" "sha512-wZUePoXZ1zuCkzENK/8mn+mekuLJ9OoGYiudjUujzCf+T8HfOQl+TKQStwOkGBNk93fK8e9YdFIty4jH4AX6dg=="
+  "resolved" "https://r.cnpmjs.org/element-plus/-/element-plus-2.2.21.tgz"
+  "version" "2.2.21"
   dependencies:
     "@ctrl/tinycolor" "^3.4.1"
     "@element-plus/icons-vue" "^2.0.6"

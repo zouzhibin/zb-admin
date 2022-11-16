@@ -155,6 +155,7 @@ const removeTab = async (activeTabPath: string) => {
     }
     .el-tabs__header .el-tabs__item {
       border: none;
+      color: #cccccc;
     }
     .el-tabs__header .el-tabs__item.is-active {
       color: $primaryColor;

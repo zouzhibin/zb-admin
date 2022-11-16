@@ -71,7 +71,7 @@ export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
         path: '/home',
         component: () => import('@/views/home/index.vue'),
         name: 'home',
-        meta: { title: '首页', icon: 'film', affix: true ,role:['other']}
+        meta: { title: '首页', icon: 'House', affix: true ,role:['other']}
       },
     ]
   },

@@ -22,6 +22,14 @@
         <el-table :data="tableData" style="width: 100%" border>
           <el-table-column prop="roleName" label="角色名称" />
           <el-table-column prop="roleIdentification" label="角色标识" />
+          <el-table-column prop="status" label="角色状态" align="center">
+            <template #default="scope">
+              <el-switch v-model="scope.row.status"
+                         inline-prompt
+                         active-text="启用" inactive-text="禁用"
+                         @change="changeStatus(scope.row)" />
+            </template>
+          </el-table-column>
           <el-table-column prop="describe"
                            :show-overflow-tooltip="true"
                            width="180"
@@ -80,20 +88,21 @@
       .then(() => {})
       .catch(() => {})
   }
+
   const changeStatus = (row) => {
     ElMessageBox.confirm(
-      `确定要${!row.status ? '禁用' : '启用'} ${row.username} 账户吗？`,
-      '温馨提示',
-      {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning',
-      },
+        `确定要${!row.status ? '禁用' : '启用'} ${row.roleName} 角色吗？`,
+        '温馨提示',
+        {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning',
+        },
     )
-      .then(async () => {})
-      .catch(() => {
-        row.status = !row.status
-      })
+        .then(async () => {})
+        .catch(() => {
+          row.status = !row.status
+        })
   }
 
 

@@ -9,7 +9,7 @@ const systemRouter = [{
     name: 'system',
     meta: {
         title: '系统管理',
-        icon: 'ElementPlus',
+        icon: 'Setting',
         roles:['other']
     },
     children: [

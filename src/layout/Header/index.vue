@@ -31,7 +31,7 @@
   import { UserFilled } from '@element-plus/icons-vue'
   import TagViews from '../TagsView/index.vue'
   import GlobalComSize from './components/globalComSize.vue'
-  import Hamburger from '@/components/Hamburger/index.vue'
+  import Hamburger from './components/Hamburger.vue'
   import Setting from './components/Setting.vue'
   import ScreenFull from './components/ScreenFull.vue'
   import Remind from './components/Remind'
