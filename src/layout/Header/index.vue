@@ -1,7 +1,7 @@
 <template>
   <div
-      class="m-layout-header"
-      :class="[
+    class="m-layout-header"
+    :class="[
         SettingStore.themeConfig.fixedHeader?'zb-fixed-header':'zb-no-fixed-header',
           mode === 'horizontal'?'':isCollapse?'fixed-header-collapse':'fixed-header-no-collapse'
         ]"

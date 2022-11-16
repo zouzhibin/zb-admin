@@ -1,19 +1,22 @@
 <template>
   <div class="app-container">
     <div class="header">
-      <el-form :inline="true" :model="formInline" class="demo-form-inline" ref="ruleFormRef1">
+      <el-form :inline="true" :model="formInline" ref="ruleFormRef">
         <el-form-item label="用户名" prop="username">
           <el-input v-model="formInline.username" />
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="onSubmit" :icon="Search">查询</el-button>
-          <el-button @click="reset(ruleFormRef1)">重置</el-button>
+          <el-button @click="reset(ruleFormRef)">重置</el-button>
         </el-form-item>
       </el-form>
     </div>
     <div class="footer">
       <div class="util">
-        <el-button type="primary" @click="add">新增</el-button>
+        <el-button type="primary" @click="add">
+          <el-icon><Plus /></el-icon>
+          新增菜单
+        </el-button>
       </div>
       <div class="table-wrap">
         <el-table :data="tableData" style="width: 100%" border default-expand-all row-key="id" class="table">
@@ -34,39 +37,7 @@
         </el-table>
       </div>
     </div>
-    <el-drawer v-model="dialogVisible" :title="title" width="50%">
-      <el-form
-        ref="ruleFormRef"
-        :model="ruleForm"
-        :rules="rules"
-        label-width="120px"
-        class="demo-ruleForm"
-        :size="formSize"
-      >
-        <el-form-item label="权限类型" prop="menuType">
-          <el-radio-group v-model="ruleForm.menuType">
-            <el-radio-button label="目录" />
-            <el-radio-button label="菜单" />
-            <el-radio-button label="按钮" />
-          </el-radio-group>
-        </el-form-item>
-        <el-form-item label="权限名称" prop="menuName">
-          <el-input v-model="ruleForm.menuName" />
-        </el-form-item>
-        <el-form-item label="父级菜单" prop="role">
-          <el-cascader :options="menuData" :props="props1" clearable />
-        </el-form-item>
-        <el-form-item label="权限标识" prop="identification">
-          <el-input v-model="ruleForm.identification" />
-        </el-form-item>
-      </el-form>
-      <template #footer>
-        <span class="dialog-footer">
-          <el-button @click="dialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="handleClose(ruleFormRef)">确定</el-button>
-        </span>
-      </template>
-    </el-drawer>
+    <MenuDrawer ref="menuDrawerRef"/>
   </div>
 </template>
 
@@ -75,59 +46,26 @@
   import { reactive, ref } from 'vue'
   import {Search } from '@element-plus/icons-vue'
   import { menuData } from '@/mock/system'
-  import * as dayjs from 'dayjs'
+  import MenuDrawer from './components/MenuDrawer.vue'
+
   const tableData = ref(menuData)
-  const dialogVisible = ref(false)
   const title = ref('新增')
-  const formSize = ref('default')
+  const menuDrawerRef = ref()
   const ruleFormRef = ref<FormInstance>()
-  const ruleFormRef1 = ref<FormInstance>()
   const formInline = reactive({})
-  const props1 = {
-    value: 'menuName',
-    label: 'menuName',
-    checkStrictly: true,
-  }
-  const rules = reactive({
-    nickname: [
-      { required: true, message: '请输入昵称', trigger: 'blur' },
-      { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
-    ],
-    username: [{ required: true, message: '请输入', trigger: 'blur' }],
-    role: [
-      {
-        required: true,
-        message: '请选择角色',
-        trigger: 'change',
-      },
-    ],
-    sex: [
-      {
-        required: true,
-        message: '请选择性别',
-        trigger: 'change',
-      },
-    ],
-  })
+  const reset = (formEl: FormInstance | undefined) => {}
+
   const onSubmit = () => {
     console.log('submit!', formInline)
   }
-  const reset = (formEl: FormInstance | undefined) => {}
+
   const add = () => {
-    title.value = '新增'
-    dialogVisible.value = true
-  }
-  const ruleForm = reactive({
-    name: '',
-    sex: null,
-    price: null,
-  })
-  const edit = (row) => {
-    title.value = '编辑'
-    // rowObj.value = row
-    dialogVisible.value = true
+    menuDrawerRef.value.show()
   }
 
+  const edit = (row) => {
+    menuDrawerRef.value.show(row)
+  }
   const del = (row) => {
     ElMessageBox.confirm('你确定要删除当前项吗?', '温馨提示', {
       confirmButtonText: '确定',
@@ -138,6 +76,7 @@
       .then(() => {})
       .catch(() => {})
   }
+
   const changeStatus = (row) => {
     ElMessageBox.confirm(
       `确定要${!row.status ? '禁用' : '启用'} ${row.username} 账户吗？`,
@@ -154,16 +93,7 @@
       })
   }
 
-  const handleClose = async (done: () => void) => {
-    await ruleFormRef.value.validate((valid, fields) => {
-      if (valid) {
-        dialogVisible.value = false
-        console.log('submit!', obj)
-      } else {
-        console.log('error submit!', fields)
-      }
-    })
-  }
+
 </script>
 
 <style scoped lang="scss">

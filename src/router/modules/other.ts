@@ -5,7 +5,7 @@ import Layout from '@/layout/index.vue'
 const othersRouter = [{
   path: '/other',
   component: Layout,
-  redirect: '/other/editor',
+  redirect: '/other/clipboard',
   name: 'other',
   meta: {
     title: '常用组件',

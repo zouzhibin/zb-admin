@@ -2,7 +2,7 @@
 vue-element-perfect 是一个后台前端解决方案,它使用了最新的前端技术栈、动态路由，权限验证，并且有着丰富的组件,企业级中后台解决方案，可免费商用，同时支持PC、平板、手机
 
 ### 在线预览
- - link —— [http://182.61.5.190:8889/ ](http://182.61.5.190:8889/)
+- link —— [http://182.61.5.190:8889/ ](http://182.61.5.190:8889/)
 
 ### git仓库(欢迎 Star⭐)
 - Gitee： —— [https://gitee.com/yuanzbz/vue-admin-perfect](https://gitee.com/yuanzbz/vue-admin-perfect)
@@ -10,7 +10,7 @@ vue-element-perfect 是一个后台前端解决方案,它使用了最新的前�
 ## 项目功能
 - 使用Vue3.0开发，单文件组件采用＜script setup＞
 - 采用 Vite3 作为项目开发、打包工具（配置了 Gzip 打包、TSX 语法、跨域代理）
-- 整个项目集成了 TypeScript  
+- 整个项目集成了 TypeScript
 - 登录逻辑，使用vue-router进行路由权限拦截，判断，路由懒加载
 - 使用 keep-alive 对整个页面进行缓存，支持多级嵌套页面
 - 侧边栏导航菜单栏动态的显示
@@ -98,7 +98,7 @@ vue-admin-perfect
 └─ vite.config.ts         # vite 配置
 ```
 
-### 十、微信交流群
+### 微信交流群
 |                                      微信二维码                                      |
 | :----------------------------------------------------------------------------------: |
 | <img src="http://182.61.5.190:8889/we.png" width=170/> |
