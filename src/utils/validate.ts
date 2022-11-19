@@ -164,6 +164,8 @@ export function verifyEmail(val:string) {
   return regx.test(val)
 }
 
+
+
 /**
  * 验证校验器函数封装
  * @param verifyPhone 验证函数

@@ -132,8 +132,6 @@ html.dark {
     box-sizing: border-box;
     border:var(--zb-border-light);
   }
-
-  // el-drawer__header
   .el-drawer__header {
     span {
       color: var(--el-text-color-primary) !important;
@@ -175,6 +173,20 @@ html.dark {
   }
   .zb-pro-table .el-table__header th{
     color: white!important;
+  }
+
+  .login-container {
+    background-color: var(--el-fill-color-extra-light) !important;
+    .login-box {
+      background-color: var(--el-mask-color) !important;
+      .login-form {
+        background-color: var(--el-bg-color) !important;
+        box-shadow: var(--geeker-login-shadow-light) !important;
+        .title {
+          color: var(--el-text-color-primary) !important;
+        }
+      }
+    }
   }
 
 }

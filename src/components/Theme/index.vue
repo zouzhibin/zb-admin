@@ -64,7 +64,7 @@
 
 <script lang="ts" setup>
   import {computed, ref} from 'vue'
-  import SwitchDark from './components/switchDark.vue'
+  import SwitchDark from '@/components/SwitchDark/index.vue'
   import {ElMessage} from "element-plus";
   import {PRIMARY_COLOR} from "@/config/index";
   import {useSettingStore} from "@/store/modules/setting"
