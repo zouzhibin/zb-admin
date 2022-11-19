@@ -6,13 +6,19 @@ import Layout from "@/layout/index.vue";
 const functionPageRouter = [{
     path: '/function-page',
     component: Layout,
-    redirect: '/function-page/401',
+    redirect: '/function-page/404',
     name: 'function-page',
     meta: {
         title: '功能页面',
         icon: 'ElementPlus'
     },
     children: [
+        {
+            path: 'tools',
+            component: () => import('@/views/functionPage/tools/index.vue'),
+            name: 'tools',
+            meta: { title: '工具链集合', keepAlive: true , icon: 'MenuIcon'}
+        },
         {
             path: '404',
             component: () => import('@/views/error/404.vue'),

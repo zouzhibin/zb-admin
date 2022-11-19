@@ -12,7 +12,6 @@
           :model="ruleForm"
           :rules="rules"
           label-width="0"
-          class="demo-ruleForm"
         >
           <el-form-item label="" prop="username">
             <el-input
