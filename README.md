@@ -30,9 +30,6 @@ vue-element-perfect 是一个后台前端解决方案,它使用了最新的前�
 
 ## 分支管理
 - master 技术采用 vite + vue3.0 + Typescript + pinia
-  ```
-  注意：使用 Vite 构建工具，需要 Node.js 版本 >= 12.0.0  查看 Node.js 版本 node-v
-  ```
 - vite-vuex vite + vue3.0 + Typescript + vuex
 - vue-i18n 语言切换版本
 - webpack 技术采用 webpack + vue3.0 + Typescript + vuex
@@ -47,6 +44,8 @@ vue-element-perfect 是一个后台前端解决方案,它使用了最新的前�
  npm install
  cnpm install
  yarn 
+ # npm install 安装失败，请升级 nodejs 到 16 以上，或尝试使用以下命令：
+  npm install --registry=https://registry.npm.taobao.org
 ```
 ## 运行打包
 ```
