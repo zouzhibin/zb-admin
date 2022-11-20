@@ -87,18 +87,33 @@
 
     .is-active > .el-sub-menu__title {
       color: $subMenuActiveText !important;
+
     }
+    .el-menu-item.is-active:before{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 4px;
+      content: "";
+      background: var(--el-color-primary);
+    }
+
 
     & .nest-menu .el-sub-menu > .el-sub-menu__title,
     & .el-sub-menu .el-menu-item {
       min-width: $sideBarWidth !important;
       background-color: $subMenuBg !important;
 
-      &:hover {
-        background-color: $subMenuHover !important;
-      }
+    }
+    .el-menu-item:not(.is-active):hover {
+      background-color:  $subMenuHover !important;
+    }
+    .el-menu-item.is-active{
+      background-color:$subMenuHover !important;
     }
   }
+
 
   .hideSidebar {
     .sidebar-container {

@@ -54,10 +54,10 @@ import { ElNotification } from "element-plus";
 import { useRouter } from 'vue-router'
 import {useUserStore} from "@/store/modules/user"
 import {getTimeState} from '@/utils/index'
+
 const ruleFormRef = ref<FormInstance>()
 const router = useRouter()
 const UserStore = useUserStore()
-
 const passwordType = ref('password')
 const loading = ref(false)
 const rules = reactive({
@@ -78,10 +78,10 @@ const showPwd = () => {
   }
 }
 const submitForm = (formEl: FormInstance | undefined) => {
-  loading.value = true
   if (!formEl) return
   formEl.validate((valid) => {
     if (valid) {
+      loading.value = true
       // 登录
       setTimeout(async ()=>{
         await UserStore.login( ruleForm)
