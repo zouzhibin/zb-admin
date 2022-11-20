@@ -10,13 +10,13 @@
       </router-view>
     </div>
     <Theme />
-    <Footer/>
+
   </div>
 </template>
 
 <script lang="ts" setup>
   import Theme from '@/components/Theme/index.vue'
-  import Footer from '../Footer/index.vue'
+
   import { computed, ref } from 'vue'
   import {useSettingStore} from "@/store/modules/setting"
   import {usePermissionStore} from "@/store/modules/permission"
@@ -33,14 +33,13 @@
     flex: 1;
     display: flex;
     overflow-x: hidden;
-    flex-direction: column;
+
     width: 100%;
     box-sizing: border-box;
     .app-main-inner{
       flex: 1;
       display: flex;
       overflow-x: hidden;
-      flex-direction: column;
       width: 100%;
       box-sizing: border-box;
     }

@@ -78,10 +78,10 @@ const showPwd = () => {
   }
 }
 const submitForm = (formEl: FormInstance | undefined) => {
-  loading.value = true
   if (!formEl) return
   formEl.validate((valid) => {
     if (valid) {
+      loading.value = true
       // 登录
       setTimeout(async ()=>{
         await UserStore.login( ruleForm)

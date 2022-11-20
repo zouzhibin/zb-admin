@@ -8,7 +8,7 @@ const echartsRouter = [{
     redirect: '/echarts/migration',
     name: 'echarts',
     meta: {
-        title: '可视化图表',
+        title: 'Echarts',
         icon: 'trend-charts',
         roles:['other']
     },

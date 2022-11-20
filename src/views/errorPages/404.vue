@@ -1,29 +1,32 @@
 <template>
-  <div class="wscn-http404-container">
-    <div class="wscn-http404">
-      <div class="pic-404">
-        <img class="pic-404__parent" src="@/assets/404_images/404.png" alt="404">
-        <img class="pic-404__child left" src="@/assets/404_images/404_cloud.png" alt="404">
-        <img class="pic-404__child mid" src="@/assets/404_images/404_cloud.png" alt="404">
-        <img class="pic-404__child right" src="@/assets/404_images/404_cloud.png" alt="404">
-      </div>
-      <div class="bullshit">
-        <div class="bullshit__oops">页面不存在！</div>
-        <div class="bullshit__headline">{{ message }}</div>
-        <div class="bullshit__info">请检查URL地址是否正确, 或点击回到首页。</div>
-        <router-link to="/" class="bullshit__return-home">回到首页</router-link>
-      </div>
-    </div>
-  </div>
+ <div class="app-container">
+   <div class="app-container-inner">
+     <div class="wscn-http404-container">
+       <div class="wscn-http404">
+         <div class="pic-404">
+           <img class="pic-404__parent" src="@/assets/404_images/404_bg.png" alt="404">
+           <img class="pic-404__child left" src="@/assets/404_images/404_cloud.png" alt="404">
+           <img class="pic-404__child mid" src="@/assets/404_images/404_cloud.png" alt="404">
+           <img class="pic-404__child right" src="@/assets/404_images/404_cloud.png" alt="404">
+         </div>
+         <div class="bullshit">
+           <div class="bullshit__oops">页面不存在！</div>
+           <div class="bullshit__headline">{{ message }}</div>
+           <div class="bullshit__info">请检查URL地址是否正确, 或点击回到首页。</div>
+           <router-link to="/" class="bullshit__return-home">回到首页</router-link>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
 </template>
 
 <script lang="ts">
 </script>
 <style lang="scss" scoped>
 .wscn-http404-container{
-  transform: translate(-50%,-50%);
+  transform: translate(-50%);
   position: absolute;
-  top: 40%;
   left: 50%;
 }
 .wscn-http404 {

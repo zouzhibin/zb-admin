@@ -29,6 +29,12 @@ const externalLink = [{
             meta: { title: 'Gitee 地址',  icon: 'MenuIcon' }
         },
         {
+            path: 'http://182.61.5.190:8890/#/login',
+            name: 'simple',
+            meta: { title: '简易版本',  icon: 'MenuIcon' },
+            component: () => import('@/views/externalLinks/simple/index.vue'),
+        },
+        {
             path: 'iframe',
             component: () => import('@/views/externalLinks/iframe/index.vue'),
             name: 'iframe',

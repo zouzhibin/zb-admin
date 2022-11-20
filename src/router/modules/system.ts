@@ -10,15 +10,8 @@ const systemRouter = [{
     meta: {
         title: '系统管理',
         icon: 'Setting',
-        roles:['other']
     },
     children: [
-        {
-            path: 'page',
-            component: () => import('@/views/system/page/index.vue'),
-            name: 'page',
-            meta: { title: '页面权限', icon: 'MenuIcon',  roles:['other']  }
-        },
         {
             path: 'user',
             component: () => import('@/views/system/user/index.vue'),
