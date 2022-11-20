@@ -11,7 +11,7 @@ export const useUserStore = defineStore({
         // 登录用户信息
         userInfo:{},
         // 角色
-        roles:[]
+        roles:localStorage.roles?JSON.parse(localStorage.roles):[]
 
     }),
     getters: {},
@@ -32,6 +32,7 @@ export const useUserStore = defineStore({
             return new Promise((resolve, reject) =>{
                 // 获取权限列表 默认就是超级管理员，因为没有进行接口请求 写死
                 this.roles = ['admin']
+                localStorage.roles = JSON.stringify(this.roles)
                 resolve(this.roles)
             } )
         },

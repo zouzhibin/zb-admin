@@ -1,4 +1,4 @@
-import router from './router/index'
+import router from '@/router/index'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import {useUserStore} from "@/store/modules/user"
@@ -33,6 +33,7 @@ router.beforeEach(async(to, from, next) => {
                 const accessRoutes = await PermissionStore.generateRoutes(UserStore.roles)
                 hasRoles = false
                 accessRoutes.forEach(item => router.addRoute(item)) // 动态添加访问路由表
+                console.log('accessRoutes',accessRoutes)
                 next({ ...to, replace: true }) // // 这里相当于push到一个页面 不在进入路由拦截
             }else {
                 next() // // 如果不传参数就会重新执行路由拦截，重新进到这里

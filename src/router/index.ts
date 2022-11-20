@@ -7,7 +7,6 @@ interface extendRoute {
 //
 import tableRouter from './modules/table'
 import dataScreenRouter from './modules/dataScreen'
-import errorRouter from './modules/error'
 import excelRouter from './modules/excel'
 import nestedRouter from './modules/nested'
 import systemRouter from './modules/system'
@@ -17,6 +16,7 @@ import othersRouter from './modules/other'
 import externalLink from './modules/externalLink'
 import formRouter from './modules/from'
 import functionPageRouter from './modules/functionPage'
+
 
 // 异步组件
 export const asyncRoutes = [
@@ -29,13 +29,8 @@ export const asyncRoutes = [
     ...chatRouter,
     ...nestedRouter,
     ...excelRouter,
-    ...errorRouter,
     ...externalLink,
     ...systemRouter,
-    {
-        path: '/:pathMatch(.*)',
-        redirect: '/404'
-    }
 ]
 
 /**
@@ -54,6 +49,18 @@ export const asyncRoutes = [
  */
 
 export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
+    {
+        path: "/404",
+        name: "404",
+        component: () => import("@/views/errorPages/404.vue"),
+        hidden:true,
+    },
+    {
+        path: "/403",
+        name: "403",
+        component: () => import("@/views/errorPages/403.vue"),
+        hidden:true,
+    },
   {
     path: '/login',
     name: 'Login',
@@ -76,6 +83,16 @@ export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
     ]
   },
 ]
+
+/**
+ * notFoundRouter(找不到路由)
+ */
+export const notFoundRouter = {
+    path: '/:pathMatch(.*)',
+    name: "notFound",
+    redirect: '/404'
+};
+
 
 const router = createRouter({
   // history: createWebHistory(process.env.BASE_URL), // history

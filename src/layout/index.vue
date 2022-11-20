@@ -1,7 +1,7 @@
 <template>
   <div class="g-container-layout" :class="classObj">
     <div v-if="device === 'mobile' && !isCollapse" class="drawer-bg" @click="handleClickOutside" />
-    <sidebar class="sidebar-container" v-if="mode === 'vertical'" />
+    <Sidebar class="sidebar-container" v-if="mode === 'vertical'" />
     <div
       class="main-container"
       :class="{
@@ -9,10 +9,9 @@
       }"
     >
       <div :style="{ height:`${showTag?90:50}px`  }" v-if="SettingStore.themeConfig.fixedHeader"></div>
-      <u-header />
-      <div class="m-container-content" :class="{ 'app-main-hide-tag': !showTag }">
-        <Main />
-      </div>
+      <UHeader/>
+      <Main/>
+      <Footer/>
     </div>
   </div>
 </template>
@@ -23,7 +22,7 @@
   import Sidebar from './Sidebar/index.vue'
   import UHeader from './Header/index.vue'
   import Main from './Main/index.vue'
-
+  import Footer from './Footer/index.vue'
   import { useResizeHandler } from './hooks/useResizeHandler'
 
   const SettingStore = useSettingStore()
@@ -53,11 +52,9 @@
 
 <style lang="scss" scoped>
   .g-container-layout {
-    //display: flex;
     height: 100%;
     width: 100%;
     .main-container {
-      //overflow: auto;
       display: flex;
       flex: 1;
       box-sizing: border-box;
@@ -80,11 +77,5 @@
     height: 100%;
     position: absolute;
     z-index: 90;
-  }
-  .m-container-content {
-    display: flex;
-    flex: 1;
-    position: relative;
-    box-sizing: border-box;
   }
 </style>

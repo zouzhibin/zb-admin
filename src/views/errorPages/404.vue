@@ -1,35 +1,18 @@
 <template>
  <div class="app-container">
    <div class="app-container-inner">
-     <div class="wscn-http403-container">
-       <div class="wscn-http403">
-         <div class="pic-403">
-           <img
-               class="pic-403__parent"
-               src="@/assets/403_images/403.png"
-               alt="403"
-           />
-           <img
-               class="pic-403__child left"
-               src="@/assets/403_images/403_cloud.png"
-               alt="403"
-           />
-           <img
-               class="pic-403__child mid"
-               src="@/assets/403_images/403_cloud.png"
-               alt="403"
-           />
-           <img
-               class="pic-403__child right"
-               src="@/assets/403_images/403_cloud.png"
-               alt="403"
-           />
+     <div class="wscn-http404-container">
+       <div class="wscn-http404">
+         <div class="pic-404">
+           <img class="pic-404__parent" src="@/assets/404_images/404_bg.png" alt="404">
+           <img class="pic-404__child left" src="@/assets/404_images/404_cloud.png" alt="404">
+           <img class="pic-404__child mid" src="@/assets/404_images/404_cloud.png" alt="404">
+           <img class="pic-404__child right" src="@/assets/404_images/404_cloud.png" alt="404">
          </div>
          <div class="bullshit">
-           <div class="bullshit__oops">您没有访问权限！</div>
-           <div class="bullshit__info">
-             请检查URL地址是否正确, 或点击回到首页。
-           </div>
+           <div class="bullshit__oops">页面不存在！</div>
+           <div class="bullshit__headline">{{ message }}</div>
+           <div class="bullshit__info">请检查URL地址是否正确, 或点击回到首页。</div>
            <router-link to="/" class="bullshit__return-home">回到首页</router-link>
          </div>
        </div>
@@ -38,25 +21,23 @@
  </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 </script>
-
 <style lang="scss" scoped>
-.wscn-http403-container {
-  transform: translate(-50%, -50%);
+.wscn-http404-container{
+  transform: translate(-50%);
   position: absolute;
-  top: 40%;
   left: 50%;
 }
-.wscn-http403 {
+.wscn-http404 {
   position: relative;
   width: 1200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 0 50px;
   overflow: hidden;
-  .pic-403 {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  .pic-404 {
     position: relative;
     float: left;
     width: 600px;
