@@ -1,7 +1,6 @@
 <template>
   <div class="login-container">
     <div class="login-box">
-      <SwitchDark class="login-dark"/>
       <div class="login-left">
         <img src="@/assets/image/login/side-logo.png" >
       </div>
