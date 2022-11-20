@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import pinia from "./store";
-// import 'default-passive-events'
 
 // 权限路由
 import './permission'
@@ -12,21 +11,16 @@ import SvgIcon from '@/components/SvgIcon/index.vue'// svg component
 // UI框架 element-plus
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-// 引入暗黑模式 element-plus 2.2 内置暗黑模式
-import 'element-plus/theme-chalk/dark/css-vars.css'
-// 自定义暗黑模式
-import "@/styles/element-dark.scss";
 // 引入阿里图标库
 import "@/assets/iconfont/iconfont.css";
 import "@/assets/iconfont/iconfont.js";
 
-// 引入全局组件布局
-import UContainerLayout from '@/components/u-container-layout/index.vue'
+
 
 const app = createApp(App)
 
 app.component('svg-icon',SvgIcon)
-app.component('u-container-layout',UContainerLayout)
+
 
 // 注册icon组件
 import * as ElIconsModules from '@element-plus/icons-vue'

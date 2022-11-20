@@ -6,32 +6,20 @@ interface extendRoute {
 }
 //
 import tableRouter from './modules/table'
-import dataScreenRouter from './modules/dataScreen'
 import errorRouter from './modules/error'
-import excelRouter from './modules/excel'
 import nestedRouter from './modules/nested'
-import systemRouter from './modules/system'
-import echartsRouter from './modules/echarts'
-import chatRouter from './modules/chat'
-import othersRouter from './modules/other'
 import externalLink from './modules/externalLink'
 import formRouter from './modules/from'
 import functionPageRouter from './modules/functionPage'
 
 // 异步组件
 export const asyncRoutes = [
-    ...dataScreenRouter,
-    ...echartsRouter,
     ...tableRouter,
     ...formRouter,
-    ...othersRouter,
     ...functionPageRouter,
-    ...chatRouter,
     ...nestedRouter,
-    ...excelRouter,
     ...errorRouter,
     ...externalLink,
-    ...systemRouter,
     {
         path: '/:pathMatch(.*)',
         redirect: '/404'
