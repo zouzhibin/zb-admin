@@ -66,7 +66,7 @@ const rules = reactive({
 })
 // 表单数据
 const ruleForm = reactive({
-  username: 'admin',
+  username: 'vue-admin-perfect',
   password: '123456',
 })
 

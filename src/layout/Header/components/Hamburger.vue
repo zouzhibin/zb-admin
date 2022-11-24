@@ -32,7 +32,6 @@ const handleLink = (item)=>{
 
 const matched = computed(() => route.matched.filter(item => item.meta && item.meta.title && item.meta.breadcrumb !== false));
 
-console.log('======matched=======',matched)
 
 </script>
 

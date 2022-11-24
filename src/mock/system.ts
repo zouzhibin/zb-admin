@@ -53,6 +53,132 @@ export const userData =[
 ]
 
 
+export const deptData =[
+    {
+    "id": "0",
+    "deptName": "华东分部",
+    "orderNo": 1,
+    "createTime": "2011-02-25 18:37:39",
+    "remark": "世上无难事，只要肯登攀",
+    "status": false,
+    "children": [{
+        "id": "0-0",
+        "deptName": "研发部",
+        "orderNo": 1,
+        "createTime": "1995-10-07 03:22:40",
+        "remark": "不曾扬帆，何以至远方",
+        "status": true,
+        "parentDept": "0"
+    }, {
+        "id": "0-1",
+        "deptName": "市场部",
+        "orderNo": 2,
+        "createTime": "1972-06-20 09:33:40",
+        "remark": "努力到无能为力，拼搏到感动自己",
+        "status": false,
+        "parentDept": "0"
+    }, {
+        "id": "0-2",
+        "deptName": "商务部",
+        "orderNo": 3,
+        "createTime": "1992-10-31 02:54:45",
+        "remark": "没有过不了的坎，就怕自己不奋斗",
+        "status": false,
+        "parentDept": "0"
+    }, {
+        "id": "0-3",
+        "deptName": "财务部",
+        "orderNo": 4,
+        "createTime": "1971-07-06 13:01:49",
+        "remark": "没有口水与汗水，就没有成功的泪水。",
+        "status": true,
+        "parentDept": "0"
+    }]
+}, {
+    "id": "1",
+    "deptName": "华南分部",
+    "orderNo": 2,
+    "createTime": "1995-12-24 06:36:26",
+    "remark": "这个世界从来不缺乏机遇，而是缺少抓住机遇的手。",
+    "status": false,
+    "children": [{
+        "id": "1-0",
+        "deptName": "研发部",
+        "orderNo": 1,
+        "createTime": "2022-05-10 12:44:05",
+        "remark": "奋斗令我们的生活充满生机，责任让我们的生命充满意义！",
+        "status": true,
+        "parentDept": "1"
+    }, {
+        "id": "1-1",
+        "deptName": "市场部",
+        "orderNo": 2,
+        "createTime": "2022-07-15 02:53:29",
+        "remark": "学习之心不可无，懒惰之心不可有。",
+        "status": true,
+        "parentDept": "1"
+    },
+        {
+        "id": "1-2",
+        "deptName": "商务部",
+        "orderNo": 3,
+        "createTime": "2022-08-11 22:44:55",
+        "remark": "学会等待，学会坚持，成功是一个循序渐进的过程。",
+        "status": true,
+        "parentDept": "1"
+    }, {
+        "id": "1-3",
+        "deptName": "财务部",
+        "orderNo": 4,
+        "createTime": "2022-10-26 19:38:29",
+        "remark": "能克服困难的人，可使困难化为良机",
+        "status": false,
+        "parentDept": "1"
+    }
+    ]
+}, {
+    "id": "2",
+    "deptName": "西北分部",
+    "orderNo": 3,
+    "createTime": "2022-08-27 16:49:21",
+    "remark": "行为决定性格，性格决定命运",
+    "status": false,
+    "children": [{
+        "id": "2-0",
+        "deptName": "研发部",
+        "orderNo": 1,
+        "createTime": "2022-12-11 03:49:33",
+        "remark": "带着自己的梦，以一种骄傲的姿态走下去",
+        "status": false,
+        "parentDept": "2"
+    }, {
+        "id": "2-1",
+        "deptName": "市场部",
+        "orderNo": 2,
+        "createTime": "2022-06-18 20:15:34",
+        "remark": "当世界都在说放弃的时候，轻轻的告诉自己：再试一次",
+        "status": true,
+        "parentDept": "2"
+    }, {
+        "id": "2-2",
+        "deptName": "商务部",
+        "orderNo": 3,
+        "createTime": "2022-07-17 09:37:41",
+        "remark": "不怕万人阻挡在前方，只怕自己先行投降",
+        "status": true,
+        "parentDept": "2"
+    }, {
+        "id": "2-3",
+        "deptName": "财务部",
+        "orderNo": 4,
+        "createTime": "2022-11-23 04:34:33",
+        "remark": "胸怀临云志，莫负少年时",
+        "status": false,
+        "parentDept": "2"
+    }]
+}]
+
+
 export const roleData =[
     {
         roleName:'超级管理员',
