@@ -83,14 +83,15 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     //   pure:mode==='production' ? ["console.log", "debugger"] : []
     // },
 
-    // build: {
+    build: {
+      outDir:'docs'
     //   terserOptions: {
     //     compress: {
     //       drop_console: true,
     //       drop_debugger: true,
     //     },
     //   },
-    // },
+    },
   }
 
 })
