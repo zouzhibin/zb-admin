@@ -2,8 +2,8 @@
   <div class="app-container">
     <div class="header">
       <el-form :inline="true" :model="formInline" ref="ruleFormRef">
-        <el-form-item label="用户名" prop="username">
-          <el-input v-model="formInline.username" />
+        <el-form-item label="菜单名称" prop="username">
+          <el-input v-model="formInline.username" placeholder="请输入菜单名称"/>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="onSubmit" :icon="Search">查询</el-button>

@@ -3,7 +3,7 @@
     <div class="header">
       <el-form :inline="true" :model="formInline" class="demo-form-inline" ref="ruleFormRef">
         <el-form-item label="角色名称" prop="roleName">
-          <el-input v-model="formInline.roleName" />
+          <el-input v-model="formInline.roleName" placeholder="请输入角色名称"/>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="onSubmit" :icon="Search">查询</el-button>
@@ -19,7 +19,9 @@
         </el-button>
       </div>
       <div class="table-inner">
-        <el-table :data="tableData" style="width: 100%" border>
+        <el-table
+            v-loading="loading"
+            :data="tableData" style="width: 100%" border>
           <el-table-column prop="roleName" label="角色名称" />
           <el-table-column prop="roleIdentification" label="角色标识" />
           <el-table-column prop="status" label="角色状态" align="center">
@@ -54,13 +56,13 @@
 
 <script lang="ts" setup>
   import { ElMessageBox, ElMessage, FormInstance } from 'element-plus'
-  import { reactive, ref } from 'vue'
+  import {onMounted, reactive, ref} from 'vue'
   import {Search } from '@element-plus/icons-vue'
   import RoleDrawer from './components/roleDrawer.vue'
   import { roleData } from '@/mock/system'
-  import * as dayjs from 'dayjs'
   const tableData = ref(roleData)
 
+  const loading = ref(true)
   const roleDrawer = ref()
   const formSize = ref('default')
   const ruleFormRef = ref<FormInstance>()
@@ -68,8 +70,18 @@
 
   const onSubmit = () => {
     console.log('submit!', formInline)
+    loading.value = true
+    setTimeout(()=>{
+      loading.value = false
+    },500)
   }
-  const reset = (formEl: FormInstance | undefined) => {}
+
+  const reset = (formEl: FormInstance | undefined) => {
+    loading.value = true
+    setTimeout(()=>{
+      loading.value = false
+    },500)
+  }
   const add = () => {
     roleDrawer.value.show()
   }
@@ -104,6 +116,12 @@
           row.status = !row.status
         })
   }
+
+  onMounted(()=>{
+    setTimeout(()=>{
+      loading.value = false
+    },500)
+  })
 
 
 </script>

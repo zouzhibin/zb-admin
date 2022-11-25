@@ -19,6 +19,12 @@ const systemRouter = [{
             meta: { title: '用户管理' , icon: 'MenuIcon'}
         },
         {
+            path: 'dept',
+            component: () => import('@/views/system/dept/index.vue'),
+            name: 'dept',
+            meta: { title: '部门管理' , icon: 'MenuIcon'}
+        },
+        {
             path: 'role',
             component: () => import('@/views/system/role/index.vue'),
             name: 'role',
