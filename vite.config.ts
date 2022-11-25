@@ -19,7 +19,6 @@ function resolve (dir) {
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   return {
-    base:'/vue-admin-perfect/',
     plugins: [vue(),
       vueSetupExtend(),
       // AutoImport({

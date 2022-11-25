@@ -96,7 +96,7 @@ export const notFoundRouter = {
 
 const router = createRouter({
   // history: createWebHistory(process.env.BASE_URL), // history
-  history: createWebHashHistory('/vue-admin-perfect/'), // hash
+  history: createWebHashHistory(), // hash
   routes:constantRoutes
 })
 
