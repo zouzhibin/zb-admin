@@ -1,1 +1,0 @@
-import{_ as o,r as t,o as a,c as n,a as s,b as c}from"./index.0f539a17.js";const r={},_={class:"app-container"},l={class:"app-container-inner"};function i(d,p){const e=t("el-alert");return a(),n("div",_,[s("div",l,[c(e,{title:"menu 2",closable:!1})])])}const m=o(r,[["render",i]]);export{m as default};
