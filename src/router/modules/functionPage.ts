@@ -23,13 +23,13 @@ const functionPageRouter = [{
             path: '404',
             component: () => import('@/views/errorPages/404.vue'),
             name: 'function-404',
-            meta: { title: '404', keepAlive: true , icon: 'MenuIcon'}
+            meta: { title: '404 页面', keepAlive: true , icon: 'MenuIcon'}
         },
         {
             path: '403',
             component: () => import('@/views/errorPages/403.vue'),
             name: 'function-403',
-            meta: { title: '403', keepAlive: true , icon: 'MenuIcon'}
+            meta: { title: '403 页面', keepAlive: true , icon: 'MenuIcon'}
         },
     ]
 }]

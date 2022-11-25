@@ -61,6 +61,9 @@
   .el-menu{
     overflow: hidden;
   }
+  :deep(.el-menu-item){
+    height: 100% !important;
+  }
   .tool-bar-right{
     display: flex;
     justify-content: flex-end;

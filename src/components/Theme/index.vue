@@ -64,11 +64,13 @@
 
 <script lang="ts" setup>
   import {computed, ref} from 'vue'
-  import SwitchDark from '@/components/SwitchDark/index.vue'
   import {ElMessage} from "element-plus";
+
+  import SwitchDark from '@/components/SwitchDark/index.vue'
   import {PRIMARY_COLOR} from "@/config/index";
   import {useSettingStore} from "@/store/modules/setting"
   import {getDarkColor,getLightColor} from '@/utils/index'
+
   const SettingStore = useSettingStore()
   const layout = ref(SettingStore.themeConfig.mode)
   const showTag = ref(SettingStore.themeConfig.showTag)
@@ -103,9 +105,12 @@
         return
     }
   }
+
+  // 进行配置
   const changeSwitch = (key,val) => {
     SettingStore.setThemeConfig({key, val})
   }
+
   // 修改主题颜色
   const changePrimary = (val)=>{
     if (!val) {
