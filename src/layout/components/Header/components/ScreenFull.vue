@@ -1,6 +1,10 @@
 <template>
   <div class="m-screenful">
-    <svg-icon :icon-class="isFullscreen?'exit-fullscreen':'fullscreen'" @click="toggle" class="full-screen"/>
+    <el-tooltip effect="dark" content="全屏" placement="bottom">
+      <svg-icon :icon-class="isFullscreen?'exit-fullscreen':'fullscreen'" @click="toggle"
+         className="header-icon"
+      />
+    </el-tooltip>
   </div>
 </template>
 
@@ -17,10 +21,5 @@ const { toggle, isFullscreen } = useFullscreen();
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s;
-}
-.transverseMenu {
-  .full-screen {
-    color: white;
-  }
 }
 </style>

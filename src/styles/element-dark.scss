@@ -58,22 +58,8 @@ html.dark {
   body{
     background: none;
   }
-  .tags-wrap-container{
-    border: var(--zb-border-light);
-    border-top:none ;
-    border-left: none;
-    box-sizing: border-box;
 
-    .tags-view{
-      background: none;
-    }
-  }
-  .m-container-layout{
-    .m-container-layout-inner{
-      background: none;
-      color: var(--el-text-color-primary) !important;
-    }
-  }
+
   // 编辑器
   .w-e-toolbar, .w-e-text-container, .w-e-menu-panel{
     background: none!important;
@@ -85,7 +71,7 @@ html.dark {
 
   #app{
     .sidebar-container{
-      background: none!important;
+      background: var(--el-bg-color)!important;
       & .el-menu .el-sub-menu > .el-sub-menu__title,
       & .el-sub-menu .el-menu-item {
         background-color: var(--el-bg-color) !important;
@@ -104,31 +90,11 @@ html.dark {
       }
     }
   }
-  .zb-pro-table .header{
-    background: none!important;
-    border: var(--zb-border-light);
-  }
-  .zb-pro-table .footer{
-    background: none!important;
-    border: var(--zb-border-light);
-  }
-  // m-layout-header
-  .m-layout-header{
-    color: var(--el-text-color-primary) !important;
-    background: none;
-    .header{
-      border:var(--zb-border-light);
-      border-left:none ;
-    }
 
-  }
-  .el-scrollbar{
-    border:var(--zb-border-light);
-    border-top:none ;
-  }
+
+
   .sidebar-logo-container{
     background: none;
-    height: 60px;
     box-sizing: border-box;
     border:var(--zb-border-light);
   }
@@ -141,12 +107,6 @@ html.dark {
     color: var(--el-text-color-primary) !important;
   }
 
-  // icon
-  .m-info .bell,
-  .m-setting .bell,
-  .m-headerSearch .bell{
-    color: white!important;
-  }
 
   .el-table__header th {
     font-weight: bold;
@@ -156,28 +116,93 @@ html.dark {
     background: none;
     color: white;
   }
-  .app-container-inner{
-    background: none;
-  }
-  .list-group-item{
-    background: none!important;
-    border: 1px solid white;
-  }
-  .app-container{
+
+
+  .zb-pro-table{
     .header{
-      background: none;
+      background: none!important;
+      border: var(--zb-border-light);
     }
     .footer{
+      background: none!important;
+      border: var(--zb-border-light);
+    }
+    .el-table__header th{
+      color: white!important;
+    }
+  }
+
+  // header
+  .m-layout-header{
+    color: var(--el-text-color-primary) !important;
+    .header-inner{
+      background-color: var(--el-bg-color)!important;
+      border-bottom:var(--zb-border-light);
+      .header-icon{
+        color:#bfcbd9!important;
+      }
+    }
+    // tagviews
+    .m-tags-view{
+      background: var(--el-bg-color)!important;
+      border: var(--zb-border-light);
+      border-top:none ;
+      border-left: none;
+      box-sizing: border-box;
+      .el-tabs--card>.el-tabs__header{
+        border-bottom: none!important;
+      }
+    }
+
+
+  }
+
+  // 内容区
+  .app-main{
+    .echarts-map{
+      background: var(--el-bg-color)!important;
+    }
+    .app-echarts{
+      background: none;
+    }
+
+    .app-container{
+      .header{
+        background: none;
+      }
+      .footer{
+        background: none;
+      }
+    }
+    .m-container-layout{
+      .m-container-layout-inner{
+        background: none;
+        color: var(--el-text-color-primary) !important;
+      }
+    }
+
+    .item-group-item{
+      background: none!important;
+      border: var(--zb-border-light);
+      color: #cccccc;
+    }
+
+    .app-container-inner{
       background: none;
     }
   }
-  .zb-pro-table .el-table__header th{
-    color: white!important;
+
+  // 底部
+  .footer-layout{
+    border-top:var(--zb-border-light);
   }
   .app-echarts{
     background: black!important;
   }
 
+
+
+  // 登录
   .login-container {
     background-color: var(--el-fill-color-extra-light) !important;
     .login-box {
@@ -192,4 +217,8 @@ html.dark {
     }
   }
 
+  .el-scrollbar{
+    border:var(--zb-border-light);
+    border-top:none ;
+  }
 }

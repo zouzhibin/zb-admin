@@ -11,6 +11,7 @@ body{
   background: #f0f2f5;
 }
 
+
 /* 常用 flex */
 .flex-center {
   display: flex;
@@ -55,8 +56,6 @@ body{
 }
 
 
-
-
 /* nprogress样式 */
 #nprogress .bar {
   background: $primaryColor !important;
@@ -85,3 +84,13 @@ body{
   padding: 20px;
   box-sizing: border-box;
 }
+
+.layout-horizontal{
+  .header-icon{
+    color:#bfcbd9!important;
+  }
+  .el-dropdown-link{
+    color:#bfcbd9!important;
+  }
+}
+

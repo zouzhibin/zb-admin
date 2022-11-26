@@ -2,7 +2,7 @@
 <template>
   <div class="m-headerSearch">
     <el-tooltip effect="dark" content="菜单搜索" placement="bottom">
-      <el-icon class="bell" style="font-size: 22px;" @click="handleSearch"><Search /></el-icon>
+      <el-icon class="bell header-icon" style="font-size: 22px;" @click="handleSearch"><Search /></el-icon>
     </el-tooltip>
     <el-dialog v-model="isShowSearch" width="600px" destroy-on-close   :show-close="false">
       <el-select

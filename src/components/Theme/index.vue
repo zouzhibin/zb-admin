@@ -63,9 +63,9 @@
 </template>
 
 <script lang="ts" setup>
-  import {computed, ref} from 'vue'
+  import {computed, ref,watch} from 'vue'
   import {ElMessage} from "element-plus";
-
+  import {openLoading,closeLoading} from "@/utils/element"
   import SwitchDark from '@/components/SwitchDark/index.vue'
   import {PRIMARY_COLOR} from "@/config/index";
   import {useSettingStore} from "@/store/modules/setting"
@@ -86,7 +86,9 @@
       return SettingStore.themeConfig.showSetting;
     },
     set() {
+
       changeSwitch('showSetting',!SettingStore.themeConfig.showSetting)
+
     }
   })
 
@@ -109,7 +111,23 @@
   // 进行配置
   const changeSwitch = (key,val) => {
     SettingStore.setThemeConfig({key, val})
+    if(key==='mode'){
+      openLoading()
+      setTimeout(()=>{
+        closeLoading()
+      },600)
+    }
   }
+
+  // 监听布局变化
+  watch(
+      () => layout.value,
+      () => {
+        const body = document.body as HTMLElement;
+        body.setAttribute("class", `layout-${layout.value}`);
+      },
+      { immediate: true }
+  );
 
   // 修改主题颜色
   const changePrimary = (val)=>{

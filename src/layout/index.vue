@@ -1,37 +1,44 @@
 <template>
   <div class="g-container-layout" :class="classObj">
-    <div v-if="device === 'mobile' && !isCollapse" class="drawer-bg" @click="handleClickOutside" />
-    <Sidebar class="sidebar-container" v-if="mode === 'vertical'" />
-    <div
-      class="main-container"
-      :class="{
-        hideSliderLayout: mode === 'horizontal',
-      }"
-    >
-      <div :style="{ height:`${showTag?90:50}px`  }" v-if="SettingStore.themeConfig.fixedHeader"></div>
-      <UHeader/>
-      <Main/>
-      <Footer/>
-    </div>
+    <Mobile/>
+    <LayoutVertical v-if="device === 'mobile'"/>
+    <component :is="LayoutComponents[themeConfig.mode]" v-else/>
+    <Theme />
   </div>
 </template>
 
 <script lang="ts" setup>
-  import { computed, defineComponent, ref } from 'vue'
+  import { computed,watch } from 'vue'
+  import Theme from '@/components/Theme/index.vue'
+  import Mobile from './components/Mobile/index.vue'
   import {useSettingStore} from "@/store/modules/setting"
-  import Sidebar from './Sidebar/index.vue'
-  import UHeader from './Header/index.vue'
-  import Main from './Main/index.vue'
-  import Footer from './Footer/index.vue'
   import { useResizeHandler } from './hooks/useResizeHandler'
+  import LayoutVertical from './LayoutVertical/index.vue'
+  import LayoutHorizontal from './LayoutHorizontal/index.vue'
 
   const SettingStore = useSettingStore()
+  const themeConfig = computed(() => SettingStore.themeConfig)
+  const LayoutComponents = {
+    horizontal: LayoutHorizontal,
+    vertical: LayoutVertical,
+  };
 
   // 是否折叠
   const isCollapse = computed(() => {
     return !SettingStore.isCollapse
   })
   let { device } = useResizeHandler()
+
+  watch(()=>device.value,(val)=>{
+    console.log('themeConfig.value.mode',themeConfig.value.mode)
+    let vertical = val==='mobile'?'vertical':themeConfig.value.mode
+    const body = document.body as HTMLElement;
+    body.setAttribute("class", `layout-${vertical}`);
+  },{
+    immediate:true
+  })
+
+
   // 当屏幕切换的时候进行变换
   const classObj = computed(() => {
     return {
@@ -41,13 +48,9 @@
       mobile: device.value === 'mobile',
     }
   })
-  // 移动端点击
-  const handleClickOutside = () => {
-    SettingStore.closeSideBar({ withoutAnimation: false })
-  }
-  const showTag = computed(() => SettingStore.themeConfig.showTag)
 
-  const mode = computed(() => SettingStore.themeConfig.mode)
+
+
 </script>
 
 <style lang="scss" scoped>
