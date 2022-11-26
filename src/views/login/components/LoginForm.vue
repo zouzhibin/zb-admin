@@ -3,7 +3,6 @@
       ref="ruleFormRef"
       :model="ruleForm"
       :rules="rules"
-      label-width="0"
   >
     <el-form-item label="" prop="username">
       <el-input
@@ -18,6 +17,7 @@
         </template>
       </el-input>
     </el-form-item>
+
     <el-form-item label="" prop="password">
       <el-input
           placeholder="请输入密码"
@@ -30,12 +30,13 @@
           <el-icon class="el-input__icon"><GoodsFilled /></el-icon>
         </template>
         <template #suffix>
-          <div class="show-pwd" @click="showPwd"
-          ><svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
-          /></div>
+          <div class="show-pwd" @click="showPwd">
+            <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"/>
+          </div>
         </template>
       </el-input>
     </el-form-item>
+
     <el-form-item style="width: 100%">
       <el-button
           :loading="loading"
@@ -55,28 +56,28 @@ import { useRouter } from 'vue-router'
 import {useUserStore} from "@/store/modules/user"
 import {getTimeState} from '@/utils/index'
 
-const ruleFormRef = ref<FormInstance>()
 const router = useRouter()
 const UserStore = useUserStore()
+const ruleFormRef = ref<FormInstance>()
 const passwordType = ref('password')
 const loading = ref(false)
+
 const rules = reactive({
   password: [{ required: true, message: "请输入用户名", trigger: "blur" }],
   username: [{ required: true, message: "请输入密码", trigger: "blur" }],
 })
+
 // 表单数据
 const ruleForm = reactive({
-  username: 'vue-admin-perfect',
+  username: 'admin',
   password: '123456',
 })
 
+// 显示密码图标
 const showPwd = () => {
-  if (passwordType.value === 'password') {
-    passwordType.value = ''
-  } else {
-    passwordType.value = 'password'
-  }
+  passwordType.value = passwordType.value === 'password'?'':'password'
 }
+
 const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.validate((valid) => {
@@ -84,7 +85,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
       loading.value = true
       // 登录
       setTimeout(async ()=>{
-        await UserStore.login( ruleForm)
+        await UserStore.login(ruleForm)
         await router.push({
           path: '/',
         })

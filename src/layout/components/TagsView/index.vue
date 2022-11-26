@@ -1,5 +1,5 @@
 <template>
-  <div class="tags-wrap-container">
+  <div class="m-tags-view">
     <div class="tags-view">
       <el-tabs
           v-model="activeTabsValue"
@@ -125,12 +125,13 @@ const removeTab = async (activeTabPath: string) => {
 }
 </script>
 <style lang="scss" scoped>
-.tags-wrap-container{
+.m-tags-view{
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 10px;
   padding-right: 10px;
+  background: white;
   .right-btn{
     height: 100%;
     flex-shrink: 0;
