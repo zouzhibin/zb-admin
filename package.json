@@ -7,6 +7,7 @@
     "build:dev": "vite build --mode development",
     "build:test": "vite build --mode test",
     "build:prod": "vite build --mode production",
+    "commit": "git cz",
     "build": "vite build",
     "preview": "vite preview",
     "build:ts": "vue-tsc --noEmit --skipLibCheck && vite build",
@@ -59,7 +60,9 @@
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
     "@vitejs/plugin-vue": "^3.0.0",
+    "commitizen": "^4.2.5",
     "consola": "^2.15.3",
+    "cz-git": "^1.3.12",
     "dart-sass": "^1.25.0",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
@@ -77,5 +80,10 @@
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vue-tsc": "^0.38.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
   }
 }
