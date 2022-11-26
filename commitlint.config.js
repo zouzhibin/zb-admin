@@ -1,4 +1,4 @@
-// cz.config.js
+// cz.config.js  kk
 /** @type {import('cz-git').CommitizenGitOptions} */
 module.exports = {
     alias: { fd: 'docs: fix typos' },
