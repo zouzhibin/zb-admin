@@ -9,13 +9,11 @@
         </transition>
       </router-view>
     </div>
-    <Theme />
-
   </div>
 </template>
 
 <script lang="ts" setup>
-  import Theme from '@/components/Theme/index.vue'
+
 
   import { computed, ref } from 'vue'
   import {useSettingStore} from "@/store/modules/setting"
