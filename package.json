@@ -7,7 +7,7 @@
     "build:dev": "vite build --mode development",
     "build:test": "vite build --mode test",
     "build:prod": "vite build --mode production",
-    "commit": "git add -A && git-cz",
+    "commit": "git add -A && czg ",
     "build": "vite build",
     "preview": "vite preview",
     "build:ts": "vue-tsc --noEmit --skipLibCheck && vite build",
