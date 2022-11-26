@@ -1,7 +1,7 @@
 
 <template>
   <el-dropdown trigger="hover" @command="setLanguage">
-    <svg-icon class-name="size-icon" icon-class="language" style="font-size: 22px;cursor: pointer"/>
+    <svg-icon class-name="size-icon header-icon" icon-class="language" style="font-size: 22px;cursor: pointer"/>
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-menu>

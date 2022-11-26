@@ -1,5 +1,6 @@
 <template>
   <div class="m-tool-right">
+    <Language class="item-children"/>
     <GlobalComSize class="item-children"/>
     <HeaderSearch class="item-children"/>
     <Remind class="item-children"/>
@@ -10,6 +11,7 @@
 </template>
 
 <script lang="ts" setup>
+import Language from './components/Language.vue'
 import GlobalComSize from './components/globalComSize.vue'
 import HeaderSearch from './components/HeaderSearch'
 import Remind from './components/Remind'
