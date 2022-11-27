@@ -31,6 +31,12 @@ const functionPageRouter = [{
             name: 'function-403',
             meta: { title: '403 页面', keepAlive: true , icon: 'MenuIcon'}
         },
+        {
+            path: 'fullscreen',
+            component: () => import('@/views/functionPage/fullscreen/index.vue'),
+            name: 'fullscreen',
+            meta: { title: '元素 全屏', keepAlive: true , icon: 'MenuIcon'}
+        },
     ]
 }]
 

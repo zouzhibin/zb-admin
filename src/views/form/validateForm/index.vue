@@ -71,7 +71,7 @@
   </u-container-layout>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="advancedForm">
 import { reactive, ref } from 'vue'
 import type { FormInstance } from 'element-plus'
 import Upload from './components/Upload.vue'

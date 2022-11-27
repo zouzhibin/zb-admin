@@ -26,15 +26,14 @@
 import Logo from './components/Logo.vue'
 import SubItem from '../SubMenu/SubItem.vue'
 import {useSettingStore} from "@/store/modules/setting"
+import {usePermissionStore} from "@/store/modules/permission"
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import {usePermissionStore} from "@/store/modules/permission"
+
 // 在setup中获取store
 const route = useRoute()
 const PermissionStore = usePermissionStore()
 const SettingStore = useSettingStore()
-
-
 
 // 是否折叠
 const isCollapse = computed(() => !SettingStore.isCollapse)
@@ -52,10 +51,6 @@ const activeMenu = computed(() => {
   }
   return path
 })
-
-
-// 横向
-const mode = computed(() => SettingStore.themeConfig.mode)
 </script>
 
 <style lang="scss">
