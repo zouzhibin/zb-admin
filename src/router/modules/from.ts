@@ -24,7 +24,13 @@ const formRouter = [{
             path: 'advancedForm',
             component: () => import('@/views/form/advancedForm/index.vue'),
             name: 'advanced-form',
-            meta: { title: '可收缩 Form', keepAlive: true , icon: 'MenuIcon'}
+            meta: { title: '收缩 Form', keepAlive: true , icon: 'MenuIcon'}
+        },
+        {
+            path: 'appendForm',
+            component: () => import('@/views/form/appendForm/index.vue'),
+            name: 'append-form',
+            meta: { title: '增删 Form', keepAlive: true , icon: 'MenuIcon'}
         },
     ]
 }]
