@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="advancedForm">
 import AdvancedForm from "@/components/SearchForm/advancedForm/index.vue"
 import {reactive, ref} from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
@@ -103,7 +103,5 @@ const showRow = (number)=>{
 </script>
 
 <style lang="scss" scoped>
-.advancedForm{
-  padding: 20px;
-}
+@import "./index.scss";
 </style>
