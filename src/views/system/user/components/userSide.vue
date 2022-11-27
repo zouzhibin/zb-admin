@@ -3,13 +3,16 @@
     <div class="title">部门列表</div>
     <el-input v-model="filterText" placeholder="输入关键字进行过滤" class="filter-search"/>
     <div class="filter-tree">
-      <el-tree
-          ref="treeRef"
-          :data="tableData"
-          :props="defaultProps"
-          default-expand-all
-          :filter-node-method="filterNode"
-      />
+      <el-scrollbar class="scrollbar">
+        <el-tree
+            ref="treeRef"
+            :data="tableData"
+            :props="defaultProps"
+            default-expand-all
+            :filter-node-method="filterNode"
+        />
+      </el-scrollbar>
+
     </div>
 
   </el-card>

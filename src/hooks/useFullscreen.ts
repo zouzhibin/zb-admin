@@ -1,6 +1,6 @@
 /**
  *  @description 方法用来切换元素 进入全屏
- *  @vueuse/core 提供了 useFullscreen 方法，因此项目中采用 useFullscreen，目的是为了减少代码量
+ *  @vueuse/core 提供了 useFullscreen 方法，因此项目中采用 useFullscreen，实现效果功能是一样得，目的是为了减少代码量
  *  它原理原理实现如下：
  */
 
