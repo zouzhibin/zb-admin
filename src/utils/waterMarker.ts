@@ -46,10 +46,10 @@ function watermark (options) {
   watermarkDiv.classList.add('__wm') // 为元素添加“__wm”类名
 
   container.style.position = 'relative'
-  if (!__wm) {
-    container.appendChild(watermarkDiv) // 添加元素
-  }
+  container.appendChild(watermarkDiv) // 添加元素
 
+
+  // 监听删除 防止用户去手动删除，如果手动删除 ，在重新添加
   // const MutationObserver = window.MutationObserver || window.WebKitMutationObserver
   // // 检查浏览器是否支持这个API
   // if (MutationObserver) {

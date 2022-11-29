@@ -1,5 +1,4 @@
-const ExcelJS = require("exceljs");
-
+import ExcelJS from 'exceljs'
 const autoWidthAction = (val,width=10)=>{
     if (val == null) {
         width = 10;
@@ -22,15 +21,15 @@ export const exportExcel = async ({column,data,filename,autoWidth,format})=>{
     // 创建工作表
     const worksheet = workbook.addWorksheet(filename);
     // 设置列名
-    let columnsName = [];
+    const columnsName = [];
     column.forEach((item,index)=>{
-        let obj = {
+        const obj = {
             header: item.label, key:item.name, width: null
         }
         if(autoWidth){
-            let maxArr = [autoWidthAction(item.label)]
+            const maxArr = [autoWidthAction(item.label)]
             data.forEach(ite=>{
-                let str = ite[item.name] ||''
+                const str = ite[item.name] ||''
                 if(str){
                     maxArr.push(autoWidthAction(str))
                 }
@@ -94,15 +93,15 @@ export const exportStyleExcel =async ({column,data,filename,autoWidth,format})=>
     // 创建工作表
     const worksheet = workbook.addWorksheet(filename);
     // 设置列名
-    let columnsName = [];
+    const columnsName = [];
     column.forEach((item,index)=>{
-        let obj = {
+        const obj = {
             header: item.label, key:item.name, width: null
         }
         if(autoWidth){
-            let maxArr = [autoWidthAction(item.label)]
+            const maxArr = [autoWidthAction(item.label)]
             data.forEach(ite=>{
-                let str = ite[item.name] ||''
+                const str = ite[item.name] ||''
                 if(str){
                     maxArr.push(autoWidthAction(str))
                 }
@@ -162,7 +161,7 @@ export const exportMultiHeaderExcel = ({column,data,filename,autoWidth})=>{
     // 创建excel
     const workbook = new ExcelJS.Workbook();
     // 创建工作表
-    let sheet = workbook.addWorksheet("sheet1");
+    const sheet = workbook.addWorksheet("sheet1");
 
     // 添加表头
     sheet.getRow(1).values = ["序号", "日期","地址" ,"配送消息"  ,,, ];
@@ -174,16 +173,16 @@ export const exportMultiHeaderExcel = ({column,data,filename,autoWidth})=>{
         "城市",
         "邮编"
     ];
-    let headers = [];
+    const headers = [];
     column.forEach((item,index)=>{
         if(item.children){
             item.children.forEach(itemChild=>{
-                let obj = {
+                const obj = {
                     key:itemChild.name, width: null
                 }
-                let maxArr = [autoWidthAction(itemChild.label)]
+                const maxArr = [autoWidthAction(itemChild.label)]
                 data.forEach(ite=>{
-                    let str = ite[itemChild.name] ||''
+                    const str = ite[itemChild.name] ||''
                     if(str){
                         maxArr.push(autoWidthAction(str))
                     }
@@ -194,12 +193,12 @@ export const exportMultiHeaderExcel = ({column,data,filename,autoWidth})=>{
             })
 
         }else {
-            let obj = {
+            const obj = {
                 key:item.name, width: null
             }
-            let maxArr = [autoWidthAction(item.label)]
+            const maxArr = [autoWidthAction(item.label)]
             data.forEach(ite=>{
-                let str = ite[item.name] ||''
+                const str = ite[item.name] ||''
                 if(str){
                     maxArr.push(autoWidthAction(str))
                 }
