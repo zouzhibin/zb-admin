@@ -21,6 +21,13 @@ module.exports = {
       .options({
         symbolId: 'icon-[name]'
       })
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        prependData: `@import "~@/styles/index.scss";`
+      }
+    }
   }
 
 }

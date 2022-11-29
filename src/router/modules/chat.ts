@@ -2,10 +2,10 @@
 
 import Layout from "@/layout/index.vue";
 
-const chartsRouter = {
+const chartsRouter = [{
     path: '/chat',
     component: Layout,
-    redirect: 'noRedirect',
+    redirect: '/charts/index',
     name: 'chat',
     meta: {
         title: '聊天框',
@@ -15,10 +15,10 @@ const chartsRouter = {
         {
             path: 'index',
             component: () => import('@/views/chat/index.vue'),
-            name: 'chat',
+            name: 'chatBox',
             meta: { title: '聊天框', icon: 'chat-square'  }
         },
     ]
-}
+}]
 
 export default chartsRouter

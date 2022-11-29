@@ -3,41 +3,41 @@
 
 import Layout from "@/layout/index.vue";
 
-const tableRouter = {
+const tableRouter = [{
     path: '/table',
     component: Layout,
-    redirect: 'noRedirect',
+    redirect: '/table/comprehensive',
     name: 'table',
     meta: {
-        title: '表格',
+        title: '超级表格',
         icon: 'School'
     },
     children: [
         {
             path: 'comprehensive',
-            component: () => import('@/views/table/comprehensive.vue'),
+            component: () => import('@/views/table/ComprehensiveTable/index.vue'),
             name: 'comprehensive',
-            meta: { title: '综合表格', keepAlive: true }
+            meta: { title: '综合表格', keepAlive: true , icon: 'MenuIcon'}
         },
         {
             path: 'inline-table',
-            component: () => import('@/views/table/inline-edit-table.vue'),
+            component: () => import('@/views/table/InlineEditTable/index.vue'),
             name: 'inline-table',
-            meta: { title: '行内编辑', keepAlive: true  }
+            meta: { title: '行内编辑', keepAlive: true  , icon: 'MenuIcon'}
         },
         {
-            path: 'edit-table',
-            component: () => import('@/views/table/edit.vue'),
+            path: 'editableProTable',
+            component: () => import('@/views/table/EditableProTable/index.vue'),
             name: 'edit-table',
-            meta: { title: '可编辑表格', keepAlive: true  }
+            meta: { title: '可编辑表格', keepAlive: true  , icon: 'MenuIcon'}
         },
         // {
-        //     path: 'multi-table',
-        //     component: () => import('@/views/table/multi-table.vue'),
-        //     name: 'multi-table',
-        //     meta: { title: '多级表头', noCache: true }
+        //     path: 'virtualTable',
+        //     component: () => import('@/views/table/VirtualTable.vue'),
+        //     name: 'virtualTable',
+        //     meta: { title: '虚拟表格', keepAlive: true  , icon: 'MenuIcon'}
         // },
     ]
-}
+}]
 
 export default tableRouter

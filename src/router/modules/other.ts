@@ -2,77 +2,101 @@
 
 import Layout from '@/layout/index.vue'
 
-const othersRouter = {
+const othersRouter = [{
   path: '/other',
   component: Layout,
-  redirect: 'noRedirect',
+  redirect: '/other/clipboard',
   name: 'other',
   meta: {
-    title: '扩展组件',
+    title: '常用组件',
     icon: 'management'
   },
   children: [
     {
+      path: 'clipboard',
+      component: () => import('@/views/other/clipboard/index.vue'),
+      name: 'clipboard',
+      meta: { title: '剪贴板',  roles:['other'] ,icon: 'MenuIcon',}
+    },
+    {
       path: 'editor',
-      component: () => import('@/views/other/editor.vue'),
+      component: () => import('@/views/other/editor/index.vue'),
       name: 'editor',
-      meta: { title: '富文本编辑器', roles: ['other'] }
+      meta: { title: '富文本编辑器', roles: ['other'] , icon: 'MenuIcon'}
+    },
+    {
+      path: 'code-mirror',
+      component: () => import('@/views/other/codeMirror/index.vue'),
+      name: 'code-mirror',
+      meta: { title: '代码编辑器', roles: ['other'] , icon: 'MenuIcon'}
     },
     {
       path: 'mark-down',
-      component: () => import('@/views/other/mark-down.vue'),
+      component: () => import('@/views/other/markDown/index.vue'),
       name: 'mark-down',
-      meta: { title: 'markDown', roles: ['other'] }
+      meta: { title: 'markDown', roles: ['other'] , icon: 'MenuIcon'}
     },
     {
       path: 'print',
-      component: () => import('@/views/other/print.vue'),
+      component: () => import('@/views/other/print/index.vue'),
       name: 'print',
-      meta: { title: '打印' }
+      meta: { title: '打印' , icon: 'MenuIcon'}
     },
     {
       path: 'cropper',
       component: () => import('@/views/other/cropper/index.vue'),
       name: 'cropper',
-      meta: { title: '头像裁剪' }
+      meta: { title: '头像裁剪' , icon: 'MenuIcon'}
     },
     {
-      path: 'grid-sorter',
-      component: () => import('@/views/other/grid-sorter.vue'),
-      name: 'grid-sorter',
-      meta: { title: '卡片拖拽' }
+      path: 'card-drag',
+      component: () => import('@/views/other/cardDrag/index.vue'),
+      name: 'card-drag',
+      meta: { title: '卡片拖拽', icon: 'MenuIcon' }
     },
-    // {
-    //     path: 'splitpane',
-    //     component: () => import('@/views/other/splitpane.vue'),
-    //     name: 'splitpane',
-    //     meta: { title: '分割模块',}
-    // },
+    {
+      path: 'upload',
+      component: () => import('@/views/other/upload/index.vue'),
+      name: 'upload',
+      meta: { title: '上传图片', icon: 'MenuIcon' }
+    },
     {
       path: 'qrcode',
-      component: () => import('@/views/other/qrcode.vue'),
+      component: () => import('@/views/other/qrcode/index.vue'),
       name: 'qrcode',
-      meta: { title: '生成二维码' }
+      meta: { title: '生成二维码', icon: 'MenuIcon' }
+    },
+    {
+      path: 'svgIcon',
+      component: () => import('@/views/other/svgIcon/index.vue'),
+      name: 'svgIcon',
+      meta: { title: 'svg图标', icon: 'MenuIcon' }
+    },
+    {
+      path: 'iconfont',
+      component: () => import('@/views/other/iconfont/index.vue'),
+      name: 'iconfont',
+      meta: { title: '阿里图标库', icon: 'MenuIcon' }
     },
     {
       path: 'water-marker',
-      component: () => import('@/views/other/water-marker.vue'),
+      component: () => import('@/views/other/waterMarker/index.vue'),
       name: 'water-marker',
-      meta: { title: '生成水印' }
+      meta: { title: '生成水印' , icon: 'MenuIcon'}
     },
     {
       path: 'right-menu',
-      component: () => import('@/views/other/right-menu.vue'),
+      component: () => import('@/views/other/rightMenu/index.vue'),
       name: 'right-menu',
-      meta: { title: '右键菜单' }
+      meta: { title: '右键菜单' , icon: 'MenuIcon'}
     },
     {
       path: 'count',
-      component: () => import('@/views/other/count.vue'),
+      component: () => import('@/views/other/count/index.vue'),
       name: 'count',
-      meta: { title: '数字自增长' }
+      meta: { title: '数字动画', icon: 'MenuIcon' }
     }
   ]
-}
+}]
 
 export default othersRouter

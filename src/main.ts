@@ -1,17 +1,32 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import pinia from "./store";
 
+// 权限路由
 import './permission'
+// svg-icons注册导入
 import SvgIcon from './icons/index'
+// UI框架 element-plus
 import ElementPlus from 'element-plus'
-import UContainerLayout from '@/components/u-container-layout/index.vue'
 import 'element-plus/dist/index.css'
-import zhCn from 'element-plus/es/locale/lang/zh-cn'
+// 引入暗黑模式 element-plus 2.2 内置暗黑模式
+import 'element-plus/theme-chalk/dark/css-vars.css'
+// 自定义暗黑模式
+import "@/styles/element-dark.scss";
+// 引入阿里图标库
+import "@/assets/iconfont/iconfont.css";
+import "@/assets/iconfont/iconfont.js";
+
+// 引入全局组件布局
+import UContainerLayout from '@/components/u-container-layout/index.vue'
+
 const app = createApp(App)
+
 app.component('svg-icon',SvgIcon)
 app.component('u-container-layout',UContainerLayout)
+
+// 注册icon组件
 import * as ElIconsModules from '@element-plus/icons-vue'
 // 全局注册element-plus icon图标组件
 Object.keys(ElIconsModules).forEach((key) => {//循环遍历组件名称
@@ -21,8 +36,7 @@ Object.keys(ElIconsModules).forEach((key) => {//循环遍历组件名称
         app.component(key + "Icon", ElIconsModules[key]);
     }
 });
+app.use(pinia)
+app.use(router)
 
-import '@/styles/index.scss' // global css
-app.use(store).use(router).use(ElementPlus,{
-    locale: zhCn,
-}).mount('#app')
+app.use(ElementPlus).mount('#app')

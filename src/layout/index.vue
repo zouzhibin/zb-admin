@@ -1,90 +1,74 @@
 <template>
-  <div class="g-container-layout" :class="classObj" >
-    <div v-if="device==='mobile'&&!isCollapse" class="drawer-bg" @click="handleClickOutside" />
-    <sidebar class="sidebar-container" v-if="mode==='vertical'"/>
-    <div class="main-container" :class="{
-      hideSliderLayout:mode==='horizontal'
-    }">
-      <u-header />
-      <div class="m-container-content" :class="{'app-main-hide-tag':!isShowTag}">
-        <app-main/>
-      </div>
-    </div>
+  <div class="g-container-layout" :class="classObj">
+    <Mobile/>
+    <LayoutVertical v-if="device === 'mobile'"/>
+    <component :is="LayoutComponents[themeConfig.mode]" v-else/>
+    <Theme />
   </div>
 </template>
 
-<script lang="ts">
-  import {computed, defineComponent, ref} from 'vue';
-  import Sidebar from './components/Sidebar/index.vue'
-  import UHeader from './components/UHeader/index.vue'
-  import AppMain from './components/AppMain.vue'
-  import {useResizeHandler} from './hooks/useResizeHandler'
+<script lang="ts" setup>
+  import { computed,watch } from 'vue'
+  import Theme from '@/components/Theme/index.vue'
+  import Mobile from './components/Mobile/index.vue'
+  import {useSettingStore} from "@/store/modules/setting"
+  import { useResizeHandler } from './hooks/useResizeHandler'
+  import LayoutVertical from './LayoutVertical/index.vue'
+  import LayoutHorizontal from './LayoutHorizontal/index.vue'
 
-  import {useStore} from "vuex";
+  const SettingStore = useSettingStore()
+  const themeConfig = computed(() => SettingStore.themeConfig)
+  const LayoutComponents = {
+    horizontal: LayoutHorizontal,
+    vertical: LayoutVertical,
+  };
 
-  export default defineComponent({
-    name: 'layout',
-    components: {
-      Sidebar,
-      UHeader,
-      AppMain,
-    },
-    setup(){
-      const store = useStore()
-      // 是否折叠
-      const isCollapse = computed(()=>{
-        return !store.state.app.isCollapse
-      })
-      let {device} = useResizeHandler()
+  // 是否折叠
+  const isCollapse = computed(() => {
+    return !SettingStore.isCollapse
+  })
+  let { device } = useResizeHandler()
 
-      const classObj = computed(()=>{
-        return {
-          hideSidebar:!store.state.app.isCollapse,
-          openSidebar: store.state.app.isCollapse,
-          withoutAnimation: store.state.app.withoutAnimation,
-          mobile: device.value === 'mobile'
-        }
-      })
-      const handleClickOutside = ()=> {
-        store.dispatch('app/closeSideBar', { withoutAnimation: false })
-      }
-      const isShowTag = computed(()=>{
-        return store.state.setting.isShowTag
-      })
+  watch(()=>device.value,(val)=>{
+    console.log('themeConfig.value.mode',themeConfig.value.mode)
+    let vertical = val==='mobile'?'vertical':themeConfig.value.mode
+    const body = document.body as HTMLElement;
+    body.setAttribute("class", `layout-${vertical}`);
+  },{
+    immediate:true
+  })
 
-      const mode = computed(()=>{
-        return store.state.setting.mode
-      })
-      return{
-        isCollapse,
-        device,
-        classObj,
-        isShowTag,
-        mode,
-        handleClickOutside
-      }
+
+  // 当屏幕切换的时候进行变换
+  const classObj = computed(() => {
+    return {
+      hideSidebar: !SettingStore.isCollapse,
+      openSidebar: SettingStore.isCollapse,
+      withoutAnimation: SettingStore.withoutAnimation,
+      mobile: device.value === 'mobile',
     }
-  });
+  })
+
+
+
 </script>
 
 <style lang="scss" scoped>
-  .g-container-layout{
-    //display: flex;
+  .g-container-layout {
     height: 100%;
     width: 100%;
-    .main-container{
-      //overflow: auto;
+    .main-container {
       display: flex;
       flex: 1;
       box-sizing: border-box;
-      flex-direction: column
+      flex-direction: column;
     }
     &.mobile.openSidebar {
       position: fixed;
       top: 0;
     }
   }
-  .sidebar-container{
+  .sidebar-container {
     display: flex;
     flex-direction: column;
   }
@@ -95,17 +79,6 @@
     top: 0;
     height: 100%;
     position: absolute;
-    z-index: 999;
-  }
-  .m-container-content{
-    //padding: 20px;
-    /*background: #f6f8f9;*/
-    padding-top: 93px;
-    box-sizing: border-box;
-    height: 100vh;
-    position: relative;
-  }
-  .app-main-hide-tag{
-    padding-top: 80px;
+    z-index: 90;
   }
 </style>

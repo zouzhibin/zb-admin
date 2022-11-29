@@ -14,41 +14,38 @@
 /* 路由 */
 .fade-slide-leave-active,
 .fade-slide-enter-active {
-  transition: all 0.2s;
+  transition: all 0.3s;
 }
 
 .fade-slide-enter-from {
   opacity: 0;
-  transform: translateX(-20px);
+  transform: translateX(-30px);
 }
 
 .fade-slide-leave-to {
   opacity: 0;
-  transform: translateX(20px);
+  transform: translateX(30px);
+}
+
+// logo动画
+.sidebarLogoFade-enter-active {
+  transition: opacity 1.5s;
+}
+.sidebarLogoFade-enter-from{
+  opacity: 0;
+}
+.sidebarLogoFade-leave-to {
+  opacity: 0;
 }
 
 
-// 面包屑动画
+
+// 面包屑动画 方案1
 .breadcrumb-enter-active {
   transition: all 0.25s;
 }
 .breadcrumb-enter-from,
 .breadcrumb-leave-active {
   opacity: 0;
-  transform: translateX(30px) skewX(-50deg);
-}
-
-
-
-.fade-transform-leave-active,
-.fade-transform-enter-active {
-  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), border 0s;
-}
-
-.fade-transform-enter-from {
-  opacity: 0;
-}
-
-.fade-transform-leave-to {
-  opacity: 0;
+  transform: translateX(10px) skewX(-10deg);
 }
