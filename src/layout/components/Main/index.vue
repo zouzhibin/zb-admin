@@ -3,9 +3,7 @@
     <div class="app-main-inner">
       <router-view v-slot="{ Component, route }">
         <transition name="fade-slide" mode="out-in" appear>
-          <keep-alive :include="cacheRoutes" v-if="isReload">
-            <component :is="Component" :key="route.path" />
-          </keep-alive>
+          <component :is="Component" :key="route.path" />
         </transition>
       </router-view>
     </div>
@@ -13,8 +11,6 @@
 </template>
 
 <script lang="ts" setup>
-
-
   import { computed, ref } from 'vue'
   import {useSettingStore} from "@/store/modules/setting"
   import {usePermissionStore} from "@/store/modules/permission"
