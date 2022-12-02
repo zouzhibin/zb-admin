@@ -426,11 +426,6 @@
   "resolved" "https://registry.npmmirror.com/@types/event-emitter/-/event-emitter-0.3.3.tgz"
   "version" "0.3.3"
 
-"@types/js-cookie@^3.0.1":
-  "integrity" "sha512-6+0ekgfusHftJNYpihfkMu8BWdeHs9EOJuGcSofErjstGPfPGEu9yTu4t460lTzzAMl2cM5zngQJqPMHbbnvYA=="
-  "resolved" "https://registry.npmmirror.com/@types/js-cookie/-/js-cookie-3.0.2.tgz"
-  "version" "3.0.2"
-
 "@types/json-schema@^7.0.9":
   "integrity" "sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ=="
   "resolved" "https://r.cnpmjs.org/@types/json-schema/-/json-schema-7.0.11.tgz"
@@ -1756,11 +1751,6 @@
   "integrity" "sha512-qjMjTrk+RKv/sp4RPDpV5CnKhxjFI9p+GkLBOls5A8EEElldYWCWA9zceAkmfd0xIo2aU1nxiaLFoiya2sb6Cg=="
   "resolved" "https://registry.npmmirror.com/deepmerge/-/deepmerge-1.3.2.tgz"
   "version" "1.3.2"
-
-"default-passive-events@^2.0.0":
-  "integrity" "sha512-eMtt76GpDVngZQ3ocgvRcNCklUMwID1PaNbCNxfpDXuiOXttSh0HzBbda1HU9SIUsDc02vb7g9+3I5tlqe/qMQ=="
-  "resolved" "https://r2.cnpmjs.org/default-passive-events/-/default-passive-events-2.0.0.tgz"
-  "version" "2.0.0"
 
 "defaults@^1.0.3":
   "integrity" "sha512-eFuaLoy/Rxalv2kr+lqMlUnrDWV+3j4pljOIJgLIhI058IQfWJ7vXhyEIHu+HtC738klGALYxOKDO0bQP3tg8A=="
@@ -4058,20 +4048,12 @@
   "resolved" "https://registry.npmmirror.com/picomatch/-/picomatch-2.3.1.tgz"
   "version" "2.3.1"
 
-"pinia-persistedstate-plugin@^0.1.0":
-  "integrity" "sha512-ToKR/EJzhhXElQ5YL8PVVY4CqLJjywxszAJjOCgprjmIVkTrPBsEOY4b/ATOzHQc1TtuaJs/3MJuoCpA3pv8Ew=="
-  "resolved" "https://registry.npmmirror.com/pinia-persistedstate-plugin/-/pinia-persistedstate-plugin-0.1.0.tgz"
-  "version" "0.1.0"
-  dependencies:
-    "@types/js-cookie" "^3.0.1"
-    "pinia" "^2.0.12"
-
 "pinia-plugin-persistedstate@^2.1.1":
   "integrity" "sha512-HUgsU5IRtM75eAQiIqzT3p1oPEuYH1/B2ipTMU++yE+FV0LkHaBswdKXs0RMWYCmugO8s62oxLTh/N1dLNp+5A=="
   "resolved" "https://registry.npmmirror.com/pinia-plugin-persistedstate/-/pinia-plugin-persistedstate-2.1.1.tgz"
   "version" "2.1.1"
 
-"pinia@^2.0.0", "pinia@^2.0.12", "pinia@^2.0.21":
+"pinia@^2.0.0", "pinia@^2.0.21":
   "integrity" "sha512-6ol04PtL29O0Z6JHI47O3JUSoyOJ7Og0rstXrHVMZSP4zAldsQBXJCNF0i/H7m8vp/Hjd/CSmuPl7C5QAwpeWQ=="
   "resolved" "https://registry.npmmirror.com/pinia/-/pinia-2.0.21.tgz"
   "version" "2.0.21"
