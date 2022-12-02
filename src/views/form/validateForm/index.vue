@@ -71,7 +71,7 @@
   </u-container-layout>
 </template>
 
-<script lang="ts" setup name="advancedForm">
+<script lang="ts" setup >
 import { reactive, ref } from 'vue'
 import type { FormInstance } from 'element-plus'
 import Upload from './components/Upload.vue'
@@ -140,13 +140,7 @@ const rules = reactive({
 const submitForm = async (formEl: FormInstance | undefined) => {
   console.log('--FORM---', ruleForm)
   if (!formEl) return
-  await formEl.validate((valid, fields) => {
-    if (valid) {
-      console.log('submit!')
-    } else {
-      console.log('error submit!', fields)
-    }
-  })
+
 }
 
 const resetForm = (formEl: FormInstance | undefined) => {
