@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia'
-import router from "@/router/index";
+import router from "@/routers/index";
 
 export const useTagsViewStore = defineStore({
     // id: 必须的，在所有 Store 中唯一

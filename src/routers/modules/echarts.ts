@@ -19,12 +19,7 @@ const echartsRouter = [{
             name: 'migration',
             meta: { title: '迁徙图',  roles:['other'] , icon: 'MenuIcon' }
         },
-        {
-            path: 'simple',
-            component: () => import('@/views/echarts/simple.vue'),
-            name: 'echarts-simple',
-            meta: { title: '简单图表', roles:['other'] , icon: 'MenuIcon'}
-        },
+
         {
             path: 'bar',
             component: () => import('@/views/echarts/barEcharts/index.vue'),
@@ -32,17 +27,25 @@ const echartsRouter = [{
             meta: { title: '柱状图', roles:['other'] , icon: 'MenuIcon'}
         },
         {
+            path: 'graph',
+            component: () => import('@/views/echarts/graphEcharts/index.vue'),
+            name: 'graph',
+            meta: { title: '雷达图', roles:['other'] , icon: 'MenuIcon'}
+        },
+
+        {
             path: 'pie',
             component: () => import('@/views/echarts/pieEcharts/index.vue'),
             name: 'pie',
             meta: { title: '饼图', roles:['other'] , icon: 'MenuIcon'}
         },
         {
-            path: 'graph',
-            component: () => import('@/views/echarts/graphEcharts/index.vue'),
-            name: 'graph',
-            meta: { title: '雷达图', roles:['other'] , icon: 'MenuIcon'}
+            path: 'simple',
+            component: () => import('@/views/echarts/simple/index.vue'),
+            name: 'echarts-simple',
+            meta: { title: '简单图表', roles:['other'] , icon: 'MenuIcon'}
         },
+
     ]
 }]
 

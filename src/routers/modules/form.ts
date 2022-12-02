@@ -17,19 +17,19 @@ const formRouter = [{
         {
             path: 'validateForm',
             component: () => import('@/views/form/validateForm/index.vue'),
-            name: 'validate-form',
+            name: 'validateForm',
             meta: { title: '校验 Form', keepAlive: true , icon: 'MenuIcon'}
         },
         {
             path: 'advancedForm',
             component: () => import('@/views/form/advancedForm/index.vue'),
-            name: 'advanced-form',
-            meta: { title: '收缩 Form', keepAlive: true , icon: 'MenuIcon'}
+            name: 'advancedForm',
+            meta: { title: '收缩 Form',  icon: 'MenuIcon'}
         },
         {
             path: 'appendForm',
             component: () => import('@/views/form/appendForm/index.vue'),
-            name: 'append-form',
+            name: 'appendForm',
             meta: { title: '增删 Form', keepAlive: true , icon: 'MenuIcon'}
         },
     ]

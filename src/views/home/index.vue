@@ -165,7 +165,7 @@
   import { User } from '@element-plus/icons-vue'
   import AvatarLogo from '@/assets/image/avatar.png'
   import CountTo from '@/components/CountTo/index.vue'
-  import BarCharts from '@/views/echarts/components/simple/bar.vue'
+  import BarCharts from '@/views/echarts/simple/components/bar.vue'
 
   const goTo = (url) => {
     window.open(url, '_blank')
