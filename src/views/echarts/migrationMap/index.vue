@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-  import MigrationCharts from '../components/migration/index.vue'
+  import MigrationCharts from '@/components/DataScreen/migrationEcharts/index.vue'
 </script>
 
 <style lang="scss" scoped>

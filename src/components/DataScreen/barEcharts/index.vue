@@ -1,13 +1,29 @@
 <template>
-  <div class="item-charts">
-    <line-charts width="100%" height="100%" :config="lineConfig" />
-  </div>
+  <div class="echarts" ref="chartsRef" />
 </template>
 <script setup lang="ts">
-  import LineCharts from './components/line.vue'
-  import { reactive } from 'vue'
+  import BarCharts from './components/bar.vue'
+  import * as echarts from 'echarts'
+  import { EChartsType } from 'echarts/core'
+  import { onMounted, ref,reactive } from 'vue'
+  const chartsRef = ref<HTMLElement | null>()
+  const data = [154, 230, 224, 218, 135, 147, 260]
+  const color = ['#fa796f', '#54c1fb', '#ca6cd4', '#59dcc1', '#09a4ea', '#e98f4d', '#ea8e49']
+  const dataOptions = []
 
-  const lineConfig = reactive({
+  data.forEach((item, index) => {
+    let obj = {
+      value: data[index],
+      itemStyle: {
+        color: color[index],
+      },
+    }
+    dataOptions.push(obj)
+  })
+
+
+  const options = {
+    color,
     grid: {
       top: '10%',
       left: '3%',
@@ -24,16 +40,21 @@
         const tipHtml = `
                      <div class="m-info" style=" opacity: 0.95;font-size: 12px; color: white;" >
                          <div class="title" ></div>
-                         <div class="title" >完成占比${name[0].data}</div>
+                         <div class="title" >完成占比${name[0].value}</div>
                  </div>`
         return tipHtml
       },
     },
     yAxis: {
+      type: 'value',
       // 设置坐标轴的 文字样式
       axisLabel: {
         color: '#bbdaff',
         margin: 20, // 刻度标签与轴线之间的距离。
+      },
+      axisTick: {
+        // 取消坐标轴刻度线
+        show: false,
       },
       // 坐标轴轴线相关设置。
       splitLine: {
@@ -43,6 +64,7 @@
       },
     },
     xAxis: {
+      type: 'category',
       splitLine: {
         show: false,
       },
@@ -52,14 +74,12 @@
           color: '#2d5baf',
         },
       },
-      type: 'category',
       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       axisLabel: {
         // 设置坐标轴的 文字样式
         color: '#bbdaff',
         margin: 20, // 刻度标签与轴线之间的距离。
       },
-      boundaryGap: false, // 设置坐标轴两边的留白 ，从刻度原点开始，
       axisTick: {
         // 取消坐标轴刻度线
         show: false,
@@ -67,30 +87,32 @@
     },
     series: [
       {
-        data: [154, 230, 224, 218, 135, 147, 260],
-        type: 'line',
-        // smooth:false,   //关键点，为true是不支持虚线的，实线就用true
-        symbolSize: 12, // 拐点圆的大小
-        symbol: 'circle',
+        data: dataOptions,
+        type: 'bar',
+        barMaxWidth: 18,
         markLine: {
           silent: true,
         },
-        itemStyle: {
-          normal: {
-            color: '#920783', // 设置 symbol的颜色
-            lineStyle: {
-              width: 3,
-              color: '#920783',
-              type: 'solid', // 'dotted'虚线 'solid'实线
-            },
-          },
-        },
       },
     ],
+
+  }
+
+  let chart: EChartsType
+  const initChart = () => {
+    const chart = echarts.init(chartsRef.value)
+    chart.setOption(options)
+    return chart
+  }
+  onMounted(() => {
+    chart = initChart()
+    window.addEventListener('resize', function () {
+      chart && chart.resize()
+    })
   })
 </script>
 <style lang="scss" scoped>
-  .item-charts {
+  .echarts {
     height: 100%;
     width: 100%;
   }

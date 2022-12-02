@@ -70,7 +70,7 @@ const othersRouter = [{
       path: 'svgIcon',
       component: () => import('@/views/other/svgIcon/index.vue'),
       name: 'svgIcon',
-      meta: { title: 'svg图标', icon: 'MenuIcon' }
+      meta: { title: 'svg 图标', icon: 'MenuIcon' }
     },
     {
       path: 'iconfont',
