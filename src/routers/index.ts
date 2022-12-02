@@ -14,7 +14,7 @@ import echartsRouter from './modules/echarts'
 import chatRouter from './modules/chat'
 import othersRouter from './modules/other'
 import externalLink from './modules/externalLink'
-import formRouter from './modules/from'
+import formRouter from './modules/form'
 import functionPageRouter from './modules/functionPage'
 
 

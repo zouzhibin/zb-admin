@@ -2,11 +2,11 @@
   <div :id="id" :class="className" :style="{ height: height, width: width }" />
 </template>
 <script lang="ts" setup>
-  import { geoJson } from './get.js'
+  import { geoJson } from './map.js'
   import * as echarts from 'echarts'
   import { EChartsType } from 'echarts/core'
   import { onMounted } from 'vue'
-  import { cityIconData } from '../js/data.js'
+  import { cityIconData } from './data.js'
   import logo from '@/assets/logo.png'
   const props = defineProps({
     className: {

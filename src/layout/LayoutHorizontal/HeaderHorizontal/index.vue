@@ -1,4 +1,4 @@
-<template>
+     <template>
   <!--纵向布局-->
   <Height/>
   <div
@@ -15,7 +15,6 @@
           :unique-opened="SettingStore.themeConfig.uniqueOpened"
           :collapse-transition="false"
           class="menu-horizontal"
-          :collapse="isCollapse"
       >
         <SubItem
             v-for="route in permission_routes"

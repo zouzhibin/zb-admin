@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia'
-import { asyncRoutes, constantRoutes,routerArray,notFoundRouter } from '@/router/index'
+import { asyncRoutes, constantRoutes,routerArray,notFoundRouter } from '@/routers/index'
 import {hasPermission,filterAsyncRoutes} from "@/utils/routers"
 import {filterKeepAlive} from "../../utils/routers";
 export const usePermissionStore = defineStore({
@@ -17,6 +17,9 @@ export const usePermissionStore = defineStore({
     getters: {
         permission_routes:state=> {
             return state.routes
+        },
+        keepAliveRoutes: state=>{
+            return filterKeepAlive(asyncRoutes)
         }
     },
     // 可以同步 也可以异步

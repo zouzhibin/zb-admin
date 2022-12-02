@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script lang="ts" setup name="advancedForm">
+<script lang="ts" setup >
 import AdvancedForm from "@/components/SearchForm/advancedForm/index.vue"
 import {reactive, ref} from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
