@@ -1,5 +1,5 @@
 <template>
-  <u-container-layout class="mark-down">
+  <PageWrapLayout class="mark-down">
     <el-alert
         title="Markdown 是基于 md-editor-v3 插件完成， 官方文档请查看 ：https://imzbf.github.io/md-editor-v3/index"
         type="warning"
@@ -11,27 +11,21 @@
     <div style="margin-top: 20px; flex-shrink: 0">
       <el-button type="primary" @click="submit">提交</el-button>
     </div>
-  </u-container-layout>
+  </PageWrapLayout>
 </template>
-<script lang="ts">
-// https://www.jianshu.com/p/0b06128a6117
-import { defineComponent } from 'vue'
-import { ElMessage, ElMessageBox } from 'element-plus'
+
+<script lang="ts" setup>
+import {ref} from 'vue'
+import { ElMessage } from 'element-plus'
 import MdEditor from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
 
-export default defineComponent({
-  components: { MdEditor },
-  data() {
-    return { text: '## 你好呀,欢迎！' }
-  },
-  methods: {
-    submit() {
-      console.log('this.text', this.text)
-      ElMessage.success(`提交数据:${this.text}`)
-    },
-  },
-})
+const text = ref( '## 你好呀,欢迎！' )
+
+const submit = ()=> {
+  console.log('this.text', text.value)
+  ElMessage.success(`提交数据:${text.value}`)
+}
 </script>
 
 <style lang="scss">

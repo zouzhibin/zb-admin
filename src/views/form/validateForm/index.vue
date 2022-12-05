@@ -1,6 +1,6 @@
 
 <template>
-  <u-container-layout>
+  <PageWrapLayout>
     <div style="max-width: 800px">
       <el-form
           ref="ruleFormRef"
@@ -68,7 +68,7 @@
         </el-form-item>
       </el-form>
     </div>
-  </u-container-layout>
+  </PageWrapLayout>
 </template>
 
 <script lang="ts" setup >

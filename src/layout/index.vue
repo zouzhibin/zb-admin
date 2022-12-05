@@ -30,7 +30,6 @@
   let { device } = useResizeHandler()
 
   watch(()=>device.value,(val)=>{
-    console.log('themeConfig.value.mode',themeConfig.value.mode)
     let vertical = val==='mobile'?'vertical':themeConfig.value.mode
     const body = document.body as HTMLElement;
     body.setAttribute("class", `layout-${vertical}`);
