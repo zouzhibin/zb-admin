@@ -1,5 +1,5 @@
 <template>
-  <u-container-layout class="components-container">
+  <PageWrapLayout class="components-container">
     <div class="content-box">
       <el-alert
           title="普通引入方式 Font Class"
@@ -40,7 +40,7 @@
       </div>
 
     </div>
-  </u-container-layout>
+  </PageWrapLayout>
 
 </template>
 

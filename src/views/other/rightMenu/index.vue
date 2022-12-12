@@ -1,8 +1,8 @@
 <template>
-  <u-container-layout style="min-height: 300px">
+  <PageWrapLayout style="min-height: 300px">
     <el-button @contextmenu.prevent="rightClick" style="width: 200px">右键菜单</el-button>
     <RightClickMenu :left="clientX" :top="clientY" @ok="operatingRightAction" :data="data" />
-  </u-container-layout>
+  </PageWrapLayout>
 </template>
 
 <script lang="ts" setup>

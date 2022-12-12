@@ -1,0 +1,12 @@
+.m-more-form{
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  :deep(.el-card){
+    margin-bottom: 10px;
+  }
+  .footer{
+    width: 100%;
+    text-align: center;
+  }
+}

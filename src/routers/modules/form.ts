@@ -32,6 +32,12 @@ const formRouter = [{
             name: 'appendForm',
             meta: { title: '增删 Form', keepAlive: true , icon: 'MenuIcon'}
         },
+        {
+            path: 'moreForm',
+            component: () => import('@/views/form/moreForm/index.vue'),
+            name: 'moreForm',
+            meta: { title: '多表单验证', keepAlive: true , icon: 'MenuIcon'}
+        },
     ]
 }]
 
