@@ -1,5 +1,5 @@
 <template>
-  <u-container-layout class="components-container">
+  <PageWrapLayout class="components-container">
     <div class="content-box">
       <el-alert
           title="SVG 图标目前使用 vite-plugin-svg-icons 插件完成，官方文档请查看 ：https://github.com/vbenjs/vite-plugin-svg-icons"
@@ -26,7 +26,7 @@
         <el-descriptions-item label="iconStyle"> 图标的样式，默认样式为 { width: "1em", height: " 1em" } </el-descriptions-item>
       </el-descriptions>
     </div>
-  </u-container-layout>
+  </PageWrapLayout>
 
 </template>
 

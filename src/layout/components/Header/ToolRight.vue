@@ -13,11 +13,11 @@
 <script lang="ts" setup>
 import Language from './components/Language.vue'
 import GlobalComSize from './components/globalComSize.vue'
-import HeaderSearch from './components/HeaderSearch'
-import Remind from './components/Remind'
+import HeaderSearch from './components/HeaderSearch.vue'
+import Remind from './components/Remind.vue'
 import ScreenFull from './components/ScreenFull.vue'
 import Setting from './components/Setting.vue'
-import Avatar from './components/Avatar'
+import Avatar from './components/Avatar.vue'
 </script>
 
 <style lang="scss" scoped>
