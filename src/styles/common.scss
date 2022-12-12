@@ -95,3 +95,14 @@ body{
   }
 }
 
+.el-pager li:focus {
+  border: none;
+}
+.el-dropdown:focus {
+  border: none;
+  outline: none!important;
+}
+.svg-icon:focus {
+  border: none!important;
+  outline: none!important;
+}

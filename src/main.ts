@@ -30,5 +30,4 @@ app.component('PageWrapLayout',PageWrapLayout)
 
 app.use(pinia)
 app.use(router)
-
 app.use(ElementPlus).mount('#app')
