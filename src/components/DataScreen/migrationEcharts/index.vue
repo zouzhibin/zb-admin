@@ -7,7 +7,7 @@
   import { EChartsType } from 'echarts/core'
   import { onMounted } from 'vue'
   import { cityIconData } from './data.js'
-  import logo from '@/assets/logo.png'
+  import logo from '@/assets/image/logo.png'
   const props = defineProps({
     className: {
       type: String,
