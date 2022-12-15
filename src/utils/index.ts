@@ -359,14 +359,15 @@ export function getColor() {
 export const isArray = function (value) {
   return objToString.call(value) === '[object Array]'
 }
-var funProto = Function.prototype
-var objProto = Object.prototype
 
-var getPrototypeOf = Object.getPrototypeOf
+let funProto = Function.prototype
+let objProto = Object.prototype
 
-var objToString = objProto.toString
-var hasOwnProperty = objProto.hasOwnProperty
-var funToString = funProto.toString
+let getPrototypeOf = Object.getPrototypeOf
+
+let objToString = objProto.toString
+let hasOwnProperty = objProto.hasOwnProperty
+let funToString = funProto.toString
 // 检查给定的值是否是字符串
 export const isString = function (value) {
   return objToString.call(value) === '[object String]'
@@ -377,13 +378,13 @@ export const isPlainObject = function (value) {
     return false
   }
 
-  var prototype = getPrototypeOf(value)
+  let prototype = getPrototypeOf(value)
 
   if (prototype === null) {
     return true
   }
 
-  var constructor = hasOwnProperty.call(prototype, 'constructor') && prototype.constructor
+  let constructor = hasOwnProperty.call(prototype, 'constructor') && prototype.constructor
 
   return (
     typeof constructor === 'function' && funToString.call(constructor) === funToString.call(Object)
@@ -408,11 +409,11 @@ export const deepObjClone = function (obj) {
     if (weakMap.get(obj)) {
       return weakMap.get(obj)
     }
-    var copy = new obj.constructor()
+    let copy = new obj.constructor()
     weakMap.set(obj, copy)
-    for (var key in obj) {
+    for (let key in obj) {
       if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        var value = obj[key]
+        let value = obj[key]
         copy[key] = clone(value)
       }
     }
@@ -420,75 +421,14 @@ export const deepObjClone = function (obj) {
   }
   return clone(obj)
 }
-import { ElMessage } from "element-plus";
 
-/**
- * hex颜色转rgb颜色
- * @param str 颜色值字符串
- * @returns 返回处理后的颜色值
- */
-export function hexToRgb(str: any) {
-  let hexs: any = "";
-  let reg = /^\#?[0-9A-Fa-f]{6}$/;
-  if (!reg.test(str)) return ElMessage.warning("输入错误的hex");
-  str = str.replace("#", "");
-  hexs = str.match(/../g);
-  for (let i = 0; i < 3; i++) hexs[i] = parseInt(hexs[i], 16);
-  return hexs;
-}
 
-/**
- * rgb颜色转Hex颜色
- * @param r 代表红色
- * @param g 代表绿色
- * @param b 代表蓝色
- * @returns 返回处理后的颜色值
- */
-export function rgbToHex(r: any, g: any, b: any) {
-  let reg = /^\d{1,3}$/;
-  if (!reg.test(r) || !reg.test(g) || !reg.test(b)) return ElMessage.warning("输入错误的rgb颜色值");
-  let hexs = [r.toString(16), g.toString(16), b.toString(16)];
-  for (let i = 0; i < 3; i++) if (hexs[i].length == 1) hexs[i] = `0${hexs[i]}`;
-  return `#${hexs.join("")}`;
-}
-
-/**
- * 加深颜色值
- * @param color 颜色值字符串
- * @param level 加深的程度，限0-1之间
- * @returns 返回处理后的颜色值
- */
-export function getDarkColor(color: string, level: number) {
-  let reg = /^\#?[0-9A-Fa-f]{6}$/;
-  if (!reg.test(color)) return ElMessage.warning("输入错误的hex颜色值");
-  let rgb = hexToRgb(color);
-  for (let i = 0; i < 3; i++) rgb[i] = Math.floor(rgb[i] * (1 - level));
-  return rgbToHex(rgb[0], rgb[1], rgb[2]);
-}
-
-/**
- * 变浅颜色值
- * @param color 颜色值字符串
- * @param level 加深的程度，限0-1之间
- * @returns 返回处理后的颜色值
- */
-export function getLightColor(color: string, level: number) {
-  let reg = /^\#?[0-9A-Fa-f]{6}$/;
-  if (!reg.test(color)) return ElMessage.warning("输入错误的hex颜色值");
-  let rgb = hexToRgb(color);
-  for (let i = 0; i < 3; i++) rgb[i] = Math.floor((255 - rgb[i]) * level + rgb[i]);
-  return rgbToHex(rgb[0], rgb[1], rgb[2]);
-}
-
-export function getTimeState() {
-  // 获取当前时间
+export function getTimeStateStr() {
   let timeNow = new Date();
-  // 获取当前小时
   let hours = timeNow.getHours();
-  // 判断当前时间段
-  if (hours >= 6 && hours <= 10) return `早上好 ⛅`;
-  if (hours >= 10 && hours <= 14) return `中午好 🌞`;
-  if (hours >= 14 && hours <= 18) return `下午好 🌞`;
-  if (hours >= 18 && hours <= 24) return `晚上好 🌛`;
-  if (hours >= 0 && hours <= 6) return `凌晨好 🌛`;
+  if (hours >= 6 && hours <= 10) return `早上好`;
+  if (hours >= 10 && hours <= 14) return `中午好`;
+  if (hours >= 14 && hours <= 18) return `下午好`;
+  if (hours >= 18 && hours <= 24) return `晚上好`;
+  if (hours >= 0 && hours <= 6) return `凌晨好`;
 }

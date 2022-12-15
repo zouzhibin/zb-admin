@@ -22,6 +22,36 @@ $dark_gray: #889aa4;
     border-radius: 10px;
     box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
     box-sizing: border-box;
+    position: relative;
+
+    .info-qrcode{
+      width: 150px;
+      height: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+      position: absolute;
+      top: -60px;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #1492ff;
+      font-size: 16px;
+      &::after{
+        content: "";
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 10px;
+        height: 26px;
+        border-top: 13px solid #fff;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 13px solid transparent;
+        position: absolute;
+        top: 40px;
+        right: 16px;
+      }
+    }
   }
   .login-title{
     display: flex;
@@ -74,6 +104,26 @@ $dark_gray: #889aa4;
   top: 20px;
 }
 
+.qrcode{
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  width: 30px;
+}
+.login-qrcode{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  img{
+    width: 60%;
+  }
+  .title{
+
+  }
+}
 
 @media (max-width: 850px){
   .login-container{

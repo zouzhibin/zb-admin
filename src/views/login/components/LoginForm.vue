@@ -1,4 +1,8 @@
 <template>
+  <div class="login-title">
+    <img class="icon" src="@/assets/image/logo.png" alt="logo" />
+    <h2 class="title">Vue-Admin-Perfect</h2>
+  </div>
   <el-form
       ref="ruleFormRef"
       :model="ruleForm"
@@ -54,7 +58,7 @@ import type { FormInstance } from 'element-plus'
 import { ElNotification } from "element-plus";
 import { useRouter } from 'vue-router'
 import {useUserStore} from "@/store/modules/user"
-import {getTimeState} from '@/utils/index'
+import {getTimeStateStr} from '@/utils/index'
 
 const router = useRouter()
 const UserStore = useUserStore()
@@ -90,7 +94,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
           path: '/',
         })
         ElNotification({
-          title: getTimeState(),
+          title: getTimeStateStr(),
           message: "欢迎登录 Vue Admin Perfect",
           type: "success",
           duration: 3000

@@ -58,7 +58,7 @@
 <script setup lang="ts">
   import Upload from '@/components/Upload/index.vue'
   import { ElMessage } from 'element-plus'
-  import logo from '@/assets/logo.png'
+  import logo from '@/assets/image/logo.png'
   import { ref } from 'vue'
   const imgs = ref([
     {

@@ -1,54 +1,7 @@
 // 暗黑模式自定义样式
 html.dark {
   /* 自定义深色背景颜色 */
-  //--el-bg-color: #141414;
-  //--el-color-primary: #409eff;
-  //--el-color-primary-light-3: #3375b9;
-  //--el-color-primary-light-5: #2a598a;
-  //--el-color-primary-light-7: #213d5b;
-  //--el-color-primary-light-8: #1d3043;
-  //--el-color-primary-light-9: #18222c;
-  //--el-color-primary-dark-2: #66b1ff;
-  //--el-color-success: #67c23a;
-  //--el-color-success-light-3: #4e8e2f;
-  //--el-color-success-light-5: #3e6b27;
-  //--el-color-success-light-7: #2d481f;
-  //--el-color-success-light-8: #25371c;
-  //--el-color-success-light-9: #1c2518;
-  //--el-color-success-dark-2: #85ce61;
-  //--el-color-warning: #e6a23c;
-  //--el-color-warning-light-3: #a77730;
-  //--el-color-warning-light-5: #7d5b28;
-  //--el-color-warning-light-7: #533f20;
-  //--el-color-warning-light-8: #3e301c;
-  //--el-color-warning-light-9: #292218;
-  //--el-color-warning-dark-2: #ebb563;
-  //--el-color-danger: #f56c6c;
-  //--el-color-danger-light-3: #b25252;
-  //--el-color-danger-light-5: #854040;
-  //--el-color-danger-light-7: #582e2e;
-  //--el-color-danger-light-8: #412626;
-  //--el-color-danger-light-9: #2b1d1d;
-  //--el-color-danger-dark-2: #f78989;
-  //--el-color-error: #f56c6c;
-  //--el-color-error-light-3: #b25252;
-  //--el-color-error-light-5: #854040;
-  //--el-color-error-light-7: #582e2e;
-  //--el-color-error-light-8: #412626;
-  //--el-color-error-light-9: #2b1d1d;
-  //--el-color-error-dark-2: #f78989;
-  //--el-color-info: #909399;
-  //--el-color-info-light-3: #6b6d71;
-  //--el-color-info-light-5: #525457;
-  //--el-color-info-light-7: #393a3c;
-  //--el-color-info-light-8: #2d2d2f;
-  //--el-color-info-light-9: #202121;
-  //--el-color-info-dark-2: #a6a9ad;
-  //--el-box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, 0.36),0px 8px 20px rgba(0, 0, 0, 0.72);
-  //--el-box-shadow-light: 0px 0px 12px rgba(0, 0, 0, 0.72);
-  //--el-box-shadow-lighter: 0px 0px 6px rgba(0, 0, 0, 0.72);
-  //--el-box-shadow-dark: 0px 16px 48px 16px rgba(0, 0, 0, 0.72),0px 12px 32px #000000,0px 8px 16px -8px #000000;
-  //--el-bg-color-page: #0a0a0a;
+
   //--el-bg-color: #141414;
   //--el-bg-color-overlay: #1d1e1f;
 
@@ -204,16 +157,18 @@ html.dark {
 
   // 登录
   .login-container {
-    background-color: var(--el-fill-color-extra-light) !important;
+    background-color: #191919 !important;
     .login-box {
-      background-color: var(--el-mask-color) !important;
+      background-color: #000000cc !important;
       .login-form {
-        background-color: var(--el-bg-color) !important;
-        box-shadow: var(--geeker-login-shadow-light) !important;
+        background-color: #141414 !important;
         .title {
           color: var(--el-text-color-primary) !important;
         }
       }
+    }
+    .info-qrcode{
+      background: white;
     }
   }
 
