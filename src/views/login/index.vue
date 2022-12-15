@@ -6,19 +6,28 @@
         <img src="@/assets/image/login/side-logo.png" >
       </div>
       <div class="login-form">
-        <div class="login-title">
-          <img class="icon" src="@/assets/logo.png" alt="logo" />
-          <h2 class="title">Vue-Admin-Perfect</h2>
-        </div>
-        <LoginForm/>
+        <div class="info-qrcode" >{{ accountLogin?'扫码登录':'账号登录' }}</div>
+        <img src="@/assets/image/login/qrcode-icon.png" class="qrcode" @click="handleClick">
+
+        <LoginForm v-if="accountLogin"/>
+        <LoginQrcode v-else/>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+  import {ref} from 'vue'
   import LoginForm from './components/LoginForm.vue'
   import SwitchDark from '@/components/SwitchDark/index.vue'
+  import LoginQrcode from './components/LoginQrcode.vue'
+
+  const accountLogin = ref<boolean>(true)
+
+  const handleClick = ()=>{
+    console.log('=======',accountLogin)
+    accountLogin.value=!accountLogin.value
+  }
 </script>
 <style lang="scss" scoped>
   @import "./index";

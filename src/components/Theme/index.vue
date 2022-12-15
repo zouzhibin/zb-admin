@@ -69,7 +69,6 @@
   import SwitchDark from '@/components/SwitchDark/index.vue'
   import {PRIMARY_COLOR} from "@/config/index";
   import {useSettingStore} from "@/store/modules/setting"
-  import {getDarkColor,getLightColor} from '@/utils/index'
 
   const SettingStore = useSettingStore()
   const layout = ref(SettingStore.themeConfig.mode)
@@ -86,9 +85,7 @@
       return SettingStore.themeConfig.showSetting;
     },
     set() {
-
       changeSwitch('showSetting',!SettingStore.themeConfig.showSetting)
-
     }
   })
 
@@ -135,16 +132,7 @@
       primary.value = val = PRIMARY_COLOR;
       ElMessage({ type: "success", message: `主题颜色已重置为 ${PRIMARY_COLOR}` });
     }
-    // 颜色加深
-    document.documentElement.style.setProperty("--el-color-primary-dark-2", `${getDarkColor(val, 0.1)}`);
     document.documentElement.style.setProperty("--el-color-primary", val);
-    // 颜色变浅
-    for (let i = 1; i <= 9; i++) {
-      document.documentElement.style.setProperty(
-          `--el-color-primary-light-${i}`,
-          `${getLightColor(val, i / 10)}`
-      );
-    }
     changeSwitch('primary',val)
   }
 
