@@ -1,3 +1,4 @@
+// 文档参考：https://cz-git.qbb.sh/zh/config/
 // cz.config.js  kk
 /** @type {import('cz-git').CommitizenGitOptions} */
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
     // messages: {
     //     type: 'Select the type of change that you\'re committing:',
     //     scope: 'Denote the SCOPE of this change (optional):',
-    //     customScope: 'Denote the SCOPE of this change:',
+    //     customScope: 'Denote the SCOPE of this chang     e:',
     //     subject: 'Write a SHORT, IMPERATIVE tense description of the change:\n',
     //     body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
     //     breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
@@ -20,72 +21,29 @@ module.exports = {
         // 中英文对照版
         messages: {
             type: '选择你要提交的类型 :',
-            scope: '选择一个提交范围 (可选):',
+            scope: '选择一个提交范围（可选）:',
             customScope: '请输入自定义的提交范围 :',
             subject: '填写简短精炼的变更描述 :\n',
-            body: '填写更加详细的变更描述 (可选)。使用 "|" 换行 :\n',
-            breaking: '列举非兼容性重大的变更 (可选)。使用 "|" 换行 :\n',
-            footerPrefixsSelect: '选择关联issue前缀 (可选):',
-            customFooterPrefixs: '输入自定义issue前缀 :',
+            body: '填写更加详细的变更描述（可选）。使用 "|" 换行 :\n',
+            breaking: '列举非兼容性重大的变更（可选）。使用 "|" 换行 :\n',
+            footerPrefixesSelect: '选择关联issue前缀（可选）:',
+            customFooterPrefix: '输入自定义issue前缀 :',
             footer: '列举关联issue (可选) 例如: #31, #I3244 :\n',
-            confirmCommit: '是否提交或修改commit ?',
+            confirmCommit: '是否提交或修改commit ?'
         },
-
-        // types: [
-        //     { value: 'feat', name: 'feat:     A new feature', emoji: ':sparkles:' },
-        //     { value: 'fix', name: 'fix:      A bug fix', emoji: ':bug:' },
-        //     { value: 'docs', name: 'docs:     Documentation only changes', emoji: ':memo:' },
-        //     { value: 'style', name: 'style:    Changes that do not affect the meaning of the code', emoji: ':lipstick:' },
-        //     { value: 'refactor', name: 'refactor: A code change that neither fixes a bug nor adds a feature', emoji: ':recycle:' },
-        //     { value: 'perf', name: 'perf:     A code change that improves performance', emoji: ':zap:' },
-        //     { value: 'test', name: 'test:     Adding missing tests or correcting existing tests', emoji: ':white_check_mark:' },
-        //     { value: 'build', name: 'build:    Changes that affect the build system or external dependencies', emoji: ':package:' },
-        //     { value: 'ci', name: 'ci:       Changes to our CI configuration files and scripts', emoji: ':ferris_wheel:' },
-        //     { value: 'chore', name: 'chore:    Other changes that don\'t modify src or test files', emoji: ':hammer:' },
-        //     { value: 'revert', name: 'revert:   Reverts a previous commit', emoji: ':rewind:' }
-        // ],
-
-
-
         types: [
-            { value: 'feat',
-                name: 'feat:     新增功能',
-                emoji: "💥"
-            },
-            {   value: 'fix',
-                name: 'fix:      修复缺陷',
-                emoji: "📌"
-            },
-            { value: 'docs',
-                name: 'docs:     文档变更',
-                emoji: "📝"
-            },
-            { value: 'style',
-                name: 'style:    代码格式',
-                emoji: "🔨"
-            },
-            { value: 'refactor',
-                name: 'refactor: 代码重构',
-                emoji: "⚡"
-            },
-            {
-                value: 'perf',
-                name: 'perf:     性能优化',
-                emoji: "🔥"
-            },
-            { value: 'test', name: 'test:     添加疏漏测试或已有测试改动',
-                emoji: "🔐"
-            },
-            { value: 'build', name: 'build:    构建流程、外部依赖变更 (如升级 npm 包、修改打包配置等)' },
-            { value: 'ci',
-                name: 'ci:       修改 CI 配置、脚本',
-                emoji: "🔖"
-            },
-            { value: 'revert', name: 'revert:   回滚 commit' },
-            { value: 'chore', name: 'chore:    对构建过程或辅助工具和库的更改 (不影响源文件、测试用例)' },
-            { value: 'wip', name: 'wip:      正在开发中' },
-            { value: 'workflow', name: 'workflow: 工作流程改进' },
-            { value: 'types', name: 'types:    类型定义文件修改' },
+            { value: '特性', name: '特性:     新增功能' },
+            { value: '修复', name: '修复:     修复缺陷' },
+            { value: '文档', name: '文档:     文档变更' },
+            { value: '格式', name: '格式:     代码格式（不影响功能，例如空格、分号等格式修正）' },
+            { value: '重构', name: '重构:     代码重构（不包括 bug 修复、功能新增）' },
+            { value: '性能', name: '性能:     性能优化' },
+            { value: '测试', name: '测试:     添加疏漏测试或已有测试改动' },
+            { value: '构建', name: '构建:     构建流程、外部依赖变更（如升级 npm 包、修改 webpack 配置等）' },
+            { value: '集成', name: '集成:     修改 CI 配置、脚本' },
+            { value: '回退', name: '回退:     回滚 commit' },
+            { value: '其他', name: '其他:     对构建过程或辅助工具和库的更改（不影响源文件、测试用例）' },
+
         ],
         // emptyScopesAlias: 'empty:      不填写',
         // customScopesAlias: 'custom:     自定义',

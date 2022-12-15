@@ -38,7 +38,6 @@ export function hasPermission(roles, route) {
  * @return void
  * */
 
-
 export function filterKeepAlive(routers){
     let cacheRouter: any[] = [];
     let deep = (routers)=>{

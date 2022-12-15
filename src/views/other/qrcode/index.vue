@@ -31,7 +31,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
   import vueQr from 'vue-qr/src/packages/vue-qr.vue'
-  import three from '@/assets/logo.png'
+  import three from '@/assets/image/logo.png'
   import { getColor } from '@/utils/index'
   const logoSrc = ref(null)
   const qrcodeUrl = ref(null)

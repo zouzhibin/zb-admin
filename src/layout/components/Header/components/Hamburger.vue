@@ -1,7 +1,6 @@
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb" mode="out-in">
-      <!-- 首页面包屑不要可以直接删除 🙅‍♀️ -->
       <el-breadcrumb-item :to="{ path: '/' }" key="home" v-if="matched[0].meta.title !== '首页'">
         <div class="breadcrumb-item">
           <span class="breadcrumb-title">首页</span>
@@ -16,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { useRoute ,useRouter} from 'vue-router'
 
 const route = useRoute()
@@ -27,8 +26,6 @@ const handleLink = (item)=>{
     path:item.path
   })
 }
-
-
 
 const matched = computed(() => route.matched.filter(item => item.meta && item.meta.title && item.meta.breadcrumb !== false));
 
