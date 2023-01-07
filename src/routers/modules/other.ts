@@ -95,7 +95,7 @@ const othersRouter = [{
       component: () => import('@/views/other/count/index.vue'),
       name: 'count',
       meta: { title: '数字动画', icon: 'MenuIcon' }
-    }
+    },
   ]
 }]
 
