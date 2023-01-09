@@ -29,7 +29,6 @@ registerElIcons(app)
 
 app.component('svg-icon',SvgIcon)
 app.component('PageWrapLayout',PageWrapLayout)
-
 app.use(I18n)
 app.use(pinia)
 app.use(router)
