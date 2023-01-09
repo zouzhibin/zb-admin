@@ -1,5 +1,5 @@
 <template>
-  <u-container-layout>
+  <PageWrapLayout>
     <div id="wrap" style="margin-bottom: 20px">
       <div>
         <el-button type="primary" @click="print(1)" >打印图片</el-button>
@@ -30,13 +30,13 @@
       <el-descriptions-item label="honorColor"> 要以彩色打印文本，请将此属性设置为true。默认情况下，所有文本都将以黑色打印。 </el-descriptions-item>
       <el-descriptions-item label="css"> 这允许我们传递一个或多个应该应用于正在打印的html的css文件URL。值可以是包含单个URL的字符串，也可以是包含多个URL的数组。 </el-descriptions-item>
     </el-descriptions>
-  </u-container-layout>
+  </PageWrapLayout>
 </template>
 
 <script lang="ts" setup>
   import printJS from 'print-js'
   import '@/utils/Print'
-  import logo from '@/assets/logo.png'
+  import logo from '@/assets/image/logo.png'
 
   const tableData = [
     {

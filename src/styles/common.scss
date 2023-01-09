@@ -6,6 +6,7 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  font-size: 14px;
 }
 body{
   background: #f0f2f5;
@@ -94,3 +95,14 @@ body{
   }
 }
 
+.el-pager li:focus {
+  border: none;
+}
+.el-dropdown:focus {
+  border: none;
+  outline: none!important;
+}
+.svg-icon:focus {
+  border: none!important;
+  outline: none!important;
+}

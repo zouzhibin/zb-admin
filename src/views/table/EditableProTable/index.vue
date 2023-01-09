@@ -1,5 +1,5 @@
 <template>
-  <u-container-layout>
+  <PageWrapLayout>
     <div style="margin-bottom: 20px">
       <div style="display: flex; justify-content: flex-end">
         <el-radio-group v-model="radio">
@@ -36,7 +36,7 @@
       <el-descriptions-item label="onChange"> 数据实时改变 </el-descriptions-item>
     </el-descriptions>
 
-  </u-container-layout>
+  </PageWrapLayout>
 </template>
 
 <script lang="ts" setup>

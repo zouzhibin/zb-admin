@@ -1,5 +1,5 @@
 <template>
-  <u-container-layout>
+  <PageWrapLayout>
     <div style="display: flex">
       <el-input v-model="inputData" placeholder="请输入" style="width: 400px; max-width: 100%" />
       <el-button type="primary" @click="handleQrcode(1)">
@@ -26,12 +26,12 @@
       <el-descriptions-item label="colorLight"> 空白区的颜色 </el-descriptions-item>
       <el-descriptions-item label="callback"> 生成的二维码 Data URI 可以在回调中取得,第一个参数为二维码 data URL, 第二个参数为 props 传过来的 qid(因为二维码生成是异步的,所以加个 id 用于排序) </el-descriptions-item>
     </el-descriptions>
-  </u-container-layout>
+  </PageWrapLayout>
 </template>
 <script lang="ts" setup>
   import { ref } from 'vue'
   import vueQr from 'vue-qr/src/packages/vue-qr.vue'
-  import three from '@/assets/logo.png'
+  import three from '@/assets/image/logo.png'
   import { getColor } from '@/utils/index'
   const logoSrc = ref(null)
   const qrcodeUrl = ref(null)

@@ -3,6 +3,10 @@ vue-element-perfect 是一个后台前端解决方案,它使用了最新的前�
 
 ### 在线预览
 - link —— [http://182.61.5.190:8889/ ](http://182.61.5.190:8889/)
+- gitee国内访问地址：https://yuanzbz.gitee.io/vue-admin-perfect/#/home
+- github site : https://zouzhibin.github.io/vue-admin-perfect/
+
+
 
 ### git仓库(欢迎 Star⭐)
 - Gitee： —— [https://gitee.com/yuanzbz/vue-admin-perfect](https://gitee.com/yuanzbz/vue-admin-perfect)
