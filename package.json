@@ -49,6 +49,7 @@
     "vue-qr": "^4.0.6",
     "vue-router": "^4.1.6",
     "vue-splitpane": "^1.0.6",
+    "vue3-text-clamp": "^0.1.1",
     "vuedraggable": "^4.1.0",
     "vuex": "^4.0.0-0",
     "xlsx": "^0.18.5"

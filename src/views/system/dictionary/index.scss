@@ -1,0 +1,108 @@
+.m-user{
+  display: flex;
+  flex-direction: row;
+}
+.m-user-table{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  width: calc(100% - 230px);
+  .header{
+    display: flex;
+    padding: 16px 16px 0px 16px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    background: white;
+    box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+  }
+  .footer{
+    flex: 1;
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    border-radius: 4px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+    position: relative;
+    box-sizing: border-box;
+    .util{
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: flex-end;
+      flex-shrink: 0;
+    }
+    .table-inner{
+      flex: 1;
+      position: relative;
+    }
+    .table{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%
+    }
+  }
+  .pagination{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
+}
+.custom-tree-node{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.m-dept-side{
+  box-sizing: border-box;
+  width: 220px;
+  height: 100%;
+  padding: 18px;
+  margin-right: 10px;
+  flex-shrink: 0;
+  ::v-deep(.el-card__body){
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0!important;
+    .el-tree-node__content{
+      height: 33px;
+    }
+    .el-tree{
+
+    }
+  }
+  .filter-search{
+    flex-shrink: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  .title{
+    flex-shrink: 0;
+    margin: 0 0 15px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .scrollbar{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+  }
+  .filter-tree{
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+}

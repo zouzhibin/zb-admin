@@ -96,6 +96,13 @@ const othersRouter = [{
       name: 'count',
       meta: { title: '数字动画', icon: 'MenuIcon' }
     },
+    {
+      path: 'text-clamp',
+      component: () => import('@/views/other/textClamp/index.vue'),
+      name: 'text-clamp',
+      meta: { title: '多行文本省略', icon: 'MenuIcon' }
+    },
+
   ]
 }]
 

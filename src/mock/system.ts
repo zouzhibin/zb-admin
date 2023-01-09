@@ -381,4 +381,96 @@ export const menuData =[
     },
 ]
 
+export const dictionaryData = [
+    {
+        "id": 1,
+        "name": "性别",
+        "keyCode":'sex',
+        "createTime": "2011-02-25 18:37:39",
+        "remark": "性别",
+    },
+    {
+        "id": 2,
+        "name": "证件类型",
+        "keyCode":'idType',
+        "createTime": "2011-02-25 18:37:39",
+        "remark": "证件类型",
+    }
+]
 
+export const dictionaryDetailData = [
+    {
+        "id": 1,
+        "keyCode":'sex',
+        "name": "性别",
+        "createTime": "2011-02-25 18:37:39",
+        "remark": "性别",
+        "children":[
+            {
+                "id": 11,
+                "name": "男",
+                "key":1,
+                "pid":1,
+                "createTime": "2011-02-25 18:37:39",
+                "remark": "男",
+            },
+            {
+                "id": 12,
+                "name": "女",
+                "key":0,
+                "pid":1,
+                "createTime": "2011-02-25 18:37:39",
+                "remark": "女",
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "keyCode":'idType',
+        "name": "证件类型",
+        "createTime": "2011-02-25 18:37:39",
+        "remark": "证件类型",
+        "children":[
+            {
+                "id": 21,
+                "name": "身份证",
+                "key":1,
+                "pid":2,
+                "createTime": "2011-02-25 18:37:39",
+                "remark": "身份证",
+            },
+            {
+                "id": 22,
+                "name": "社保卡",
+                "key":2,
+                "pid":2,
+                "createTime": "2011-02-25 18:37:39",
+                "remark": "社保卡",
+            },
+            {
+                "id": 23,
+                "name": "驾驶证",
+                "key":3,
+                "pid":2,
+                "createTime": "2011-02-25 18:37:39",
+                "remark": "驾驶证",
+            },
+            {
+                "id": 24,
+                "name": "护照",
+                "key":4,
+                "pid":2,
+                "createTime": "2011-02-25 18:37:39",
+                "remark": "护照",
+            },
+            {
+                "id": 25,
+                "name": "工作证",
+                "key":5,
+                "pid":2,
+                "createTime": "2011-02-25 18:37:39",
+                "remark": "工作证",
+            }
+        ]
+    }
+]
