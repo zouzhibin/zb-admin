@@ -5,8 +5,8 @@
         <el-card class="box-card" style="height: 100%">
           <el-image
               class="wechat"
-              src="http://182.61.5.190:8889/we.png"
-              :preview-src-list="['http://182.61.5.190:8889/we.png']"
+              :src="weLogo"
+              :preview-src-list="[weLogo]"
               style="max-width: 200px"
               :data-resid="Date.now()"
           />
@@ -163,6 +163,7 @@
   import { User } from '@element-plus/icons-vue'
   import { ref } from 'vue'
   import AvatarLogo from '@/assets/image/avatar.png'
+  import weLogo from '@/assets/image/we.png'
   import CountTo from '@/components/CountTo/index.vue'
   import BarCharts from '@/views/echarts/simple/components/bar.vue'
 
