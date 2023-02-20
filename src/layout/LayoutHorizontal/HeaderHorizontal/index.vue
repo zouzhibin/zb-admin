@@ -1,33 +1,32 @@
-     <template>
-  <!--纵向布局-->
-  <Height/>
-  <div
-      class="m-layout-header"
-      :class="{
-          'fixed-header':themeConfig.fixedHeader,
-      }">
-    <div class="header-inner">
-      <el-menu
-          mode="horizontal"
-          :default-active="activeMenu"
-          background-color="#304156"
-          text-color="#bfcbd9"
-          :unique-opened="SettingStore.themeConfig.uniqueOpened"
-          :collapse-transition="false"
-          class="menu-horizontal"
-      >
-        <SubItem
-            v-for="route in permission_routes"
-            :key="route.path"
-            :item="route"
-            :base-path="route.path"
-        />
-      </el-menu>
-      <HeaderToolRight/>
+  <template>
+    <!--纵向布局-->
+    <Height/>
+    <div
+        class="m-layout-header"
+        :class="{
+            'fixed-header':themeConfig.fixedHeader,
+        }">
+      <div class="header-inner">
+        <el-menu
+            mode="horizontal"
+            :default-active="activeMenu"
+            background-color="#304156"
+            text-color="#bfcbd9"
+            :unique-opened="SettingStore.themeConfig.uniqueOpened"
+            :collapse-transition="false"
+            class="menu-horizontal"
+        >
+          <SubItem
+              v-for="route in permission_routes"
+              :key="route.path"
+              :item="route"
+              :base-path="route.path"
+          />
+        </el-menu>
+        <HeaderToolRight/>
+      </div>
+      <TagsView v-if="themeConfig.showTag"/>
     </div>
-    <TagsView v-if="themeConfig.showTag"/>
-  </div>
-
 </template>
 
 <script lang="ts" setup>
@@ -56,7 +55,6 @@ const activeMenu = computed(() => {
   return path
 })
 
-
 // 主题配置
 const themeConfig = computed(() =>SettingStore.themeConfig)
 const isCollapse = computed(() =>!SettingStore.isCollapse)
@@ -64,6 +62,5 @@ const isCollapse = computed(() =>!SettingStore.isCollapse)
 
 <style lang="scss" scoped>
 @import "./index.scss";
-
 </style>
 
