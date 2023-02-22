@@ -43,6 +43,7 @@ const props = defineProps({
 
 const onlyOneChild = ref(null)
 const hasOneShowingChild = (children = [], parent) => {
+
   const showingChildren = children.filter((item) => {
     // 过滤掉需要隐藏的菜单
     if (item.hidden) {
@@ -53,14 +54,14 @@ const hasOneShowingChild = (children = [], parent) => {
       return true
     }
   })
-
   // 当只有一个子路由器时，默认情况下会显示该子路由器
   if (showingChildren.length === 1) {
     return true
   }
   // 如果没有要显示的子路由器，则显示父路由器
   if (showingChildren.length === 0) {
-    onlyOneChild.value = { ...parent, path: '', noShowingChildren: true }
+    // onlyOneChild.value = { ...parent, path: '', noShowingChildren: true }
+    onlyOneChild.value = { ...parent, noShowingChildren: true }
     return true
   }
 
@@ -74,6 +75,8 @@ const resolvePath = (routePath) => {
   if (isExternal(props.basePath)) {
     return props.basePath
   }
-  return path.resolve(props.basePath, routePath)
+  let path2 = path.resolve(props.basePath, routePath)
+  console.log('============',path2)
+  return path2
 }
 </script>

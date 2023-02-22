@@ -20,15 +20,15 @@ const tableRouter = [{
             meta: { title: '综合表格', keepAlive: true , icon: 'MenuIcon'}
         },
         {
-            path: 'inline-table',
+            path: 'inlineTable',
             component: () => import('@/views/table/InlineEditTable/index.vue'),
-            name: 'inline-table',
+            name: 'inlineTable',
             meta: { title: '行内编辑', keepAlive: true  , icon: 'MenuIcon'}
         },
         {
             path: 'editableProTable',
             component: () => import('@/views/table/EditableProTable/index.vue'),
-            name: 'edit-table',
+            name: 'editableProTable',
             meta: { title: '可编辑表格', keepAlive: true  , icon: 'MenuIcon'}
         },
         // {

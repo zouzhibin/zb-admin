@@ -1,9 +1,10 @@
 <template>
   <div class="g-container-layout" :class="classObj">
-    <Mobile/>
-    <LayoutVertical v-if="device === 'mobile'"/>
-    <component :is="LayoutComponents[themeConfig.mode]" v-else/>
-    <Theme />
+<!--    <Mobile/>-->
+<!--    <LayoutVertical v-if="device === 'mobile'"/>-->
+<!--    <component :is="LayoutComponents[themeConfig.mode]" v-else/>-->
+<!--    <Theme />-->
+    <LayoutColumns/>
   </div>
 </template>
 
@@ -15,12 +16,14 @@
   import { useResizeHandler } from './hooks/useResizeHandler'
   import LayoutVertical from './LayoutVertical/index.vue'
   import LayoutHorizontal from './LayoutHorizontal/index.vue'
+  import LayoutColumns from './LayoutColumns/index.vue'
 
   const SettingStore = useSettingStore()
   const themeConfig = computed(() => SettingStore.themeConfig)
   const LayoutComponents = {
     horizontal: LayoutHorizontal,
     vertical: LayoutVertical,
+    columns: LayoutColumns,
   };
 
   // 是否折叠

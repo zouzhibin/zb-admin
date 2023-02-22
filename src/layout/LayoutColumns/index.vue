@@ -1,12 +1,57 @@
 <template>
-  <div class="main-container">
-    <el-scrollbar>
-      <div class="menu-wrap">
-        <div class="item-menu-wrap">
-
+  <div class="main-columns">
+    <div class="layout-columns-aside">
+      <el-scrollbar>
+        <div class="menu-wrap">
+          <div
+            class="item-menu-wrap"
+            v-for="item in menusRoutes"
+            :key="item.path"
+            @click="handleChangeMenu(item)"
+          >
+            <el-icon :size="20">
+              <component :is="item?.meta?.icon"></component>
+            </el-icon>
+            <span class="title">{{ item?.meta?.title }}</span>
+          </div>
         </div>
-      </div>
-    </el-scrollbar>
+      </el-scrollbar>
+    </div>
+
+    <div class="layout-columns-sub" :style="{ width: isCollapse ? '60px' : '210px' }">
+      <el-scrollbar style="height: 100%">
+        <el-menu
+          :collapse="isCollapse"
+          :default-active="activeMenu"
+          background-color="#304156"
+          text-color="#bfcbd9"
+          :unique-opened="SettingStore.themeConfig.uniqueOpened"
+          :collapse-transition="false"
+          class="menu-columns"
+        >
+          <SubItem
+            v-for="route in subMenus"
+            :key="route.path"
+            :item="route"
+            :base-path="basePath"
+          />
+        </el-menu>
+      </el-scrollbar>
+    </div>
+
+    <div class="container">
+<!--      <div class="layout-header">-->
+<!--        <div class="header-tool">-->
+<!--          <HeaderToolLeft/>-->
+<!--          <HeaderToolRight/>-->
+<!--        </div>-->
+<!--        <TagsView v-if="themeConfig.showTag"/>-->
+<!--      </div>-->
+
+      <Main/>
+    </div>
+
+
   </div>
 </template>
 
@@ -14,25 +59,135 @@
 import { ref, computed, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import {usePermissionStore} from "@/store/modules/permission"
+import { useSettingStore } from "@/store/modules/setting";
+import SubItem from '../components/SubMenu/SubItem.vue'
+import TagsView from '../components/TagsView/index.vue'
 const PermissionStore = usePermissionStore()
-
+const SettingStore = useSettingStore()
 const route = useRoute()
-
+const router = useRouter();
+import HeaderToolRight from '../components/Header/ToolRight.vue'
+import HeaderToolLeft from '../components/Header/ToolLeft.vue'
+import Main from '../components/Main/index.vue'
 // 获取路由
 const permission_routes = computed(() => PermissionStore.permission_routes)
+
+// 获取路由
+const menusRoutes = computed(()=>{
+  return PermissionStore.permission_routes.filter(item=>!item.hidden)
+})
+// 主题配置
+const themeConfig = computed(() =>SettingStore.themeConfig)
+const isCollapse = computed(() =>!SettingStore.isCollapse)
+const activeMenu = computed(() => {
+  const { meta, path } = route
+  if (meta.activeMenu) {
+    return meta.activeMenu
+  }
+  return path
+})
+const basePath = ref<string>('/')
+const subMenus = ref([])
+
+watch(()=>[menusRoutes,route],()=>{
+    console.log('===============================',route,route.path,menusRoutes)
+    if (!menusRoutes.value.length) return;
+    let menuItem = menusRoutes.value.find(item=>{
+      return item.path === route.path || `/${route.path.split("/")[1]}` === item.path
+    })
+    if(menuItem.children?.length) {
+      subMenus.value = menuItem.children
+    }else {
+      subMenus.value = []
+    }
+    console.log('route.path',route.path.split('/'))
+    basePath.value = `/${route.path.split("/")[1]}`
+
+
+    console.log('menuItem.value',subMenus.value,basePath)
+
+},{
+  deep: true,
+  immediate:true
+})
+
+
+const handleChangeMenu = (item)=>{
+  if (item.children?.length) {
+    subMenus.value = item.children
+  }else {
+    subMenus.value = [];
+  }
+  console.log('item.path',item.path)
+  router.push(item.path);
+
+}
+
+console.log('permission_routes',menusRoutes.value,)
 
 </script>
 
 
 <style lang="scss" scoped>
-.menu-wrap{
+.layout-columns-aside{
+  flex-shrink: 0;
+  width: 70px;
+  height: 100vh;
 
-  width: 100%;
-  height: 50px;
-  text-align: center;
+  background-color: #304156;
+}
+.main-columns{
   display: flex;
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
+  flex-direction: row!important;
+}
+.layout-columns-sub{
+  flex-shrink: 0;
+  width: 200px;
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: #304156;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  ::v-deep(.el-menu){
+    border-right: none;
+  }
+}
+.container{
+  flex: 1;
+}
+.layout-header{
+  background: white;
+  transition: width 0.28s;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
+  .header-tool{
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    padding: 0 10px 0 0;
+    box-sizing: border-box;
+    justify-content: space-between;
+  }
+}
+.menu-wrap{
+  .item-menu-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+  .title{
+    color: #e5eaf3;
+  }
+  .el-icon{
+    color: #e5eaf3;
+  }
 }
 </style>
