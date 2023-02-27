@@ -11,7 +11,7 @@
         </el-menu-item>
       </app-link>
     </template>
-    <el-sub-menu :index="resolvePath(item.path)" v-else popper-append-to-body>
+    <el-sub-menu :index="resolvePath(item.path)" v-else >
       <template #title>
         <el-icon :size="20"> <component :is="item.meta?.icon"></component></el-icon>
         <span>{{ generateTitle(item) }}</span>
@@ -45,6 +45,7 @@ const props = defineProps({
 
 const onlyOneChild = ref(null)
 const hasOneShowingChild = (children = [], parent) => {
+
   const showingChildren = children.filter((item) => {
     // 过滤掉需要隐藏的菜单
     if (item.hidden) {
@@ -55,7 +56,6 @@ const hasOneShowingChild = (children = [], parent) => {
       return true
     }
   })
-
   // 当只有一个子路由器时，默认情况下会显示该子路由器
   if (showingChildren.length === 1) {
     return true

@@ -25,9 +25,10 @@
 <script lang="ts" setup>
 import Logo from './components/Logo.vue'
 import SubItem from '../SubMenu/SubItem.vue'
+import SubMenu from '../SubMenu/SubMenu.vue'
 import {useSettingStore} from "@/store/modules/setting"
 import {usePermissionStore} from "@/store/modules/permission"
-import { computed } from 'vue'
+import { computed, ref, watch } from "vue";
 import { useRoute } from 'vue-router'
 
 // 在setup中获取store
@@ -39,6 +40,8 @@ const SettingStore = useSettingStore()
 const isCollapse = computed(() => !SettingStore.isCollapse)
 // 设置
 const themeConfig = computed(() =>SettingStore.themeConfig )
+
+const basePath = ref('/')
 
 // 获取路由
 const permission_routes = computed(() => PermissionStore.permission_routes)
