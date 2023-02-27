@@ -1,0 +1,1 @@
+import{_ as e,o as s,c,a as n}from"./index.8ab1f836.js";const o={},t={class:"app-container"},a=n("div",{class:"app-container-inner"}," \u7B80\u6613\u7248\u672C\u5206\u652F\u5728 \uFF1Avue-admin-simple ",-1),r=[a];function _(i,d){return s(),c("div",t,r)}const l=e(o,[["render",_]]);export{l as default};
