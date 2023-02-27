@@ -11,7 +11,7 @@
          </div>
          <div class="bullshit">
            <div class="bullshit__oops">页面不存在！</div>
-           <div class="bullshit__headline">{{ message }}</div>
+           <div class="bullshit__headline">您没有操作角色...</div>
            <div class="bullshit__info">请检查URL地址是否正确, 或点击回到首页。</div>
            <router-link to="/" class="bullshit__return-home">回到首页</router-link>
          </div>
@@ -25,9 +25,14 @@
 </script>
 <style lang="scss" scoped>
 .wscn-http404-container{
-  transform: translate(-50%);
-  position: absolute;
-  left: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a{
+  text-decoration: none;
 }
 .wscn-http404 {
   position: relative;

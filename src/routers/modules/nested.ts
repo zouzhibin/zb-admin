@@ -7,7 +7,7 @@ import Layout from "@/layout/index.vue";
 const nestedRouter = [{
     path: '/nested',
     component: Layout,
-    redirect: '/form/menu1',
+    redirect: '/nested/menu1',
     name: 'nested',
     meta: {
         title: '路由嵌套',
@@ -20,6 +20,7 @@ const nestedRouter = [{
         name: 'menu1',
         meta: { title: '菜单1', icon: 'MenuIcon' },
         alwaysShow:true,
+        redirect: '/nested/menu1/menu1-1',
         children: [
           {
             path: 'menu1-1',

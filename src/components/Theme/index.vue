@@ -24,6 +24,7 @@
         >
           <el-option label="纵向" value="vertical"></el-option>
           <el-option label="横向" value="horizontal"></el-option>
+          <el-option label="分栏" value="columns"></el-option>
         </el-select>
       </div>
       <div class="theme-item">
