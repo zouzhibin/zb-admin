@@ -29,7 +29,7 @@ const externalLink = [{
             meta: { title: 'Gitee 地址',  icon: 'MenuIcon' }
         },
         {
-            path: 'http://182.61.5.190:8890/#/login',
+            path: 'https://yuanzbz.gitee.io/vue-admin-simple',
             name: 'simple',
             meta: { title: '简易版本',  icon: 'MenuIcon' },
             component: () => import('@/views/externalLinks/simple/index.vue'),

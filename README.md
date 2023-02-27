@@ -2,15 +2,18 @@
 vue-element-perfect 是一个后台前端解决方案,它使用了最新的前端技术栈、动态路由，权限验证，并且有着丰富的组件,企业级中后台解决方案，可免费商用，同时支持PC、平板、手机
 
 ### 在线预览
-- link —— [http://182.61.5.190:8889/ ](http://182.61.5.190:8889/)
 - gitee国内访问地址：https://yuanzbz.gitee.io/vue-admin-perfect/#/home
 - github site : https://zouzhibin.github.io/vue-admin-perfect/
+
+- 基础功能版本预览：https://yuanzbz.gitee.io/vue-admin-simple
 
 
 
 ### git仓库(欢迎 Star⭐)
 - Gitee： —— [https://gitee.com/yuanzbz/vue-admin-perfect](https://gitee.com/yuanzbz/vue-admin-perfect)
 - GitHub： —— [https://github.com/zouzhibin/vue-admin-perfect](https://github.com/zouzhibin/vue-admin-perfect)
+- 基础功能版本： —— [https://gitee.com/yuanzbz/vue-admin-perfect](https://gitee.com/yuanzbz/vue-admin-perfect)
+
 ## 项目功能
 - 使用Vue3.0开发，单文件组件采用＜script setup＞
 - 采用 Vite3 作为项目开发、打包工具（配置了 Gzip 打包、TSX 语法、跨域代理）
