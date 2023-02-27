@@ -43,9 +43,14 @@
 
 <style lang="scss" scoped>
 .wscn-http403-container {
-  transform: translate(-50%);
-  position: absolute;
-  left: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a{
+  text-decoration: none;
 }
 .wscn-http403 {
   position: relative;

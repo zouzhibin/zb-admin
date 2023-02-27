@@ -5,6 +5,9 @@
         <div class="menu-wrap">
           <div
             class="item-menu-wrap"
+            :class="{
+              'active-menu':activeCurrentMenu===item.path
+            }"
             v-for="item in menusRoutes"
             :key="item.path"
             @click="handleChangeMenu(item)"
@@ -23,8 +26,6 @@
         <el-menu
           :collapse="isCollapse"
           :default-active="activeMenu"
-          background-color="#304156"
-          text-color="#bfcbd9"
           :unique-opened="SettingStore.themeConfig.uniqueOpened"
           :collapse-transition="false"
           class="menu-columns"
@@ -40,14 +41,13 @@
     </div>
 
     <div class="container">
-<!--      <div class="layout-header">-->
-<!--        <div class="header-tool">-->
-<!--          <HeaderToolLeft/>-->
-<!--          <HeaderToolRight/>-->
-<!--        </div>-->
-<!--        <TagsView v-if="themeConfig.showTag"/>-->
-<!--      </div>-->
-
+      <div class="layout-header">
+        <div class="header-tool">
+          <HeaderToolLeft/>
+          <HeaderToolRight/>
+        </div>
+        <TagsView v-if="themeConfig.showTag"/>
+      </div>
       <Main/>
     </div>
 
@@ -76,6 +76,8 @@ const permission_routes = computed(() => PermissionStore.permission_routes)
 const menusRoutes = computed(()=>{
   return PermissionStore.permission_routes.filter(item=>!item.hidden)
 })
+
+const activeCurrentMenu = ref('')
 // 主题配置
 const themeConfig = computed(() =>SettingStore.themeConfig)
 const isCollapse = computed(() =>!SettingStore.isCollapse)
@@ -89,23 +91,18 @@ const activeMenu = computed(() => {
 const basePath = ref<string>('/')
 const subMenus = ref([])
 
-watch(()=>[menusRoutes,route],()=>{
-    console.log('===============================',route,route.path,menusRoutes)
+watch(()=>[route],()=>{
     if (!menusRoutes.value.length) return;
-    let menuItem = menusRoutes.value.find(item=>{
-      return item.path === route.path || `/${route.path.split("/")[1]}` === item.path
-    })
-    if(menuItem.children?.length) {
+    const [firstMenu] = route.matched
+    activeCurrentMenu.value = firstMenu.path;
+    let menuItem = menusRoutes.value.find(item=>firstMenu.path === item.path)
+    if(menuItem&&menuItem.children?.length) {
       subMenus.value = menuItem.children
     }else {
       subMenus.value = []
     }
-    console.log('route.path',route.path.split('/'))
-    basePath.value = `/${route.path.split("/")[1]}`
-
-
-    console.log('menuItem.value',subMenus.value,basePath)
-
+    basePath.value = firstMenu.path
+  console.log('======触发========触发======',subMenus.value)
 },{
   deep: true,
   immediate:true
@@ -118,7 +115,6 @@ const handleChangeMenu = (item)=>{
   }else {
     subMenus.value = [];
   }
-  console.log('item.path',item.path)
   router.push(item.path);
 
 }
@@ -131,10 +127,35 @@ console.log('permission_routes',menusRoutes.value,)
 <style lang="scss" scoped>
 .layout-columns-aside{
   flex-shrink: 0;
-  width: 70px;
-  height: 100vh;
-
+  width: 80px;
+  min-height: 100vh;
   background-color: #304156;
+  .menu-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .item-menu-wrap{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 70px;
+      width: 70px;
+      cursor: pointer;
+      transition: all .3s ease;
+    }
+    .active-menu{
+      background: #1890ff;
+      border-radius: 5px;
+    }
+    .title{
+      color: #e5eaf3;
+    }
+    .el-icon{
+      color: #e5eaf3;
+    }
+  }
 }
 .main-columns{
   display: flex;
@@ -143,18 +164,24 @@ console.log('permission_routes',menusRoutes.value,)
 .layout-columns-sub{
   flex-shrink: 0;
   width: 200px;
-  height: 100vh;
+  min-height: 100vh;
   box-sizing: border-box;
-  background-color: #304156;
+
   flex-direction: column;
   overflow: hidden;
   transition: all 0.3s ease;
+
+  border-right: 1px solid #eee;
   ::v-deep(.el-menu){
     border-right: none;
+    min-height: 100vh;
   }
 }
 .container{
   flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .layout-header{
   background: white;
@@ -173,21 +200,5 @@ console.log('permission_routes',menusRoutes.value,)
     justify-content: space-between;
   }
 }
-.menu-wrap{
-  .item-menu-wrap{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 70px;
-    cursor: pointer;
-    transition: all .3s ease;
-  }
-  .title{
-    color: #e5eaf3;
-  }
-  .el-icon{
-    color: #e5eaf3;
-  }
-}
+
 </style>
