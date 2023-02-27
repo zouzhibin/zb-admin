@@ -73,6 +73,7 @@ export const constantRoutes: Array<RouteRecordRaw&extendRoute> = [
     name: 'layout',
     component: Layout,
     redirect: '/home',
+    meta: { title: '首页', icon: 'House', },
     children: [
       {
         path: '/home',

@@ -5,7 +5,7 @@ import Layout from "@/layout/index.vue";
 const chartsRouter = [{
     path: '/chat',
     component: Layout,
-    redirect: '/charts/index',
+    redirect: '/chat/index',
     name: 'chat',
     meta: {
         title: '聊天框',

@@ -5,7 +5,7 @@ import Layout from "@/layout/index.vue";
 const externalLink = [{
     path: '/external-link',
     component: Layout,
-    redirect: 'noRedirect',
+    redirect: '/external-link/wechat',
     name: 'external-link',
     meta: {
         title: '外部链接',

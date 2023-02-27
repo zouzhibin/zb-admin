@@ -15,12 +15,14 @@
   import { useResizeHandler } from './hooks/useResizeHandler'
   import LayoutVertical from './LayoutVertical/index.vue'
   import LayoutHorizontal from './LayoutHorizontal/index.vue'
+  import LayoutColumns from './LayoutColumns/index.vue'
 
   const SettingStore = useSettingStore()
   const themeConfig = computed(() => SettingStore.themeConfig)
   const LayoutComponents = {
     horizontal: LayoutHorizontal,
     vertical: LayoutVertical,
+    columns: LayoutColumns,
   };
 
   // 是否折叠

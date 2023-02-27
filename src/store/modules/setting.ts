@@ -18,7 +18,7 @@ export const useSettingStore = defineStore({
         themeConfig:{
             // 显示设置
             showSetting:false,
-            // 菜单展示模式 默认 vertical   horizontal / vertical
+            // 菜单展示模式 默认 vertical   horizontal / vertical /columns
             mode: 'vertical',
             // tagsView 是否展示 默认展示
             showTag:true,
