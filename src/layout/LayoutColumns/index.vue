@@ -1,6 +1,9 @@
 <template>
   <div class="main-columns">
     <div class="layout-columns-aside">
+      <div class="logo flex-center">
+        <img src="@/assets/image/logo.png" alt="logo" />
+      </div>
       <el-scrollbar>
         <div class="menu-wrap">
           <div
@@ -22,19 +25,21 @@
     </div>
 
     <div class="layout-columns-sub" :style="{ width: isCollapse ? '60px' : '210px' }">
-      <el-scrollbar style="height: 100%">
+      <div class="logo flex-center">
+        <span v-show="subMenus.length">{{ isCollapse ? "Vue" : "Vue Admin Perfect" }}</span>
+      </div>
+      <el-scrollbar >
         <el-menu
           :collapse="isCollapse"
+          :router="false"
           :default-active="activeMenu"
           :unique-opened="SettingStore.themeConfig.uniqueOpened"
           :collapse-transition="false"
           class="menu-columns"
         >
-          <SubItem
-            v-for="route in subMenus"
-            :key="route.path"
-            :item="route"
-            :base-path="basePath"
+          <SubMenu
+            :basePath="basePath"
+            :menuList="subMenus"
           />
         </el-menu>
       </el-scrollbar>
@@ -49,9 +54,8 @@
         <TagsView v-if="themeConfig.showTag"/>
       </div>
       <Main/>
+      <Footer/>
     </div>
-
-
   </div>
 </template>
 
@@ -61,6 +65,8 @@ import { useRoute, useRouter } from "vue-router";
 import {usePermissionStore} from "@/store/modules/permission"
 import { useSettingStore } from "@/store/modules/setting";
 import SubItem from '../components/SubMenu/SubItem.vue'
+import Footer from '../components/Footer/index.vue'
+import SubMenu from '../components/SubMenu/SubMenu.vue'
 import TagsView from '../components/TagsView/index.vue'
 const PermissionStore = usePermissionStore()
 const SettingStore = useSettingStore()
@@ -102,34 +108,40 @@ watch(()=>[route],()=>{
       subMenus.value = []
     }
     basePath.value = firstMenu.path
-  console.log('======触发========触发======',subMenus.value)
 },{
   deep: true,
   immediate:true
 })
 
-
 const handleChangeMenu = (item)=>{
-  if (item.children?.length) {
-    subMenus.value = item.children
-  }else {
-    subMenus.value = [];
-  }
   router.push(item.path);
-
 }
-
-console.log('permission_routes',menusRoutes.value,)
-
 </script>
 
 
 <style lang="scss" scoped>
+.main-columns{
+  display: flex;
+  flex-direction: row!important;
+  height: 100%;
+  width: 100%;
+}
 .layout-columns-aside{
   flex-shrink: 0;
   width: 80px;
-  min-height: 100vh;
+  height: 100%;
   background-color: #304156;
+  .el-scrollbar{
+    height: calc(100% - 55px);
+  }
+  .logo {
+    box-sizing: border-box;
+    height: 50px;
+    img {
+      width: 32px;
+      object-fit: contain;
+    }
+  }
   .menu-wrap{
     display: flex;
     flex-direction: column;
@@ -157,24 +169,31 @@ console.log('permission_routes',menusRoutes.value,)
     }
   }
 }
-.main-columns{
-  display: flex;
-  flex-direction: row!important;
-}
+
 .layout-columns-sub{
   flex-shrink: 0;
-  width: 200px;
-  min-height: 100vh;
+  width:200px;
   box-sizing: border-box;
-
   flex-direction: column;
   overflow: hidden;
   transition: all 0.3s ease;
-
+  background: white;
   border-right: 1px solid #eee;
-  ::v-deep(.el-menu){
+  .el-scrollbar{
+    height: calc(100vh - 50px);
+  }
+  .logo {
+    width: 100%;
+    box-sizing: border-box;
+    height: 50px;
+    border-bottom: 1px solid #eee;
+    span{
+      font-weight: bold;
+      white-space: nowrap;
+    }
+  }
+  ::v-deep(.menu-columns){
     border-right: none;
-    min-height: 100vh;
   }
 }
 .container{
@@ -200,5 +219,4 @@ console.log('permission_routes',menusRoutes.value,)
     justify-content: space-between;
   }
 }
-
 </style>

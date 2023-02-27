@@ -7,9 +7,9 @@
         </el-icon>
         <span>{{ subItem.meta.title }}</span>
       </template>
-      <SubMenu :menuList="subItem.children" />
+      <SubMenu :menuList="subItem.children" :basePath="`${basePath}/${subItem.path}`"/>
     </el-sub-menu>
-    <el-menu-item v-else :index="subItem.path" @click="handleClickMenu(subItem)">
+    <el-menu-item v-else-if="!subItem.hidden" :index="subItem.path" @click="handleClickMenu(subItem)">
       <el-icon>
         <component :is="subItem.meta.icon"></component>
       </el-icon>
@@ -22,12 +22,23 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-
-defineProps<{ menuList: Menu.MenuOptions[] }>();
+import { isExternal } from '@/utils/validate.js'
+let props = defineProps({
+  menuList:{
+    type:Array,
+    default:()=>[]
+  },
+  basePath: {
+    type: String,
+    default: '',
+  },
+})
 
 const router = useRouter();
-const handleClickMenu = (subItem: Menu.MenuOptions) => {
-  if (subItem.meta.isLink) return window.open(subItem.meta.isLink, "_blank");
-  router.push(subItem.path);
+const handleClickMenu = (subItem) => {
+  console.log('isExternal(subItem.path)',subItem.path,isExternal(subItem.path))
+  if (isExternal(subItem.path)) return window.open(subItem.path, "_blank");
+  let path = props.basePath+'/'+subItem.path
+  router.push(path);
 };
 </script>

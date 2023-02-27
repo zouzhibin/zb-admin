@@ -2,26 +2,26 @@
   <template v-if="!item.hidden">
     <template v-if="!item.alwaysShow && hasOneShowingChild(item.children, item)">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
-<!--        <el-menu-item :index="resolvePath(onlyOneChild.path)">-->
-<!--          <el-icon :size="20">-->
-<!--            <component :is="onlyOneChild?.meta.icon"></component>-->
-<!--          </el-icon>-->
-<!--          <template #title>{{ onlyOneChild.meta && onlyOneChild.meta.title }}</template>-->
-<!--        </el-menu-item>-->
+        <el-menu-item :index="resolvePath(onlyOneChild.path)">
+          <el-icon :size="20">
+            <component :is="onlyOneChild?.meta.icon"></component>
+          </el-icon>
+          <template #title>{{ onlyOneChild.meta && onlyOneChild.meta.title }}</template>
+        </el-menu-item>
       </app-link>
     </template>
-<!--    <el-sub-menu :index="resolvePath(item.path)" v-else popper-append-to-body>-->
-<!--      <template #title>-->
-<!--        <el-icon :size="20"> <component :is="item.meta?.icon"></component></el-icon>-->
-<!--        <span>{{ item.meta && item.meta.title }}</span>-->
-<!--      </template>-->
-<!--      <sub-item-->
-<!--          v-for="child in item.children"-->
-<!--          :key="child.path"-->
-<!--          :item="child"-->
-<!--          :base-path="resolvePath(child.path)"-->
-<!--      />-->
-<!--    </el-sub-menu>-->
+    <el-sub-menu :index="resolvePath(item.path)" v-else >
+      <template #title>
+        <el-icon :size="20"> <component :is="item.meta?.icon"></component></el-icon>
+        <span>{{ item.meta && item.meta.title }}</span>
+      </template>
+      <sub-item
+          v-for="child in item.children"
+          :key="child.path"
+          :item="child"
+          :base-path="resolvePath(child.path)"
+      />
+    </el-sub-menu>
   </template>
 </template>
 
@@ -61,7 +61,6 @@ const hasOneShowingChild = (children = [], parent) => {
   // 如果没有要显示的子路由器，则显示父路由器
   if (showingChildren.length === 0) {
     onlyOneChild.value = { ...parent, path: '', noShowingChildren: true }
-    // onlyOneChild.value = { ...parent, noShowingChildren: true }
     return true
   }
 
@@ -75,8 +74,6 @@ const resolvePath = (routePath) => {
   if (isExternal(props.basePath)) {
     return props.basePath
   }
-  let path2 = path.resolve(props.basePath, routePath)
-  console.log('======path======',props.basePath)
-  return path2
+  return path.resolve(props.basePath, routePath)
 }
 </script>

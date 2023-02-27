@@ -1,10 +1,9 @@
 <template>
   <div class="g-container-layout" :class="classObj">
-<!--    <Mobile/>-->
-<!--    <LayoutVertical v-if="device === 'mobile'"/>-->
-<!--    <component :is="LayoutComponents[themeConfig.mode]" v-else/>-->
-<!--    <Theme />-->
-    <LayoutColumns/>
+    <Mobile/>
+    <LayoutVertical v-if="device === 'mobile'"/>
+    <component :is="LayoutComponents[themeConfig.mode]" v-else/>
+    <Theme />
   </div>
 </template>
 
