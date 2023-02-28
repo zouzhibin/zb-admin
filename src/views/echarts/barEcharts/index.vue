@@ -6,10 +6,10 @@
 
 <script lang="ts" setup>
 import {ref,onMounted} from "vue";
-import { EChartsType } from 'echarts/core'
 import * as echarts from 'echarts'
-const chartsRef = ref<HTMLElement | null>()
+import {useResizeElement} from '@/hooks/useResizeElement'
 
+const chartsRef = ref<HTMLElement | null>()
 let XData = ['2022-01', '2022-02', '2022-03', '2022-04', '2022-05', '2022-06', '2022-07', '2022-08', '2022-09', '2022-10', '2022-11', '2022-12']
 let valueData = {
   jfsbs: [805, 860, 400, 400, 400, 400, 990, 985, 990, 850, 560, 772],
@@ -17,7 +17,6 @@ let valueData = {
   znhbl: [95, 78, 50, 60, 85, 78, 76, 70, 65, 90, 74, 66],
 }
 let options = {
-
   tooltip: {
     trigger: 'axis',
     axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -217,17 +216,13 @@ let options = {
     }
   ]
 };
-let chart: EChartsType
-const initChart = () => {
-  const chart = echarts.init(chartsRef.value)
-  chart.setOption(options)
-  return chart
-}
+
+
 onMounted(() => {
-  chart = initChart()
-  window.addEventListener('resize', function () {
-    chart && chart.resize()
-  })
+  let chart = echarts.init(chartsRef.value)
+  chart.setOption(options)
+  let {addObserver} = useResizeElement(chart,chartsRef.value)
+  addObserver()
 })
 
 </script>

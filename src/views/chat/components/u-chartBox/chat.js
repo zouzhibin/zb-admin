@@ -1,8 +1,10 @@
+
+import wePng from '@/assets/image/we.png'
 export const chatData = [
   {
     is_self: 0,
     created_at: '2022-11-15',
-    content: 'http://182.61.5.190:8889/we.png',
+    content: wePng,
     id: 1,
     type: 2, // 文字
   },

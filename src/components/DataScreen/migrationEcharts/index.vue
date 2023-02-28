@@ -5,7 +5,7 @@
   import { geoJson } from './map.js'
   import * as echarts from 'echarts'
   import { EChartsType } from 'echarts/core'
-  import { onMounted } from 'vue'
+  import { onMounted, onUnmounted } from "vue";
   import { cityIconData } from './data.js'
   import logo from '@/assets/image/logo.png'
   const props = defineProps({
@@ -318,6 +318,11 @@
     chart.setOption(options)
     return chart
   }
+
+  onUnmounted(()=>{
+    chart&&chart.dispose()
+  })
+
   onMounted(() => {
     chart = initChart()
     window.addEventListener('resize', function () {
