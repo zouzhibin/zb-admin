@@ -12,7 +12,7 @@
   import Theme from '@/components/Theme/index.vue'
   import Mobile from './components/Mobile/index.vue'
   import {useSettingStore} from "@/store/modules/setting"
-  import { useResizeHandler } from './hooks/useResizeHandler'
+  import { useResizeHandler } from '@/hooks/useResizeHandler'
   import LayoutVertical from './LayoutVertical/index.vue'
   import LayoutHorizontal from './LayoutHorizontal/index.vue'
   import LayoutColumns from './LayoutColumns/index.vue'

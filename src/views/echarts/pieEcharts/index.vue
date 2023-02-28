@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import {ref,onMounted} from "vue";
-import { EChartsType } from 'echarts/core'
+import {useResizeElement} from '@/hooks/useResizeElement'
 import * as echarts from 'echarts'
 const chartsRef = ref<HTMLElement | null>()
 
@@ -105,19 +105,12 @@ let options = {
   ],
 };
 
-let chart: EChartsType
-const initChart = () => {
-  const chart = echarts.init(chartsRef.value)
-  chart.setOption(options)
-  return chart
-}
 onMounted(() => {
-  chart = initChart()
-  window.addEventListener('resize', function () {
-    chart && chart.resize()
-  })
+  let chart = echarts.init(chartsRef.value)
+  chart.setOption(options)
+  let {addObserver} = useResizeElement(chart,chartsRef.value)
+  addObserver()
 })
-
 </script>
 
 <style lang="scss" scoped>
