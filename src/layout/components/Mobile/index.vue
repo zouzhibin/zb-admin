@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import {computed} from "vue";
-import { useResizeHandler } from '../../hooks/useResizeHandler'
+import { useResizeHandler } from '@/hooks/useResizeHandler'
 import {useSettingStore} from "@/store/modules/setting"
 
 let { device } = useResizeHandler()
