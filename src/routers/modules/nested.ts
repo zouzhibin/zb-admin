@@ -15,7 +15,7 @@ const nestedRouter = [{
     },
     children: [
       {
-        path: 'menu1',
+        path: '/nested/menu1',
         component: () => import('@/views/nested/menu1/index.vue'),
         name: 'menu1',
         meta: { title: '菜单1', icon: 'MenuIcon' },
@@ -23,26 +23,26 @@ const nestedRouter = [{
         redirect: '/nested/menu1/menu1-1',
         children: [
           {
-            path: 'menu1-1',
+            path: '/nested/menu1/menu1-1',
             component: () => import('@/views/nested/menu1/menu1-1/index.vue'),
             name: 'menu1-1',
             meta: { title: '菜单 1-1' , icon: 'MenuIcon'}
           },
           {
-            path: 'menu1-2',
+            path: '/nested/menu1/menu1-2',
             component: () => import('@/views/nested/menu1/menu1-2/index.vue'),
             name: 'menu1-2',
             redirect: '/nested/menu1/menu1-2/menu1-2-1',
             meta: { title: '菜单 1-2' , icon: 'MenuIcon'},
             children: [
               {
-                path: 'menu1-2-1',
+                path: '/nested/menu1/menu1-2/menu1-2-1',
                 component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1/index.vue'),
                 name: 'menu1-2-1',
                 meta: { title: '菜单 1-2-1' , icon: 'MenuIcon'}
               },
               {
-                path: 'menu1-2-2',
+                path: '/nested/menu1/menu1-2/menu1-2-2',
                 component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2/index.vue'),
                 name: 'menu1-2-2',
                 meta: { title: '菜单 1-2-2' , icon: 'MenuIcon'}
@@ -50,7 +50,7 @@ const nestedRouter = [{
             ]
           },
           {
-            path: 'menu1-3',
+            path: '/nested/menu1/menu1-3',
             component: () => import('@/views/nested/menu1/menu1-3/index.vue'),
             name: 'menu1-3',
             meta: { title: '菜单 1-3' , icon: 'MenuIcon'}
@@ -58,7 +58,7 @@ const nestedRouter = [{
         ]
       },
         {
-            path: 'menu2',
+            path: '/nested/menu2',
             component: () => import('@/views/nested/menu2/index.vue'),
             name: 'nested-menu2',
             meta: { title: '菜单2', icon: 'MenuIcon'}

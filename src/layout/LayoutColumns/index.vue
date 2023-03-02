@@ -37,10 +37,7 @@
           :collapse-transition="false"
           class="menu-columns"
         >
-          <SubMenu
-            :basePath="basePath"
-            :menuList="subMenus"
-          />
+          <SubMenu :menuList="subMenus" />
         </el-menu>
       </el-scrollbar>
     </div>
@@ -64,7 +61,6 @@ import { ref, computed, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import {usePermissionStore} from "@/store/modules/permission"
 import { useSettingStore } from "@/store/modules/setting";
-import SubItem from '../components/SubMenu/SubItem.vue'
 import Footer from '../components/Footer/index.vue'
 import SubMenu from '../components/SubMenu/SubMenu.vue'
 import TagsView from '../components/TagsView/index.vue'
@@ -89,9 +85,6 @@ const themeConfig = computed(() =>SettingStore.themeConfig)
 const isCollapse = computed(() =>!SettingStore.isCollapse)
 const activeMenu = computed(() => {
   const { meta, path } = route
-  if (meta.activeMenu) {
-    return meta.activeMenu
-  }
   return path
 })
 const basePath = ref<string>('/')
@@ -158,7 +151,7 @@ const handleChangeMenu = (item)=>{
       transition: all .3s ease;
     }
     .active-menu{
-      background: #1890ff;
+      background:  $primaryColor;
       border-radius: 5px;
     }
     .title{
