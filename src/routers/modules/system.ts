@@ -13,31 +13,31 @@ const systemRouter = [{
     },
     children: [
         {
-            path: 'user',
+            path: '/system/user',
             component: () => import('@/views/system/user/index.vue'),
             name: 'user',
             meta: { title: '用户管理' , icon: 'MenuIcon'}
         },
         {
-            path: 'dept',
+            path: '/system/dept',
             component: () => import('@/views/system/dept/index.vue'),
             name: 'dept',
             meta: { title: '部门管理' , icon: 'MenuIcon'}
         },
         {
-            path: 'role',
+            path: '/system/role',
             component: () => import('@/views/system/role/index.vue'),
             name: 'role',
             meta: { title: '角色管理', icon: 'MenuIcon' }
         },
         {
-            path: 'menu',
+            path: '/system/menu',
             component: () => import('@/views/system/menu/index.vue'),
             name: 'menu',
             meta: { title: '菜单管理',  icon: 'MenuIcon'}
         },
         {
-            path: 'dictionary',
+            path: '/system/dictionary',
             component: () => import('@/views/system/dictionary/index.vue'),
             name: 'dictionary',
             meta: { title: '字典管理',  icon: 'MenuIcon'}

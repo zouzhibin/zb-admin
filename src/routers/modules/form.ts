@@ -15,25 +15,25 @@ const formRouter = [{
     },
     children: [
         {
-            path: 'validateForm',
+            path: '/form/validateForm',
             component: () => import('@/views/form/validateForm/index.vue'),
             name: 'validateForm',
             meta: { title: '校验 Form', keepAlive: true , icon: 'MenuIcon'}
         },
         {
-            path: 'advancedForm',
+            path: '/form/advancedForm',
             component: () => import('@/views/form/advancedForm/index.vue'),
             name: 'advancedForm',
             meta: { title: '收缩 Form',  icon: 'MenuIcon'}
         },
         {
-            path: 'appendForm',
+            path: '/form/appendForm',
             component: () => import('@/views/form/appendForm/index.vue'),
             name: 'appendForm',
             meta: { title: '增删 Form', keepAlive: true , icon: 'MenuIcon'}
         },
         {
-            path: 'moreForm',
+            path: '/form/moreForm',
             component: () => import('@/views/form/moreForm/index.vue'),
             name: 'moreForm',
             meta: { title: '多表单验证', keepAlive: true , icon: 'MenuIcon'}

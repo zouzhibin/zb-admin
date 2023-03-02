@@ -11,12 +11,7 @@
           class="el-menu-vertical-demo"
           :collapse="isCollapse"
       >
-        <SubItem
-            v-for="route in permission_routes"
-            :key="route.path"
-            :item="route"
-            :base-path="route.path"
-        />
+        <SubMenu :menuList="permission_routes"/>
       </el-menu>
     </el-scrollbar>
   </div>
@@ -24,7 +19,6 @@
 
 <script lang="ts" setup>
 import Logo from './components/Logo.vue'
-import SubItem from '../SubMenu/SubItem.vue'
 import SubMenu from '../SubMenu/SubMenu.vue'
 import {useSettingStore} from "@/store/modules/setting"
 import {usePermissionStore} from "@/store/modules/permission"

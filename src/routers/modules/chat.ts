@@ -13,11 +13,11 @@ const chartsRouter = [{
     },
     children: [
         {
-            path: 'index',
+            path: '/chat/index',
             component: () => import('@/views/chat/index.vue'),
             name: 'chatBox',
             meta: { title: '聊天框', icon: 'chat-square'  }
-        },
+        }
     ]
 }]
 

@@ -14,33 +14,33 @@ const echartsRouter = [{
     },
     children: [
         {
-            path: 'migration',
+            path: '/echarts/migration',
             component: () => import('@/views/echarts/migrationMap/index.vue'),
             name: 'migration',
             meta: { title: '迁徙图',  roles:['other'] , icon: 'MenuIcon' }
         },
 
         {
-            path: 'bar',
+            path: '/echarts/bar',
             component: () => import('@/views/echarts/barEcharts/index.vue'),
             name: 'bar',
             meta: { title: '柱状图', roles:['other'] , icon: 'MenuIcon'}
         },
         {
-            path: 'graph',
+            path: '/echarts/graph',
             component: () => import('@/views/echarts/graphEcharts/index.vue'),
             name: 'graph',
             meta: { title: '雷达图', roles:['other'] , icon: 'MenuIcon'}
         },
 
         {
-            path: 'pie',
+            path: '/echarts/pie',
             component: () => import('@/views/echarts/pieEcharts/index.vue'),
             name: 'pie',
             meta: { title: '饼图', roles:['other'] , icon: 'MenuIcon'}
         },
         {
-            path: 'simple',
+            path: '/echarts/simple',
             component: () => import('@/views/echarts/simple/index.vue'),
             name: 'echarts-simple',
             meta: { title: '简单图表', roles:['other'] , icon: 'MenuIcon'}
