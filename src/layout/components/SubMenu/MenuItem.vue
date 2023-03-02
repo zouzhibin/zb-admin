@@ -6,13 +6,14 @@
       <component :is="subItem?.meta?.icon"></component>
     </el-icon>
     <template #title>
-      <span>{{ subItem?.meta?.title }}</span>
+      <span>{{ generateTitle(subItem) }}</span>
     </template>
   </el-menu-item>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { generateTitle } from '@/utils/i18n'
 import { useRouter } from "vue-router";
 import { isExternal } from "@/utils/validate";
 

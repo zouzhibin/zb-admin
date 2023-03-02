@@ -7,5 +7,5 @@ export function generateTitle(route) {
     const translatedTitle = I18n.global.t('route.' + route.name)
     return translatedTitle
   }
-  return route.meta.title
+  return route?.meta?.title
 }

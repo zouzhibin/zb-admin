@@ -6,7 +6,7 @@ const systemRouter = [{
     path: '/system',
     component: Layout,
     redirect: '/system/user',
-    name: 'system',
+    name: 'systemManagement',
     meta: {
         title: '系统管理',
         icon: 'Setting',

@@ -11,7 +11,7 @@
           <el-icon>
             <component :is="subItem?.meta?.icon"></component>
           </el-icon>
-          <span>{{ subItem?.meta?.title }}</span>
+          <span>{{ generateTitle(subItem) }}</span>
         </template>
         <SubMenu :menuList="subItem.children" />
       </el-sub-menu>
@@ -22,6 +22,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import MenuItem from './MenuItem.vue'
+import { generateTitle } from '@/utils/i18n'
 
 let props = defineProps({
   menuList:{

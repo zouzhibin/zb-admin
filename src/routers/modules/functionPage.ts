@@ -7,7 +7,7 @@ const functionPageRouter = [{
     path: '/function-page',
     component: Layout,
     redirect: '/function-page/404',
-    name: 'function-page',
+    name: 'functionPage',
     meta: {
         title: '功能页面',
         icon: 'ElementPlus'

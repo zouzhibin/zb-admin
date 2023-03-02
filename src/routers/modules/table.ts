@@ -7,7 +7,7 @@ const tableRouter = [{
     path: '/table',
     component: Layout,
     redirect: '/table/comprehensive',
-    name: 'table',
+    name: 'superTable',
     meta: {
         title: '超级表格',
         icon: 'School'

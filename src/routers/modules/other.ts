@@ -6,7 +6,7 @@ const othersRouter = [{
   path: '/other',
   component: Layout,
   redirect: '/other/clipboard',
-  name: 'other',
+  name: 'commonComponents',
   meta: {
     title: '常用组件',
     icon: 'management'

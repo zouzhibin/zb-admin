@@ -6,7 +6,7 @@ const externalLink = [{
     path: '/external-link',
     component: Layout,
     redirect: '/external-link/wechat',
-    name: 'external-link',
+    name: 'externalLink',
     meta: {
         title: '外部链接',
         icon: 'link'
