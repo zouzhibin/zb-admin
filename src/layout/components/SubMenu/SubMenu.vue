@@ -1,10 +1,11 @@
 <template>
   <template v-for="subItem in menuList" :key="subItem.path">
     <template v-if="!subItem.hidden">
-      <MenuItem
-         v-if="!subItem.alwaysShow&&hasOneChild(subItem.children, subItem)"
-         :subItem="hasOneChild(subItem.children, subItem)"
-      />
+      <template v-if="!subItem.alwaysShow&&hasOneChild(subItem.children, subItem)">
+        <MenuItem
+          :subItem="hasOneChild(subItem.children, subItem)"
+        />
+      </template>
       <el-sub-menu v-else :index="subItem.path">
         <template #title>
           <el-icon>
