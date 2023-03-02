@@ -1,4 +1,4 @@
-
+import path from 'path-browserify'
 /**
  * 通过递归过滤异步路由表
  * @param routes asyncRoutes
@@ -52,4 +52,15 @@ export function filterKeepAlive(routers){
     }
     deep(routers)
     return cacheRouter
+}
+
+
+
+export function handleRoutes(routers,pathUrl='') {
+    routers.forEach(item=>{
+        item.path = path.resolve(pathUrl,item.path)
+        if(item.children&&item.children.length){
+
+        }
+    })
 }

@@ -13,7 +13,7 @@ const externalLink = [{
     },
     children: [
         {
-            path: 'wechat',
+            path: '/external-link/wechat',
             name: 'wechat',
             component: () => import('@/views/externalLinks/wechat/index.vue'),
             meta: { title: '加微信群',  icon: 'MenuIcon' }
@@ -35,7 +35,7 @@ const externalLink = [{
             component: () => import('@/views/externalLinks/simple/index.vue'),
         },
         {
-            path: 'iframe',
+            path: '/external-link/iframe',
             component: () => import('@/views/externalLinks/iframe/index.vue'),
             name: 'iframe',
             meta: { title: '内嵌 iframe', icon: 'MenuIcon'  }

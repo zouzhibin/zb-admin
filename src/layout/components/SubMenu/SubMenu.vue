@@ -1,43 +1,53 @@
 <template>
   <template v-for="subItem in menuList" :key="subItem.path">
-    <el-sub-menu v-if="subItem.children && subItem.children.length > 0" :index="subItem.path">
-      <template #title>
-        <el-icon>
-          <component :is="subItem?.meta?.icon"></component>
-        </el-icon>
-        <span>{{ subItem?.meta?.title }}</span>
-      </template>
-      <SubMenu :menuList="subItem.children" :basePath="`${basePath?'/':''}${subItem.path}`"/>
-    </el-sub-menu>
-    <el-menu-item v-else-if="!subItem.hidden" :index="subItem.path" @click="handleClickMenu(subItem)">
-      <el-icon>
-        <component :is="subItem?.meta?.icon"></component>
-      </el-icon>
-      <template #title>
-        <span>{{ subItem?.meta?.title }}</span>
-      </template>
-    </el-menu-item>
+    <template v-if="!subItem.hidden">
+      <MenuItem
+         v-if="!subItem.alwaysShow&&hasOneChild(subItem.children, subItem)"
+         :subItem="hasOneChild(subItem.children, subItem)"
+      />
+      <el-sub-menu v-else :index="subItem.path">
+        <template #title>
+          <el-icon>
+            <component :is="subItem?.meta?.icon"></component>
+          </el-icon>
+          <span>{{ subItem?.meta?.title }}</span>
+        </template>
+        <SubMenu :menuList="subItem.children" />
+      </el-sub-menu>
+    </template>
   </template>
 </template>
 
 <script setup lang="ts">
-import { useRouter } from "vue-router";
-import { isExternal } from '@/utils/validate.js'
+import { ref } from "vue";
+import MenuItem from './MenuItem.vue'
+
 let props = defineProps({
   menuList:{
     type:Array,
     default:()=>[]
   },
-  basePath: {
-    type: String,
-    default: '',
-  },
 })
 
-const router = useRouter();
-const handleClickMenu = (subItem) => {
-  if (isExternal(subItem.path)) return window.open(subItem.path, "_blank");
-  let path = props.basePath+'/'+subItem.path
-  router.push(path);
-};
+const hasOneChild = (children = [], parent) => {
+  const showingChildren = children.filter((item) => {
+    // 过滤掉需要隐藏的菜单
+    if (item.hidden) {
+      return false
+    } else {
+      return true
+    }
+  })
+  // 当只有一个子路由器时，默认情况下会显示该子路由器
+  if (showingChildren.length === 1) {
+   // （如果只有一个显示子项，则将使用）
+    return showingChildren[0]
+  }
+  // 如果没有要显示的子路由器，则显示父路由器
+  if (showingChildren.length === 0) {
+    return parent
+  }
+  return false
+}
+
 </script>

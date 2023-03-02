@@ -16,12 +16,7 @@
             :collapse-transition="false"
             class="menu-horizontal"
         >
-          <SubItem
-              v-for="route in permission_routes"
-              :key="route.path"
-              :item="route"
-              :base-path="route.path"
-          />
+          <SubMenu :menuList="permission_routes"/>
         </el-menu>
         <HeaderToolRight/>
       </div>
@@ -34,7 +29,7 @@
 import Height from '../../components/Header/components/Height.vue'
 import HeaderToolRight from '../../components/Header/ToolRight.vue'
 import TagsView from '../../components/TagsView/index.vue'
-import SubItem from '../../components/SubMenu/SubItem.vue'
+import SubMenu from '../../components/SubMenu/SubMenu.vue'
 import { useRoute } from 'vue-router'
 import {usePermissionStore} from "@/store/modules/permission"
 const PermissionStore = usePermissionStore()
