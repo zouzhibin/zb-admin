@@ -1,8 +1,8 @@
 <template>
   <template v-if="!item.hidden">
     <template v-if="!item.alwaysShow && hasOneShowingChild(item.children, item)">
-      <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
-        <el-menu-item :index="resolvePath(onlyOneChild.path)">
+      <app-link v-if="onlyOneChild.meta" :to="onlyOneChild.path">
+        <el-menu-item :index="onlyOneChild.path">
           <el-icon :size="20">
             <component :is="onlyOneChild?.meta.icon"></component>
           </el-icon>
@@ -10,7 +10,7 @@
         </el-menu-item>
       </app-link>
     </template>
-    <el-sub-menu :index="resolvePath(item.path)" v-else popper-append-to-body>
+    <el-sub-menu :index="item.path" v-else popper-append-to-body>
       <template #title>
         <el-icon :size="20"> <component :is="item.meta?.icon"></component></el-icon>
         <span>{{ item.meta && item.meta.title }}</span>
@@ -19,7 +19,7 @@
           v-for="child in item.children"
           :key="child.path"
           :item="child"
-          :base-path="resolvePath(child.path)"
+
       />
     </el-sub-menu>
   </template>
@@ -60,7 +60,7 @@ const hasOneShowingChild = (children = [], parent) => {
   }
   // 如果没有要显示的子路由器，则显示父路由器
   if (showingChildren.length === 0) {
-    onlyOneChild.value = { ...parent, path: '', noShowingChildren: true }
+    onlyOneChild.value = { ...parent, noShowingChildren: true }
     return true
   }
 
