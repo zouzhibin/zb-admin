@@ -20,7 +20,7 @@
                         v-for="route in permission_routes"
                         :key="route.path"
                         :item="route"
-                        :base-path="route.path"
+
                 />
             </el-menu>
             <HeaderToolRight/>
