@@ -10,7 +10,7 @@
         </el-menu-item>
       </app-link>
     </template>
-    <el-sub-menu :index="item.path" v-else popper-append-to-body>
+    <el-sub-menu :index="item.path" v-else teleported	>
       <template #title>
         <el-icon :size="20"> <component :is="item.meta?.icon"></component></el-icon>
         <span>{{ item.meta && item.meta.title }}</span>
