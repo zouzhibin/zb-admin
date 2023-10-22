@@ -4,7 +4,7 @@
       ref="ruleFormRef"
       :inline="true"
       :label-position="'right'"
-      :model="formInline"
+      :model="formParams"
       class="form-inline"
     >
       <el-row
@@ -19,28 +19,15 @@
           :key="item.name"
           v-show="byHeight ? true : index < showRow * 3 || isExpand"
         >
-          <el-form-item :label="item.title" :label-width="labelWidth" v-if="item.type === 'input'">
-            <el-input clearable v-model="formInline[item.name]" :placeholder="item.placeholder" />
-          </el-form-item>
-
-          <template v-else-if="item.type === 'date'">
-            <el-form-item :label="item.title" :label-width="labelWidth">
-              <el-date-picker
-                value-format="YYYY-MM-DD"
-                v-model="formInline[item.name]"
-                type="date"
-                :placeholder="item.placeholder"
-              />
-            </el-form-item>
-          </template>
+          <BaseFormItem :key="index" :config="item" v-bind="item.attrs" v-model="item.value" />
         </el-col>
       </el-row>
     </el-form>
     <div class="search-btn">
       <el-button type="primary" @click="onSubmit">查询</el-button>
       <el-button @click="resetForm(ruleFormRef)">重置</el-button>
-      <el-button link type="primary" @click="isExpand = !isExpand"
-        >{{ isExpand ? '合并' : '展开'
+      <el-button link type="primary" @click="isExpand = !isExpand" v-if="columns.length > 3">
+        {{ isExpand ? '合并' : '展开'
         }}<el-icon>
           <arrow-down v-if="!isExpand" />
           <arrow-up v-else /> </el-icon
@@ -50,8 +37,9 @@
 </template>
 
 <script lang="ts" setup>
-  import { reactive, ref } from 'vue'
-  import type { FormInstance, FormRules } from 'element-plus'
+  import { onMounted, reactive, ref } from 'vue'
+  import type { FormInstance } from 'element-plus'
+  import BaseFormItem from './components/BaseFormItem.vue'
   const ruleFormRef = ref<FormInstance>()
   let props = defineProps({
     // 宽度
@@ -75,29 +63,48 @@
       default: false,
     },
   })
+
   const emit = defineEmits(['submit', 'reset'])
   // 收缩展开
   const isExpand = ref(false)
+  const formParams = reactive({})
 
-  const formInline = reactive({})
-
-  for (let item of props.columns) {
-    formInline[item.name] = null
+  const initFormParams = () => {
+    for (let item of props.columns) {
+      formParams[item.name] = item?.value
+    }
   }
 
+  // 进行遍历获取参数
+  const getFormParams = () => {
+    let searchParams = {}
+    for (let item of props.columns) {
+      searchParams[item.name] = item?.value
+    }
+    return searchParams
+  }
+
+  onMounted(() => {
+    initFormParams()
+  })
+
+  // 获取参数进行组装为 obj
   const onSubmit = () => {
-    emit('submit', formInline)
+    let searchParams = getFormParams()
+    emit('submit', searchParams)
   }
 
+  // 重置参数
   const resetForm = (formEl: FormInstance | undefined) => {
-    console.log('formEl', formEl)
     if (!formEl) return
     formEl.resetFields()
-    const keys = Object.keys(formInline)
+    const keys = Object.keys(formParams)
     keys.forEach((key) => {
-      formInline[key] = null
+      let itemColums = props.columns.find((item) => item.name === key)
+      itemColums.value = formParams[key]
     })
-    emit('reset', formInline)
+    let searchParams = getFormParams()
+    emit('reset', searchParams)
   }
 </script>
 
