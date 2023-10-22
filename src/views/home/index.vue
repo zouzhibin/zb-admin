@@ -192,8 +192,7 @@
   import weLogo from '@/assets/image/we.png'
   const goTo = (url) => {
     window.open(url, '_blank')
-  }
-</script>
+  }</script>
 
 <style scoped lang="scss">
   @import './index.scss';
