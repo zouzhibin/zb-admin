@@ -1,9 +1,9 @@
 <template>
-  <div class="app-main" >
+  <div class="app-main">
     <router-view v-slot="{ Component, route }">
       <transition name="fade-slide" mode="out-in" appear>
         <keep-alive :include="cacheRoutes" v-if="isReload">
-          <component :is="useWrapComponents(Component,route)" :key="route.path" />
+          <component :is="useWrapComponents(Component, route)" :key="route.path" />
         </keep-alive>
       </transition>
     </router-view>
@@ -11,13 +11,13 @@
 </template>
 
 <script lang="ts" setup>
-  import {useWrapComponents} from '@/hooks/useWrapComponents'
+  import { useWrapComponents } from '@/hooks/useWrapComponents'
   import { computed, ref } from 'vue'
-  import {useSettingStore} from "@/store/modules/setting"
-  import {usePermissionStore} from "@/store/modules/permission"
+  import { useSettingStore } from '@/store/modules/setting'
+  import { usePermissionStore } from '@/store/modules/permission'
   const SettingStore = useSettingStore()
   const PermissionStore = usePermissionStore()
-  const cacheRoutes = computed(() =>PermissionStore.keepAliveRoutes)
+  const cacheRoutes = computed(() => PermissionStore.keepAliveRoutes)
   const isReload = computed(() => SettingStore.isReload)
 </script>
 
@@ -28,7 +28,7 @@
     overflow-x: hidden;
     width: 100%;
     box-sizing: border-box;
-    .app-main-inner{
+    .app-main-inner {
       flex: 1;
       display: flex;
       overflow-x: hidden;
