@@ -3,7 +3,7 @@
     <PropTable
       :loading="loading"
       @selection-change="selectionChange"
-      :columns="column"
+      :columns="baseColumns"
       :data="list"
       @reset="reset"
       @onSubmit="onSubmit"
@@ -65,6 +65,7 @@
   import * as dayjs from 'dayjs'
   import { ElMessage, ElMessageBox } from 'element-plus'
   import type { FormInstance } from 'element-plus'
+  import { columns } from './constants'
   const loading = ref(true)
   const appContainer = ref(null)
   import PropTable from '@/components/Table/PropTable/index.vue'
@@ -85,36 +86,7 @@
       zip: 200333,
     })
   }
-  const column = [
-    { type: 'selection', width: 60, fixed: 'left' },
-    { name: 'name', label: '姓名', inSearch: true, valueType: 'input', width: 80 },
-    { name: 'age', label: '年龄', align: 'right' },
-    {
-      name: 'sex',
-      label: '性别',
-      slot: true,
-      inSearch: true,
-      options: [
-        {
-          value: 1,
-          label: '男',
-        },
-        {
-          value: 0,
-          label: '女',
-        },
-      ],
-      valueType: 'select',
-    },
-    { name: 'price', label: '价格', inSearch: true, valueType: 'input' },
-    { name: 'admin', label: '账号', inSearch: true, valueType: 'input' },
-    { name: 'address', label: '地址', inSearch: true, valueType: 'input', width: 180 },
-    { name: 'date', label: '日期', sorter: true, inSearch: true, valueType: 'input', width: 180 },
-    { name: 'province', label: '省份', width: 100 },
-    { name: 'city', label: '城市' },
-    { name: 'zip', label: '邮编' },
-    { name: 'operation', slot: true, fixed: 'right', width: 200, label: '操作' },
-  ]
+  let baseColumns = reactive(columns)
   const list = ref(data)
 
   const formSize = ref('default')

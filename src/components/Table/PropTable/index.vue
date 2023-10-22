@@ -1,46 +1,16 @@
 <template>
   <div class="zb-pro-table">
     <div class="header">
-      <el-form :inline="true" class="search-form" :model="formInline" ref="ruleFormRef">
-        <template v-for="(item, index) in formSearchData" :key="index">
-          <el-form-item :label="item.label" v-show="isExpand ? isExpand : index < 2">
-            <template v-if="item.valueType === 'input'">
-              <el-input v-model="formInline[item.name]" :placeholder="`请输入${item.label}`" />
-            </template>
-            <template v-if="item.valueType === 'select'">
-              <el-select
-                style="width: 100%"
-                v-model="formInline[item.name]"
-                :placeholder="`请选择${item.label}`"
-              >
-                <el-option
-                  v-for="ite in item.options"
-                  :key="ite.value"
-                  :label="ite.label"
-                  :value="ite.value"
-                />
-              </el-select>
-            </template>
-          </el-form-item>
-        </template>
-      </el-form>
-      <div class="search">
-        <el-button type="primary" @click="onSubmit" :icon="Search">查询</el-button>
-        <el-button @click="reset(ruleFormRef)">重置</el-button>
-        <el-button link type="primary" @click="isExpand = !isExpand"
-          >{{ isExpand ? '合并' : '展开'
-          }}<el-icon>
-            <arrow-down v-if="!isExpand" />
-            <arrow-up v-else /> </el-icon
-        ></el-button>
-      </div>
+      <SearchForm @submit="onSubmit" :columns="baseFormColumns" />
     </div>
+
     <!----------底部---------------------->
     <div class="footer">
       <!-----------工具栏操作工具----------------->
       <div class="operator">
         <slot name="btn"></slot>
       </div>
+
       <!-- ------------表格--------------->
       <div class="table">
         <el-table
@@ -51,22 +21,8 @@
           :border="true"
         >
           <template v-for="item in columns">
-            <el-table-column
-              v-if="item.type"
-              :type="item.type"
-              :width="item.width"
-              :align="item.align != null ? item.align : 'center'"
-              :fixed="item.fixed"
-              :label="item.label"
-            />
-            <el-table-column
-              v-else
-              :prop="item.name"
-              :width="item.width"
-              :align="item.align != null ? item.align : 'center'"
-              :fixed="item.fixed"
-              :label="item.label"
-            >
+            <el-table-column v-if="item.type" v-bind="{ ...item }" />
+            <el-table-column v-else v-bind="{ ...item }">
               <template #default="scope">
                 <span v-if="!item.slot">{{ scope.row[item.name] }}</span>
                 <slot v-else :name="item.name" :item="item" :row="scope.row"></slot>
@@ -78,7 +34,7 @@
       <!-- ------------分页--------------->
       <div class="pagination">
         <el-pagination
-          v-model:currentPage="currentPage1"
+          v-model:currentPage="pagination.currentPage"
           :page-size="10"
           background
           layout="total, sizes, prev, pager, next, jumper"
@@ -92,7 +48,7 @@
 </template>
 <script lang="ts" setup>
   import { computed, ref } from 'vue'
-  import { Search } from '@element-plus/icons-vue'
+  import SearchForm from '@/components/SearchForm/index.vue'
   import { ElMessage, ElMessageBox } from 'element-plus'
   import type { FormInstance } from 'element-plus'
   const ruleFormRef = ref<FormInstance>()
@@ -112,7 +68,17 @@
     },
   })
 
-  const currentPage1 = ref(1)
+  // 过滤调需要进行搜索选择的
+  const baseFormColumns = computed(() => {
+    return props.columns.filter((item) => item.valueType && item.search)
+  })
+
+  const pagination = reactive({
+    currentPage: 1,
+    pageSize: 10,
+  })
+
+  const currentPage = ref(1)
   // 收缩展开
   const isExpand = ref(false)
   const handleSizeChange = (val: number) => {
@@ -120,12 +86,12 @@
   }
   const handleCurrentChange = (val: number) => {
     console.log(`current page: ${val}`)
-    currentPage1.value = val
+    pagination.currentPage = val
   }
 
   const list = computed(() => {
     let arr = JSON.parse(JSON.stringify(props.data))
-    return arr.splice((currentPage1.value - 1) * 10, 10)
+    return arr.splice((pagination.currentPage - 1) * 10, 10)
   })
 
   const listLoading = ref(false)
@@ -198,17 +164,8 @@
       border-radius: 4px;
       background: white;
       box-shadow: 0 0 12px rgb(0 0 0 / 5%);
-      .search-form {
+      :deep(.advancedForm) {
         flex: 1;
-        ::v-deep {
-          .el-input--default {
-            width: 200px;
-          }
-        }
-      }
-      .search {
-        flex-shrink: 0;
-        white-space: nowrap;
       }
     }
     .footer {

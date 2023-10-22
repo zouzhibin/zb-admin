@@ -7,31 +7,28 @@
       :model="formParams"
       class="form-inline"
     >
-      <el-row
-        :class="{
-          'not-show': byHeight && !isExpand,
-        }"
-        :gutter="gutterWidth"
-      >
-        <el-col
-          :span="item.span"
-          v-for="(item, index) in columns"
-          :key="item.name"
-          v-show="byHeight ? true : index < showRow * 3 || isExpand"
-        >
-          <BaseFormItem :key="index" :config="item" v-bind="item.attrs" v-model="item.value" />
-        </el-col>
+      <el-row :class="{ 'not-show': byHeight && !isExpand }" :gutter="gutterWidth">
+        <template v-for="(item, index) in columns">
+          <el-col
+            v-if="item.valueType"
+            :span="item.span"
+            v-show="byHeight ? true : index < showRow * 3 || isExpand"
+          >
+            <BaseFormItem :key="index" :config="item" v-bind="item.attrs" v-model="item.value" />
+          </el-col>
+        </template>
       </el-row>
     </el-form>
     <div class="search-btn">
       <el-button type="primary" @click="onSubmit">查询</el-button>
       <el-button @click="resetForm(ruleFormRef)">重置</el-button>
       <el-button link type="primary" @click="isExpand = !isExpand" v-if="columns.length > 3">
-        {{ isExpand ? '合并' : '展开'
-        }}<el-icon>
+        {{ isExpand ? '合并' : '展开' }}
+        <el-icon>
           <arrow-down v-if="!isExpand" />
-          <arrow-up v-else /> </el-icon
-      ></el-button>
+          <arrow-up v-else />
+        </el-icon>
+      </el-button>
     </div>
   </div>
 </template>

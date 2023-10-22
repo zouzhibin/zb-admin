@@ -1,6 +1,6 @@
 export const baseSearchColumns = [
   {
-    type: 'input',
+    valueType: 'input',
     name: 'name1',
     label: '字段1',
     span: 8,
@@ -11,7 +11,7 @@ export const baseSearchColumns = [
     },
   },
   {
-    type: 'select',
+    valueType: 'select',
     name: 'name2',
     label: '字段2',
     value: '',
@@ -30,7 +30,7 @@ export const baseSearchColumns = [
     },
   },
   {
-    type: 'date-picker',
+    valueType: 'date-picker',
     name: 'name3',
     label: '时间',
     span: 8,
@@ -43,7 +43,7 @@ export const baseSearchColumns = [
     },
   },
   {
-    type: 'date-picker',
+    valueType: 'date-picker',
     name: 'name4',
     label: '时间秒',
     span: 8,
@@ -56,7 +56,7 @@ export const baseSearchColumns = [
     },
   },
   {
-    type: 'date-picker',
+    valueType: 'date-picker',
     name: 'name5',
     label: '时间范围',
     span: 8,
@@ -71,7 +71,7 @@ export const baseSearchColumns = [
     },
   },
   {
-    type: 'time-select',
+    valueType: 'time-select',
     name: 'name6',
     label: '时间选择',
     span: 8,
@@ -82,7 +82,7 @@ export const baseSearchColumns = [
     },
   },
   {
-    type: 'cascader',
+    valueType: 'cascader',
     name: 'name7',
     label: '级联选择器',
     span: 8,
