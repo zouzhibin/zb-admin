@@ -12,7 +12,7 @@ vue-element-perfect 是一个后台前端解决方案,它使用了最新的前�
 ### git仓库(欢迎 Star⭐)
 - Gitee： —— [https://gitee.com/yuanzbz/vue-admin-perfect](https://gitee.com/yuanzbz/vue-admin-perfect)
 - GitHub： —— [https://github.com/zouzhibin/vue-admin-perfect](https://github.com/zouzhibin/vue-admin-perfect)
-- 基础功能版本： —— [https://gitee.com/yuanzbz/vue-admin-perfect](https://gitee.com/yuanzbz/vue-admin-perfect)
+- 基础功能版本： —— [https://gitee.com/yuanzbz/vue-admin-simple](https://gitee.com/yuanzbz/vue-admin-simple)
 
 ## 项目功能
 - 使用Vue3.0开发，单文件组件采用＜script setup＞
