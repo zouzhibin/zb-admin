@@ -18,11 +18,13 @@ export const columns = [
     name: 'age',
     label: '年龄',
     align: 'right',
+
     span: 8,
   },
   {
     name: 'sex',
     label: '性别',
+
     slot: true,
     search: true,
     span: 8,
@@ -42,6 +44,7 @@ export const columns = [
     name: 'price',
     label: '价格',
     search: true,
+    sortable: true,
     valueType: 'input',
     span: 8,
     attrs: {
