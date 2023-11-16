@@ -21,13 +21,12 @@
           :border="true"
         >
           <template v-for="item in columns">
-            <el-table-column v-if="item.type" v-bind="{ ...item }" />
-            <el-table-column v-else v-bind="{ ...item }">
+            <el-table-column v-bind="{ ...item, ...{ prop: item.name } }" v-if="item.slot">
               <template #default="scope">
-                <span v-if="!item.slot">{{ scope.row[item.name] }}</span>
-                <slot v-else :name="item.name" :item="item" :row="scope.row"></slot>
+                <slot :name="item.name" :item="item" :row="scope.row"></slot>
               </template>
             </el-table-column>
+            <el-table-column v-else v-bind="{ ...item, ...{ prop: item.name } }" />
           </template>
         </el-table>
       </div>
@@ -118,7 +117,6 @@
   const formInline = reactive(obj)
 
   const onSubmit = () => {
-    console.log('submit!', formInline)
     emit('onSubmit', formInline)
   }
 
