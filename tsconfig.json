@@ -10,7 +10,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "lib": ["ESNext", "DOM"],
+    "noEmit": true,
     // 跳过库检查，解决打包失败
     "skipLibCheck": true,
     // 解析非相对模块名的基准目录
