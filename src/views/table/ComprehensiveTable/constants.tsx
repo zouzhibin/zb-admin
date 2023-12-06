@@ -24,7 +24,6 @@ export const columns = [
   {
     name: 'sex',
     label: '性别',
-
     slot: true,
     search: true,
     span: 8,
