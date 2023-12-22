@@ -1,57 +1,51 @@
 <template>
   <div class="app-container">
-      <el-card style="margin-bottom: 10px">
-        <template #header>
-          <span>按钮上传</span>
-        </template>
-        <div class="demo-image__preview">
-          <div class="upload-list" v-for="(item, index) in fileList">
-            <el-image
-              @click.stop="privew(index)"
-              style="width: 100%; height: 100%"
-              :src="item"
-              :preview-src-list="fileList"
-              :initial-index="initialIndex"
-              fit="cover"
-            />
-          </div>
-        </div>
-        <el-upload action="/" multiple :before-upload="beforeUploadAction">
-          <el-button type="primary">点击上传</el-button>
-        </el-upload>
-      </el-card>
-      <el-card style="margin-bottom: 10px">
-        <template #header>
-          <span>多图片上传</span>
-        </template>
-        <Upload @update="update" v-model="imgs" />
-      </el-card>
-
-      <el-card >
-        <template #header>
-          <span>拖拽上传</span>
-        </template>
-        <div class="upload-list" v-for="(item, index) in fileList1">
+    <el-card style="margin-bottom: 10px">
+      <template #header>
+        <span>按钮上传</span>
+      </template>
+      <div class="demo-image__preview">
+        <div v-for="(item, index) in fileList" class="upload-list">
           <el-image
-            @click.stop="privew1(index)"
             style="width: 100%; height: 100%"
             :src="item"
-            :preview-src-list="fileList1"
-            :initial-index="initialIndex1"
+            :preview-src-list="fileList"
+            :initial-index="initialIndex"
             fit="cover"
+            @click.stop="privew(index)"
           />
         </div>
-        <el-upload
-          class="upload-demo"
-          drag
-          :before-upload="beforeUploadAction1"
-          action="/"
-          multiple
-        >
-          <el-icon class="el-icon--upload"><upload-filled /></el-icon>
-          <div class="el-upload__text"> 拖拽上传 <em>或者点击上传</em> </div>
-        </el-upload>
-      </el-card>
+      </div>
+      <el-upload action="/" multiple :before-upload="beforeUploadAction">
+        <el-button type="primary">点击上传</el-button>
+      </el-upload>
+    </el-card>
+    <el-card style="margin-bottom: 10px">
+      <template #header>
+        <span>多图片上传</span>
+      </template>
+      <Upload v-model="imgs" @update="update" />
+    </el-card>
+
+    <el-card>
+      <template #header>
+        <span>拖拽上传</span>
+      </template>
+      <div v-for="(item, index) in fileList1" class="upload-list">
+        <el-image
+          style="width: 100%; height: 100%"
+          :src="item"
+          :preview-src-list="fileList1"
+          :initial-index="initialIndex1"
+          fit="cover"
+          @click.stop="privew1(index)"
+        />
+      </div>
+      <el-upload class="upload-demo" drag :before-upload="beforeUploadAction1" action="/" multiple>
+        <el-icon class="el-icon--upload"><upload-filled /></el-icon>
+        <div class="el-upload__text"> 拖拽上传 <em>或者点击上传</em> </div>
+      </el-upload>
+    </el-card>
   </div>
 </template>
 

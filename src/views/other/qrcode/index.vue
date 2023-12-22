@@ -10,11 +10,13 @@
       <el-button type="primary" @click="handleQrcode(4)">下载</el-button>
     </div>
     <div>
-      <vue-qr :logoSrc="logoSrc" :text="inputData" :size="200" :callback="qrcodeCallback" :color-dark="randomColor" ></vue-qr>
+      <vue-qr :logo-src="logoSrc" :text="inputData" :size="200" :callback="qrcodeCallback" :color-dark="randomColor"></vue-qr>
     </div>
 
     <el-descriptions title="配置项 " :column="1" border class="descriptions">
-      <el-descriptions-item label="官方文档"> <a href="https://github.com/Binaryify/vue-qr" target="_blank">https://github.com/Binaryify/vue-qr</a> </el-descriptions-item>
+      <el-descriptions-item label="官方文档">
+        <a href="https://github.com/Binaryify/vue-qr" target="_blank">https://github.com/Binaryify/vue-qr</a>
+      </el-descriptions-item>
       <el-descriptions-item label="text"> 二维码内容，默认为 'https://github.com/zouzhibin/vue-admin-perfect' </el-descriptions-item>
       <el-descriptions-item label="logoSrc"> 嵌入至二维码中心的 LOGO 地址 </el-descriptions-item>
       <el-descriptions-item label="size"> 尺寸, 长宽一致, 包含外边距，默认为 200 </el-descriptions-item>
@@ -24,7 +26,10 @@
       <el-descriptions-item label="autoColor"> 若为 true, 背景图的主要颜色将作为实点的颜色, 即 colorDark,默认 true </el-descriptions-item>
       <el-descriptions-item label="colorDark"> 实点的颜色,默认颜色值 =>黑色 </el-descriptions-item>
       <el-descriptions-item label="colorLight"> 空白区的颜色 </el-descriptions-item>
-      <el-descriptions-item label="callback"> 生成的二维码 Data URI 可以在回调中取得,第一个参数为二维码 data URL, 第二个参数为 props 传过来的 qid(因为二维码生成是异步的,所以加个 id 用于排序) </el-descriptions-item>
+      <el-descriptions-item label="callback">
+        生成的二维码 Data URI 可以在回调中取得,第一个参数为二维码 data URL, 第二个参数为 props 传过来的 qid(因为二维码生成是异步的,所以加个
+        id 用于排序)
+      </el-descriptions-item>
     </el-descriptions>
   </PageWrapLayout>
 </template>
@@ -51,19 +56,19 @@
         randomColor.value = getColor()
         return
       case 4:
-        let name  = new Date().getTime();
-        let a = document.createElement("a");
-        a.style.display = "none";
-        a.download = name;
-        a.href = qrcodeUrl.value;
-        document.body.appendChild(a);
-        a.click();
+        let name = new Date().getTime()
+        let a = document.createElement('a')
+        a.style.display = 'none'
+        a.download = name
+        a.href = qrcodeUrl.value
+        document.body.appendChild(a)
+        a.click()
         a.remove()
-        return;
+        return
     }
   }
 
-  const qrcodeCallback = (url)=>{
+  const qrcodeCallback = (url) => {
     qrcodeUrl.value = url
   }
 </script>

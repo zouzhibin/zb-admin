@@ -3,14 +3,12 @@
     <el-card class="box-card">
       <template #header>
         <div class="card-header">
-          <span style="margin-right: 100px"
-            >收缩表单 通过v-show来控制显隐藏 设置 showRow 为number</span
-          >
-          <el-button @click="showRow(2)" type="primary" link>显示两行</el-button>
-          <el-button @click="showRow(1)" type="primary" link>显示一行</el-button>
+          <span style="margin-right: 100px">收缩表单 通过v-show来控制显隐藏 设置 showRow 为number</span>
+          <el-button type="primary" link @click="showRow(2)">显示两行</el-button>
+          <el-button type="primary" link @click="showRow(1)">显示一行</el-button>
         </div>
       </template>
-      <AdvancedForm :columns="baseColumns" @submit="onSubmit" :showRow="row" />
+      <AdvancedForm :columns="baseColumns" :show-row="row" @submit="onSubmit" />
     </el-card>
 
     <el-card class="box-card" style="margin-top: 20px">
@@ -19,7 +17,7 @@
           <span>收缩表单 通过高度来控制显隐藏 byHeight</span>
         </div>
       </template>
-      <AdvancedForm :columns="baseColumns" @submit="onSubmit" :byHeight="true" />
+      <AdvancedForm :columns="baseColumns" :by-height="true" @submit="onSubmit" />
     </el-card>
   </div>
 </template>

@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "build:ts": "vue-tsc --noEmit --skipLibCheck && vite build",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx",
-    "lint:fix": "eslint . --ext .vue,.js,.ts,.jsx,.tsx  --fix",
+    "lint:fix": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "prepare": "husky install"
   },
@@ -61,6 +61,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
+    "@element-plus/icons-vue": "^2.3.1",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
     "@vitejs/plugin-vue": "^3.0.0",
@@ -96,6 +97,10 @@
     }
   },
   "lint-staged": {
-    "*.{vue,js,ts,jsx,tsx}": ["npm run lint","git add"]
+    "src/s*.{vue,js,ts,jsx,tsx}": [
+      "npm run lint:prettier",
+      "npm run lint:fix",
+      "git add ."
+    ]
   }
 }

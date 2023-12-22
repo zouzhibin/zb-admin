@@ -1,4 +1,3 @@
-
 import wePng from '@/assets/image/we.png'
 export const chatData = [
   {
@@ -15,5 +14,4 @@ export const chatData = [
     id: 2,
     type: 1, // 文字
   },
-
 ]

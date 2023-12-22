@@ -1,26 +1,12 @@
 <template>
   <PageWrapLayout class="m-upload-excel">
-    <el-upload
-      style="width: 100%"
-      class="upload-demo"
-      drag
-      action="/"
-      :before-upload="beforeUploadAction"
-      type="file"
-      accept=".xlsx, .xls"
-    >
+    <el-upload style="width: 100%" class="upload-demo" drag action="/" :before-upload="beforeUploadAction" type="file" accept=".xlsx, .xls">
       <el-icon class="el-icon--upload"><upload-filled /></el-icon>
       <div class="el-upload__text"> 拖拽上传 <em>或者点击上传 Excel</em> </div>
     </el-upload>
     <div>
-      <el-table
-        :data="tableData"
-        border
-        highlight-current-row
-        style="width: 100%; margin-top: 20px"
-      >
-        <el-table-column v-for="item of tableHeader" :prop="item" :label="item" :key="item">
-        </el-table-column>
+      <el-table :data="tableData" border highlight-current-row style="width: 100%; margin-top: 20px">
+        <el-table-column v-for="item of tableHeader" :key="item" :prop="item" :label="item"> </el-table-column>
       </el-table>
     </div>
   </PageWrapLayout>
@@ -34,16 +20,15 @@
   import { ElMessage } from 'element-plus'
   const tableData = ref([])
   const tableHeader = ref([])
-  const beforeUploadAction = (file, fileLi) => {
-    return new Promise((resolve, reject) => {
+  const beforeUploadAction = (file) => {
+    return new Promise(() => {
       const reader = new FileReader()
       reader.onload = async (e) => {
         const data = e.target.result
         const workbook = new ExcelJS.Workbook()
         try {
           let res = await workbook.xlsx.load(data)
-          const sheets =
-            res._worksheets && res._worksheets.filter((item) => typeof item !== 'undefined')
+          const sheets = res._worksheets && res._worksheets.filter((item) => typeof item !== 'undefined')
           const table = []
           let headers = []
           sheets.forEach((sheet) => {

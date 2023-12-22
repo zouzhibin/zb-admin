@@ -1,4 +1,4 @@
-.header{
+.header {
   display: flex;
   padding: 16px 16px 0px 16px;
   margin-bottom: 16px;
@@ -6,7 +6,7 @@
   background: white;
   box-shadow: 0 0 12px rgb(0 0 0 / 5%);
 }
-.footer{
+.footer {
   flex: 1;
   display: flex;
   padding: 16px;
@@ -17,21 +17,21 @@
   box-shadow: 0 0 12px rgb(0 0 0 / 5%);
   position: relative;
   box-sizing: border-box;
-  .util{
+  .util {
     margin-bottom: 15px;
     display: flex;
     justify-content: flex-end;
     flex-shrink: 0;
   }
-  .table-inner{
+  .table-inner {
     flex: 1;
     position: relative;
   }
-  .table{
+  .table {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%
+    height: 100%;
   }
 }

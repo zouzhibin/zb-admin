@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-container" :class="{ 'has-logo': themeConfig.showLogo }">
-    <Logo :isCollapse="isCollapse" v-if="themeConfig.showLogo" />
+    <Logo v-if="themeConfig.showLogo" :is-collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"

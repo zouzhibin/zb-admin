@@ -1,40 +1,30 @@
 <template>
   <div class="g-container-chat">
-    <div class="g-layout-content-center" style="width: 100%" ref="chatContentBoxs">
+    <div ref="chatContentBoxs" class="g-layout-content-center" style="width: 100%">
       <div v-for="(item, index) in chatDatas" :key="item.id" style="padding-top: 15px">
-        <div class="from_user_info" v-if="item.is_self === 0">
+        <div v-if="item.is_self === 0" class="from_user_info">
           <div class="contact-nickname">{{ item.created_at }} 林峰</div>
           <div class="receive-message-wrap">
             <div class="avatar-show">
               <img src="@/assets/image/avatar.png" />
             </div>
             <div style="position: relative; display: flex">
-              <div class="receive-message-info" v-html="item.content" v-if="item.type===1"></div>
-              <div class="public-show-pic" v-else-if="item.type === 2">
-                <el-image
-                    :src="item.content"
-                    :preview-src-list="[item.content]"
-                    style="max-width: 200px"
-                    :data-resid="Date.now()"
-                />
+              <div v-if="item.type === 1" class="receive-message-info" v-html="item.content"></div>
+              <div v-else-if="item.type === 2" class="public-show-pic">
+                <el-image :src="item.content" :preview-src-list="[item.content]" style="max-width: 200px" :data-resid="Date.now()" />
               </div>
             </div>
           </div>
         </div>
-        <div class="ower-user_info" v-else>
+        <div v-else class="ower-user_info">
           <div class="contact-nickname">{{ item.created_at }} 林峰</div>
           <div class="receive-message-wrap public-show-pic">
             <div style="position: relative; display: flex">
-              <div class="receive-message-info" v-if="item.type == 1">
+              <div v-if="item.type == 1" class="receive-message-info">
                 <div class="text-content" v-html="item.content"></div>
               </div>
-              <div class="public-show-pic" v-else-if="item.type === 2">
-                <el-image
-                  :src="item.content"
-                  :preview-src-list="[item.content]"
-                  style="max-width: 200px"
-                  :data-resid="Date.now()"
-                />
+              <div v-else-if="item.type === 2" class="public-show-pic">
+                <el-image :src="item.content" :preview-src-list="[item.content]" style="max-width: 200px" :data-resid="Date.now()" />
               </div>
             </div>
             <div class="avatar-show">
@@ -45,12 +35,7 @@
       </div>
     </div>
     <u-toolbar @insert="insertInput" @upload="upload" />
-    <div
-      @blur="contentBlur"
-      ref="contenteditableInputs"
-      class="g-chat-container-footer-input"
-      contenteditable="true"
-    ></div>
+    <div ref="contenteditableInputs" class="g-chat-container-footer-input" contenteditable="true" @blur="contentBlur"></div>
     <div class="g-chat-container-footer-btn">
       <div class="" style="margin-right: 10px"> Ctrl+V粘贴, Ctrl+Enter换行 </div>
       <el-button @click="sendInfoAction">发送</el-button>

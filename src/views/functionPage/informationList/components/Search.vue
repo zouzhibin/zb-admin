@@ -1,6 +1,6 @@
 <template>
   <el-card>
-    <el-form :inline="true" :model="formInline" >
+    <el-form :inline="true" :model="formInline">
       <el-form-item label="名称">
         <el-input v-model="formInline.name" placeholder="请输入名称" />
       </el-form-item>
@@ -12,19 +12,19 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
+  import { reactive } from 'vue'
 
-const formInline = reactive({
-  name: '',
-})
+  const formInline = reactive({
+    name: '',
+  })
 
-const onSubmit = () => {
-  console.log('submit!')
-}
+  const onSubmit = () => {
+    console.log('submit!')
+  }
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.el-form-item){
-  margin-bottom: 0;
-}
+  ::v-deep(.el-form-item) {
+    margin-bottom: 0;
+  }
 </style>

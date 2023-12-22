@@ -7,24 +7,24 @@ html.dark {
 
   --zb-border-light: 1px solid #4c4d4f;
 
-
-  body{
+  body {
     background: none;
   }
 
-
   // 编辑器
-  .w-e-toolbar, .w-e-text-container, .w-e-menu-panel{
-    background: none!important;
+  .w-e-toolbar,
+  .w-e-text-container,
+  .w-e-menu-panel {
+    background: none !important;
   }
   // 富文本
-  .md{
-    background: none!important;
+  .md {
+    background: none !important;
   }
 
-  #app{
-    .sidebar-container{
-      background: var(--el-bg-color)!important;
+  #app {
+    .sidebar-container {
+      background: var(--el-bg-color) !important;
       & .el-menu .el-sub-menu > .el-sub-menu__title,
       & .el-sub-menu .el-menu-item {
         background-color: var(--el-bg-color) !important;
@@ -32,8 +32,8 @@ html.dark {
         &:hover {
           background-color: var(--el-bg-color) !important;
         }
-        &.is-active{
-          background-color: #060708!important;
+        &.is-active {
+          background-color: #060708 !important;
         }
       }
       .el-sub-menu__title {
@@ -44,113 +44,105 @@ html.dark {
     }
   }
 
-
-
-  .sidebar-logo-container{
+  .sidebar-logo-container {
     background: none;
     box-sizing: border-box;
-    border:var(--zb-border-light);
+    border: var(--zb-border-light);
   }
   .el-drawer__header {
     span {
       color: var(--el-text-color-primary) !important;
     }
   }
-  .theme-item{
+  .theme-item {
     color: var(--el-text-color-primary) !important;
   }
-
 
   .el-table__header th {
     font-weight: bold;
     color: white;
   }
-  .footer-layout{
+  .footer-layout {
     background: none;
     color: white;
   }
 
-
-  .zb-pro-table{
-    .header{
-      background: none!important;
+  .zb-pro-table {
+    .header {
+      background: none !important;
       border: var(--zb-border-light);
     }
-    .footer{
-      background: none!important;
+    .footer {
+      background: none !important;
       border: var(--zb-border-light);
     }
-    .el-table__header th{
-      color: white!important;
+    .el-table__header th {
+      color: white !important;
     }
   }
 
   // header
-  .m-layout-header{
+  .m-layout-header {
     color: var(--el-text-color-primary) !important;
-    .header-inner{
-      background-color: var(--el-bg-color)!important;
-      border-bottom:var(--zb-border-light);
-      .header-icon{
-        color:#bfcbd9!important;
+    .header-inner {
+      background-color: var(--el-bg-color) !important;
+      border-bottom: var(--zb-border-light);
+      .header-icon {
+        color: #bfcbd9 !important;
       }
     }
     // tagviews
-    .m-tags-view{
-      background: var(--el-bg-color)!important;
+    .m-tags-view {
+      background: var(--el-bg-color) !important;
       border: var(--zb-border-light);
-      border-top:none ;
+      border-top: none;
       border-left: none;
       box-sizing: border-box;
-      .el-tabs--card>.el-tabs__header{
-        border-bottom: none!important;
+      .el-tabs--card > .el-tabs__header {
+        border-bottom: none !important;
       }
     }
-
-
   }
 
   // 内容区
-  .app-main{
-    .echarts-map{
-      background: var(--el-bg-color)!important;
+  .app-main {
+    .echarts-map {
+      background: var(--el-bg-color) !important;
     }
-    .app-echarts{
+    .app-echarts {
       background: none;
     }
 
-    .app-container{
-      .header{
+    .app-container {
+      .header {
         background: none;
       }
-      .footer{
+      .footer {
         background: none;
       }
     }
-    .m-container-layout{
-      .m-container-layout-inner{
+    .m-container-layout {
+      .m-container-layout-inner {
         background: none;
         color: var(--el-text-color-primary) !important;
       }
     }
 
-    .item-group-item{
-      background: none!important;
+    .item-group-item {
+      background: none !important;
       border: var(--zb-border-light);
       color: #cccccc;
     }
 
-    .app-container-inner{
+    .app-container-inner {
       background: none;
     }
   }
 
   // 底部
-  .footer-layout{
-    border-top:var(--zb-border-light);
+  .footer-layout {
+    border-top: var(--zb-border-light);
   }
-
-
 
   // 登录
   .login-container {
@@ -164,13 +156,13 @@ html.dark {
         }
       }
     }
-    .info-qrcode{
+    .info-qrcode {
       background: white;
     }
   }
 
-  .el-scrollbar{
-    border:var(--zb-border-light);
-    border-top:none ;
+  .el-scrollbar {
+    border: var(--zb-border-light);
+    border-top: none;
   }
 }

@@ -5,14 +5,14 @@
 </template>
 
 <script lang="ts" setup>
-  import {computed} from "vue";
-  import {useSettingStore} from "@/store/modules/setting"
+  import { computed } from 'vue'
+  import { useSettingStore } from '@/store/modules/setting'
   // 配置element中文
   import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
   const SettingStore = useSettingStore()
   // 配置全局组件大小
-  const globalComSize = computed(():string=>SettingStore.themeConfig.globalComSize)
+  const globalComSize = computed((): string => SettingStore.themeConfig.globalComSize)
 </script>
 
 <style lang="scss">

@@ -1,6 +1,8 @@
 module.exports = {
   // 一行的字符数，如果超过会进行换行，默认为80
-  printWidth: 100,
+  printWidth: 140,
+  // 缩进制表符宽度 | 空格数
+  tabWidth: 2,
   // 行位是否使用分号，默认为true
   semi: false,
   vueIndentScriptAndStyle: true,

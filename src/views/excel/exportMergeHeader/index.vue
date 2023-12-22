@@ -1,12 +1,8 @@
 <template>
   <div class="app-container">
     <div class="header">
-      <el-input
-        v-model="input"
-        placeholder="请输入文件名"
-        style="width: 200px; margin-right: 10px"
-      />
-      <el-button @click="exportExcelAction" type="primary">
+      <el-input v-model="input" placeholder="请输入文件名" style="width: 200px; margin-right: 10px" />
+      <el-button type="primary" @click="exportExcelAction">
         <el-icon style="margin-right: 6px"><Download /></el-icon>导出 Excel
       </el-button>
     </div>
@@ -20,7 +16,7 @@
               </template>
             </el-table-column>
           </template>
-          <el-table-column :prop="item.name" :label="item.label" :width="item.width" v-else />
+          <el-table-column v-else :prop="item.name" :label="item.label" :width="item.width" />
         </template>
       </el-table>
     </div>
@@ -28,8 +24,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref, reactive } from 'vue'
-  import * as dayjs from 'dayjs'
+  import { ref } from 'vue'
   import { exportMultiHeaderExcel } from '@/utils/exprotExcel'
   const data = []
   for (let i = 0; i < 10; i++) {
@@ -75,22 +70,22 @@
 </script>
 
 <style lang="scss" scoped>
-.header{
-  display: flex;
-  padding: 16px 16px 16px 16px;
-  margin-bottom: 12px;
-  border-radius: 4px;
-  background: white;
-  box-shadow: 0 0 12px rgb(0 0 0 / 5%);
-}
-.footer{
-  flex: 1;
-  display: flex;
-  padding: 16px;
-  flex-direction: column;
-  border-radius: 4px;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 12px rgb(0 0 0 / 5%);
-}
+  .header {
+    display: flex;
+    padding: 16px 16px 16px 16px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    background: white;
+    box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+  }
+  .footer {
+    flex: 1;
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    border-radius: 4px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+  }
 </style>

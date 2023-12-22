@@ -1,20 +1,10 @@
 <template>
   <div class="advancedForm">
-    <el-form
-      ref="ruleFormRef"
-      :inline="true"
-      :label-position="'right'"
-      :model="formParams"
-      class="form-inline"
-    >
+    <el-form ref="ruleFormRef" :inline="true" :label-position="'right'" :model="formParams" class="form-inline">
       <el-row :class="{ 'not-show': byHeight && !isExpand }" :gutter="gutterWidth">
         <template v-for="(item, index) in columns">
-          <el-col
-            v-if="item.valueType"
-            :span="item.span"
-            v-show="byHeight ? true : index < showRow * 3 || isExpand"
-          >
-            <BaseFormItem :key="index" :config="item" v-bind="item.attrs" v-model="item.value" />
+          <el-col v-if="item.valueType" v-show="byHeight ? true : index < showRow * 3 || isExpand" :span="item.span">
+            <BaseFormItem :key="index" v-bind="item.attrs" v-model="item.value" :config="item" />
           </el-col>
         </template>
       </el-row>
@@ -22,7 +12,7 @@
     <div class="search-btn">
       <el-button type="primary" @click="onSubmit">查询</el-button>
       <el-button @click="resetForm(ruleFormRef)">重置</el-button>
-      <el-button link type="primary" @click="isExpand = !isExpand" v-if="columns.length > 3">
+      <el-button v-if="columns.length > 3" link type="primary" @click="isExpand = !isExpand">
         {{ isExpand ? '合并' : '展开' }}
         <el-icon>
           <arrow-down v-if="!isExpand" />

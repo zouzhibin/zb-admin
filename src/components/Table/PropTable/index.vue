@@ -1,7 +1,7 @@
 <template>
   <div class="zb-pro-table">
     <div class="header">
-      <SearchForm @submit="onSubmit" :columns="baseFormColumns" />
+      <SearchForm :columns="baseFormColumns" @submit="onSubmit" />
     </div>
 
     <!----------底部---------------------->
@@ -14,14 +14,14 @@
       <!-- ------------表格--------------->
       <div class="table">
         <el-table
-          class="zb-table"
           v-loading="loading"
-          @selection-change="(val) => emit('selection-change', val)"
+          class="zb-table"
           :data="list"
           :border="true"
+          @selection-change="(val) => emit('selection-change', val)"
         >
           <template v-for="item in columns">
-            <el-table-column v-bind="{ ...item, ...{ prop: item.name } }" v-if="item.slot">
+            <el-table-column v-if="item.slot" v-bind="{ ...item, ...{ prop: item.name } }">
               <template #default="scope">
                 <slot :name="item.name" :item="item" :row="scope.row"></slot>
               </template>

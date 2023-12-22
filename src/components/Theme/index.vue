@@ -12,16 +12,10 @@
         </div>
       </div>
     </div>
-    <el-drawer
-        v-model="drawer" title="主题配置" size="300px">
+    <el-drawer v-model="drawer" title="主题配置" size="300px">
       <div class="theme-item">
         <label>导航栏布局</label>
-        <el-select
-            v-model="layout"
-            placeholder="请选择"
-            style="width: 150px"
-            @change="(val) => changeSwitch('mode',val)"
-        >
+        <el-select v-model="layout" placeholder="请选择" style="width: 150px" @change="(val) => changeSwitch('mode', val)">
           <el-option label="纵向" value="vertical"></el-option>
           <el-option label="横向" value="horizontal"></el-option>
           <el-option label="分栏" value="columns"></el-option>
@@ -37,39 +31,39 @@
       </div>
       <div class="theme-item">
         <label>灰色模式</label>
-        <el-switch v-model="gray" @change="(val) => changeGrayWeak('gray',val)" />
+        <el-switch v-model="gray" @change="(val) => changeGrayWeak('gray', val)" />
       </div>
       <div class="theme-item">
         <label>色弱模式</label>
-        <el-switch v-model="weak" @change="(val) => changeGrayWeak('weak',val)" />
+        <el-switch v-model="weak" @change="(val) => changeGrayWeak('weak', val)" />
       </div>
       <div class="theme-item">
         <label>标签栏</label>
-        <el-switch v-model="showTag" @change="(val) => changeSwitch('showTag',val)" />
+        <el-switch v-model="showTag" @change="(val) => changeSwitch('showTag', val)" />
       </div>
       <div class="theme-item">
         <label>侧边栏 Logo</label>
-        <el-switch v-model="showLogo" @change="(val) => changeSwitch('showLogo',val)" />
+        <el-switch v-model="showLogo" @change="(val) => changeSwitch('showLogo', val)" />
       </div>
       <div class="theme-item">
         <label>保持一个子菜单的展开</label>
-        <el-switch v-model="uniqueOpened" @change="(val) => changeSwitch('uniqueOpened',val)" />
+        <el-switch v-model="uniqueOpened" @change="(val) => changeSwitch('uniqueOpened', val)" />
       </div>
       <div class="theme-item">
         <label>固定header</label>
-        <el-switch v-model="fixedHeader" @change="(val) => changeSwitch('fixedHeader',val)" />
+        <el-switch v-model="fixedHeader" @change="(val) => changeSwitch('fixedHeader', val)" />
       </div>
     </el-drawer>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import {computed, ref,watch} from 'vue'
-  import {ElMessage} from "element-plus";
-  import {openLoading,closeLoading} from "@/utils/element"
+  import { computed, ref, watch } from 'vue'
+  import { ElMessage } from 'element-plus'
+  import { openLoading, closeLoading } from '@/utils/element'
   import SwitchDark from '@/components/SwitchDark/index.vue'
-  import {PRIMARY_COLOR} from "@/config/index";
-  import {useSettingStore} from "@/store/modules/setting"
+  import { PRIMARY_COLOR } from '@/config/index'
+  import { useSettingStore } from '@/store/modules/setting'
 
   const SettingStore = useSettingStore()
   const layout = ref(SettingStore.themeConfig.mode)
@@ -83,17 +77,15 @@
 
   const drawer = computed({
     get() {
-      return SettingStore.themeConfig.showSetting;
+      return SettingStore.themeConfig.showSetting
     },
     set() {
-      changeSwitch('showSetting',!SettingStore.themeConfig.showSetting)
-    }
+      changeSwitch('showSetting', !SettingStore.themeConfig.showSetting)
+    },
   })
 
   // 预定义主题颜色
-  const predefineColor = [
-    '#409EFF', '#1890ff', '#304156','#212121','#11a983', '#13c2c2', '#6959CD', '#f5222d'
-  ];
+  const predefineColor = ['#409EFF', '#1890ff', '#304156', '#212121', '#11a983', '#13c2c2', '#6959CD', '#f5222d']
 
   const operator = (type) => {
     switch (type) {
@@ -107,53 +99,52 @@
   }
 
   // 进行配置
-  const changeSwitch = (key,val) => {
-    SettingStore.setThemeConfig({key, val})
-    if(key==='mode'){
+  const changeSwitch = (key, val) => {
+    SettingStore.setThemeConfig({ key, val })
+    if (key === 'mode') {
       openLoading()
-      setTimeout(()=>{
+      setTimeout(() => {
         closeLoading()
-      },600)
+      }, 600)
     }
   }
 
   // 监听布局变化
   watch(
-      () => layout.value,
-      () => {
-        const body = document.body as HTMLElement;
-        body.setAttribute("class", `layout-${layout.value}`);
-      },
-      { immediate: true }
-  );
+    () => layout.value,
+    () => {
+      const body = document.body as HTMLElement
+      body.setAttribute('class', `layout-${layout.value}`)
+    },
+    { immediate: true },
+  )
 
   // 修改主题颜色
-  const changePrimary = (val)=>{
+  const changePrimary = (val) => {
     if (!val) {
-      primary.value = val = PRIMARY_COLOR;
-      ElMessage({ type: "success", message: `主题颜色已重置为 ${PRIMARY_COLOR}` });
+      primary.value = val = PRIMARY_COLOR
+      ElMessage({ type: 'success', message: `主题颜色已重置为 ${PRIMARY_COLOR}` })
     }
-    document.documentElement.style.setProperty("--el-color-primary", val);
-    changeSwitch('primary',val)
+    document.documentElement.style.setProperty('--el-color-primary', val)
+    changeSwitch('primary', val)
   }
 
   // 修改灰色模式
-  const changeGrayWeak = (type,val)=>{
-    const body = document.documentElement as HTMLElement;
-    if (!val) return body.setAttribute("style", "");
-    if (type === "gray") body.setAttribute("style", "filter: grayscale(1)");
-    if (type === "weak") body.setAttribute("style", "filter: invert(80%)");
-    changeSwitch(type,val)
+  const changeGrayWeak = (type, val) => {
+    const body = document.documentElement as HTMLElement
+    if (!val) return body.setAttribute('style', '')
+    if (type === 'gray') body.setAttribute('style', 'filter: grayscale(1)')
+    if (type === 'weak') body.setAttribute('style', 'filter: invert(80%)')
+    changeSwitch(type, val)
   }
-
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.el-drawer__header){
-  border-bottom: 1px solid #ebeef5;
-  padding: 15px 20px 14px;
-  margin-bottom: 0;
-}
+  ::v-deep(.el-drawer__header) {
+    border-bottom: 1px solid #ebeef5;
+    padding: 15px 20px 14px;
+    margin-bottom: 0;
+  }
   .m-setting-fix {
     position: fixed;
     top: 50%;
@@ -193,19 +184,17 @@
       border-radius: 5.5px;
       font-size: 12px;
       background: #ebf5ff;
-      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease,
-        box-shadow 0.15s ease;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
     }
     .item-child2 {
       margin-top: 10px;
       color: #b37feb;
       background: #f7f2fd;
-      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease,
-        box-shadow 0.15s ease;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
     }
   }
 
-:deep(.el-drawer__title) {
+  :deep(.el-drawer__title) {
     font-weight: bold;
     color: black;
   }
@@ -217,6 +206,5 @@
     font-size: 14px;
     color: black;
     justify-content: space-between;
-
   }
 </style>

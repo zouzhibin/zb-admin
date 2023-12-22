@@ -1,7 +1,7 @@
 <template>
   <PageWrapLayout style="min-height: 300px">
-    <el-button @contextmenu.prevent="rightClick" style="width: 200px">右键菜单</el-button>
-    <RightClickMenu :left="clientX" :top="clientY" @ok="operatingRightAction" :data="data" />
+    <el-button style="width: 200px" @contextmenu.prevent="rightClick">右键菜单</el-button>
+    <RightClickMenu :left="clientX" :top="clientY" :data="data" @ok="operatingRightAction" />
   </PageWrapLayout>
 </template>
 

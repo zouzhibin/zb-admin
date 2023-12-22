@@ -16,12 +16,12 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
-import clip from '@/utils/clipboard'
-const copyValue = ref('https://github.com/zouzhibin/vue-admin-perfect')
-const testValue = ref('')
+  import { ref } from 'vue'
+  import clip from '@/utils/clipboard'
+  const copyValue = ref('https://github.com/zouzhibin/vue-admin-perfect')
+  const testValue = ref('')
 
-const handleCopy = (text, event) => {
-  clip(text, event)
-}
+  const handleCopy = (text, event) => {
+    clip(text, event)
+  }
 </script>

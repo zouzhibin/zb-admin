@@ -1,5 +1,5 @@
 <template>
-  <div :id="id" :class="className" :style="{ height: height, width: width }" ref="chartsRef" />
+  <div :id="id" ref="chartsRef" :class="className" :style="{ height: height, width: width }" />
 </template>
 <script lang="ts" setup>
   import * as echarts from 'echarts'

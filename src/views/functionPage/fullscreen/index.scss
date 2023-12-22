@@ -1,30 +1,30 @@
-.app-container-inner{
+.app-container-inner {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  .header{
+  .header {
     padding: 20px;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     border-bottom: 1px solid #0000001a;
-    .title{
+    .title {
       margin-bottom: 20px;
     }
   }
-  .fullscreen{
+  .fullscreen {
     display: flex;
     flex-direction: column;
     background: white;
     width: 300px;
     height: 300px;
     box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
-    .title{
+    .title {
       padding: 20px;
     }
-    .inner{
+    .inner {
       flex: 1;
       display: flex;
       align-items: center;

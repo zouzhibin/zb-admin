@@ -1,10 +1,6 @@
 <template>
   <div class="zb-pipeline-start-wrapper">
-    <div
-      class="zb-pipeline-start"
-      v-bind:class="control === value ? 'active' : ''"
-      v-on:click="handleClick"
-    >
+    <div class="zb-pipeline-start" :class="control === value ? 'active' : ''" @click="handleClick">
       <div class="zb-pipeline-start-header">
         <zb-icon type="play-filled" />
       </div>

@@ -1,13 +1,6 @@
 <template>
   <el-dialog v-model="dialogVisible" title="修改密码" width="40%">
-    <el-form
-      ref="ruleFormRef"
-      :model="ruleForm"
-      :rules="rules"
-      label-width="120px"
-      class="demo-ruleForm"
-      :size="formSize"
-    >
+    <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-width="120px" class="demo-ruleForm" :size="formSize">
       <el-form-item label="姓名">
         <el-input v-model="ruleForm.name" disabled></el-input>
       </el-form-item>
@@ -31,7 +24,7 @@
   import { ref, defineExpose, reactive } from 'vue'
   import type { ElForm } from 'element-plus'
   const dialogVisible = ref(false)
-  import {useUserStore} from "@/store/modules/user"
+  import { useUserStore } from '@/store/modules/user'
   const UserStore = useUserStore()
   const show = () => {
     dialogVisible.value = true

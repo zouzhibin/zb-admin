@@ -1,12 +1,12 @@
 <template>
   <div class="m-water-marker">
-    <el-button @click="setWaterMarker(-1)" type="primary">默认局部水印</el-button>
-    <el-button @click="setWaterMarker(0)" type="primary">生成全局水印</el-button>
-    <el-button @click="setWaterMarker(1)" type="primary">生成默认颜色水印</el-button>
-    <el-button @click="setWaterMarker(2)" type="primary">生成随机颜色水印</el-button>
+    <el-button type="primary" @click="setWaterMarker(-1)">默认局部水印</el-button>
+    <el-button type="primary" @click="setWaterMarker(0)">生成全局水印</el-button>
+    <el-button type="primary" @click="setWaterMarker(1)">生成默认颜色水印</el-button>
+    <el-button type="primary" @click="setWaterMarker(2)">生成随机颜色水印</el-button>
     <el-input v-model="opacity" style="width: 100px; margin-left: 20px"></el-input>
-    <el-button @click="setWaterMarker(3)" type="primary">设置透明度</el-button>
-    <el-button @click="setWaterMarker(4)" type="primary">取消水印</el-button>
+    <el-button type="primary" @click="setWaterMarker(3)">设置透明度</el-button>
+    <el-button type="primary" @click="setWaterMarker(4)">取消水印</el-button>
 
     <el-descriptions title="配置项 " :column="1" border class="descriptions">
       <el-descriptions-item label="content"> 水印内容，默认为 'Vue Admin Perfect' </el-descriptions-item>
@@ -50,34 +50,33 @@
         selectType.value = type
         options.container = document.getElementsByClassName('m-water-marker')[0]
         watermark(options)
-        return;
+        return
       case 0:
         selectType.value = type
         delete options.container
         watermark(options)
-        return;
+        return
       case 1:
         options.fillStyle = '#000'
         watermark(options)
-        return;
+        return
       case 2:
         options.fillStyle = message[getRandom(0, 30)]
         watermark(options)
-        return;
+        return
       case 3:
         options.globalAlpha = opacity.value
         watermark(options)
-        return;
+        return
       case 4:
         nextTick(() => {
           const wm = document.getElementsByClassName('__wm')[0]
           if (wm) {
-            if(selectType.value===-1){
+            if (selectType.value === -1) {
               wm.remove()
-            }else {
+            } else {
               document.body.removeChild(wm)
             }
-
           }
         })
     }
@@ -97,7 +96,7 @@
     position: relative;
     box-sizing: border-box;
     padding: 20px;
-    .descriptions{
+    .descriptions {
       margin-top: 50px;
     }
   }

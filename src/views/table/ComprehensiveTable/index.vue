@@ -1,14 +1,14 @@
 <template>
-  <div class="app-container" ref="appContainer">
+  <div ref="appContainer" class="app-container">
     <PropTable
       :loading="loading"
-      @selection-change="selectionChange"
       :columns="baseColumns"
       :data="list"
+      @selection-change="selectionChange"
       @reset="reset"
-      @onSubmit="onSubmit"
+      @on-submit="onSubmit"
     >
-      <template v-slot:btn>
+      <template #btn>
         <div style="display: flex; justify-content: flex-end">
           <el-button type="primary" @click="add"
             ><el-icon><plus /></el-icon> 添加</el-button
@@ -18,26 +18,15 @@
           >
         </div>
       </template>
-      <template v-slot:sex="scope">{{ scope.row.sex ? '男' : '女' }}</template>
-      <template v-slot:operation="scope">
-        <el-button type="primary" size="small" icon="Edit" @click="edit(scope.row)">
-          编辑
-        </el-button>
-        <el-button @click="del(scope.row)" type="danger" size="small" icon="Delete">
-          删除
-        </el-button>
+      <template #sex="scope">{{ scope.row.sex ? '男' : '女' }}</template>
+      <template #operation="scope">
+        <el-button type="primary" size="small" icon="Edit" @click="edit(scope.row)"> 编辑 </el-button>
+        <el-button type="danger" size="small" icon="Delete" @click="del(scope.row)"> 删除 </el-button>
       </template>
     </PropTable>
 
     <el-dialog v-model="dialogVisible" :title="title" width="50%">
-      <el-form
-        ref="ruleFormRef"
-        :model="ruleForm"
-        :rules="rules"
-        label-width="120px"
-        class="demo-ruleForm"
-        :size="formSize"
-      >
+      <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-width="120px" class="demo-ruleForm" :size="formSize">
         <el-form-item label="活动名称" prop="name">
           <el-input v-model="ruleForm.name" />
         </el-form-item>
@@ -117,7 +106,7 @@
   const rowObj = ref({})
   const selectObj = ref([])
 
-  const handleClose = async (done: () => void) => {
+  const handleClose = async () => {
     await ruleFormRef.value.validate((valid, fields) => {
       if (valid) {
         let obj = {
@@ -220,8 +209,6 @@
       loading.value = false
     }, 500)
   }
-
-  const getHeight = () => {}
 
   onMounted(() => {
     nextTick(() => {

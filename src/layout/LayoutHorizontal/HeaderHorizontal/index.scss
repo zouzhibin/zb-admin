@@ -9,29 +9,26 @@
     width: 100%;
     border-bottom: 1px solid #eee;
     display: flex;
-    background-color:$menuBg;
+    background-color: $menuBg;
     align-items: center;
     padding: 0 10px 0 0;
     box-sizing: border-box;
     justify-content: space-between;
   }
 }
-.fixed-header{
+.fixed-header {
   position: fixed;
   top: 0;
   right: 0;
   z-index: 9;
 }
 
-.menu-horizontal{
+.menu-horizontal {
   flex: 1;
   overflow: hidden;
   height: 100%;
 
-  :deep(.el-menu-item){
+  :deep(.el-menu-item) {
     height: 100%;
   }
 }
-
-
-

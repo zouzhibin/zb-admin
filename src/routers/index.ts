@@ -1,10 +1,4 @@
-import {
-  createRouter,
-  createWebHistory,
-  RouteRecordRaw,
-  createWebHashHistory,
-  Router,
-} from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw, createWebHashHistory, Router } from 'vue-router'
 import Layout from '@/layout/index.vue'
 // 扩展继承属性
 interface extendRoute {

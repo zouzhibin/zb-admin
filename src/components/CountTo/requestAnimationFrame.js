@@ -23,10 +23,7 @@ if (isServer) {
     }
     prefix = prefixes[i]
     requestAnimationFrame = requestAnimationFrame || window[prefix + 'RequestAnimationFrame']
-    cancelAnimationFrame =
-      cancelAnimationFrame ||
-      window[prefix + 'CancelAnimationFrame'] ||
-      window[prefix + 'CancelRequestAnimationFrame']
+    cancelAnimationFrame = cancelAnimationFrame || window[prefix + 'CancelAnimationFrame'] || window[prefix + 'CancelRequestAnimationFrame']
   }
 
   // 如果当前浏览器不支持requestAnimationFrame和cancelAnimationFrame，则会退到setTimeout

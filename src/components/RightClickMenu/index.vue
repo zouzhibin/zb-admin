@@ -1,12 +1,8 @@
 <template>
-  <div class="g-right-click-menu" :style="style" v-if="isShow" ref="rightMenu">
-    <div
-      v-for="(item, index) in data"
-      :key="index"
-      class="operating"
-      @click.stop="operatingRightAction($event, item)"
-      >{{ item.label }}</div
-    >
+  <div v-if="isShow" ref="rightMenu" class="g-right-click-menu" :style="style">
+    <div v-for="(item, index) in data" :key="index" class="operating" @click.stop="operatingRightAction($event, item)">{{
+      item.label
+    }}</div>
   </div>
 </template>
 <script lang="ts">
@@ -37,16 +33,10 @@
         default: true,
       },
     },
-    watch: {
-      left: {
-        handler(newName, oldName) {
-          if (newName) {
-            this.isShow = true
-          }
-        },
-        // 代表在wacth里声明了firstName这个方法之后立即先去执行handler方法
-        // immediate: true
-      },
+    data() {
+      return {
+        isShow: false,
+      }
     },
     computed: {
       style() {
@@ -59,19 +49,15 @@
         }
       },
     },
-    data() {
-      return {
-        isShow: false,
-      }
-    },
-    methods: {
-      /**
-       * @func 点击操作
-       * @param val 1、置顶/取消置顶 2、开启/关闭免打扰 3、开启/关闭星标 4、删除会话
-       */
-      operatingRightAction($event, val) {
-        this.$emit('ok', $event, val)
-        this.isShow = false
+    watch: {
+      left: {
+        handler(newName, oldName) {
+          if (newName) {
+            this.isShow = true
+          }
+        },
+        // 代表在wacth里声明了firstName这个方法之后立即先去执行handler方法
+        // immediate: true
       },
     },
     mounted() {
@@ -84,6 +70,16 @@
           _self.isShow = false
         }
       })
+    },
+    methods: {
+      /**
+       * @func 点击操作
+       * @param val 1、置顶/取消置顶 2、开启/关闭免打扰 3、开启/关闭星标 4、删除会话
+       */
+      operatingRightAction($event, val) {
+        this.$emit('ok', $event, val)
+        this.isShow = false
+      },
     },
   }
 </script>

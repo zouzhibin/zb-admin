@@ -2,60 +2,63 @@
  * DH (http://denghao.me)
  * 2017-7-14
  */
-(function (window, document) {
+;(function (window, document) {
   var Print = function (dom, options) {
-    if (!(this instanceof Print)) return new Print(dom, options);
+    if (!(this instanceof Print)) return new Print(dom, options)
 
-    this.options = this.extend({
-      noPrint: '.no-print',
-      onStart: function () { },
-      onEnd: function () { }
-    }, options);
+    this.options = this.extend(
+      {
+        noPrint: '.no-print',
+        onStart: function () {},
+        onEnd: function () {},
+      },
+      options,
+    )
 
-    if ((typeof dom) === "string") {
-      this.dom = document.querySelector(dom);
+    if (typeof dom === 'string') {
+      this.dom = document.querySelector(dom)
     } else {
-      this.dom = dom;
+      this.dom = dom
     }
 
-    this.init();
-  };
+    this.init()
+  }
   Print.prototype = {
     init: function () {
-      var content = this.getStyle() + this.getHtml();
-      this.writeIframe(content);
+      var content = this.getStyle() + this.getHtml()
+      this.writeIframe(content)
     },
     extend: function (obj, obj2) {
       for (var k in obj2) {
-        obj[k] = obj2[k];
+        obj[k] = obj2[k]
       }
-      return obj;
+      return obj
     },
 
     getStyle: function () {
-      var str = "",
-        styles = document.querySelectorAll('style,link');
+      var str = '',
+        styles = document.querySelectorAll('style,link')
       for (var i = 0; i < styles.length; i++) {
-        str += styles[i].outerHTML;
+        str += styles[i].outerHTML
       }
-      str += "<style>" + (this.options.noPrint ? this.options.noPrint : '.no-print') + "{display:none;}</style>";
+      str += '<style>' + (this.options.noPrint ? this.options.noPrint : '.no-print') + '{display:none;}</style>'
 
-      return str;
+      return str
     },
 
     getHtml: function () {
-      var inputs = document.querySelectorAll('input');
-      var textareas = document.querySelectorAll('textarea');
-      var selects = document.querySelectorAll('select');
+      var inputs = document.querySelectorAll('input')
+      var textareas = document.querySelectorAll('textarea')
+      var selects = document.querySelectorAll('select')
 
       for (var k in inputs) {
-        if (inputs[k].type == "checkbox" || inputs[k].type == "radio") {
+        if (inputs[k].type == 'checkbox' || inputs[k].type == 'radio') {
           if (inputs[k].checked == true) {
-            inputs[k].setAttribute('checked', "checked")
+            inputs[k].setAttribute('checked', 'checked')
           } else {
             inputs[k].removeAttribute('checked')
           }
-        } else if (inputs[k].type == "text") {
+        } else if (inputs[k].type == 'text') {
           inputs[k].setAttribute('value', inputs[k].value)
         }
       }
@@ -68,11 +71,11 @@
 
       for (var k3 in selects) {
         if (selects[k3].type == 'select-one') {
-          var child = selects[k3].children;
+          var child = selects[k3].children
           for (var i in child) {
             if (child[i].tagName == 'OPTION') {
               if (child[i].selected == true) {
-                child[i].setAttribute('selected', "selected")
+                child[i].setAttribute('selected', 'selected')
               } else {
                 child[i].removeAttribute('selected')
               }
@@ -81,44 +84,46 @@
         }
       }
 
-      return this.dom.outerHTML;
+      return this.dom.outerHTML
     },
 
     writeIframe: function (content) {
-      var w, doc, iframe = document.createElement('iframe'),
-        f = document.body.appendChild(iframe);
-      iframe.id = "myIframe";
-      iframe.style = "position:absolute;width:0;height:0;top:-10px;left:-10px;";
+      var w,
+        doc,
+        iframe = document.createElement('iframe'),
+        f = document.body.appendChild(iframe)
+      iframe.id = 'myIframe'
+      iframe.style = 'position:absolute;width:0;height:0;top:-10px;left:-10px;'
 
-      w = f.contentWindow || f.contentDocument;
-      doc = f.contentDocument || f.contentWindow.document;
-      doc.open();
-      doc.write(content);
-      doc.close();
+      w = f.contentWindow || f.contentDocument
+      doc = f.contentDocument || f.contentWindow.document
+      doc.open()
+      doc.write(content)
+      doc.close()
       this.toPrint(w, function () {
         document.body.removeChild(iframe)
-      });
+      })
     },
 
     toPrint: function (w, cb) {
-      var _this = this;
+      var _this = this
       w.onload = function () {
         try {
           setTimeout(function () {
-            w.focus();
-            typeof _this.options.onStart === 'function' && _this.options.onStart();
+            w.focus()
+            typeof _this.options.onStart === 'function' && _this.options.onStart()
             if (!w.document.execCommand('print', false, null)) {
-              w.print();
+              w.print()
             }
-            typeof _this.options.onEnd === 'function' && _this.options.onEnd();
-            w.close();
+            typeof _this.options.onEnd === 'function' && _this.options.onEnd()
+            w.close()
             cb && cb()
-          });
+          })
         } catch (err) {
-          console.log('err', err);
+          console.log('err', err)
         }
       }
-    }
-  };
-  window.Print = Print;
-}(window, document));
+    },
+  }
+  window.Print = Print
+})(window, document)

@@ -2,10 +2,10 @@
   <div class="sidebar-logo-container">
     <transition name="sidebarLogoFadeCl">
       <router-link v-if="isCollapse" key="collapse" class="sidebar-logo-link" to="/">
-        <img src="@/assets/image/logo.png" class="sidebar-logo">
+        <img src="@/assets/image/logo.png" class="sidebar-logo" />
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <img src="@/assets/image/logo.png" class="sidebar-logo">
+        <img src="@/assets/image/logo.png" class="sidebar-logo" />
         <h1 class="sidebar-title">Vue Admin Perfect</h1>
       </router-link>
     </transition>
@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-defineProps<{ isCollapse: boolean }>();
+  defineProps<{ isCollapse: boolean }>()
 </script>
 
 <style lang="scss" scoped>
@@ -41,7 +41,6 @@ defineProps<{ isCollapse: boolean }>();
         width: 32px;
         height: 32px;
         vertical-align: middle;
-
       }
       & .sidebar-title {
         display: inline-block;

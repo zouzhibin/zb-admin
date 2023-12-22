@@ -1,21 +1,21 @@
-.m-data-screen{
+.m-data-screen {
   width: 1920px;
   height: 1080px;
   box-sizing: border-box;
-  overflow:hidden;
+  overflow: hidden;
   //background: url("/static/screen/bg.png") no-repeat center center;
   background: #041c4a;
-  .header{
+  .header {
     box-sizing: border-box;
     width: 100%;
     height: 91px;
-    background: url("/static/screen/header-bg.png");
-    background-size:contain ;
-    background-repeat:no-repeat;
+    background: url('/static/screen/header-bg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    .header-bg-title{
+    .header-bg-title {
       font-size: 42px;
       font-weight: normal;
       font-stretch: normal;
@@ -23,7 +23,7 @@
       color: #ffffff;
       margin-bottom: 14px;
     }
-    .date{
+    .date {
       top: 25px;
       line-height: 68px;
       font-size: 18px;
@@ -33,14 +33,18 @@
       right: 20px;
     }
   }
-  .circle-bg{
-    animation:rotate 5s infinite linear;
+  .circle-bg {
+    animation: rotate 5s infinite linear;
   }
-  @keyframes rotate{
-    0%{transform:rotate(0deg);}
-    100%{transform:rotate(360deg);}
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
-  .center{
+  .center {
     padding-left: 40px;
     padding-right: 50px;
     padding-bottom: 40px;
@@ -112,12 +116,12 @@
       }
     }
   }
-  .footer{
+  .footer {
     position: relative;
     padding: 0 30px 0 24px;
     display: flex;
 
-    .left{
+    .left {
       box-sizing: border-box;
       padding: 32px 0;
       width: 568px;
@@ -126,18 +130,18 @@
       background-size: contain;
       background-repeat: no-repeat;
     }
-    .middle{
+    .middle {
       flex: 1;
       position: relative;
-      .migration{
+      .migration {
         left: -18%;
-        top:-15%;
+        top: -15%;
         width: 900px;
         height: 900px;
         position: absolute;
       }
     }
-    .right{
+    .right {
       width: 568px;
       align-items: flex-end;
       box-sizing: border-box;
@@ -145,8 +149,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background-size:contain ;
-      background-repeat:no-repeat;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
     .item-complex {
       width: 558px;

@@ -1,27 +1,23 @@
 <template>
   <div class="m-card-drag">
     <el-card class="header">
-      <el-button @click="sorter" type="primary" >还原</el-button>
-      <el-button @click="getDataAction" type="primary" style="margin-left: 20px">获取数据</el-button>
+      <el-button type="primary" @click="sorter">还原</el-button>
+      <el-button type="primary" style="margin-left: 20px" @click="getDataAction">获取数据</el-button>
     </el-card>
 
     <div class="footer">
       <draggable
-          class="card grid-container"
-          v-model="dragList"
-          item-key="id"
-          animation="300"
-          chosenClass="chosenClass"
-          @change="onMoveCallback"
-          forceFallback="true"
+        v-model="dragList"
+        class="card grid-container"
+        item-key="id"
+        animation="300"
+        chosen-class="chosenClass"
+        force-fallback="true"
+        @change="onMoveCallback"
       >
         <template #item="{ element }">
-          <div class="item-group-item" >
-            <el-icon
-                :size="30"
-                :color="element.color"
-                class="item-icon"
-            >
+          <div class="item-group-item">
+            <el-icon :size="30" :color="element.color" class="item-icon">
               <component :is="element.icon"></component>
             </el-icon>
             <div style="margin-top: 10px">按住拖拽排序</div>
@@ -33,10 +29,10 @@
 </template>
 <script lang="ts" setup>
   import draggable from 'vuedraggable'
-  import {ElMessage, ElMessageBox} from "element-plus";
-  import { ref} from 'vue'
+  import { ElMessage, ElMessageBox } from 'element-plus'
+  import { ref } from 'vue'
   import { getColor } from '@/utils/index'
-  import {iconData} from './data'
+  import { iconData } from './data'
 
   const dragList = ref([])
   const drag = ref(false)
@@ -63,5 +59,5 @@
 </script>
 
 <style lang="scss" scoped>
-@import "./index";
+  @import './index';
 </style>

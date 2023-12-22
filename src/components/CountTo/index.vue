@@ -103,6 +103,9 @@
       }
       this.$emit('mountedCallback')
     },
+    unmounted() {
+      cancelAnimationFrame(this.rAF)
+    },
     methods: {
       start() {
         this.localStartVal = this.startVal
@@ -142,26 +145,15 @@
 
         if (this.useEasing) {
           if (this.countDown) {
-            this.printVal =
-              this.localStartVal -
-              this.easingFn(progress, 0, this.localStartVal - this.endVal, this.localDuration)
+            this.printVal = this.localStartVal - this.easingFn(progress, 0, this.localStartVal - this.endVal, this.localDuration)
           } else {
-            this.printVal = this.easingFn(
-              progress,
-              this.localStartVal,
-              this.endVal - this.localStartVal,
-              this.localDuration,
-            )
+            this.printVal = this.easingFn(progress, this.localStartVal, this.endVal - this.localStartVal, this.localDuration)
           }
         } else {
           if (this.countDown) {
-            this.printVal =
-              this.localStartVal -
-              (this.localStartVal - this.endVal) * (progress / this.localDuration)
+            this.printVal = this.localStartVal - (this.localStartVal - this.endVal) * (progress / this.localDuration)
           } else {
-            this.printVal =
-              this.localStartVal +
-              (this.endVal - this.localStartVal) * (progress / this.localDuration)
+            this.printVal = this.localStartVal + (this.endVal - this.localStartVal) * (progress / this.localDuration)
           }
         }
         if (this.countDown) {
@@ -194,9 +186,6 @@
         }
         return this.prefix + x1 + x2 + this.suffix
       },
-    },
-    destroyed() {
-      cancelAnimationFrame(this.rAF)
     },
   }
 </script>

@@ -9,13 +9,8 @@
           <el-icon style="font-size: 20px"><FolderOpened /></el-icon>
         </el-upload>
       </div>
-      <div class="emoje-border-wrap" v-show="isShowEmoji">
-        <div
-          class="title-emoje"
-          v-for="(item, index) in emojis"
-          @click.stop="selectSigleEmojeAction($event, item)"
-          :key="index"
-        >
+      <div v-show="isShowEmoji" class="emoje-border-wrap">
+        <div v-for="(item, index) in emojis" :key="index" class="title-emoje" @click.stop="selectSigleEmojeAction($event, item)">
           <img :src="`static/face/${item}.png`" :title="item" />
         </div>
       </div>
@@ -39,7 +34,7 @@
       node.title = item
       emit('insert', node, 'IMG')
     } else {
-      emit('insert', node)
+      emit('insert')
     }
   }
 
@@ -48,7 +43,7 @@
     emit('insert', null, null)
   }
 
-  const beforeUploadAction = (file, fileList) => {
+  const beforeUploadAction = (file) => {
     return new Promise((resolve, reject) => {
       var reader = new FileReader()
       let reg = /\.jpg$|\.jpeg$|\.gif$|\.png$/i
@@ -67,7 +62,7 @@
   }
 
   onMounted(() => {
-    window.onclick = function (event) {
+    window.onclick = function () {
       isShowEmoji.value = false
     }
   })

@@ -7,7 +7,7 @@
 <script lang="ts">
   import { computed } from 'vue'
   export default {
-    name: 'baseSvgIcon',
+    name: 'BaseSvgIcon',
     props: {
       iconClass: { type: String },
       className: { type: String },

@@ -5,17 +5,17 @@ import path from 'path-browserify'
  * @param roles
  */
 export function filterAsyncRoutes(routes, roles) {
-    const res = []
-    routes.forEach(route => {
-        const tmp = { ...route }
-        if (hasPermission(roles, tmp)) {
-            if (tmp.children) {
-                tmp.children = filterAsyncRoutes(tmp.children, roles)
-            }
-            res.push(tmp)
-        }
-    })
-    return res
+  const res = []
+  routes.forEach((route) => {
+    const tmp = { ...route }
+    if (hasPermission(roles, tmp)) {
+      if (tmp.children) {
+        tmp.children = filterAsyncRoutes(tmp.children, roles)
+      }
+      res.push(tmp)
+    }
+  })
+  return res
 }
 
 /**
@@ -24,11 +24,11 @@ export function filterAsyncRoutes(routes, roles) {
  * @param route
  */
 export function hasPermission(roles, route) {
-    if (route.meta && route.meta.roles) {
-        return roles.some(role => route.meta.roles.includes(role))
-    } else {
-        return false
-    }
+  if (route.meta && route.meta.roles) {
+    return roles.some((role) => route.meta.roles.includes(role))
+  } else {
+    return false
+  }
 }
 
 /**
@@ -38,29 +38,24 @@ export function hasPermission(roles, route) {
  * @return void
  * */
 
-export function filterKeepAlive(routers){
-    let cacheRouter: any[] = [];
-    let deep = (routers)=>{
-        routers.forEach(item=>{
-            if(item.meta?.keepAlive&& item.name){
-                cacheRouter.push(item.name)
-            }
-            if(item.children&&item.children.length){
-                deep(item.children)
-            }
-        })
-    }
-    deep(routers)
-    return cacheRouter
+export function filterKeepAlive(routers) {
+  const cacheRouter: any[] = []
+  const deep = (routers) => {
+    routers.forEach((item) => {
+      if (item.meta?.keepAlive && item.name) {
+        cacheRouter.push(item.name)
+      }
+      if (item.children && item.children.length) {
+        deep(item.children)
+      }
+    })
+  }
+  deep(routers)
+  return cacheRouter
 }
 
-
-
-export function handleRoutes(routers,pathUrl='') {
-    routers.forEach(item=>{
-        item.path = path.resolve(pathUrl,item.path)
-        if(item.children&&item.children.length){
-
-        }
-    })
+export function handleRoutes(routers, pathUrl = '') {
+  routers.forEach((item) => {
+    item.path = path.resolve(pathUrl, item.path)
+  })
 }
