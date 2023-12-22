@@ -96,6 +96,6 @@
     }
   },
   "lint-staged": {
-    "*.{vue,js,ts,jsx,tsx}": "eslint --cache --fix"
+    "*.{vue,js,ts,jsx,tsx}": ["npm run lint"]
   }
 }
