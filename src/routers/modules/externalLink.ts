@@ -12,12 +12,12 @@ const externalLink = [{
         icon: 'link'
     },
     children: [
-        {
-            path: '/external-link/wechat',
-            name: 'wechat',
-            component: () => import('@/views/externalLinks/wechat/index.vue'),
-            meta: { title: '加微信群',  icon: 'MenuIcon' }
-        },
+        // {
+        //     path: '/external-link/wechat',
+        //     name: 'wechat',
+        //     component: () => import('@/views/externalLinks/wechat/index.vue'),
+        //     meta: { title: '加微信群',  icon: 'MenuIcon' }
+        // },
         {
             path: 'https://github.com/zouzhibin/vue-admin-perfect',
             name: 'github',

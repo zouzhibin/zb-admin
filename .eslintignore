@@ -1,6 +1,11 @@
 
 *.sh
 node_modules
+*.css
+*.jpg
+*.jpeg
+*.png
+*.gif
 *.md
 *.woff
 *.ttf

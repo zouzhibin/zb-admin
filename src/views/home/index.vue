@@ -3,13 +3,13 @@
     <el-row class="row-bg" :gutter="10">
       <el-col :xs="24" :sm="12" :lg="8">
         <el-card class="box-card" style="height: 100%">
-          <el-image
-              class="wechat"
-              :src="weLogo"
-              :preview-src-list="[weLogo]"
-              style="max-width: 200px"
-              :data-resid="Date.now()"
-          />
+<!--          <el-image-->
+<!--              class="wechat"-->
+<!--              :src="weLogo"-->
+<!--              :preview-src-list="[weLogo]"-->
+<!--              style="max-width: 200px"-->
+<!--              :data-resid="Date.now()"-->
+<!--          />-->
           <div class="personal">
             <div>
               <el-avatar :size="50" :src="AvatarLogo" />
@@ -24,8 +24,9 @@
               <div>性别：男</div>
               <div>现住址：中国-浙江-杭州</div>
               <div>邮箱：1135957121@qq.com</div>
-              <div>微信：19550102670(欢迎加微信入群)</div>
+              <div>微信：19550102670(欢迎加微信入群,群员已超200)</div>
               <div>技术栈：JavaScript、HTML、CSS、Vue、Node、React</div>
+              <div>~~~接外包~~~</div>
             </div>
             <el-divider></el-divider>
             <div style="margin-bottom: 15px"><h5>个性标签</h5></div>
