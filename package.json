@@ -96,6 +96,6 @@
     }
   },
   "lint-staged": {
-    "*.{vue,js,ts,jsx,tsx}": ["npm run lint"]
+    "*.{vue,js,ts,jsx,tsx}": ["npm run lint","git add"]
   }
 }
