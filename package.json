@@ -97,7 +97,7 @@
     }
   },
   "lint-staged": {
-    "src/s*.{vue,js,ts,jsx,tsx}": [
+    "src/**/*.{vue,js,ts,jsx,tsx}": [
       "npm run lint:prettier",
       "npm run lint:fix",
       "git add ."
