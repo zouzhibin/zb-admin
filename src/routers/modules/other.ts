@@ -103,6 +103,12 @@ const othersRouter = [
         name: 'text-clamp',
         meta: { title: '多行文本省略', icon: 'MenuIcon' },
       },
+      {
+        path: '/other/pass-strength',
+        component: () => import('@/views/other/passStrength/index.vue'),
+        name: 'pass-strength',
+        meta: { title: '密码强度校验', icon: 'MenuIcon' },
+      },
     ],
   },
 ]
